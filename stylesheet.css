@@ -1,13 +1,14 @@
 body {
     background-color: white;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font to the body */
+    font-family: 'Poppins', sans-serif;
     font-size: 21px;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change to column layout */
     align-items: center;
     height: 100vh;
     margin: 0;
 }
+
 h1 {
     margin-bottom: 0;
     line-height: .9;
@@ -15,6 +16,32 @@ h1 {
 
 p {
     font-size: 12px
+}
+
+nav {
+    margin-bottom: 40px;
+}
+
+.main-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 100%; /* Occupy full width */;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Align to the right */
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .container {
