@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Column Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+        }
+
+        .left-column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-column">
+            <h2>Left Column - Text</h2>
+            <p>This is the text content on the left side of the page.</p>
+        </div>
+        <div class="right-column">
+            <h2>Right Column - Image</h2>
+            <img src="https://via.placeholder.com/300" alt="Placeholder Image">
+        </div>
+    </div>
+
+</body>
+</html>
