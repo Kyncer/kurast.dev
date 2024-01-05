@@ -4,36 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Two Column Layout</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: white;
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font to the body */
+            font-size: 21px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+        h1 {
+            margin-bottom: 0;
+            line-height: .9;
+        }
+
+        p {
+            font-size: 12px
+        }
 
         .container {
+            align-items: center;
             display: flex;
-            width: 80%;
+            border-radius: 3px;
+            max-width: 900px;
+            min-width: 900px;
+            background-color: #f3f1f1;
+            box-shadow: -3px 5px 0px 0px rgb(44, 44, 44); /* Retro-style shadow */
         }
 
         .left-column {
             flex: 1;
-            padding: 20px;
+            padding-top: 0px;
+            padding-left: 20px;
+            margin-right: 20px
         }
 
         .right-column {
             flex: 1;
-            padding: 20px;
+            padding: 0px;
         }
 
         img {
+            align-self: flex-end;
             max-width: 100%;
             height: auto;
             display: block;
             margin: auto;
+            border-radius: 0px 3px 3px 0px;
+        }
+
+        .rocket-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            padding-right: 32px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+
+        .rocket-btn::before {
+            content: "\1F680"; /* Unicode rocket character */
+            font-size: 24px;
+            margin-right: 0px;
+            display: inline-block;
+            transform: rotate(-45deg);
+        }
+
+        .rocket-btn:hover {
+            background-color: #297fb8;
         }
     </style>
 </head>
@@ -41,12 +92,14 @@
 
     <div class="container">
         <div class="left-column">
-            <h2>Left Column - Text</h2>
-            <p>This is the text content on the left side of the page.</p>
+            <h1>Kevin Sy</h1>
+            <p>freelance web developer / webmaster / seo specialist</p>
+            <p style="font-size:17px;">I'm Kevin Geguiera Sy, your web guru and SEO maestro! 🚀 Ready for an epic digital journey? Let's turn your online presence into a pixel-perfect masterpiece. Time to sprinkle some coding magic and make your website shine! 🌟</p>
+            <a href="#" class="rocket-btn">Get in Touch</a>
         </div>
         <div class="right-column">
-            <h2>Right Column - Image</h2>
-            <img src="https://via.placeholder.com/300" alt="Placeholder Image">
+            
+            <img src="black-white-bg-kynce.jpg" alt="Placeholder Image">
         </div>
     </div>
 
