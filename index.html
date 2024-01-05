@@ -4,89 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Two Column Layout</title>
-
+    
+    <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
 
-
-    <style>
-        body {
-            background-color: white;
-            font-family: 'Poppins', sans-serif; /* Apply Poppins font to the body */
-            font-size: 21px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            margin-bottom: 0;
-            line-height: .9;
-        }
-
-        p {
-            font-size: 12px
-        }
-
-        .container {
-            align-items: center;
-            display: flex;
-            border-radius: 3px;
-            max-width: 900px;
-            min-width: 900px;
-            background-color: #f3f1f1;
-            box-shadow: -3px 5px 0px 0px rgb(44, 44, 44); /* Retro-style shadow */
-        }
-
-        .left-column {
-            flex: 1;
-            padding-top: 0px;
-            padding-left: 20px;
-            margin-right: 20px
-        }
-
-        .right-column {
-            flex: 1;
-            padding: 0px;
-        }
-
-        img {
-            align-self: flex-end;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: auto;
-            border-radius: 0px 3px 3px 0px;
-        }
-
-        .rocket-btn {
-            display: inline-block;
-            padding: 12px 20px;
-            padding-right: 32px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            background-color: #3498db;
-            color: #fff;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.3s;
-        }
-
-        .rocket-btn::before {
-            content: "\1F680"; /* Unicode rocket character */
-            font-size: 24px;
-            margin-right: 0px;
-            display: inline-block;
-            transform: rotate(-45deg);
-        }
-
-        .rocket-btn:hover {
-            background-color: #297fb8;
-        }
-    </style>
 </head>
 <body>
 
