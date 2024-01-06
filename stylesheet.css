@@ -3,13 +3,15 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 21px;
     display: flex;
-    flex-direction: column; /* Change to column layout */
+    flex-direction: column;
+    /* Change to column layout */
     align-items: center;
     height: 100vh;
     margin: 0;
 }
 
-h1 {
+h1,
+h2 {
     margin-bottom: 0;
     line-height: .9;
 }
@@ -26,21 +28,23 @@ nav {
     background-color: #333;
     color: #fff;
     padding: 10px;
-    width: 100%; /* Occupy full width */;
+    width: 100%;
+    /* Occupy full width */
+    ;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Align to the right */
+    justify-content: center;
+    /* Align to the right */
 }
 
 .main-nav li {
     margin-right: 10px;
 }
 
-.main-nav
-.last {
+.main-nav .last {
     padding-right: 25px;
 }
 
@@ -55,7 +59,17 @@ nav {
     border-radius: 3px;
     max-width: 750px;
     background-color: #f3f1f1;
-    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44); /* Retro-style shadow */
+    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
+    /* Retro-style shadow */
+}
+
+.container.skills {
+    margin-top: 25px;
+    width: 750px;
+}
+
+.skills li {
+    list-style-type: none;
 }
 
 .left-column {
@@ -65,7 +79,17 @@ nav {
     margin-right: 20px;
 }
 
+.left-skills {
+    flex: 1;
+    padding: 20px;
+}
+
 .right-column {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-skills {
     flex: 1;
     padding: 0px;
 }
@@ -96,7 +120,8 @@ img {
 }
 
 .rocket-btn::before {
-    content: "\1F680"; /* Unicode rocket character */
+    content: "\1F680";
+    /* Unicode rocket character */
     font-size: 24px;
     margin-right: 0px;
     display: inline-block;
@@ -108,24 +133,33 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
+
     /* Styles for screens up to 768px width */
     body {
-        font-size: 18px; /* Adjust font size for smaller screens */
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
     }
 
     .container {
-        flex-direction: column; /* Change to a column layout for smaller screens */
+        flex-direction: column;
+        /* Change to a column layout for smaller screens */
     }
 
     .left-column,
     .right-column {
-        flex: 1; /* Take full width on smaller screens */
-        margin: 0; /* Remove margin for better spacing on smaller screens */
-        padding: 10px; /* Add padding for better spacing on smaller screens */
+        flex: 1;
+        /* Take full width on smaller screens */
+        margin: 0;
+        /* Remove margin for better spacing on smaller screens */
+        padding: 10px;
+        /* Add padding for better spacing on smaller screens */
     }
+
     .right-column {
-        order: -1; /* Move the right column to the top */
+        order: -1;
+        /* Move the right column to the top */
     }
+
     nav {
         margin-bottom: 0;
     }
@@ -133,7 +167,23 @@ img {
     .main-nav ul {
         list-style: none;
         display: flex;
-        justify-content: center; /* Align to the right */
+        justify-content: center;
+        /* Align to the right */
+    }
+
+    .container.skills {
+        flex-direction: row;
+        width: 100%;
+
+    }
+    .left-skills {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .right-skills {
+        padding: 10px;
+        margin: 0;
     }
 }
 
@@ -141,36 +191,46 @@ img {
     /* Styles for screens up to 480px width (typical phone sizes) */
 
     body {
-        font-size: 16px; /* Adjust font size for smaller screens */
+        font-size: 16px;
+        /* Adjust font size for smaller screens */
     }
 
     .container {
-        flex-direction: column; /* Change to a column layout for smaller screens */
+        flex-direction: column;
+        /* Change to a column layout for smaller screens */
         text-align: center;
         box-shadow: none;
     }
 
     .left-column,
     .right-column {
-        flex: 1; /* Take full width on smaller screens */
-        margin: 0; /* Remove margin for better spacing on smaller screens */
-        padding: 10px; /* Add padding for better spacing on smaller screens */
+        flex: 1;
+        /* Take full width on smaller screens */
+        margin: 0;
+        /* Remove margin for better spacing on smaller screens */
+        padding: 10px;
+        /* Add padding for better spacing on smaller screens */
     }
 
     .rocket-btn {
-        padding: 12px 20px; /* Adjust button padding for smaller screens */
-        font-size: 14px; /* Adjust button font size for smaller screens */
+        padding: 12px 20px;
+        /* Adjust button padding for smaller screens */
+        font-size: 14px;
+        /* Adjust button font size for smaller screens */
         padding-right: 32px;
     }
 
     .right-column {
-        order: -1; /* Move the right column to the top */
+        order: -1;
+        /* Move the right column to the top */
     }
 
     nav {
         margin-bottom: 0;
     }
 
+    .container.skills {
+        font-size: 18px;
+    }
+
 }
-
-
