@@ -10,6 +10,11 @@ body {
     margin: 0;
 }
 
+.highlight {
+    background-color: yellow;
+    font-style: italic;
+  }
+
 h1,
 h2 {
     margin-bottom: 0;
@@ -86,7 +91,7 @@ nav {
 
 .right-column {
     flex: 1;
-    padding: 20px;
+    padding: 0px;
 }
 
 .right-skills {
@@ -197,9 +202,15 @@ img {
 
     .container {
         flex-direction: column;
-        /* Change to a column layout for smaller screens */
         text-align: center;
-        box-shadow: none;
+        /* Change to a column layout for smaller screens */
+        
+    }
+
+    .container.skills {
+        text-align: start;
+        /* Change to a column layout for smaller screens */
+        
     }
 
     .left-column,
