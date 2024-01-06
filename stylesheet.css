@@ -36,7 +36,7 @@ nav {
 }
 
 .main-nav li {
-    margin-left: 20px;
+    margin-right: 10px;
 }
 
 .main-nav a {
@@ -48,8 +48,7 @@ nav {
     align-items: center;
     display: flex;
     border-radius: 3px;
-    max-width: 900px;
-    min-width: 900px;
+    max-width: 750px;
     background-color: #f3f1f1;
     box-shadow: -3px 5px 0px 0px rgb(44, 44, 44); /* Retro-style shadow */
 }
@@ -58,7 +57,7 @@ nav {
     flex: 1;
     padding-top: 0px;
     padding-left: 20px;
-    margin-right: 20px
+    margin-right: 20px;
 }
 
 .right-column {
@@ -102,3 +101,71 @@ img {
 .rocket-btn:hover {
     background-color: #297fb8;
 }
+
+@media only screen and (max-width: 768px) {
+    /* Styles for screens up to 768px width */
+    body {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    .container {
+        flex-direction: column; /* Change to a column layout for smaller screens */
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1; /* Take full width on smaller screens */
+        margin: 0; /* Remove margin for better spacing on smaller screens */
+        padding: 10px; /* Add padding for better spacing on smaller screens */
+    }
+    .right-column {
+        order: -1; /* Move the right column to the top */
+    }
+    nav {
+        margin-bottom: 0;
+    }
+
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center; /* Align to the right */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Styles for screens up to 480px width (typical phone sizes) */
+
+    body {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .container {
+        flex-direction: column; /* Change to a column layout for smaller screens */
+        text-align: center;
+        box-shadow: none;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1; /* Take full width on smaller screens */
+        margin: 0; /* Remove margin for better spacing on smaller screens */
+        padding: 10px; /* Add padding for better spacing on smaller screens */
+    }
+
+    .rocket-btn {
+        padding: 12px 20px; /* Adjust button padding for smaller screens */
+        font-size: 14px; /* Adjust button font size for smaller screens */
+        padding-right: 32px;
+    }
+
+    .right-column {
+        order: -1; /* Move the right column to the top */
+    }
+
+    nav {
+        margin-bottom: 0;
+    }
+
+}
+
+
