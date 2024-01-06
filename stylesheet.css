@@ -39,6 +39,11 @@ nav {
     margin-right: 10px;
 }
 
+.main-nav
+.last {
+    padding-right: 25px;
+}
+
 .main-nav a {
     text-decoration: none;
     color: #fff;
