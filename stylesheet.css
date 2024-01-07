@@ -13,7 +13,7 @@ body {
 .highlight {
     background-color: yellow;
     font-style: italic;
-  }
+}
 
 h1,
 h2 {
@@ -72,6 +72,11 @@ nav {
 .container.skills {
     margin-top: 25px;
     width: 750px;
+}
+
+.skills {
+   margin-left: 0px;
+   margin-right: 0px;
 }
 
 .skills li {
@@ -138,16 +143,23 @@ img {
     background-color: #297fb8;
 }
 
+.skills-title {
+    margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 768px) {
 
     /* Styles for screens up to 768px width */
     body {
         font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
         /* Adjust font size for smaller screens */
     }
 
     .container {
         flex-direction: column;
+        margin-top: 10px;
         /* Change to a column layout for smaller screens */
     }
 
@@ -180,8 +192,8 @@ img {
     .container.skills {
         flex-direction: row;
         width: 100%;
-
     }
+
     .left-skills {
         padding: 10px;
         margin: 0;
@@ -205,13 +217,13 @@ img {
         flex-direction: column;
         text-align: center;
         /* Change to a column layout for smaller screens */
-        
+
     }
 
     .container.skills {
         text-align: start;
         /* Change to a column layout for smaller screens */
-        
+
     }
 
     .left-column,
