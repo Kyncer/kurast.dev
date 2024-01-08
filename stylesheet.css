@@ -85,35 +85,28 @@ nav {
 }
 
 .skills {
-   margin-left: 0px;
-   margin-right: 0px;
+   margin-left: 0;
+   margin-right: 0;
 }
 
 .skills li {
+    display: inline-block;
     font-size: 16px;
     list-style-type: none;
 }
 
 .left-column {
     flex: 1;
-    padding-top: 0px;
-    padding-left: 20px;
-    margin-right: 20px;
+    padding: 10px;
 }
 
-.left-skills {
+.main-skills {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
 }
 
 .right-column {
     flex: 1;
-    padding: 0px;
-}
-
-.right-skills {
-    flex: 1;
-    padding: 0px;
 }
 
 img {
@@ -168,6 +161,10 @@ footer {
     width: 100%;
 }
 
+.copyright-text {
+    font-size: 18px;
+}
+
 @media only screen and (max-width: 768px) {
 
     /* Styles for screens up to 768px width */
@@ -176,6 +173,10 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
         /* Adjust font size for smaller screens */
+    }
+
+    .copyright-text {
+        font-size: 16px;
     }
 
     footer {
@@ -193,14 +194,16 @@ footer {
         flex: 1;
         /* Take full width on smaller screens */
         margin: 0;
-        /* Remove margin for better spacing on smaller screens */
-        padding: 10px;
-        /* Add padding for better spacing on smaller screens */
     }
 
     .right-column {
         order: -1;
         /* Move the right column to the top */
+    }
+
+    .left-column {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     nav {
@@ -228,6 +231,11 @@ footer {
         padding: 10px;
         margin: 0;
     }
+
+    img {
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: 10px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -236,6 +244,10 @@ footer {
     body {
         font-size: 16px;
         /* Adjust font size for smaller screens */
+    }
+
+    .copyright-text {
+        font-size: 12px;
     }
 
     .container {
@@ -256,9 +268,6 @@ footer {
         flex: 1;
         /* Take full width on smaller screens */
         margin: 0;
-        /* Remove margin for better spacing on smaller screens */
-        padding: 10px;
-        /* Add padding for better spacing on smaller screens */
     }
 
     .rocket-btn {
