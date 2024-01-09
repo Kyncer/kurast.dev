@@ -98,6 +98,20 @@ nav {
     box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
+.container-cert {
+    align-items: center;
+    list-style-type: none;
+    display: flex;
+    font-size: 16px;
+    letter-spacing: -.1px;
+    margin-top: 20px;
+    border-radius: 3px;
+    max-width: 750px;
+    background-color: #f3f1f1;
+    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
+}
+
+
 .container.skills {
     margin-top: 20px;
     width: 750px;
@@ -120,6 +134,11 @@ nav {
 }
 
 .main-skills {
+    flex: 1;
+    padding: 20px;
+}
+
+.main-cert {
     flex: 1;
     padding: 20px;
 }
@@ -203,6 +222,21 @@ footer {
     width: 10px;
     height: 10px;
     margin-right: 3px;
+}
+
+.bullet-icon {
+    align-items: center;
+    margin-left: 3px;
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    margin-right: 10px;
+    box-shadow: -3px 0px 0px 0px rgb(63, 63, 63);
+}
+
+.black {
+    background-color: #000000;
+    /* Example color for Superior level */
 }
 
 .superior {
@@ -359,7 +393,12 @@ footer {
 
     .main-skills {
         flex: 1;
-        padding: 10px;
+        padding: 15px 10px;
     }
+
+    .main-cert {
+        padding: 15px 10px;
+    }
+    
 
 }
