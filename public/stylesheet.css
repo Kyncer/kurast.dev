@@ -3,7 +3,6 @@ html {
 }
 
 body {
-    height: 100vh;
     background-color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 21px;
@@ -49,29 +48,14 @@ header {
 }
 
 nav {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
     margin-bottom: 40px;
-}
-
-.main-nav {
+    list-style: none;
     background-color: #333;
     color: #fff;
-    padding: 10px;
-    /* Occupy full width */
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
     justify-content: center;
-    /* Align to the right */
-}
-
-.main-nav li {
-    margin-right: 10px;
-}
-
-.main-nav .last {
-    padding-right: 25px;
 }
 
 .main-nav a {
@@ -147,6 +131,17 @@ nav {
     flex: 1;
 }
 
+.contact-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space items evenly */
+}
+
+.images-container {
+    display: flex;
+    gap: 10px;
+}
+
 img {
     align-self: flex-end;
     max-width: 100%;
@@ -156,33 +151,42 @@ img {
     border-radius: 0px 3px 3px 0px;
 }
 
+.git-img,
+.fb-img {
+    width: 32px;
+}
+
+.oj-img {
+    width: 32px;
+    text-align: center;
+    line-height: 2.15;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+
+.social-links {
+    text-decoration: none;
+}
+
 .rocket-btn {
     display: inline-block;
-    padding: 10px 12px;
-    padding-right: 24px;
-    font-size: 16px;
-    font-weight: bold;
+    padding: 12px 20px;
+    letter-spacing: 1.4px;
+    font-size: 17px;
+    font-weight: 600;
     text-align: center;
     text-decoration: none;
     background-color: #3498db;
     color: #fff;
     border-radius: .25rem;
     position: relative;
-    border-bottom-width: 2px;
-    /* Adjust the width as needed */
+    border-bottom-width: 5px;
     border-bottom-style: solid;
-    /* Specify the border style */
     border-bottom-color: #12496e;
     transition: background-color 0.2s;
-}
-
-.rocket-btn::before {
-    content: "\1F680";
-    /* Unicode rocket character */
-    font-size: 24px;
-    margin-right: 0px;
-    display: inline-block;
-    transform: rotate(-45deg);
+    margin-right: auto;
 }
 
 .rocket-btn:hover {
@@ -199,8 +203,6 @@ footer {
     margin-bottom: 0;
     background-color: #333;
     color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
     text-align: center;
     width: 100%;
     bottom: 0;
@@ -213,11 +215,12 @@ footer {
 
 .legend {
     padding-bottom: 10px;
+    margin-left: 10px;
 }
 
 .legend-icon {
     align-items: center;
-    margin-left: 20px;
+    margin-left: 10px;
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -306,13 +309,6 @@ footer {
         margin-bottom: 0;
     }
 
-    .main-nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        /* Align to the right */
-    }
-
     .container.skills {
         flex-direction: row;
         width: 100%;
@@ -352,25 +348,25 @@ footer {
 
     }
 
-    .container.skills {
-        text-align: start;
-        /* Change to a column layout for smaller screens */
-
+    .contact-container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin-bottom: -10px;
     }
 
     .left-column,
     .right-column {
         flex: 1;
-        /* Take full width on smaller screens */
         margin: 0;
     }
 
     .rocket-btn {
+        margin-top: 25px;
+        left: 50%;
+        right: 50%;
+        transform: translate( -50%, -50%);
         padding: 12px 20px;
-        /* Adjust button padding for smaller screens */
         font-size: 14px;
-        /* Adjust button font size for smaller screens */
-        padding-right: 32px;
     }
 
     .right-column {
