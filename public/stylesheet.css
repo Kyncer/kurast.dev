@@ -395,6 +395,10 @@ footer {
     .main-cert {
         padding: 15px 10px;
     }
+
+    .legend {
+        margin-left: 0px;
+    }
     
 
 }
