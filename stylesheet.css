@@ -1,12 +1,11 @@
 html {
     scroll-behavior: smooth;
-    padding: 0;
-    margin: 0;
 }
 
 body {
     background-color: #e4ecfa;
     font-family: 'Poppins', sans-serif;
+    font-size: 21px;
     display: flex;
     flex-direction: column;
     /* Change to column layout */
@@ -14,37 +13,7 @@ body {
     margin: 0;
 }
 
-nav {
-    font-size: 20px;
-    padding-top: 20px;
-    height: 40px;
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    background-color: #010101;
-    color: #fff;
-    justify-content: center;
-}
-
-.home {
-    border-radius: 3px 3px 0px 0px;
-    padding: 0px 12px;
-    background-color: #e4ecfa;
-}
-
-.other a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.home a {
-    text-decoration: none;
-    color: #010101;
-    font-weight: 600;
-}
-
 main {
-    padding: 20px 40px;
     flex: 1;
     /* Allow main content to grow and take remaining space */
 }
@@ -85,105 +54,121 @@ header {
     width: 100%;
 }
 
-.container-main {
+
+nav {
+    padding-top: 20px;
+    height: 40px;
+    display: flex;
     gap: 10px;
-    height: auto;
-    max-width: 1000px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #010101;
+    color: #fff;
     justify-content: center;
-    display: flex;
 }
 
-.profile-container {
-    display: flex;
+.home {
+    border-radius: 3px 3px 0px 0px;
+    padding: 0px 12px;
+    background-color: #e4ecfa;
 }
 
-.profile-image {
-    max-width: 250px;
-    max-height: 250px;
-    width: auto;
-    border-radius: 20px 20px 20px 20px;
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
 }
 
-.text-container {
-    width: 100%;
-    min-width: 200px;
+.home a {
+    color: #010101;
+    font-weight: 600;
+}
+
+.container {
+    align-items: center;
     display: flex;
-    flex-direction: column;
+    border-radius: 3px;
+    max-width: 750px;
     background-color: #fff;
-    padding: 25px 25px;
-    border-radius: 20px 20px 20px 20px;
+    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
 .container-skills {
-    gap: 10px;
-    max-width: 1000px;
-    align-items: baseline;
-    display: flex;
-    margin-top: 10px;
-
-}
-
-.main-skills {
-    max-width: 210px;
-    min-width: 210px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 20px 20px 20px 20px;
-}
-
-.main-skills li {
-    font-size: 15px;
-    list-style-type: none;
-    display: inline-block;
-}
-
-.legend {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.legend li {
-    margin-right: 12px;
-}
-
-.legend-icon {
     align-items: center;
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
+    margin-top: 20px;
+    border-radius: 3px;
+    max-width: 750px;
+    background-color: #fff;
+    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
 .container-cert {
-    gap: 10px;
-    width: auto;
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     list-style-type: none;
+    display: flex;
     font-size: 16px;
+    letter-spacing: -.1px;
+    margin-top: 20px;
+    border-radius: 3px;
+    max-width: 750px;
+    background-color: #fff;
+    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
-.main-cert,
-.main-edu,
-.main-ach {
-    min-width: 466px;
+
+.container.skills {
+    margin-top: 20px;
+    width: 750px;
+}
+
+.skills {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.skills li {
+    display: inline-block;
+    font-size: 16px;
+    list-style-type: none;
+}
+
+.left-column {
+    flex: 1;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 20px 20px 20px 20px;
+}
+
+.main-skills {
+    flex: 1;
+    padding: 20px;
+}
+
+.main-cert {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-column {
+    flex: 1;
 }
 
 .contact-container {
     display: flex;
-    align-items: center;
-    /* Align items vertically in the center */
-    justify-content: space-between;
-    /* Space items evenly */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Space items evenly */
 }
 
 .images-container {
     display: flex;
     gap: 5px;
+}
+
+img {
+    align-self: flex-end;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 0px 3px 3px 0px;
 }
 
 .git-img,
@@ -245,6 +230,20 @@ footer {
     font-size: 18px;
 }
 
+.legend {
+    padding-bottom: 10px;
+    margin-left: 10px;
+}
+
+.legend-icon {
+    align-items: center;
+    margin-left: 10px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+}
+
 .bullet-icon {
     align-items: center;
     margin-left: 3px;
@@ -280,58 +279,145 @@ footer {
     /* Example color for Learning level */
 }
 
-@media screen and (max-width: 810px) {
-    .container-main {
-        padding: 0px 20px;
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
     }
 
-    .profile-image {
-        max-width: 200px;
-        max-height: 250px;
-        object-fit: cover;
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .container-skills {
-        padding: 0px 20px;
+    .copyright-text {
+        font-size: 16px;
     }
 
-    .main-skills {
-        max-width: 160px;
-        min-width: 160px;
+    footer {
+        margin-top: 20px;
     }
 
-    .main-cert,
-    .main-edu,
-    .main-ach {
-        background-color: #fff;
-        border-radius: 20px 20px 20px 20px;
+    .container {
+        flex-direction: column;
+        margin-top: 10px;
+        /* Change to a column layout for smaller screens */
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1;
+        /* Take full width on smaller screens */
+        margin: 0;
+    }
+
+    .right-column {
+        order: -1;
+        /* Move the right column to the top */
+    }
+
+    .left-column {
+        padding: 20px;
+    }
+
+    nav {
+        margin-bottom: 0;
+    }
+
+    .container.skills {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .left-skills {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .right-skills {
+        padding: 10px;
+        margin: 0;
+    }
+
+    img {
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: 10px;
     }
 }
 
-@media screen and (max-width: 724px) {
-    .container-main {
-        justify-content: center;
+@media only screen and (max-width: 480px) {
+    /* Styles for screens up to 480px width (typical phone sizes) */
+
+    body {
+        font-size: 16px;
+    }
+
+    .sub-text {
+       margin: 20px 0;
+    }
+
+    .copyright-text {
+        font-size: 16px;
+    }
+
+    .container {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        /* Change to a column layout for smaller screens */
+
     }
 
-    .profile-image {
-        max-width: 250px;
-        max-height: 250px;
-        width: auto;
-        border-radius: 20px 20px 20px 20px;
-    }
-
-    .text-container {
-        width: 100% max-width: none;
+    .contact-container {
+        flex-direction: column-reverse;
         justify-content: center;
-
+        margin-bottom: -10px;
     }
 
-    .container-skills {
-        flex-direction: column;
-        align-items: center;
-        padding: 0px 20px;
+    .left-column,
+    .right-column {
+        flex: 1;
+        margin: 0;
     }
+
+    .rocket-btn {
+        margin-top: 25px;
+        left: 50%;
+        right: 50%;
+        transform: translate( -50%, -50%);
+        padding: 8px 25px;
+        font-size: 14px;
+    }
+
+    .right-column {
+        order: -1;
+        /* Move the right column to the top */
+    }
+
+    nav {
+        margin-bottom: 0;
+    }
+
+    .container.skills {
+        font-size: 18px;
+    }
+
+    .left-column {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .main-skills {
+        flex: 1;
+        padding: 15px 10px;
+    }
+
+    .main-cert {
+        padding: 15px 10px;
+    }
+
+    .legend {
+        margin-left: 0px;
+    }
+    
 
 }
