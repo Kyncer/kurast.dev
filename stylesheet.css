@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: white;
+    background-color: #e4ecfa;
     font-family: 'Poppins', sans-serif;
     font-size: 21px;
     display: flex;
@@ -16,6 +16,10 @@ body {
 main {
     flex: 1;
     /* Allow main content to grow and take remaining space */
+}
+
+.main-nav a:active {
+    display: none;
 }
 
 .highlight {
@@ -57,7 +61,7 @@ nav {
     padding: 10px 0;
     margin-bottom: 40px;
     list-style: none;
-    background-color: #333;
+    background-color: #010101;
     color: #fff;
     justify-content: center;
 }
@@ -72,7 +76,7 @@ nav {
     display: flex;
     border-radius: 3px;
     max-width: 750px;
-    background-color: #f3f1f1;
+    background-color: #fff;
     box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
@@ -82,7 +86,7 @@ nav {
     margin-top: 20px;
     border-radius: 3px;
     max-width: 750px;
-    background-color: #f3f1f1;
+    background-color: #fff;
     box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
@@ -95,7 +99,7 @@ nav {
     margin-top: 20px;
     border-radius: 3px;
     max-width: 750px;
-    background-color: #f3f1f1;
+    background-color: #fff;
     box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
@@ -143,7 +147,7 @@ nav {
 
 .images-container {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 img {
@@ -157,14 +161,14 @@ img {
 
 .git-img,
 .fb-img {
-    width: 32px;
+    width: 28px;
 }
 
 .oj-img {
-    width: 32px;
+    width: 28px;
     text-align: center;
-    line-height: 2.15;
-    font-size: 15px;
+    line-height: 2.05;
+    font-size: 14px;
     border-radius: 5px;
     color: white;
     background-color: black;
@@ -176,25 +180,25 @@ img {
 
 .rocket-btn {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 8px 24px;
     letter-spacing: 1.4px;
     font-size: 17px;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
-    background-color: #3498db;
+    background-color: #ff6666;
     color: #fff;
     border-radius: .25rem;
     position: relative;
-    border-bottom-width: 5px;
+    border-width: 3px;
     border-bottom-style: solid;
-    border-bottom-color: #12496e;
-    transition: background-color 0.2s;
+    border-bottom-color: #dd5454;
+    transition: background-color 0.5s;
     margin-right: auto;
 }
 
 .rocket-btn:hover {
-    background-color: #297fb8;
+    background-color: #dd5454;
 }
 
 .skills-title {
@@ -204,8 +208,8 @@ img {
 
 footer {
     margin-top: 40px;
-    background-color: #333;
-    color: #fff;
+    color: white;
+    background-color: #010101;
     text-align: center;
     width: 100%;
 }
@@ -265,8 +269,6 @@ footer {
 
 
 @media only screen and (max-width: 768px) {
-
-    /* Styles for screens up to 768px width */
     body {
         font-size: 18px;
     }
@@ -370,7 +372,7 @@ footer {
         left: 50%;
         right: 50%;
         transform: translate( -50%, -50%);
-        padding: 12px 20px;
+        padding: 8px 25px;
         font-size: 14px;
     }
 
