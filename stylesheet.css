@@ -19,7 +19,7 @@ main {
 }
 
 .job-title {
-    font-size: 12px;
+    font-size: 30px;
 }
 
 .highlight {
@@ -47,7 +47,7 @@ p {
 }
 
 .sub-text {
-    font-size: 16px;
+    font-size: 23px;
 }
 
 header {
@@ -60,7 +60,7 @@ nav {
     height: 40px;
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     list-style: none;
     background-color: #010101;
     color: #fff;
@@ -84,35 +84,35 @@ nav {
 }
 
 .container {
+    margin-top: -60px;
+    padding: 40px 0;
+    text-align: center;
+    justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: 3px;
-    max-width: 750px;
+    max-width: 900px;
     background-color: #fff;
-    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
 .container-skills {
     align-items: center;
     display: inline-block;
     margin-top: 20px;
-    border-radius: 3px;
-    max-width: 750px;
+    max-width: 900px;
     background-color: #fff;
-    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
+
 }
 
 .container-cert {
+    margin-top: 20px;
     align-items: center;
     list-style-type: none;
     display: flex;
     font-size: 16px;
     letter-spacing: -.1px;
-    margin-top: 20px;
     border-radius: 3px;
-    max-width: 750px;
+    max-width: 900px;
     background-color: #fff;
-    box-shadow: -3px 5px 0px 0px rgb(44, 44, 44);
 }
 
 
@@ -163,12 +163,16 @@ nav {
 }
 
 img {
-    align-self: flex-end;
-    max-width: 100%;
+    max-width: 150px;
     height: auto;
     display: block;
     margin: auto;
     border-radius: 0px 3px 3px 0px;
+}
+
+.profile-img {
+    align-items: baseline;
+    border-radius: 25px 25px 25px 25px;
 }
 
 .git-img,
@@ -192,6 +196,7 @@ img {
 
 .rocket-btn {
     display: inline-block;
+    display: none;
     padding: 8px 24px;
     letter-spacing: 1px;
     font-size: 17px;
@@ -300,7 +305,7 @@ footer {
 
     .container {
         flex-direction: column;
-        margin-top: 10px;
+        margin-top: -60px;
         /* Change to a column layout for smaller screens */
     }
 
@@ -321,7 +326,7 @@ footer {
     }
 
     nav {
-        margin-bottom: 0;
+        margin-bottom: 40px;
     }
 
     .container.skills {
@@ -394,7 +399,7 @@ footer {
     }
 
     nav {
-        margin-bottom: 0;
+        margin-bottom: 40px;
     }
 
     .container.skills {
