@@ -8,16 +8,47 @@ body {
     font-size: 21px;
     display: flex;
     flex-direction: column;
-    /* Change to column layout */
     align-items: center;
     margin: 0;
+}
+
+header {
+    width: 100%;
+    max-width: 900px;
+}
+
+nav {
+    padding-top: 10px;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    background-color: #e4ecfa;
+    color: #fff;
+    justify-content: center;
+}
+
+.home {
+    border-radius: 12px 12px 0px 0px;
+    padding: 0px 20px;
+    background-color: #010101;
+}
+
+.main-nav a {
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+.home a {
+    color: white;
+    font-weight: 600;
 }
 
 main {
     min-width: 350px;
     padding: 0 20px;
     flex: 1;
-    /* Allow main content to grow and take remaining space */
 }
 
 .job-title {
@@ -48,52 +79,12 @@ h2 {
 }
 
 p {
-    font-size: 12px
+    font-size: 12px;
 }
 
 .sub-text {
     margin: 0;
-
     font-size: 16px;
-}
-
-header {
-    width: 100%;
-    max-width: 900px;
-}
-
-
-nav {
-    padding-top: 10px;
-    height: 40px;
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    background-color: #e4ecfa;
-    color: #fff;
-    justify-content: center;
-}
-
-.home {
-    border-radius: 12px 12px 0px 0px;
-    padding: 3px 20px;
-    background-color: #010101;
-}
-
-.main-nav a {
-    font-weight: 700;
-    text-decoration: none;
-    color: black;
-}
-
-.main-nav .other {
-    padding: 3px 0px;
-
-}
-
-.home a {
-    color: white;
-    font-weight: 600;
 }
 
 .container {
@@ -116,27 +107,29 @@ nav {
 
 .icon {
     fill: #e74c3c;
-    /* Red color */
     transition: fill 0.3s ease;
     cursor: pointer;
 }
 
-/* Change the color on hover */
 .icon:hover {
     fill: #c0392b;
-    /* Darker red color on hover */
 }
 
 .img-primary {
-    padding-top: 100px;
+    display: flex;
     max-width: 900px;
+    min-height: 30vh;
     background-color: black;
+}
+
+.profile-img {
+    margin-bottom: -10px;
+    border-radius: 100px;
 }
 
 img {
     border: 4px solid white;
     max-width: 150px;
-    height: auto;
     display: block;
     margin: auto;
 }
@@ -151,9 +144,9 @@ img {
     font-size: 20px;
 }
 
-.container-cert {
+.container-cert,
+.container.skills {
     margin-top: 20px;
-    align-items: center;
     list-style-type: none;
     display: flex;
     font-size: 16px;
@@ -161,12 +154,6 @@ img {
     border-radius: 3px;
     max-width: 900px;
     background-color: #fff;
-}
-
-
-.container.skills {
-    margin-top: 20px;
-    width: 750px;
 }
 
 .skills {
@@ -180,59 +167,18 @@ img {
     list-style-type: none;
 }
 
-.left-column {
-    flex: 1;
-    padding: 20px;
-}
-
-.main-skills {
-    flex: 1;
-    padding: 20px;
-}
-
-.main-cert {
-    flex: 1;
-    padding: 20px;
-}
-
+.left-column,
+.main-skills,
+.main-cert,
 .right-column {
     flex: 1;
+    padding: 20px;
 }
 
 .contact-container {
     display: flex;
     align-items: center;
-    /* Align items vertically in the center */
     justify-content: space-between;
-    /* Space items evenly */
-}
-
-.images-container {
-    display: flex;
-    gap: 5px;
-}
-
-.profile-img {
-    border-radius: 25px 25px 25px 25px;
-}
-
-.git-img,
-.fb-img {
-    width: 28px;
-}
-
-.oj-img {
-    width: 28px;
-    text-align: center;
-    line-height: 2.05;
-    font-size: 14px;
-    border-radius: 5px;
-    color: white;
-    background-color: black;
-}
-
-.social-links {
-    text-decoration: none;
 }
 
 .rocket-btn {
@@ -281,123 +227,56 @@ footer {
     margin-left: 10px;
 }
 
-.legend-icon {
+.legend-icon,
+.bullet-icon {
     align-items: center;
     margin-left: 10px;
     display: inline-block;
-    width: 10px;
-    height: 10px;
     margin-right: 3px;
 }
 
+.legend-icon {
+    width: 10px;
+    height: 10px;
+}
+
 .bullet-icon {
-    align-items: center;
-    margin-left: 3px;
-    display: inline-block;
     width: 6px;
     height: 10px;
-    margin-right: 10px;
     box-shadow: -3px 0px 0px 0px rgb(63, 63, 63);
 }
 
 .black {
     background-color: #000000;
-    /* Example color for Superior level */
 }
 
 .superior {
     background-color: #ff6666;
-    /* Example color for Superior level */
 }
 
 .advanced {
     background-color: #339966;
-    /* Example color for Advanced level */
 }
 
 .intermediate {
     background-color: #3366cc;
-    /* Example color for Intermediate level */
 }
 
 .learning {
     background-color: #ffcc00;
-    /* Example color for Learning level */
 }
 
-
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 18px;
-    }
-
-    main {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .copyright-text {
-        font-size: 16px;
-    }
-
-    footer {
-        margin-top: 20px;
-    }
-
-    .container {
-        flex-direction: column;
-        margin-top: -60px;
-        /* Change to a column layout for smaller screens */
-    }
-
-    .left-column,
-    .right-column {
-        flex: 1;
-        /* Take full width on smaller screens */
-        margin: 0;
-    }
-
-    .right-column {
-        order: -1;
-        /* Move the right column to the top */
-    }
-
-    .left-column {
-        padding: 20px;
-    }
-
-    nav {}
-
-    .container.skills {
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .left-skills {
-        padding: 10px;
-        margin: 0;
-    }
-
-    .right-skills {
-        padding: 10px;
-        margin: 0;
-    }
-
-    img {
-        border-radius: 3px 3px 0px 0px;
-        margin-bottom: 10px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    /* Styles for screens up to 480px width (typical phone sizes) */
-
+@media only screen and (max-width: 810px) {
     body {
         font-size: 16px;
     }
 
     .sub-text {
-        margin: 20px 0;
+        margin: 0;
+    }
+
+    .name-text {
+        margin: 0px;
     }
 
     .copyright-text {
@@ -407,8 +286,10 @@ footer {
     .container {
         flex-direction: column;
         text-align: center;
-        /* Change to a column layout for smaller screens */
+    }
 
+    .profile-img {
+        margin-bottom: -50px;
     }
 
     .contact-container {
@@ -434,10 +315,7 @@ footer {
 
     .right-column {
         order: -1;
-        /* Move the right column to the top */
     }
-
-    nav {}
 
     .container.skills {
         font-size: 18px;
@@ -460,6 +338,58 @@ footer {
     .legend {
         margin-left: 0px;
     }
+}
 
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
 
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .copyright-text {
+        font-size: 16px;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        margin-top: -60px;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1;
+        margin: 0;
+    }
+
+    .right-column {
+        order: -1;
+    }
+
+    .left-column {
+        padding: 20px;
+    }
+
+    .container.skills {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .left-skills,
+    .right-skills {
+        padding: 10px;
+        margin: 0;
+    }
+
+    img {
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: 10px;
+    }
 }
