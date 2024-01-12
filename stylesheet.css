@@ -4,7 +4,7 @@ html {
 
 body {
     background-color: #e4ecfa;
-    font-family: 'Poppins', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 21px;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ nav {
     gap: 10px;
     list-style: none;
     background-color: #e4ecfa;
-    color: #fff;
+    color: #F1F3F5;
     justify-content: center;
 }
 
@@ -41,7 +41,7 @@ nav {
 }
 
 .home a {
-    color: white;
+    color: #F1F3F5;
     font-weight: 600;
 }
 
@@ -63,7 +63,7 @@ main {
 
 .highlight-skills {
     cursor: pointer;
-    color: white;
+    color: #F1F3F5;
     line-height: 1.8;
     padding: 0 5px;
     border-radius: 3px;
@@ -71,7 +71,7 @@ main {
 
 h1,
 h2 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #F1F3F5;
     font-size: 39px;
     font-weight: 700;
     margin-top: 5px;
@@ -82,27 +82,42 @@ p {
     font-size: 12px;
 }
 
+.name-text {
+    margin-top: 20px;
+}
+
+.sub-details {
+    color: #868E96;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
 .sub-text {
     margin: 0;
     font-size: 16px;
 }
 
 .container {
+    color: #F1F3F5;
     z-index: 1;
     text-align: center;
-    margin-top: -100px;
+    margin-top: -150px;
     padding: 40px 0;
     display: flex;
     max-width: 900px;
-    background-color: #fff;
+    background-color: #16191d;
 }
 
 .container-skills {
+    padding-bottom: 20px;
+    color: #F1F3F5;
     align-items: center;
     display: inline-block;
-    margin-top: 20px;
     max-width: 900px;
-    background-color: #fff;
+    background-color: #16191d;
 }
 
 .icon {
@@ -118,42 +133,31 @@ p {
 .img-primary {
     display: flex;
     max-width: 900px;
-    min-height: 30vh;
+    min-height: 300px;
     background-color: black;
 }
 
 .profile-img {
-    margin-bottom: -10px;
     border-radius: 100px;
 }
 
 img {
-    border: 4px solid white;
+    border: 4px solid #F1F3F5;
     max-width: 150px;
     display: block;
     margin: auto;
 }
 
-.follow-container {
-    text-align: right;
-}
-
-.follow-btn {
-    padding: 5px 20px;
-    margin-right: 10px;
-    font-size: 20px;
-}
-
 .container-cert,
 .container.skills {
-    margin-top: 20px;
+    line-height: 1.5;
+    color: #F1F3F5;
     list-style-type: none;
     display: flex;
     font-size: 16px;
     letter-spacing: -.1px;
-    border-radius: 3px;
     max-width: 900px;
-    background-color: #fff;
+    background-color: #16191d;
 }
 
 .skills {
@@ -191,7 +195,7 @@ img {
     text-align: center;
     text-decoration: none;
     background-color: #ff6666;
-    color: #fff;
+    color: #F1F3F5;
     border-radius: .25rem;
     position: relative;
     border-width: 3px;
@@ -212,8 +216,8 @@ img {
 
 footer {
     margin-top: 40px;
-    color: white;
-    background-color: #010101;
+    color: black;
+    background-color: #e4ecfa;
     text-align: center;
     width: 100%;
 }
@@ -241,29 +245,35 @@ footer {
 }
 
 .bullet-icon {
+    margin-left: 5px;
+    margin-right: 8px;
     width: 6px;
     height: 10px;
-    box-shadow: -3px 0px 0px 0px rgb(63, 63, 63);
+    box-shadow: -3px 0px 0px 0px rgb(204, 204, 204);
 }
 
-.black {
-    background-color: #000000;
+.white {
+    background-color: #F1F3F5;
 }
 
 .superior {
-    background-color: #ff6666;
+    background-color: #942626;
 }
 
 .advanced {
-    background-color: #339966;
+    background-color: #1a4e34;
 }
 
 .intermediate {
-    background-color: #3366cc;
+    background-color: #0e388d;
 }
 
 .learning {
-    background-color: #ffcc00;
+    background-color: #9e7f02;
+}
+
+.separator {
+    margin: 1px 0; /* Adjust the margin as needed */
 }
 
 @media only screen and (max-width: 810px) {
@@ -273,10 +283,6 @@ footer {
 
     .sub-text {
         margin: 0;
-    }
-
-    .name-text {
-        margin: 0px;
     }
 
     .copyright-text {
@@ -289,7 +295,7 @@ footer {
     }
 
     .profile-img {
-        margin-bottom: -50px;
+        
     }
 
     .contact-container {
@@ -360,7 +366,7 @@ footer {
 
     .container {
         flex-direction: column;
-        margin-top: -60px;
+        margin-top: -80px;
     }
 
     .left-column,
