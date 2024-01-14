@@ -291,6 +291,14 @@ footer {
     margin-top: 40px;
 }
 
+.container-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-right: -12px;
+}
+
 .sub-brief,
 .sub-link,
 .sub-cake,
@@ -303,7 +311,7 @@ footer {
 .fireworks,
 .calendar,
 .link {
-    margin-top: 1px;
+    /* */
 }
 
 @media only screen and (max-width: 810px) {
