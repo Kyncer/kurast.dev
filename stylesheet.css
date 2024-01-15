@@ -75,8 +75,10 @@ h2 {
     margin-bottom: 5px;
 }
 
-p {
-    font-size: 18px;
+.skills li,
+.main-cert li,
+.copyright-text {
+    font-size: 16px;
 }
 
 .name-text {
@@ -223,7 +225,6 @@ footer {
 
 .copyright-text {
     margin-top: 8px;
-    font-size: 18px;
 }
 
 .svg-footer {
@@ -313,9 +314,7 @@ footer {
 }
 
 @media only screen and (max-width: 810px) {
-    body {
-       
-    }
+    body {}
 
     .sub-text {
         margin: 0;
@@ -323,6 +322,12 @@ footer {
 
     .copyright-text {
         font-size: 16px;
+    }
+
+    .skills li,
+    .main-cert li,
+    .copyright-text {
+        font-size: 15px;
     }
 
     .container {
@@ -376,11 +381,17 @@ footer {
     .legend {
         margin-left: 0px;
     }
+
+    .svg-whatsapp,
+    .svg-github,
+    .svg-facebook {
+        width: 27px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     body {
-       /**/
+        /**/
     }
 
     .main-nav {
@@ -394,16 +405,13 @@ footer {
     .sub-text,
     .job-title {
         font-size: 15px;
-        letter-spacing: -.8px;;
+        letter-spacing: -.8px;
+        ;
     }
 
     main {
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .copyright-text {
-        font-size: 16px;
     }
 
     .container {
@@ -442,7 +450,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 440px) {
     .main-nav {
         font-size: 18px;
     }
@@ -453,11 +461,23 @@ footer {
 
     .sub-text,
     .job-title {
-        font-size: 13px;
-        letter-spacing: -.8px;;
+        font-size: 12px;
+        letter-spacing: -.31px;
+    }
+
+    .skills li,
+    .main-cert li,
+    .copyright-text {
+        font-size: 14px;
     }
 
     .sub-details {
         font-size: 12px;
+    }
+
+    .svg-whatsapp,
+    .svg-github,
+    .svg-facebook {
+        width: 26px;
     }
 }
