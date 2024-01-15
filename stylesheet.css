@@ -50,8 +50,8 @@ footer {
 
 .logo {
     position: absolute;
-    left: 20px;
-    top: 15px
+    left: 12px;
+    top: 8px
 }
 
 .logo-img {
@@ -233,7 +233,22 @@ footer {
 .svg-footer {
     display: flex;
     justify-content: center;
-    gap: 8px;
+}
+
+.svg-whatsapp,
+.svg-github,
+.svg-facebook,
+.logo-img {
+    padding: 8px;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.3s ease;
+}
+
+.svg-whatsapp:hover,
+.svg-github:hover,
+.svg-facebook:hover,
+.logo-img:hover {
+    background-color: rgba(165, 165, 165, 0.2);
 }
 
 .legend {
@@ -371,32 +386,8 @@ img {
         margin-bottom: -10px;
     }
 
-    .left-column,
-    .right-column {
-        flex: 1;
-        margin: 0;
-    }
-
-    .rocket-btn {
-        margin-top: 25px;
-        left: 50%;
-        right: 50%;
-        transform: translate(-50%, -50%);
-        padding: 8px 25px;
-        font-size: 14px;
-    }
-
-    .right-column {
-        order: -1;
-    }
-
     .container.skills {
         font-size: 18px;
-    }
-
-    .left-column {
-        flex: 1;
-        padding: 10px;
     }
 
     .main-skills {
@@ -420,10 +411,6 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
-    body {
-        /**/
-    }
-
     .name-text {
         font-size: 36px;
     }
@@ -438,9 +425,7 @@ img {
 
     .sub-text,
     .job-title {
-        font-size: 15px;
         letter-spacing: -.8px;
-        ;
     }
 
     main {
@@ -451,20 +436,6 @@ img {
     .container {
         flex-direction: column;
         margin-top: -80px;
-    }
-
-    .left-column,
-    .right-column {
-        flex: 1;
-        margin: 0;
-    }
-
-    .right-column {
-        order: -1;
-    }
-
-    .left-column {
-        padding: 20px;
     }
 
     .container.skills {
@@ -478,8 +449,8 @@ img {
         margin: 0;
     }
 
-    img {
-        border-radius: 3px 3px 0px 0px;
+    img.profile-img {
+        border: 4px solid #F1F3F5;
         margin-bottom: 10px;
     }
 }
@@ -493,19 +464,8 @@ img {
         padding: 5px 8px;
     }
 
-
-    .logo {
-        left: 20px;
-        top: 15px
-    }
-
-    .name-text {
-        font-size: 32px;
-    }
-
     .sub-text,
     .job-title {
-        font-size: 12px;
         letter-spacing: -.31px;
     }
 
@@ -524,4 +484,5 @@ img {
     .svg-facebook {
         width: 25px;
     }
+
 }
