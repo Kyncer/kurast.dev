@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Style for the preview image */
+    .image-preview {
+      display: none;
+      position: absolute;
+      max-width: 50vh;
+      height: 400px;
+      border: 1px solid #ccc;
+      padding: 5px;
+      background-color: white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+  </style>
+  <title>Image Preview on Hover</title>
+</head>
+<body>
+
+  <!-- Sample text with a data-image attribute containing the image URL -->
+  <span onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()" data-image="/concept-1.png">
+    Hoverover me to see the image </span>
+
+  <!-- Image preview container -->
+  <div class="image-preview" id="imagePreview"></div>
+
+  <script>
+    function showImagePreview(event, element) {
+      // Get the image URL from the data-image attribute
+      var imageUrl = element.getAttribute("data-image");
+
+      // Get the image preview container
+      var imagePreview = document.getElementById("imagePreview");
+
+      // Set the image source and display the preview
+      imagePreview.innerHTML = `<img src="${imageUrl}" alt="Preview Image">`;
+
+      // Use offsetX and offsetY for more accurate positioning
+      imagePreview.style.left = event.offsetX + 'px';
+      imagePreview.style.top = event.offsetY + 'px';
+
+      imagePreview.style.display = "block";
+    }
+
+    function hideImagePreview() {
+      // Hide the image preview on mouseout
+      var imagePreview = document.getElementById("imagePreview");
+      imagePreview.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
