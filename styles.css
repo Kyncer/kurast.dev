@@ -1,0 +1,414 @@
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+    display: flex;
+}
+
+body {
+    background-color: #16191d;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.img-forspace {
+    height: 60px;
+}
+
+.logo-container {
+    padding-top: 5px;
+    background-color: #16191d;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    z-index: 1000;
+}
+
+.logo-img {
+    max-width: 30px;
+    height: auto;
+    margin: 0 10px;
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    list-style: none;
+    color: #F1F3F5;
+    z-index: 99;
+}
+
+.main-nav {
+    font-size: 21px;
+    align-items: center;
+}
+
+.main-nav a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #F1F3F5;
+    padding: 8px 12px;
+}
+
+h1,
+h2 {
+    color: #F1F3F5;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+main {
+    min-width: 350px;
+    padding: 0 20px;
+    flex: 1;
+}
+
+footer {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: #F1F3F5;
+    background-color: #16191d;
+    text-align: center;
+    width: 100%;
+}
+
+.img-primary {
+    display: flex;
+    justify-content: end;
+    height: 300px;
+    max-width: 900px;
+    background: url('images/bg-cover.png') no-repeat center center;
+    background-size: cover;
+    background-color: #f0f0f0;
+    margin-bottom: -80px;
+}
+
+img.profile-img {
+    display: flex;
+    border: 4px solid #F1F3F5;
+    max-width: 150px;
+    margin: auto;
+}
+
+.profile-img {
+    border-radius: 100px;
+    
+}
+
+.nav-link {
+    border-radius: 12px 12px 12px 12px;
+    padding: 0px;
+    color: #F1F3F5;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease;
+}
+
+.nav-link.active:before {
+    content: "{ ";
+}
+
+.nav-link.active:after {
+    content: " }";
+}
+
+.nav-link:hover {
+    border-radius: 12px 12px 12px 12px;
+    background-color: #010101;
+}
+
+.links {
+    text-decoration: none;
+    color: #F1F3F5;
+}
+
+.links:hover {
+    border-bottom: 2px solid #F1F3F5;
+}
+
+.job-title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.highlight {
+    background-color: yellow;
+    font-style: italic;
+}
+
+.highlight-skills {
+    cursor: pointer;
+    color: #F1F3F5;
+    line-height: 1.8;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.skills li,
+.main-cert li,
+.copyright-text {
+    font-size: 16px;
+}
+
+.name-text {
+    font-size: 39px;
+    margin-top: 20px;
+}
+
+.sub-details {
+    color: #868E96;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.sub-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+.container {
+    color: #F1F3F5;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 0px;
+    display: flex;
+    max-width: 900px;
+    background-color: #16191d;
+}
+
+.container-skills {
+    padding-bottom: 20px;
+    color: #F1F3F5;
+    align-items: center;
+    display: inline-block;
+    max-width: 900px;
+    background-color: #16191d;
+}
+
+.icon {
+    fill: #e74c3c;
+    transition: fill 0.3s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    fill: #c0392b;
+}
+
+.container-cert,
+.container.skills {
+    line-height: 2;
+    color: #F1F3F5;
+    list-style-type: none;
+    display: flex;
+    font-size: 16px;
+    max-width: 900px;
+    background-color: #16191d;
+}
+
+.skills li {
+    display: inline-block;
+    font-size: 16px;
+    list-style-type: none;
+}
+
+.left-column,
+.main-skills,
+.main-cert,
+.right-column {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skills-title {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.copyright-text {
+    margin-top: 8px;
+}
+
+.svg-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.svg-whatsapp,
+.svg-github,
+.svg-facebook,
+.logo-img {
+    padding: 8px;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.3s ease;
+}
+
+.svg-whatsapp:hover,
+.svg-github:hover,
+.svg-facebook:hover,
+.logo-img:hover {
+    background-color: #010101;
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+}
+
+.legend-icon,
+.bullet-icon {
+    align-items: center;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.legend-icon {
+    width: 10px;
+    height: 10px;
+}
+
+.bullet-icon {
+    margin-left: 5px;
+    margin-right: 8px;
+    width: 6px;
+    height: 10px;
+    box-shadow: -3px 0px 0px 0px rgb(204, 204, 204);
+}
+
+.white {
+    background-color: #F1F3F5;
+}
+
+.superior {
+    background-color: #942626;
+}
+
+.advanced {
+    background-color: #1a4e34;
+}
+
+.intermediate {
+    background-color: #0e388d;
+}
+
+.learning {
+    background-color: #9e7f02;
+}
+
+.separator,
+.separator-footer {
+    margin: 20px 0px;
+    padding: .5px;
+    background-color: #2b2a33;
+}
+
+.separator-footer {
+    margin-top: 40px;
+}
+
+.container-name {
+    margin-top: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-right: -12px;
+}
+
+.sub-brief,
+.sub-link,
+.sub-cake,
+.sub-date {
+    display: flex;
+    gap: 5px;
+}
+
+img {
+    max-width: 400px;
+}
+
+.main-cert.cert-item li:hover {
+    cursor: pointer;
+}
+
+.image-preview {
+    object-fit: contain;
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.image-preview {
+    opacity: 0;
+    transition: top 0.3s, left 0.3s, opacity 0.3s ease-out;
+}
+
+.show-preview {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 810px) {
+    .sub-text {
+        margin: 0;
+    }
+
+    .svg-whatsapp,
+    .svg-github,
+    .svg-facebook {
+        width: 26.5px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container.skills {
+        flex-direction: row;
+        width: 100%;
+    }
+
+
+    img.profile-img {
+        border: 4px solid #F1F3F5;
+        margin-bottom: 10px;
+    }
+    
+}
+
+@media only screen and (max-width: 523px) {
+    .main-nav {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .svg-whatsapp,
+    .svg-github,
+    .svg-facebook {
+        width: 25px;
+    }
+
+}

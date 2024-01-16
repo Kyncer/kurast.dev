@@ -10,9 +10,9 @@
     <meta property="og:image" content="your-image-url.jpg">
     <meta property="og:url" content="https://kurast.dev">
 
-    <title>About – kurast.dev</title>
+    <title>kurast.dev</title>
 
-    <link rel="stylesheet" href="stylesheet.css?v=1.0">
+    <link rel="stylesheet" href="styles.css?v=1.0">
 
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
@@ -20,21 +20,24 @@
 
 </head>
 <header>
-    <div class="logo"><a href="/index.html"><img class="logo-img" src="images/favicon.ico"
-                alt="Kevin Profile Image Image"></a></div>
-    <nav class="main-nav">
-        <li><a href="/index.html" class="nav-link">kurast.dev</a></li>
-        <li><a href="/about.html" class="nav-link">about</a></li>
-        <li><a href="/work.html" class="nav-link">work</a></li>
-        <li><a href="/apps.html" class="nav-link">apps</a></li>
-    </nav>
+    <div class="logo-container">
+        <a href="/index.html"><img class="logo-img" src="images/favicon.ico" alt="Kevin Profile Image Image"></a>
+        <nav class="main-nav">
+            <a href="/index.html" class="nav-link">kurast.dev</a>
+            <a href="/about.html" class="nav-link">about</a>
+            <a href="/work.html" class="nav-link">work</a>
+            <a href="/apps.html" class="nav-link">apps</a>
+        </nav>
+        <a href="/index.html"><img class="logo-img" src="images/favicon.ico" alt="Kevin Profile Image Image"></a>
+    </div>
 </header>
 
 <body>
     <main>
-        <div class="img-primary">
-            <img class="profile-img" src="images/black-white-bg-kynce.jpg" alt="Kevin Profile Image Image">
-        </div>
+        <div class="img-forspace"></div>
+        <div class="img-primary"></div>
+        <div class="img-pro-container"><img class="profile-img" src="images/black-white-bg-kynce.jpg"
+                alt="Kevin Profile Image Image"></div>
         <div class="container">
             <div class="left-column">
                 <span class="container-name">
@@ -272,10 +275,9 @@
             <div class="main-cert cert-item">
                 <h2 class="skills-title">CERTIFICATIONS</h2>
                 <span class="image-preview" id="imagePreview"></span>
-                <li><span class="bullet-icon white"></span><span onmouseover="showImagePreview(event, this)"
-                        onmouseout="hideImagePreview()" data-image="images/htmlcert.png">Introduction to HTML,
-                        <strong>SoloLearn</strong>, 2015</span></li></span>
-
+                <li><span class="bullet-icon white"></span>Introduction to HTML, <span
+                        onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
+                        data-image="images/htmlcert.png"><strong>SoloLearn</strong>, 2015</span></li></span>
                 <li><span class="bullet-icon white"></span>Introduction to CSS, <strong>SoloLearn</strong>, 2015</li>
                 <li><span class="bullet-icon white"></span>Introduction to Javascript, <strong>SoloLearn</strong>, 2015
                 </li>
