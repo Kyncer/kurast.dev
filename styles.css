@@ -15,13 +15,14 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    transition: background-color .3s ease;
 }
 
 .img-forspace {
     height: 60px;
 }
 
-.logo-container {
+.logo-container{
     padding-top: 5px;
     background-color: #16191d;
     position: fixed;
@@ -76,7 +77,6 @@ footer {
     padding-top: 40px;
     padding-bottom: 20px;
     color: #F1F3F5;
-    background-color: #16191d;
     text-align: center;
     width: 100%;
 }
@@ -113,10 +113,12 @@ img.profile-img {
 }
 
 .nav-link.active:before {
+    color: #e5991b;
     content: "{ ";
 }
 
 .nav-link.active:after {
+    color: #e5991b;
     content: " }";
 }
 
@@ -127,11 +129,11 @@ img.profile-img {
 
 .links {
     text-decoration: none;
-    color: #F1F3F5;
+    color: #e5991b;
 }
 
 .links:hover {
-    border-bottom: 2px solid #F1F3F5;
+    border-bottom: 2px solid #e5991b;
 }
 
 .job-title {
@@ -184,7 +186,6 @@ img.profile-img {
     padding: 40px 0px;
     display: flex;
     max-width: 900px;
-    background-color: #16191d;
 }
 
 .container-skills {
@@ -193,7 +194,6 @@ img.profile-img {
     align-items: center;
     display: inline-block;
     max-width: 900px;
-    background-color: #16191d;
 }
 
 .icon {
@@ -214,7 +214,6 @@ img.profile-img {
     display: flex;
     font-size: 16px;
     max-width: 900px;
-    background-color: #16191d;
 }
 
 .skills li {
@@ -412,3 +411,18 @@ img {
     }
 
 }
+
+.transition {
+    transition: none;
+  }
+
+  /* Your dark mode styles go here */
+  [data-theme="dark"] body {
+    background-color: white;
+    color: black;
+  }
+
+  [data-theme="dark"] .logo-container {
+    background-color: white;
+    color: black;
+  }
