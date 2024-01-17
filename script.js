@@ -19,11 +19,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function showImagePreview(event, element) {
+    // Check if the element and data-image attribute exist
+    if (!element || !element.hasAttribute("data-image")) {
+        console.error("Invalid element or missing data-image attribute");
+        return;
+    }
+
     // Get the image URL from the data-image attribute
     var imageUrl = element.getAttribute("data-image");
 
-    // Get the image preview container
+    // Check if imagePreview container exists
     var imagePreview = document.getElementById("imagePreview");
+    if (!imagePreview) {
+        console.error("Image preview container not found");
+        return;
+    }
 
     // Set the image source and display the preview
     imagePreview.innerHTML = `<img src="${imageUrl}" alt="Preview Image">`;
@@ -32,27 +42,40 @@ document.addEventListener('DOMContentLoaded', function () {
     var offsetX = 10; // Adjust this value to control the horizontal offset
     var offsetY = -300; // Adjust this value to control the vertical offset
 
-    imagePreview.style.left = (event.pageX + offsetX) + 'px';
-    imagePreview.style.top = (event.pageY + offsetY - imagePreview.offsetHeight) + 'px';
+    // Check if event object and pageX/pageY properties exist
+    if (event && event.pageX !== undefined && event.pageY !== undefined) {
+        imagePreview.style.left = (event.pageX + offsetX) + 'px';
+        imagePreview.style.top = (event.pageY + offsetY - imagePreview.offsetHeight) + 'px';
+    } else {
+        console.error("Invalid event object or missing pageX/pageY properties");
+        return;
+    }
 
     // Apply smooth transition by adding a class
     imagePreview.classList.add("show-preview");
 
     imagePreview.style.display = "block";
-  }
+}
 
-  function hideImagePreview() {
+function hideImagePreview() {
     // Get the image preview container
     var imagePreview = document.getElementById("imagePreview");
+
+    // Check if imagePreview container exists
+    if (!imagePreview) {
+        console.error("Image preview container not found");
+        return;
+    }
 
     // Remove the class to smoothly transition back
     imagePreview.classList.remove("show-preview");
 
     // Hide the image preview after the transition
     setTimeout(function () {
-      imagePreview.style.display = "none";
-    }, 300); // Adjust the delay to match the transition duration
-  }
+        imagePreview.style.display = "none";
+    }, 10); // Adjust the delay to match the transition duration
+}
+
 
 //darkmode
 
