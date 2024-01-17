@@ -37,7 +37,12 @@ body {
     max-width: 30px;
     height: auto;
     margin: 0 10px;
-    margin-top: 5px;
+}
+
+.dark-svg {
+    position: relative;
+    top: 10px;
+    right: 20px;
 }
 
 nav {
@@ -418,11 +423,63 @@ img {
 
   /* Your dark mode styles go here */
   [data-theme="dark"] body {
-    background-color: white;
-    color: black;
+    background-color: #F5F5F5;
+    color: #030507;
   }
 
   [data-theme="dark"] .logo-container {
-    background-color: white;
-    color: black;
+    background-color: #F5F5F5;
+    color: #030507;
   }
+
+  [data-theme="dark"] .nav-link {
+    color: #030507;
+  }
+
+  [data-theme="dark"] .name-text {
+    color: #030507;
+  }
+
+  [data-theme="dark"] .sub-text {
+    color: #030507;
+  }
+
+  [data-theme="dark"] .job-title {
+    color: #030507;
+  }
+
+  [data-theme="dark"] .sub-details {
+    color: #16191d;
+  }
+  
+  [data-theme="dark"] .sub-details path {
+    fill: #16191d;
+  }
+
+  [data-theme="dark"] .dark-svg path {
+    fill: #16191d;
+  }
+
+  [data-theme="dark"] .skills {
+    color: #030507;
+  }
+
+  [data-theme="dark"] h2 {
+    color: #030507;
+  }
+
+  [data-theme="dark"] li {
+    color: #030507;
+  }
+
+  [data-theme="dark"] li span.bullet-icon {
+    background-color: #030507;
+    box-shadow: -3px 0px 0px 0px rgb(71, 71, 71);
+  }
+  
+
+ 
+
+  
+
+  
