@@ -18,6 +18,17 @@ body {
     transition: background-color .3s ease;
 }
 
+.img-primary {
+    display: flex;
+    justify-content: end;
+    height: 300px;
+    max-width: 900px;
+    background: url('images/bg-cover.png') no-repeat center center;
+    background-size: cover;
+    background-color: black;
+    margin-bottom: -80px;
+}
+
 .img-forspace {
     height: 60px;
 }
@@ -28,6 +39,7 @@ body {
     position: fixed;
     width: 100%;
     display: flex;
+    padding-right: 20px;
     justify-content: space-between;
     box-sizing: border-box; /* Include padding and border in the element's total width */
     z-index: 1000;
@@ -42,11 +54,11 @@ body {
 .dark-svg {
     position: relative;
     top: 10px;
-    right: 20px;
 }
 
 nav {
     display: flex;
+    height: 50px;
     list-style: none;
     color: #F1F3F5;
     z-index: 99;
@@ -86,17 +98,6 @@ footer {
     width: 100%;
 }
 
-.img-primary {
-    display: flex;
-    justify-content: end;
-    height: 300px;
-    max-width: 900px;
-    background: url('images/bg-cover.png') no-repeat center center;
-    background-size: cover;
-    background-color: #f0f0f0;
-    margin-bottom: -80px;
-}
-
 img.profile-img {
     display: flex;
     border: 4px solid #F1F3F5;
@@ -105,8 +106,7 @@ img.profile-img {
 }
 
 .profile-img {
-    border-radius: 100px;
-    
+    border-radius: 100px;   
 }
 
 .nav-link {
@@ -353,13 +353,8 @@ img {
 }
 
 .image-preview {
-    object-fit: contain;
-    display: none;
+    object-fit: cover;
     position: absolute;
-    border: 1px solid #ccc;
-    padding: 5px;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
@@ -417,6 +412,39 @@ img {
 
 }
 
+.container {
+    animation: transitionIn .75s;
+}
+
+img.profile-img, .img-primary {
+    animation: imgtrans 0.75s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+
+}
+
+@keyframes imgtrans {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
 .transition {
     transition: none;
   }
@@ -429,23 +457,23 @@ img {
 
   [data-theme="dark"] .logo-container {
     background-color: #F5F5F5;
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] .nav-link {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] .name-text {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] .sub-text {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] .job-title {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] .sub-details {
@@ -465,17 +493,30 @@ img {
   }
 
   [data-theme="dark"] h2 {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] li {
-    color: #030507;
+    color: #16191d;
   }
 
   [data-theme="dark"] li span.bullet-icon {
-    background-color: #030507;
+    background-color: #16191d;
     box-shadow: -3px 0px 0px 0px rgb(71, 71, 71);
   }
+
+  [data-theme="dark"] .svg-footer {
+    color: #16191d;
+  }
+
+  [data-theme="dark"] .svg-footer path {
+    fill: #16191d;
+  }
+
+  [data-theme="dark"] .copyright-text {
+    color: #16191d;
+  }
+  
   
 
  
