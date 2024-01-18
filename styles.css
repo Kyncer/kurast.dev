@@ -391,9 +391,9 @@ img {
     display: flex;
     justify-content: end;
     margin-bottom: 20px;
-    height: 300px;
+    height: 400px;
     max-width: 900px;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .img-work1 {
@@ -416,9 +416,10 @@ img {
 }
 
 .work-sitename {
+    border-radius: 5px;
     margin-top: 10px;
     margin-inline: 10px;
-    color: #F1F3F5;
+    color: #e5991b;
     font-size: 13px;
     letter-spacing: .3px;
     text-transform: uppercase;
