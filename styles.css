@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 header {
@@ -39,7 +40,6 @@ body {
     position: fixed;
     width: 100%;
     display: flex;
-    padding-right: 20px;
     justify-content: space-between;
     box-sizing: border-box;
     /* Include padding and border in the element's total width */
@@ -55,6 +55,7 @@ body {
 .dark-svg {
     position: relative;
     top: 10px;
+    right: 20px;
 }
 
 nav {
@@ -68,6 +69,7 @@ nav {
 .main-nav {
     font-size: 21px;
     align-items: center;
+    margin-right: 30px;
 }
 
 .main-nav a {
@@ -188,7 +190,7 @@ img.profile-img {
 }
 
 .simple-text {
-    color:#F1F3F5;
+    color: #F1F3F5;
 }
 
 .container {
@@ -378,7 +380,8 @@ img {
 /*for work page*/
 .main-container {
     width: 100%;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
+    /* Center the container */
     flex: 1;
 }
 
