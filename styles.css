@@ -86,6 +86,7 @@ h2 {
 }
 
 main {
+    max-width: 900px;
     min-width: 350px;
     padding: 0 20px;
     flex: 1;
@@ -180,9 +181,14 @@ img.profile-img {
     font-size: 15px;
 }
 
-.sub-text {
+.sub-text,
+.simple-text {
     margin: 0;
     font-size: 16px;
+}
+
+.simple-text {
+    color:#F1F3F5;
 }
 
 .container {
@@ -370,21 +376,30 @@ img {
 }
 
 /*for work page*/
+.main-container {
+    width: 100%;
+    margin: 0 auto; /* Center the container */
+    flex: 1;
+}
+
+img.work-kayak {
+    width: 100%;
+    flex: 1;
+}
+
 .img-work {
     display: flex;
-    border-radius: 5px;
-    height: 400px;
+    justify-content: end;
+    margin-bottom: 20px;
+    height: 300px;
     max-width: 900px;
-    background: url('sea-quest-finish.png') no-repeat center center;
+    background: url('images/bg-cover.png') no-repeat center center;
     background-size: cover;
     background-color: black;
-    margin-bottom: 50px;
-    justify-content: end;
 }
 
 .work-sitename {
     color: white;
-    margin-right: 20px;
     letter-spacing: .5px;
     text-transform: uppercase;
     position: relative;
