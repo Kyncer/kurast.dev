@@ -19,6 +19,13 @@ body {
     transition: background-color .3s ease;
 }
 
+main {
+    max-width: 900px;
+    min-width: 360px;
+    padding: 0 20px;
+    flex: 1;
+}
+
 .img-primary {
     display: flex;
     justify-content: end;
@@ -85,13 +92,6 @@ h2 {
     font-weight: 700;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-main {
-    max-width: 900px;
-    min-width: 350px;
-    padding: 0 20px;
-    flex: 1;
 }
 
 footer {
@@ -385,25 +385,42 @@ img {
     flex: 1;
 }
 
-img.work-kayak {
-    width: 100%;
-    flex: 1;
-}
-
-.img-work {
+.img-work1,
+.img-work2,
+.img-work3 {
     display: flex;
     justify-content: end;
     margin-bottom: 20px;
     height: 300px;
     max-width: 900px;
+    margin: 20px 0;
+}
+
+.img-work1 {
+    background: url('images/bg-cover.png') no-repeat center center;
+    background-size: cover;
+    background-color: black;
+    margin-top: 0;
+}
+
+.img-work2 {
+    background: url('images/bg-cover.png') no-repeat center center;
+    background-size: cover;
+    background-color: black;
+}
+
+.img-work3 {
     background: url('images/bg-cover.png') no-repeat center center;
     background-size: cover;
     background-color: black;
 }
 
 .work-sitename {
-    color: white;
-    letter-spacing: .5px;
+    margin-top: 10px;
+    margin-inline: 10px;
+    color: #F1F3F5;
+    font-size: 13px;
+    letter-spacing: .3px;
     text-transform: uppercase;
     position: relative;
     padding: 12px 20px 12px 20px;
