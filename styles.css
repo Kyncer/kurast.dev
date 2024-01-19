@@ -30,6 +30,10 @@ main {
     flex: 1;
 }
 
+.container-for-profile {
+    margin: 0 auto;
+}
+
 .img-primary {
     margin: 0 auto;
     display: flex;
@@ -161,11 +165,15 @@ img.profile-img {
     font-style: italic;
 }
 
+.title-skills-container {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
 .highlight-skills {
     cursor: pointer;
     color: #F1F3F5;
-    line-height: 1.8;
-    padding: 0 5px;
+    padding: 4px 10px;
     border-radius: 3px;
 }
 
@@ -176,7 +184,7 @@ img.profile-img {
 }
 
 .name-text {
-    font-size: 39px;
+    font-size: 42px;
     margin-top: 20px;
 }
 
@@ -242,19 +250,25 @@ img.profile-img {
 }
 
 .skills li {
-    display: inline-block;
-    font-size: 16px;
+    display: block;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
     list-style-type: none;
 }
 
-.left-column,
-.main-skills,
-.main-cert,
-.right-column {
-    flex: 1;
+.main-skills {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: inline-start;
+    flex-wrap: wrap;
+    flex: 1;
 }
 
+.main-cert {
+    flex: 1;
+}
 .contact-container {
     display: flex;
     align-items: center;
@@ -262,8 +276,7 @@ img.profile-img {
 }
 
 .skills-title {
-    font-size: 21px;
-    margin-bottom: 10px;
+    font-size: 23px;
 }
 
 .copyright-text {
@@ -389,6 +402,39 @@ img {
 
 .show-preview {
     opacity: 1;
+}
+
+.darkmode {
+    display: flex;
+    padding-inline: 3px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Adjust the width as needed */
+    height: 18px; /* Adjust the height as needed */
+    background-color: #F1F3F5; /* White background color */
+}
+
+.dark-button-left {
+    margin-inline: 1px;
+    border-radius: 100px;
+    flex: 1;
+    height: 10px;
+    width: 10px;
+    background-color: #16191d;
+    transition: background-color 0.2s ease;
+}
+
+.dark-button-right {
+    margin-inline: 1px;
+    border-radius: 100px;
+    flex: 1;
+    height: 10px;
+    width: 10px;
+    background-color: rgba(255, 0, 0, 0);
+    transition: background-color 0.2s ease;
 }
 
 /*FOR WORK PAGE*/
@@ -599,12 +645,12 @@ img.profile-img,
 
 /* Your dark mode styles go here */
 [data-theme="dark"] body {
-    background-color: #F5F5F5;
+    background-color: #ebebeb;
     color: #030507;
 }
 
 [data-theme="dark"] .logo-container {
-    background-color: #F5F5F5;
+    background-color: #ebebeb;
     color: #16191d;
 }
 
@@ -663,4 +709,19 @@ img.profile-img,
 
 [data-theme="dark"] .copyright-text {
     color: #16191d;
+}
+
+[data-theme="dark"] .dark-button-left {
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.2s ease;
+}
+
+[data-theme="dark"] .dark-button-right {
+    background-color: #F1F3F5;
+    transition: background-color 0.2s ease;
+}
+
+[data-theme="dark"] .darkmode {
+    background-color: #16191d;
+    transition: background-color 0.2s ease;
 }
