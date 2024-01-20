@@ -166,6 +166,11 @@ img.profile-img {
 }
 
 .title-skills-container {
+    height: 40px;
+    align-items: center;
+    display: flex;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #202123;
     margin-bottom: 10px;
     width: 100%;
 }
@@ -219,8 +224,8 @@ img.profile-img {
 }
 
 .container-skills {
+    background-color: #000000;
     display: flex;
-    padding-bottom: 10px;
     margin: 0 auto;
     color: #F1F3F5;
     display: flex;
@@ -258,12 +263,24 @@ img.profile-img {
     list-style-type: none;
 }
 
+.container-skills.skills {
+    border-radius: 5px;
+  }
+
 .main-skills {
     margin-bottom: 10px;
     display: flex;
     justify-content: inline-start;
     flex-wrap: wrap;
     flex: 1;
+}
+
+.contain-skills {
+    display: flex;
+    margin-top: 10px;
+    margin-inline: 10px;
+    justify-content: inline-start;
+    flex-wrap: wrap;
 }
 
 .main-cert {
@@ -276,7 +293,10 @@ img.profile-img {
 }
 
 .skills-title {
-    font-size: 23px;
+    margin-inline: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .copyright-text {
@@ -305,9 +325,19 @@ img.profile-img {
 }
 
 .legend {
+    margin-inline: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+.foot-contain {
+    margin-top: 10px;
+    border-radius: 0px 0px 5px 5px;
+    height: 20px;
+    display: flex;
+    width: 100%;
+    background-color: #202123;
 }
 
 .legend-icon,
