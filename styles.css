@@ -37,6 +37,8 @@ main {
 .img-primary {
     margin: 0 auto;
     display: flex;
+    border-radius: 5px;
+    border: .5px solid #28282b;
     justify-content: end;
     height: 300px;
     max-width: 900px;
@@ -269,7 +271,6 @@ img.profile-img {
 
 .main-skills {
     margin-bottom: 10px;
-    display: flex;
     justify-content: inline-start;
     flex-wrap: wrap;
     flex: 1;
