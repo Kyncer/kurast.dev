@@ -42,7 +42,7 @@ main {
     justify-content: end;
     height: 300px;
     max-width: 900px;
-    background: url('images/bg-cover.png') no-repeat center center;
+    background: url('images/kurast-cover.png') no-repeat center center;
     background-size: cover;
     background-color: black;
     margin-bottom: -80px;
@@ -240,12 +240,12 @@ img.profile-img {
 }
 
 .container-skills.skills,
-.container-work.work {
+.container-experience.experience {
     border-radius: 5px;
 }
 
 .container-skills,
-.container-work {
+.container-experience {
     background-color: #000000;
     display: flex;
     margin: 0 auto;
@@ -256,12 +256,16 @@ img.profile-img {
 }
 
 .main-skills,
-.main-work {
+.main-experience {
     max-width: 900px;
     margin-bottom: 10px;
     justify-content: inline-start;
     flex-wrap: wrap;
     flex: 1;
+}
+
+.main-experience {
+    margin-bottom: 0px;
 }
 
 .main-contain-skills {
@@ -292,18 +296,17 @@ img.profile-img {
     border-radius: 3px;
 }
 
-
-.work-contain {
+.exp-contain {
     display: flex;
 }
 
-.work-years {
+.exp-years {
     display: flex;
     flex-direction: column;
     width: 25%;
 }
 
-.work-company {
+.exp-company {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
@@ -342,7 +345,7 @@ img.profile-img {
     align-items: center;
 }
 
-.work-line {
+.exp-line {
     display: flex;
     flex-direction: column;
     background-color: #F1F3F5;
