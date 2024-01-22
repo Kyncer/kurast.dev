@@ -218,16 +218,6 @@ img.profile-img {
     max-width: 900px;
 }
 
-.container-skills {
-    background-color: #000000;
-    display: flex;
-    margin: 0 auto;
-    color: #F1F3F5;
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
-}
-
 .icon {
     fill: #e74c3c;
     transition: fill 0.3s ease;
@@ -249,20 +239,24 @@ img.profile-img {
     max-width: 900px;
 }
 
-.skills li {
-    display: block;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    list-style-type: none;
+.container-skills.skills,
+.container-work.work {
+    border-radius: 5px;
 }
 
-.container-skills.skills {
-    border-radius: 5px;
-  }
+.container-skills,
+.container-work {
+    background-color: #000000;
+    display: flex;
+    margin: 0 auto;
+    color: #F1F3F5;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+}
 
-.main-skills {
+.main-skills,
+.main-work {
     max-width: 900px;
     margin-bottom: 10px;
     justify-content: inline-start;
@@ -274,7 +268,7 @@ img.profile-img {
     padding-right: 20px;
 }
 
-.contain-skills {
+.skills-contain {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -298,9 +292,78 @@ img.profile-img {
     border-radius: 3px;
 }
 
+
+.work-contain {
+    display: flex;
+}
+
+.work-years {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.work-company {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.years {
+    display: flex;
+    flex: column;
+    margin: auto 20px;
+    justify-content: center;
+}
+
+.company-detail {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    justify-content: center;
+}
+
+.company-detail-sub {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 20px;
+    justify-content: center;
+}
+
+.company-detail-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrow-right {
+    display: flex;
+    margin: 5px 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-line {
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F3F5;
+    width: 2px;
+}
+
+.line {
+    display: flex;
+    width: 10px;
+    height: 15px;
+    margin: auto;
+    margin-left: -4px;
+    background-color: #e5991b;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-cert {
     flex: 1;
 }
+
 .contact-container {
     display: flex;
     align-items: center;
@@ -344,6 +407,11 @@ img.profile-img {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    list-style-type: none;
 }
 
 .foot-contain {
@@ -457,9 +525,12 @@ img {
     margin-right: 20px;
     justify-content: center;
     align-items: center;
-    width: 30px; /* Adjust the width as needed */
-    height: 18px; /* Adjust the height as needed */
-    background-color: #F1F3F5; /* White background color */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 18px;
+    /* Adjust the height as needed */
+    background-color: #F1F3F5;
+    /* White background color */
 }
 
 .dark-button-left {
