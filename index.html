@@ -78,7 +78,10 @@
                         <span><a class="links" href="#"><strong>/links</strong></a></span>
                     </div>
                     <div class="sub-cake">
-                        <svg fill="#868E96" width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9h-4V3H9v6H5l7 8zM4 19h16v2H4z"/></svg>
+                        <svg fill="#868E96" width="22" height="22" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 9h-4V3H9v6H5l7 8zM4 19h16v2H4z" />
+                        </svg>
                         <span class="birthday"><a class="links" href="#">Resume</a></span>
                     </div>
                     <div class="sub-date">
@@ -251,49 +254,61 @@
         <div class="container-experience experience">
             <div class="main-experience">
                 <div class="title-skills-container">
-                    <h2 class="skills-title">Work</h2>
+                    <h2 class="skills-title">Experience</h2>
                 </div>
-                <div class="exp-contain">
-                    <div class="exp-years">
-                        <span class="years">2009 - 2010</span>
-                        <span class="years">2011 - 2012</span>
-                        <span class="years">2013 - 2014</span>
-                        <span class="years">2015 - 2015</span>
-                        <span class="years">2016 - 2017</span>
-                        <span class="years">2018 - 2023</span>
-                        <span class="years">2023 - Present</span>
-                    </div>
-                    <div class="exp-line">
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                    </div>
-                    <div class="exp-company">
-                        <span class="company-detail"><span>General Virtual Assistant</span><span>Starting out
-                                freelancing</span></span>
-                        <span class="company-detail"><span>SEO Specialist</span><span>Whizcomm</span></span>
-                        <span class="company-detail"><span>Game Reviewer / Article
-                                Writer</span><span>Fiverr</span></span>
-                        <span class="company-detail"><span>Ebook Layout Designer</span><span>Author Solutions Inc.
-                                Cebu</span></span>
-                        <span class="company-detail"><span>General Virtual Assistant</span><span>Pixel
-                                Shades</span></span>
-                        <span class="company-detail"><span>Frontend Web Developer</span><span>Onfolio.com</span></span>
-                        <span class="company-detail-sub">
-                            <div class="company-detail-inner">
-                                <span>Webmaster</span><span>Panda Inc.</span>
-                            </div>
-                            <span class="arrow-right">></span>
-                            <div class="company-detail-inner">
-                                <span>VA / Web Developer</span><span>PetcoDirect</span>
-                            </div>
-                        </span>
+                <div class="exp-tabs">
+                    <div class="tab active" onclick="openTab('tab1')">Job History</div>
+                    <div class="tab" onclick="openTab('tab2')">Credentials</div>
+                    <div class="tab" onclick="openTab('tab3')">Concepts</div>
+                </div>
+                <div id="tab1" class="tab-content active">
+                    <div class="exp-contain">
+                        <div class="exp-years">
+                            <span class="years">2009 - 2010</span>
+                            <span class="years">2011 - 2012</span>
+                            <span class="years">2013 - 2014</span>
+                            <span class="years">2015 - 2015</span>
+                            <span class="years">2016 - 2017</span>
+                            <span class="years">2018 - 2023</span>
+                            <span class="years">2023 - Present</span>
+                        </div>
+                        <div class="exp-line">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                        <div class="exp-company">
+                            <span class="company-detail"><span>General Virtual Assistant</span><span>Starting out
+                                    freelancing</span></span>
+                            <span class="company-detail"><span>SEO Specialist</span><span>Whizcomm</span></span>
+                            <span class="company-detail"><span>Game Reviewer / Article
+                                    Writer</span><span>Fiverr</span></span>
+                            <span class="company-detail"><span>Ebook Layout Designer</span><span>Author Solutions Inc.
+                                    Cebu</span></span>
+                            <span class="company-detail"><span>General Virtual Assistant</span><span>Pixel
+                                    Shades</span></span>
+                            <span class="company-detail"><span>Frontend Web
+                                    Developer</span><span>Onfolio.com</span></span>
+                            <span class="company-detail-sub">
+                                <div class="company-detail-inner">
+                                    <span>Webmaster</span><span>Panda Inc.</span>
+                                </div>
+                                <span class="arrow-right">></span>
+                                <div class="company-detail-inner">
+                                    <span>VA / Web Developer</span><span>PetcoDirect</span>
+                                </div>
+                            </span>
+                        </div>
                     </div>
                 </div>
+                <div id="tab2" class="tab-content">
+                    <h2>Content for Tab 2</h2>
+                    <p>This is the content for Tab 2.</p>
+                  </div>
             </div>
             <div class="foot-contain"></div>
         </div>

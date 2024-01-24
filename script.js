@@ -97,3 +97,24 @@ function hideImagePreview() {
           document.documentElement.classList.remove('transition');
       }, 1000)
   }
+
+  //for tabs
+  function openTab(tabName) {
+    var i, tabContent;
+
+    // Hide all tab content
+    tabContent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+    }
+
+    // Remove "active" class from all tabs
+    var tabs = document.getElementsByClassName("tab");
+    for (i = 0; i < tabs.length; i++) {
+      tabs[i].classList.remove("active");
+    }
+
+    // Show the clicked tab content and mark it as active
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.classList.add("active");
+  }
