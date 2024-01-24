@@ -118,3 +118,25 @@ function hideImagePreview() {
     document.getElementById(tabName).style.display = "block";
     event.currentTarget.classList.add("active");
   }
+
+//tooltip
+document.addEventListener('DOMContentLoaded', function () {
+  var skills = document.querySelectorAll('.highlight-skills');
+
+  skills.forEach(function (skill) {
+    var tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.textContent = skill.getAttribute('data-title');
+    skill.appendChild(tooltip);
+
+    skill.removeAttribute('title'); // Remove the default title attribute
+
+    skill.addEventListener('click', function () {
+      tooltip.classList.toggle('show-tooltip');
+    });
+
+    skill.addEventListener('mouseleave', function () {
+      tooltip.classList.remove('show-tooltip');
+    });
+  });
+});
