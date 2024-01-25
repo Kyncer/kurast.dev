@@ -23,10 +23,11 @@
     <div class="logo-container">
         <a href="/index.html"><img class="logo-img" src="images/favicon.ico" alt="Kevin Profile Image Image"></a>
         <nav class="main-nav">
-            <a href="/index.html" class="nav-link">kurast.dev</a>
-            <a href="/about.html" class="nav-link">about</a>
-            <a href="/work.html" class="nav-link">work</a>
-            <a href="/apps.html" class="nav-link">apps</a>
+            <button class="nav-link" onclick="goToAnchor('section1')">kurast.dev</button>
+            <button class="nav-link" onclick="goToAnchor('section2')">jobs</button>
+            <button class="nav-link" onclick="goToAnchor('section2')">works</button>
+            <button class="nav-link" onclick="goToAnchor('section3')">apps</button>
+            <button class="nav-link contact-btn" onclick="goToAnchor('section4')">contact</button>
         </nav>
         <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
 
@@ -40,10 +41,10 @@
 </header>
 
 <body>
-    <main>
+    <main class="section" id="section1">
         <div class="img-forspace"></div>
         <div class="img-primary"></div>
-        <div class="img-pro-container"><img class="profile-img" src="images/black-white-bg-kynce.jpg"
+        <div id="section1" class="img-pro-container"><img class="profile-img" src="images/black-white-bg-kynce.jpg"
                 alt="Kevin Profile Image Image"></div>
         <div class="container">
             <div class="container-for-profile">
@@ -265,10 +266,10 @@
                 <span class="legend-icon intermediate"></span><span class="legend-title">Familiar</span>
                 <span class="legend-icon learning"></span><span class="legend-title">Learning</span>
             </div>
-            <div class="foot-contain"></div>
+            <div class="foot-contain" id="section2"></div>
         </div>
         <div class="separator"></div>
-        <div class="container-experience experience">
+        <div class="container-experience section experience" id="section2">
             <div class="main-experience">
                 <div class="title-skills-container">
                     <h2 class="skills-title">Experience</h2>
@@ -310,33 +311,48 @@
                                         class="company-brand">PetcoDirect</span>
                                 </div>
                             </span>
-                            <p class="company-more-details-sub">Panda Inc, a leading AI innovator, where I've thrived for 2 years, contributing to cutting-edge projects that redefine possibilities in the tech landscape. PetcoDirect Australia, my journey as a web developer involves shaping coding innovative solutions that elevate their site above the rest.</p>
+                            <p class="company-more-details-sub">Panda Inc, a leading AI innovator, where I've thrived
+                                for 2 years, contributing to cutting-edge projects that redefine possibilities in the
+                                tech landscape. PetcoDirect Australia, my journey as a web developer involves shaping
+                                coding innovative solutions that elevate their site above the rest.</p>
                             <span class="company-detail"><span class="company-role">Frontend Web
                                     Developer</span><span class="company-brand">Onfolio.com</span>
-                                <p class="company-more-details">At Onfolio, as a web developer, I've spent 8 years crafting pixel-perfect designs and robust websites, shaping online identities that leave lasting impressions.</p>
+                                <p class="company-more-details">At Onfolio, as a web developer, I've spent 8 years
+                                    crafting pixel-perfect designs and robust websites, shaping online identities that
+                                    leave lasting impressions.</p>
                             </span>
                             <span class="company-detail"><span class="company-role">General Virtual
                                     Assistant</span><span class="company-brand">Pixel
                                     Shades</span>
-                                <p class="company-more-details">As a general virtual assistant for almost 3 years, orchestrated the seamless management of countless products, enhancing the site's functionality and user experience.</p>
+                                <p class="company-more-details">As a general virtual assistant for almost 3 years,
+                                    orchestrated the seamless management of countless products, enhancing the site's
+                                    functionality and user experience.</p>
                             </span>
                             <span class="company-detail"><span class="company-role">Ebook Layout Designer</span><span
                                     class="company-brand">Author Solutions Inc.
                                     Cebu</span>
-                                <p class="company-more-details">My creativity shines in the field of virtual assistance. For a lot more years, I've woven innovation into tasks, marking a vibrant debut in my first office-based journey.</p>
+                                <p class="company-more-details">My creativity shines in the field of virtual assistance.
+                                    For a lot more years, I've woven innovation into tasks, marking a vibrant debut in
+                                    my first office-based journey.</p>
                             </span>
                             <span class="company-detail"><span class="company-role">Game QA / Article
                                     Writer</span><span class="company-brand">Fiverr</span>
-                                <p class="company-more-details">I've turned Game QA into a comedy of testing errors! As a fiverr top-rated seller, my gigs are the real game-changer—blooming day by day.</p>
+                                <p class="company-more-details">I've turned Game QA into a comedy of testing errors! As
+                                    a fiverr top-rated seller, my gigs are the real game-changer—blooming day by day.
+                                </p>
                             </span>
                             <span class="company-detail"><span class="company-role">SEO Specialist</span><span
                                     class="company-brand">Whizcomm</span>
-                                <p class="company-more-details">WhizComm embraced me for my thirst to learn! As an SEO Specialist, I've flourished in this Europe-based hub, optimizing strategies for top-notch SEO services.</p>
+                                <p class="company-more-details">WhizComm embraced me for my thirst to learn! As an SEO
+                                    Specialist, I've flourished in this Europe-based hub, optimizing strategies for
+                                    top-notch SEO services.</p>
                             </span>
                             <span class="company-detail"><span class="company-role">General Virtual
                                     Assistant</span><span class="company-brand">Starting out
                                     freelancing</span>
-                                <p class="company-more-details">Started freelancing at a computer cafe while attending college. No computer at home, just sheer determination. Turning challenges into quality work is my daily hustle.</p>
+                                <p class="company-more-details">Started freelancing at a computer cafe while attending
+                                    college. No computer at home, just sheer determination. Turning challenges into
+                                    quality work is my daily hustle.</p>
                             </span>
 
 
@@ -353,24 +369,28 @@
                             <h2 class="skills-title-other space-cert">Certifications</h2>
                             <div class="contain-credentials">
                                 <span class="image-preview" id="imagePreview"></span>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to HTML, <span
-                                        onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to
+                                    HTML, <span onmouseover="showImagePreview(event, this)"
+                                        onmouseout="hideImagePreview()"
                                         data-image="images/htmlcert.png"><strong>SoloLearn</strong></span>, 2015</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to CSS, <span
-                                        onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to CSS,
+                                    <span onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
                                         data-image="images/csscert.jpg"><strong>SoloLearn</strong></span>, 2015</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to Javascript, <span
-                                        onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to
+                                    Javascript, <span onmouseover="showImagePreview(event, this)"
+                                        onmouseout="hideImagePreview()"
                                         data-image="images/javascriptcert.jpg"><strong>SoloLearn</strong></span>, 2015
                                 </li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to PHP, <span
-                                        onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Introduction to PHP,
+                                    <span onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()"
                                         data-image="images/phpcert.jpg"><strong>SoloLearn</strong></span>, 2016</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Become a Certified Web Developer: HTML, CSS
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Become a Certified
+                                    Web Developer: HTML, CSS
                                     and JavaScript,
                                     <strong>Udemy</strong>, 2016
                                 </li>
-                                <li class="text-credentails"> <span class="bullet-icon white"></span>Front-End Web Developer Certification,
+                                <li class="text-credentails"> <span class="bullet-icon white"></span>Front-End Web
+                                    Developer Certification,
                                     <strong>CodeAcademy</strong>, 2017
                                 </li>
                             </div>
@@ -380,7 +400,8 @@
                         <div class="main-cert">
                             <h2 class="skills-title-other">Education</h2>
                             <div class="contain-credentials">
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Bachelor of Science in Information
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Bachelor of Science
+                                    in Information
                                     Technology, <strong>Saint
                                         Columban College</strong>, 2009-2014</li>
                             </div>
@@ -390,36 +411,47 @@
                         <div class="main-cert">
                             <h2 class="skills-title-other">Achievements</h2>
                             <div class="contain-credentials">
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Constructed websites using WordPress for over
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Constructed websites
+                                    using WordPress for over
                                     100 clients.
                                 </li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Rectified bugs in existing websites and
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Rectified bugs in
+                                    existing websites and
                                     implemented
                                     enhancements to improve functionality and efficiency.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Maintained, developed, and designed pages
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Maintained,
+                                    developed, and designed pages
                                     using various
                                     builders.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Formulated and implemented a site speed
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Formulated and
+                                    implemented a site speed
                                     optimization SOP for
                                     websites.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed an app to automate table creation
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed an app to
+                                    automate table creation
                                     for affiliate
                                     site product listings.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Stayed informed about the ever-changing SEO
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Stayed informed
+                                    about the ever-changing SEO
                                     landscape.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Implemented schema, microdata, and structured
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Implemented schema,
+                                    microdata, and structured
                                     data techniques
                                     for SEO benefits.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Crafted beautifully designed landing pages
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Crafted beautifully
+                                    designed landing pages
                                     for affiliate
                                     sites using Elementor.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed an app for easily distributing
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed an app for
+                                    easily distributing
                                     chunks of text and
                                     allowing users to copy multiple lines with ease.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed a percentage calculator to help
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed a
+                                    percentage calculator to help
                                     manage WooCommerce
                                     product listings.</li>
-                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed a case converter to assist in
+                                <li class="text-credentails"><span class="bullet-icon white"></span>Developed a case
+                                    converter to assist in
                                     formatting a
                                     multitude of titles.</li>
                             </div>

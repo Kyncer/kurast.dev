@@ -38,7 +38,7 @@ main {
     margin: 0 auto;
     display: flex;
     border-radius: 5px;
-    border: .5px solid #28282b;
+    border: 1px solid #28282b33;
     justify-content: end;
     height: 300px;
     max-width: 900px;
@@ -86,9 +86,10 @@ nav {
 }
 
 .main-nav {
+    gap: 5px;
     font-size: 21px;
     align-items: center;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .main-nav a {
@@ -126,26 +127,26 @@ img.profile-img {
 }
 
 .nav-link {
-    border-radius: 12px 12px 12px 12px;
-    padding: 0px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 5px;
     color: #F1F3F5;
-    font-weight: 600;
-    -webkit-transition: all 0.3s ease;
+    background: none;
+    border: none;
+    font-size: 21px;
 }
 
-.nav-link.active:before {
-    color: #e5991b;
-    content: "{ ";
-}
-
-.nav-link.active:after {
-    color: #e5991b;
-    content: " }";
+.nav-link.active {
+    color: #e5981b!important;
 }
 
 .nav-link:hover {
-    border-radius: 12px 12px 12px 12px;
-    background-color: #010101;
+    background-color: rgb(0, 0, 0);
+    transition: background-color .3s ease;
+}
+
+.nav-link.contact-btn {
+    border: 1px solid rgba(255, 255, 255, 0.308);
+    border-radius: 5px;
 }
 
 .links {
@@ -349,8 +350,8 @@ img.profile-img {
 .company-more-details-sub {
     font-weight: 400;
     color: rgb(148, 147, 147);
-    margin: 0;
     margin-top: 5px;
+    margin-bottom: 20px;
     margin-inline: 20px;
 }
 
@@ -825,7 +826,7 @@ img {
 
 }
 
-@media only screen and (max-width: 523px) {
+@media only screen and (max-width: 600px) {
     .main-nav {
         display: none;
     }

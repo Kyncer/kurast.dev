@@ -1,3 +1,50 @@
+//go to anchor and check active section
+function goToAnchor(anchorId) {
+  const element = document.getElementById(anchorId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function calculateVisibilityPercentage(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+  return (visibleHeight / element.offsetHeight) * 100;
+}
+
+function setActiveSection() {
+  const sections = document.querySelectorAll('.section');
+  let maxVisibility = 0;
+  let activeSection = null;
+
+  sections.forEach(section => {
+    const visibility = calculateVisibilityPercentage(section);
+
+    if (visibility > maxVisibility) {
+      maxVisibility = visibility;
+      activeSection = section;
+    }
+  });
+
+  sections.forEach(section => {
+    const isActive = section === activeSection;
+    section.classList.toggle('active', isActive);
+  });
+
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach((link, index) => {
+    const correspondingSection = sections[index];
+    const isActive = correspondingSection.classList.contains('active');
+    link.classList.toggle('active', isActive);
+  });
+}
+
+document.addEventListener('scroll', setActiveSection);
+document.addEventListener('DOMContentLoaded', setActiveSection);
+
+//check what area is active for url = currently not in use
+
 document.addEventListener('DOMContentLoaded', function () {
     // Get the current URL path
     var currentPath = window.location.pathname;
