@@ -1,58 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Style for the preview image */
-    .image-preview {
-      display: none;
-      position: absolute;
-      max-width: 50vh;
-      height: 400px;
-      border: 1px solid #ccc;
-      padding: 5px;
-      background-color: white;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
+<style>
+
+
+@layer demo {
+  fieldset {
+    grid-template-columns: repeat(5,auto);
+    
+    @media (prefers-reduced-motion: no-preference) {
+      label {
+        transition:  2s var(--ease-spring-5);
+      }
     }
-
-  </style>
-  <title>Image Preview on Hover</title>
-</head>
-<body>
-
-  <!-- Sample text with a data-image attribute containing the image URL -->
-  <span onmouseover="showImagePreview(event, this)" onmouseout="hideImagePreview()" data-image="/concept-1.png">
-    Hoverover me to see the image </span>
-
-  <!-- Image preview container -->
-  <div class="image-preview" id="imagePreview"></div>
-
-  <script>
-    function showImagePreview(event, element) {
-      // Get the image URL from the data-image attribute
-      var imageUrl = element.getAttribute("data-image");
-
-      // Get the image preview container
-      var imagePreview = document.getElementById("imagePreview");
-
-      // Set the image source and display the preview
-      imagePreview.innerHTML = `<img src="${imageUrl}" alt="Preview Image">`;
-
-      // Use offsetX and offsetY for more accurate positioning
-      imagePreview.style.left = event.offsetX + 'px';
-      imagePreview.style.top = event.offsetY + 'px';
-
-      imagePreview.style.display = "block";
+    
+    > label {
+      background: var(--_img) 50%/cover;
+      width: 0;
+      min-width: 100%;
     }
-
-    function hideImagePreview() {
-      // Hide the image preview on mouseout
-      var imagePreview = document.getElementById("imagePreview");
-      imagePreview.style.display = "none";
+    > label:has(input:checked) {
+      width: 18vw;
     }
-  </script>
+    > label:has(input:checked) + *
+    /*> label:has(+ label:has(input:checked)) */{
+      width: 8vw;
+    }
+    /* a hacky way to get all the cases*/
+    &:has(label:nth-child(2) > input:checked) label:nth-child(1),
+    &:has(label:nth-child(3) > input:checked) label:nth-child(2),
+    &:has(label:nth-child(4) > input:checked) label:nth-child(3),
+    &:has(label:nth-child(5) > input:checked) label:nth-child(4){
+      width: 8vw;
+    }
+  }
+}
 
-</body>
-</html>
+@layer demo.support {
+  html {
+    background: var(--gradient-9);
+    block-size: 100%;
+  }
+  
+  body {
+    min-block-size: 100%;
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+  }
+  
+  fieldset {
+    inline-size: 80vw;
+    
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 50vh;
+    gap: var(--size-3);
+    border: none;
+    
+    > label {
+      cursor: pointer;
+      border-radius: var(--radius-4);
+      
+      &:focus-within {
+        outline: 1px solid Highlight;
+        outline-offset: 5px;
+      }
+      
+      > input {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+</style>
+
+<fieldset>
+  <label style="--_img: url(https://assets.codepen.io/2585/fiddle-leaf.jpeg)">
+    <input type="radio" name="images" value="Fiddle Leaf">
+  </label>
+  <label style="--_img: url(https://assets.codepen.io/2585/pink-princess.jpeg)">
+    <input type="radio" name="images" value="Pink Princess">
+  </label>
+  <label style="--_img: url(https://assets.codepen.io/2585/kara-eads-zcVArTF8Frs-unsplash.jpg)">
+    <input type="radio" name="images" value="Monstera" checked>
+  </label>
+  <label style="--_img: url(https://assets.codepen.io/2585/pothos.jpeg)">
+    <input type="radio" name="images" value="Pothos">
+  </label>
+  <label style="--_img: url(https://assets.codepen.io/2585/rubber-tree.webp)">
+    <input type="radio" name="images" value="Rubber Tree">
+  </label>
+</fieldset>
