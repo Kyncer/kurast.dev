@@ -534,6 +534,27 @@ img.profile-img {
     background-color: #9e7f02;
 }
 
+.superior.superior-i {
+    background-color: #942626;
+    order: 0;
+}
+
+.advanced.advanced-i {
+    background-color: #1a4e34;
+    order: 0;
+}
+
+.familiar.familiar-i {
+    background-color: #0e388d;
+    order: 0;
+}
+
+.learning.learning-i {
+    background-color: #9e7f02;
+    order: 0;
+}
+
+
 .separator,
 .separator-footer {
     max-width: 900px;
