@@ -1,3 +1,8 @@
+//select
+$(document).ready(function() {
+  $('.custom-select').select2();
+});
+
 //go to anchor and check active section
 function goToAnchor(anchorId) {
   const element = document.getElementById(anchorId);

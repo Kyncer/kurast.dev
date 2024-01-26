@@ -1,93 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Basic Dropdown with Radio Inputs</title>
+</head>
 <style>
-
-
-@layer demo {
-  fieldset {
-    grid-template-columns: repeat(5,auto);
-    
-    @media (prefers-reduced-motion: no-preference) {
-      label {
-        transition:  2s var(--ease-spring-5);
-      }
-    }
-    
-    > label {
-      background: var(--_img) 50%/cover;
-      width: 0;
-      min-width: 100%;
-    }
-    > label:has(input:checked) {
-      width: 18vw;
-    }
-    > label:has(input:checked) + *
-    /*> label:has(+ label:has(input:checked)) */{
-      width: 8vw;
-    }
-    /* a hacky way to get all the cases*/
-    &:has(label:nth-child(2) > input:checked) label:nth-child(1),
-    &:has(label:nth-child(3) > input:checked) label:nth-child(2),
-    &:has(label:nth-child(4) > input:checked) label:nth-child(3),
-    &:has(label:nth-child(5) > input:checked) label:nth-child(4){
-      width: 8vw;
-    }
-  }
+/* Style the dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-@layer demo.support {
-  html {
-    background: var(--gradient-9);
-    block-size: 100%;
-  }
-  
-  body {
-    min-block-size: 100%;
-    display: grid;
-    place-content: center;
-    padding: var(--size-5);
-    gap: var(--size-5);
-  }
-  
-  fieldset {
-    inline-size: 80vw;
-    
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: 50vh;
-    gap: var(--size-3);
-    border: none;
-    
-    > label {
-      cursor: pointer;
-      border-radius: var(--radius-4);
-      
-      &:focus-within {
-        outline: 1px solid Highlight;
-        outline-offset: 5px;
-      }
-      
-      > input {
-        opacity: 0;
-      }
-    }
-  }
+/* Style the dropdown button */
+.dropbtn {
+  display: none; /* Hide the actual radio button */
 }
+
+/* Style the label to mimic the button appearance */
+.dropdown label {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  display: inline-block;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Style the labels inside the dropdown */
+.dropdown-content label {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown content when the label is clicked */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 
 </style>
-
-<fieldset>
-  <label style="--_img: url(https://assets.codepen.io/2585/fiddle-leaf.jpeg)">
-    <input type="radio" name="images" value="Fiddle Leaf">
-  </label>
-  <label style="--_img: url(https://assets.codepen.io/2585/pink-princess.jpeg)">
-    <input type="radio" name="images" value="Pink Princess">
-  </label>
-  <label style="--_img: url(https://assets.codepen.io/2585/kara-eads-zcVArTF8Frs-unsplash.jpg)">
-    <input type="radio" name="images" value="Monstera" checked>
-  </label>
-  <label style="--_img: url(https://assets.codepen.io/2585/pothos.jpeg)">
-    <input type="radio" name="images" value="Pothos">
-  </label>
-  <label style="--_img: url(https://assets.codepen.io/2585/rubber-tree.webp)">
-    <input type="radio" name="images" value="Rubber Tree">
-  </label>
-</fieldset>
+<body>
+  <div class="dropdown">
+    <input type="radio" id="option1" name="dropdown" class="dropbtn">
+    <label for="option1">Select Option</label>
+    
+    <div class="dropdown-content">
+      <input type="radio" id="option1" name="dropdown-content">
+      <label for="option1">Option 1</label>
+      
+      <input type="radio" id="option2" name="dropdown-content">
+      <label for="option2">Option 2</label>
+      
+      <input type="radio" id="option3" name="dropdown-content">
+      <label for="option3">Option 3</label>
+    </div>
+  </div>
+</body>
+</html>
