@@ -118,6 +118,9 @@
                         <div class="highlight-skills superior"
                             data-title="JavaScript is Web's dynamic language for interactive and responsive experiences">
                             JavaScript</div>
+                        <div class="highlight-skills familiar"
+                            data-title="jQuery is a fast, lightweight, and feature-rich JavaScript library. It simplifies many common tasks in web development, such as DOM manipulation, event handling, AJAX requests, and animation">
+                            jQuery</div>
                         <div class="highlight-skills learning"
                             data-title="TypeScript is a programming language developed and maintained by Microsoft. It is a superset of JavaScript, which means that any valid JavaScript code is also valid TypeScript code">
                             Typescript</div>
@@ -278,9 +281,6 @@
                         <div class="highlight-skills learning" style="max-width: 80px;"
                             data-title="Python is a high-level, general-purpose programming language known for its readability, simplicity, and versatility">
                             Python</div>
-                        <div class="highlight-skills learning" style="max-width: 80px;"
-                            data-title="Node.js is an open-source, server-side JavaScript runtime environment that allows developers to run JavaScript code on the server">
-                            Node.js</div>
                     </div>
                 </div>
             </div>
@@ -291,16 +291,13 @@
                     <span class="legend-icon familiar familiar-i"></span><span class="legend-title">Familiar</span>
                     <span class="legend-icon learning learning-i"></span><span class="legend-title">Learning</span>
                 </div>
-              
-                    <input type="checkbox" id="customCheckbox" class="custom-checkbox">
-                    <div class="custom-dropdown">
-                        <label for="customCheckbox">Select an option</label>
-                        <div class="options">
-                          <label class="sort-default">Sort: Default</label>
-                          <label class="expertise-level">Expertise level</label>
-                          <label class="group-by-category">Group by category</label>
-                        </div>
-                
+                <div class="dropdown">
+                    <div class="dropdown-select" onclick="toggleDropdown()">Sort: Default</div>
+                    <div class="dropdown-options" id="dropdownOptions">
+                        <div class="dropdown-option" onclick="selectOption('Sort: Default')">Sort: Default</div>
+                        <div class="dropdown-option" onclick="selectOption('By Rank')">By Rank</div>
+                        <div class="dropdown-option" onclick="selectOption('By Category')">By Category</div>
+                    </div>
                 </div>
             </div>
             <div class="foot-contain" id="section2"></div>
@@ -345,12 +342,14 @@
                                 <span class="arrow-right">></span>
                                 <div class="company-detail-inner">
                                     <span class="company-role">Web Developer</span><span
-                                        class="company-brand">PetcoDirect</span>
+                                        class="company-brand">Wild West Business</span>
+                                        
                                 </div>
+                                
                             </span>
                             <p class="company-more-details-sub">Panda Inc, a forefront AI innovator, I've flourished for
                                 two years, actively contributing to pioneering projects that reshape tech possibilities.
-                                In my role as a web developer at PetcoDirect Australia, I craft innovative code
+                                In my role as a web developer at Wild West, I craft innovative code
                                 solutions, elevating their site above competitors.</p>
                             <span class="company-detail"><span class="company-role">Frontend Web
                                     Developer</span><span class="company-brand">Onfolio.com</span>
@@ -360,8 +359,8 @@
                                     leveraging various techniques for performance enhancement.</p>
                             </span>
                             <span class="company-detail"><span class="company-role">General Virtual
-                                    Assistant</span><span class="company-brand">Pixel
-                                    Shades</span>
+                                    Assistant</span><span class="company-brand">Petco
+                                    Direct</span>
                                 <p class="company-more-details">In my role as a virtual assistant over the past three
                                     years, I've successfully managed numerous products, enhancing site functionality and
                                     improving user experiences. I've been instrumental in implementing strategic

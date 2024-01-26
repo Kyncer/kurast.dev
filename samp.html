@@ -3,76 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Basic Dropdown with Radio Inputs</title>
+  <style>
+    /* Your existing CSS styles here */
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      background-color: #f1f1f1;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .custom-checkbox {
+      display: none;
+    }
+
+    .options {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .options label {
+      display: block;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .options label:hover {
+      background-color: #ddd;
+    }
+
+    .options label.selected {
+      background-color: #ddd;
+    }
+  </style>
 </head>
-<style>
-/* Style the dropdown container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Style the dropdown button */
-.dropbtn {
-  display: none; /* Hide the actual radio button */
-}
-
-/* Style the label to mimic the button appearance */
-.dropdown label {
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  background-color: #f9f9f9;
-  display: inline-block;
-}
-
-/* Style the dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Style the labels inside the dropdown */
-.dropdown-content label {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color on hover */
-.dropdown-content label:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown content when the label is clicked */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-</style>
 <body>
-  <div class="dropdown">
-    <input type="radio" id="option1" name="dropdown" class="dropbtn">
-    <label for="option1">Select Option</label>
-    
-    <div class="dropdown-content">
-      <input type="radio" id="option1" name="dropdown-content">
-      <label for="option1">Option 1</label>
-      
-      <input type="radio" id="option2" name="dropdown-content">
-      <label for="option2">Option 2</label>
-      
-      <input type="radio" id="option3" name="dropdown-content">
-      <label for="option3">Option 3</label>
+
+  <div class="custom-dropdown">
+    <input type="checkbox" id="customCheckbox" class="custom-checkbox">
+    <label for="customCheckbox">Select an option</label>
+    <div class="options">
+      <label class="sort-default">Sort: Default</label>
+      <label class="expertise-level">Expertise level</label>
+      <label class="group-by-category">Group by category</label>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var dropdown = document.querySelector('.custom-dropdown');
+      var options = document.querySelectorAll('.options label');
+
+      dropdown.addEventListener('click', function() {
+        dropdown.classList.toggle('active');
+      });
+
+      options.forEach(function(option) {
+        option.addEventListener('click', function() {
+          options.forEach(function(opt) {
+            opt.classList.remove('selected');
+          });
+          option.classList.add('selected');
+          dropdown.classList.remove('active');
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
