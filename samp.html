@@ -4,75 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Your existing CSS styles here */
-    .custom-dropdown {
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .dropdown {
       position: relative;
       display: inline-block;
-      background-color: #f1f1f1;
-      padding: 10px;
+    }
+
+    .dropdown-select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
       cursor: pointer;
     }
 
-    .custom-checkbox {
-      display: none;
-    }
-
-    .options {
+    .dropdown-options {
       display: none;
       position: absolute;
       background-color: #fff;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      border-radius: 4px;
       z-index: 1;
     }
 
-    .options label {
-      display: block;
-      padding: 10px;
+    .dropdown-option {
+      padding: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .options label:hover {
-      background-color: #ddd;
-    }
-
-    .options label.selected {
-      background-color: #ddd;
     }
   </style>
 </head>
 <body>
 
-  <div class="custom-dropdown">
-    <input type="checkbox" id="customCheckbox" class="custom-checkbox">
-    <label for="customCheckbox">Select an option</label>
-    <div class="options">
-      <label class="sort-default">Sort: Default</label>
-      <label class="expertise-level">Expertise level</label>
-      <label class="group-by-category">Group by category</label>
-    </div>
+<div class="dropdown">
+  <div class="dropdown-select" onclick="toggleDropdown()">Sort</div>
+  <div class="dropdown-options" id="dropdownOptions">
+    <div class="dropdown-option" onclick="selectOption('Sort')">Sort</div>
+    <div class="dropdown-option" onclick="selectOption('Expertise')">Expertise</div>
+    <div class="dropdown-option" onclick="selectOption('Category')">Category</div>
   </div>
+</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var dropdown = document.querySelector('.custom-dropdown');
-      var options = document.querySelectorAll('.options label');
+<script>
+  function toggleDropdown() {
+    const dropdownOptions = document.getElementById("dropdownOptions");
+    dropdownOptions.style.display = dropdownOptions.style.display === "none" ? "block" : "none";
+  }
 
-      dropdown.addEventListener('click', function() {
-        dropdown.classList.toggle('active');
-      });
+  function selectOption(option) {
+    const dropdownSelect = document.querySelector(".dropdown-select");
+    dropdownSelect.textContent = option;
+    toggleDropdown();
 
-      options.forEach(function(option) {
-        option.addEventListener('click', function() {
-          options.forEach(function(opt) {
-            opt.classList.remove('selected');
-          });
-          option.classList.add('selected');
-          dropdown.classList.remove('active');
-        });
-      });
-    });
-  </script>
+    // You can add code here to handle the sorting or other actions based on the selected option
+    // For demonstration purposes, let's log the selected option to the console
+    console.log("Selected Option:", option);
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-select')) {
+      const dropdownOptions = document.getElementById("dropdownOptions");
+      if (dropdownOptions.style.display === "block") {
+        dropdownOptions.style.display = "none";
+      }
+    }
+  }
+</script>
 
 </body>
 </html>
