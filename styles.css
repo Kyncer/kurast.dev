@@ -134,6 +134,7 @@ img.profile-img {
     background: none;
     border: none;
     font-size: 21px;
+    font-weight: 200;
 }
 
 .nav-link.active {
