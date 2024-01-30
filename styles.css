@@ -87,7 +87,7 @@ nav {
 }
 
 .main-nav {
-    gap: 2px;
+    gap: 5px;
     font-size: 21px;
     align-items: center;
     margin-right: 20px;
@@ -97,7 +97,6 @@ nav {
     font-weight: 600;
     text-decoration: none;
     color: #F1F3F5;
-    padding: 8px 12px;
 }
 
 h1,
@@ -724,7 +723,7 @@ img.profile-img {
 .separator,
 .separator-footer {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 25px auto;
     padding: .5px;
 }
 
