@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-select {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .dropdown-options {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      z-index: 1;
-    }
-
-    .dropdown-option {
-      padding: 8px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Browser</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
 </head>
 <body>
+    <input type="text" id="urlInput" placeholder="Enter URL" />
+    <button onclick="loadUrl()">Go</button>
+    <iframe id="webFrame" src="https://www.example.com"></iframe>
 
-<div class="dropdown">
-  <div class="dropdown-select" onclick="toggleDropdown()">Sort</div>
-  <div class="dropdown-options" id="dropdownOptions">
-    <div class="dropdown-option" onclick="selectOption('Sort')">Sort</div>
-    <div class="dropdown-option" onclick="selectOption('Expertise')">Expertise</div>
-    <div class="dropdown-option" onclick="selectOption('Category')">Category</div>
-  </div>
-</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlInput = document.getElementById("urlInput");
+            const iframe = document.getElementById("webFrame");
 
-<script>
-  function toggleDropdown() {
-    const dropdownOptions = document.getElementById("dropdownOptions");
-    dropdownOptions.style.display = dropdownOptions.style.display === "none" ? "block" : "none";
-  }
+            // Function to update iframe source
+            function loadUrl() {
+                const url = urlInput.value.trim();
+                iframe.src = url;
+            }
 
-  function selectOption(option) {
-    const dropdownSelect = document.querySelector(".dropdown-select");
-    dropdownSelect.textContent = option;
-    toggleDropdown();
+            // Function to go back
+            function goBack() {
+                iframe.contentWindow.history.back();
+            }
 
-    // You can add code here to handle the sorting or other actions based on the selected option
-    // For demonstration purposes, let's log the selected option to the console
-    console.log("Selected Option:", option);
-  }
+            // Function to go forward
+            function goForward() {
+                iframe.contentWindow.history.forward();
+            }
 
-  // Close the dropdown if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-select')) {
-      const dropdownOptions = document.getElementById("dropdownOptions");
-      if (dropdownOptions.style.display === "block") {
-        dropdownOptions.style.display = "none";
-      }
-    }
-  }
-</script>
+            // Function to reload
+            function reload() {
+                iframe.contentWindow.location.reload();
+            }
 
+            // Event listener for the "Go" button
+            document.getElementById("goBtn").addEventListener("click", loadUrl);
+
+            // Example: You can add buttons or menu items to trigger the functions
+            // For simplicity, let's assume you have buttons with IDs "backBtn" and "forwardBtn"
+            document.getElementById("backBtn").addEventListener("click", goBack);
+            document.getElementById("forwardBtn").addEventListener("click", goForward);
+            document.getElementById("reloadBtn").addEventListener("click", reload);
+
+            // Event listener for pressing Enter in the input field
+            urlInput.addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    loadUrl();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
