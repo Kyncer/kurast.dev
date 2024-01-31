@@ -527,7 +527,7 @@ img.profile-img {
     object-fit: cover;
     height: 100%;
     border-radius: 0px 0px 5px 5px;
-   
+
 }
 
 .work-body-menu-logo-1 {
@@ -540,38 +540,89 @@ img.profile-img {
 
 
 .work-mini-menu-logo-1 {
-   background-color: #000000;
-   border-right: 1px solid #202123;
-   border-bottom: 1px solid #202123;
+    background-color: #000000;
+    border-right: 1px solid #202123;
+    border-bottom: 1px solid #202123;
     width: 20%;
     min-width: 20px;
 }
 
 .container-more {
     display: flex;
+    max-width: 1000px;
     width: 100%;
-    height: auto;
+    height: 6000px;
 }
 
 .more-line {
+    display: flex;
     width: 8px;
     height: auto;
     background-color: white;
 }
 
 .more-left {
-    margin-top: 25px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
     width: 50%;
-    height: 400px;
-    background-color: blue;
+    height: 1000px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+img.fixed-img {
+    padding-top: 80px;
+    object-fit: cover;
+    max-width: 480px;
+    position: sticky;
+    top: 0;
+    height: 300px;
+    transition: opacity 0.1s ease;
+    /* Adjust the transition duration as needed */
+}
+
+.accentbox {
+    display: flex;
+    padding-top: 200px;
+    position: sticky;
+    height: 20px;
+    width: 8px;
+    top: 0;
+}
+
+.boxie {
+    width: 10px;
+    height: 20px;
+    background-color: #e5991b;
 }
 
 .more-right {
-    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     width: 50%;
-    height: 400px;
-    background-color: yellow;
+    height: 1000px;
+    padding-left: 20px;
+    padding-bottom: 0;
+    padding-top: 20px;
 }
+
+.project-head {
+    margin-top: 200px;
+    font-size: 21px;
+    color: #F1F3F5;
+}
+
+.first-head {
+    margin-top: 130px;
+}
+
+.project-text {
+    margin-top: 20px;
+    color: #F1F3F5;
+}
+
 
 .copyright-text {
     margin-top: 8px;
@@ -966,6 +1017,7 @@ img {
 }
 
 @media only screen and (max-width: 810px) {
+
     .svg-whatsapp,
     .svg-github,
     .svg-facebook {

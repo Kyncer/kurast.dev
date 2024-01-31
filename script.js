@@ -1,4 +1,4 @@
-//select dropdown
+//SELECT DROPDOWN
 function toggleDropdown() {
   const dropdownOptions = document.getElementById("dropdownOptions");
   dropdownOptions.style.display = dropdownOptions.style.display === "none" ? "block" : "none";
@@ -24,7 +24,7 @@ window.onclick = function (event) {
   }
 }
 
-//for dropdown logic
+//FOR DROPDOWN LOGIC
 function reorderSkills() {
   const skillsContainer = document.querySelector('.skills-contain');
   const skillsList = Array.from(skillsContainer.children);
@@ -225,7 +225,7 @@ window.onclick = function (event) {
 }
 
 
-//darkmode
+//DARKMODE
 
 var checkbox = document.querySelector('input[name=mode]');
 
@@ -246,7 +246,7 @@ let trans = () => {
   }, 1000)
 }
 
-//for tabs
+//FOR TABS
 function openTab(tabName) {
   var i, tabContent;
 
@@ -267,7 +267,7 @@ function openTab(tabName) {
   event.currentTarget.classList.add("active");
 }
 
-//tooltip
+//TOOLTIP
 document.addEventListener('DOMContentLoaded', function () {
   var skills = document.querySelectorAll('.highlight-skills');
 
@@ -288,3 +288,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+//HIDE scroll img.fixed-img
+// JavaScript to handle hiding the image on scroll within a specific area
+var fixedImage = document.querySelector('.more-left .fixed-img');
+var container = document.querySelector('.container-more');
+var scrollStart = container.offsetTop + 10; // Adjust the start of the visible area
+var scrollEnd = scrollStart + container.offsetHeight; // Adjust the end of the visible area
+var fadeOutThreshold = scrollStart + 900; // Adjust the threshold to start fading out
+
+// Linear interpolation function
+function lerp(value, min, max, inMin, inMax) {
+  return ((value - inMin) / (inMax - inMin)) * (max - min) + min;
+}
+
+window.addEventListener('scroll', function () {
+  var scrollPosition = window.scrollY;
+
+  if (scrollPosition > scrollStart && scrollPosition < scrollEnd) {
+    // Calculate opacity based on scroll position within the container
+    var opacity = lerp(scrollPosition, .9, 1, scrollStart, scrollEnd);
+    fixedImage.style.opacity = opacity;
+
+    // Remove the "hidden" class to make the image visible
+    fixedImage.classList.remove('hidden');
+  } else {
+    // Add the "hidden" class to hide the image
+    fixedImage.classList.add('hidden');
+    fixedImage.style.opacity = 0; // Set initial opacity when above the container
+  }
+
+  // Check if scroll position is beyond the fade-out threshold
+  if (scrollPosition > fadeOutThreshold) {
+    fixedImage.classList.add('hidden');
+  }
+});
+
