@@ -556,7 +556,8 @@ img.profile-img {
 
 .more-line {
     display: flex;
-    width: 8px;
+    justify-content: center;
+    width: 3px;
     height: auto;
     background-color: white;
 }
@@ -565,6 +566,7 @@ img.profile-img {
     display: flex;
     align-items: start;
     justify-content: start;
+    margin-top: 25px;
     width: 50%;
     height: 1000px;
     padding-right: 20px;
@@ -572,23 +574,23 @@ img.profile-img {
 }
 
 img.fixed-img {
-    padding-top: 80px;
+    border-radius: 5px;
     object-fit: cover;
     max-width: 480px;
     position: sticky;
-    top: 0;
+    top: 120px;
     height: 300px;
     transition: opacity 0.1s ease;
     /* Adjust the transition duration as needed */
 }
 
 .accentbox {
+    margin-top: 160px;
     display: flex;
-    padding-top: 200px;
     position: sticky;
     height: 20px;
     width: 8px;
-    top: 0;
+    top: 250px;
 }
 
 .boxie {
@@ -609,13 +611,13 @@ img.fixed-img {
 }
 
 .project-head {
-    margin-top: 200px;
+    margin-top: 140px;
     font-size: 21px;
     color: #F1F3F5;
 }
 
 .first-head {
-    margin-top: 130px;
+    margin-top: 80px;
 }
 
 .project-text {
