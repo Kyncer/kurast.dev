@@ -62,7 +62,6 @@ main {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    /* Include padding and border in the element's total width */
     z-index: 1000;
 }
 
@@ -467,15 +466,16 @@ img.profile-img {
 .work-mini {
     background-color: #777f8a;
     width: 100%;
-    height: 40px;
+    height: 25px;
     display: flex;
+    align-items: center;
 }
 
 .work-mini-menu-2 {
     align-items: center;
     background-color: #d7dae9;
     display: flex;
-    height: 40px;
+    height: 25px;
     width: 100%;
 }
 
@@ -491,15 +491,14 @@ img.profile-img {
 
 .nav-url-text {
     font-size: 14px;
-    padding: 2px;
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .padlock {
     display: flex;
     justify-content: center;
-    border-right: 1px solid #202123d8;
-    width: 40px;
+    border-right: 1px solid #00000052;
+    width: 25px;
 }
 
 .work-body {
@@ -557,9 +556,10 @@ img.profile-img {
 .more-line {
     display: flex;
     justify-content: center;
-    width: 3px;
-    height: auto;
+    width: 1px;
     background-color: white;
+    height: auto;
+
 }
 
 .more-left {
@@ -568,7 +568,7 @@ img.profile-img {
     justify-content: start;
     margin-top: 25px;
     width: 50%;
-    height: 1000px;
+    height: 780px;
     padding-right: 20px;
     padding-top: 20px;
 }
@@ -581,7 +581,6 @@ img.fixed-img {
     top: 120px;
     height: 300px;
     transition: opacity 0.1s ease;
-    /* Adjust the transition duration as needed */
 }
 
 .accentbox {
@@ -589,7 +588,7 @@ img.fixed-img {
     display: flex;
     position: sticky;
     height: 20px;
-    width: 8px;
+    width: 5px;
     top: 250px;
 }
 
@@ -604,7 +603,7 @@ img.fixed-img {
     flex-direction: column;
     justify-content: start;
     width: 50%;
-    height: 1000px;
+    height: 750px;
     padding-left: 20px;
     padding-bottom: 0;
     padding-top: 20px;
@@ -641,7 +640,6 @@ img.fixed-img {
 .logo-img {
     padding: 8px;
     border-radius: 10px;
-    -webkit-transition: background-color 0.3s ease;
 }
 
 .svg-whatsapp:hover,
@@ -712,7 +710,6 @@ img.fixed-img {
     margin-top: 10px;
     margin-bottom: 10px;
     text-indent: -10px;
-    /* Set the indentation for the first line */
 }
 
 .legend-icon,
@@ -839,11 +836,8 @@ img {
     justify-content: center;
     align-items: center;
     width: 30px;
-    /* Adjust the width as needed */
     height: 18px;
-    /* Adjust the height as needed */
     background-color: #F1F3F5;
-    /* White background color */
 }
 
 .dark-button-left {
@@ -874,7 +868,6 @@ img {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    /* Center the container */
     flex: 1;
 }
 
@@ -980,7 +973,6 @@ img {
     border: 1px #58585880 solid;
     padding: 10px;
     cursor: pointer;
-    -webkit-transition: background-color 0.3s ease;
 }
 
 .tab.active {
@@ -1003,7 +995,6 @@ img {
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    /* Position the tooltip above the element */
     left: 50%;
     min-width: 250px;
     transform: translateX(-50%);
@@ -1135,7 +1126,7 @@ img.profile-img,
     transition: none;
 }
 
-/* Your dark mode styles go here */
+/* DARK MODE STYLES */
 [data-theme="dark"] body {
     background-color: #ebebeb;
     color: #030507;

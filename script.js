@@ -288,39 +288,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
-//HIDE scroll img.fixed-img
-// JavaScript to handle hiding the image on scroll within a specific area
-var fixedImage = document.querySelector('.more-left .fixed-img');
-var container = document.querySelector('.container-more');
-var scrollStart = container.offsetTop + 10; // Adjust the start of the visible area
-var scrollEnd = scrollStart + container.offsetHeight; // Adjust the end of the visible area
-var fadeOutThreshold = scrollStart + 900; // Adjust the threshold to start fading out
-
-// Linear interpolation function
-function lerp(value, min, max, inMin, inMax) {
-  return ((value - inMin) / (inMax - inMin)) * (max - min) + min;
-}
-
-window.addEventListener('scroll', function () {
-  var scrollPosition = window.scrollY;
-
-  if (scrollPosition > scrollStart && scrollPosition < scrollEnd) {
-    // Calculate opacity based on scroll position within the container
-    var opacity = lerp(scrollPosition, .9, 1, scrollStart, scrollEnd);
-    fixedImage.style.opacity = opacity;
-
-    // Remove the "hidden" class to make the image visible
-    fixedImage.classList.remove('hidden');
-  } else {
-    // Add the "hidden" class to hide the image
-    fixedImage.classList.add('hidden');
-    fixedImage.style.opacity = 0; // Set initial opacity when above the container
-  }
-
-  // Check if scroll position is beyond the fade-out threshold
-  if (scrollPosition > fadeOutThreshold) {
-    fixedImage.classList.add('hidden');
-  }
-});
-
