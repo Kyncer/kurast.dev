@@ -4,91 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            height: 200vh;
-            /* Set a tall height to enable scrolling */
-            margin: 0;
-            padding: 0;
-            transition: background-image 0.5s ease;
-            /* Add smooth transition */
-            background-size: cover;
-            background-position: center;
-        }
+    <title>Open Separate Window</title>
+    <script>
+        function openSeparateWindow() {
+            // Open a new window with specified dimensions and features
+            var newWindow = window.open('', 'SeparateWindow', 'width=600,height=400');
 
-        .container-more {
-            display: flex;
-        }
+            // Write content to the new window
+            newWindow.document.write('<html><head><title>Separate Window</title></head><body>');
+            newWindow.document.write('<h1>This is a separate window!</h1>');
+            newWindow.document.write('<p>Feel free to add your HTML content here.</p>');
+            newWindow.document.write('</body></html>');
 
-        .more-left {
-            flex: 1;
+            // Close the document stream
+            newWindow.document.close();
         }
-
-        .more-right {
-            flex: 1;
-            padding: 20px;
-            /* Add padding as needed */
-        }
-
-        .project-head,
-        .project-text {
-            display: block;
-            margin-bottom: 10px;
-        }
-    </style>
-    <title>Change Background on Scroll</title>
+    </script>
 </head>
 
 <body>
-    <div class="container-more">
-        <div class="more-left"><img src="images/forbody-work.png" alt="samp-cover" class="fixed-img"></div>
-        <div class="more-line">
-            <div class="accentbox"><span class="boxie"></span></div>
-        </div>
-        <div class="more-right">
-            <span class="project-head first-head">Beyond aesthetics, functionality is my approach</span>
-            <span class="project-text">With a meticulous approach to every detail, I ensure that your WooCommerce site
-                is more than just a digital storefront – it's a dynamic, engaging, and user-centric platform that
-                captivates visitors across devices.</span>
-            <span class="project-head">Test modern apps directly in the browser</span>
-            <span class="project-text">Watch your end-to-end and component tests run in real-time as you develop your
-                applications. Cypress’s simple, yet powerful API runs as fast as your browser can render content.</span>
-            <span class="project-head">Test modern apps directly in the browser</span>
-            <span class="project-text">Watch your end-to-end and component tests run in real-time as you develop your
-                applications. Cypress’s simple, yet powerful API runs as fast as your browser can render content.</span>
-        </div>
-    </div>
-
-    <script>
-        // Get the body element
-        var body = document.body;
-
-        // List of background images
-        var backgroundImages = [
-            'image1.jpg',
-            'image2.jpg',
-            'image3.jpg',
-            'image4.jpg',
-            'image5.jpg'
-        ];
-
-        // Function to change background image on scroll
-        function changeBackground() {
-            var scrollPosition = window.scrollY;
-
-            // Define the scroll length at which you want to change the background
-            var scrollThreshold = 500;
-
-            // Calculate the index of the image to display based on the scroll position
-            var imageIndex = Math.floor(scrollPosition / scrollThreshold) % backgroundImages.length;
-
-            // Set the background image
-            body.style.backgroundImage = "url('" + backgroundImages[imageIndex] + "')";
-        }
-
-        // Attach the function to the scroll event
-        window.addEventListener('scroll', changeBackground);
-    </script>
+    <button onclick="openSeparateWindow()">Open Separate Window</button>
 </body>
 
 </html>
