@@ -1,74 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Browser</title>
     <style>
         body {
+            height: 200vh;
+            /* Set a tall height to enable scrolling */
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            transition: background-image 0.5s ease;
+            /* Add smooth transition */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container-more {
             display: flex;
-            flex-direction: column;
         }
-        input {
-            padding: 10px;
-            font-size: 16px;
-        }
-        iframe {
+
+        .more-left {
             flex: 1;
-            border: none;
+        }
+
+        .more-right {
+            flex: 1;
+            padding: 20px;
+            /* Add padding as needed */
+        }
+
+        .project-head,
+        .project-text {
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
+    <title>Change Background on Scroll</title>
 </head>
+
 <body>
-    <input type="text" id="urlInput" placeholder="Enter URL" />
-    <button onclick="loadUrl()">Go</button>
-    <iframe id="webFrame" src="https://www.example.com"></iframe>
+    <div class="container-more">
+        <div class="more-left"><img src="images/forbody-work.png" alt="samp-cover" class="fixed-img"></div>
+        <div class="more-line">
+            <div class="accentbox"><span class="boxie"></span></div>
+        </div>
+        <div class="more-right">
+            <span class="project-head first-head">Beyond aesthetics, functionality is my approach</span>
+            <span class="project-text">With a meticulous approach to every detail, I ensure that your WooCommerce site
+                is more than just a digital storefront – it's a dynamic, engaging, and user-centric platform that
+                captivates visitors across devices.</span>
+            <span class="project-head">Test modern apps directly in the browser</span>
+            <span class="project-text">Watch your end-to-end and component tests run in real-time as you develop your
+                applications. Cypress’s simple, yet powerful API runs as fast as your browser can render content.</span>
+            <span class="project-head">Test modern apps directly in the browser</span>
+            <span class="project-text">Watch your end-to-end and component tests run in real-time as you develop your
+                applications. Cypress’s simple, yet powerful API runs as fast as your browser can render content.</span>
+        </div>
+    </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const urlInput = document.getElementById("urlInput");
-            const iframe = document.getElementById("webFrame");
+        // Get the body element
+        var body = document.body;
 
-            // Function to update iframe source
-            function loadUrl() {
-                const url = urlInput.value.trim();
-                iframe.src = url;
-            }
+        // List of background images
+        var backgroundImages = [
+            'image1.jpg',
+            'image2.jpg',
+            'image3.jpg',
+            'image4.jpg',
+            'image5.jpg'
+        ];
 
-            // Function to go back
-            function goBack() {
-                iframe.contentWindow.history.back();
-            }
+        // Function to change background image on scroll
+        function changeBackground() {
+            var scrollPosition = window.scrollY;
 
-            // Function to go forward
-            function goForward() {
-                iframe.contentWindow.history.forward();
-            }
+            // Define the scroll length at which you want to change the background
+            var scrollThreshold = 500;
 
-            // Function to reload
-            function reload() {
-                iframe.contentWindow.location.reload();
-            }
+            // Calculate the index of the image to display based on the scroll position
+            var imageIndex = Math.floor(scrollPosition / scrollThreshold) % backgroundImages.length;
 
-            // Event listener for the "Go" button
-            document.getElementById("goBtn").addEventListener("click", loadUrl);
+            // Set the background image
+            body.style.backgroundImage = "url('" + backgroundImages[imageIndex] + "')";
+        }
 
-            // Example: You can add buttons or menu items to trigger the functions
-            // For simplicity, let's assume you have buttons with IDs "backBtn" and "forwardBtn"
-            document.getElementById("backBtn").addEventListener("click", goBack);
-            document.getElementById("forwardBtn").addEventListener("click", goForward);
-            document.getElementById("reloadBtn").addEventListener("click", reload);
-
-            // Event listener for pressing Enter in the input field
-            urlInput.addEventListener("keyup", function(event) {
-                if (event.key === "Enter") {
-                    loadUrl();
-                }
-            });
-        });
+        // Attach the function to the scroll event
+        window.addEventListener('scroll', changeBackground);
     </script>
 </body>
+
 </html>

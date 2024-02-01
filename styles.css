@@ -550,7 +550,7 @@ img.profile-img {
     display: flex;
     max-width: 1000px;
     width: 100%;
-    height: 6000px;
+    height: auto;
 }
 
 .more-line {
@@ -566,11 +566,19 @@ img.profile-img {
     display: flex;
     align-items: start;
     justify-content: start;
-    margin-top: 25px;
+    margin-top: -200px;
     width: 50%;
-    height: 780px;
+    height: 700px;
     padding-right: 20px;
     padding-top: 20px;
+}
+
+.dont-move {
+    height: 580px;
+}
+
+.first-more {
+    margin-top: 80px;
 }
 
 img.fixed-img {
@@ -584,7 +592,7 @@ img.fixed-img {
 }
 
 .accentbox {
-    margin-top: 160px;
+    margin-top: 230px;
     display: flex;
     position: sticky;
     height: 20px;
@@ -602,15 +610,15 @@ img.fixed-img {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 50%;
-    height: 750px;
+    width: 100%;
+    height: auto;
     padding-left: 20px;
     padding-bottom: 0;
     padding-top: 20px;
 }
 
 .project-head {
-    margin-top: 140px;
+    margin-top: 80px;
     font-size: 21px;
     color: #F1F3F5;
 }
@@ -619,8 +627,13 @@ img.fixed-img {
     margin-top: 80px;
 }
 
+.first-head-2nd {
+    margin-top: 95px;
+}
+
 .project-text {
     margin-top: 20px;
+    margin-bottom: 40px;
     color: #F1F3F5;
 }
 
