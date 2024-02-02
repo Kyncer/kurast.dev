@@ -288,33 +288,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
-
-//change image on scroll
-var body = document.body;
-
-        // List of background images
-        var backgroundImages = [
-            'bg-cover.png',
-            'cosmic_tales_44946_Woodinvilles_Top_Lunch_Spots_8c842a44-b26a-4448-ba9b-7b0960e24f14.png',
-            'image3.jpg',
-            'image4.jpg',
-            'image5.jpg'
-        ];
-
-        // Function to change background image on scroll
-        function changeBackground() {
-            var scrollPosition = window.scrollY;
-
-            // Define the scroll length at which you want to change the background
-            var scrollThreshold = 500;
-
-            // Calculate the index of the image to display based on the scroll position
-            var imageIndex = Math.floor(scrollPosition / scrollThreshold) % backgroundImages.length;
-
-            // Set the background image
-            body.style.backgroundImage = "url('" + backgroundImages[imageIndex] + "')";
-        }
-
-        // Attach the function to the scroll event
-        window.addEventListener('scroll', changeBackground);
