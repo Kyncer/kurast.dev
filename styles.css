@@ -605,6 +605,25 @@ img.profile-img {
     min-width: 20px;
 }
 
+.project-arch {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 25px;
+    text-align: right;
+    font-size: 13px;
+    gap: 10px;
+}
+
+.project-arch-title {
+    border-bottom: 1px solid #e5981b;
+    align-items: center;
+}
+
+.arrowproj {
+    margin-top: 10px;
+}
+
 .copyright-text {
     margin-top: 8px;
 }
