@@ -276,7 +276,6 @@ img.profile-img {
 .main-experience {
     max-width: 1000px;
     margin-bottom: 10px;
-    justify-content: inline-start;
     flex-wrap: wrap;
     flex: 1;
 }
@@ -341,8 +340,6 @@ img.profile-img {
 }
 
 .years {
-    display: flex;
-    flex: column;
     margin: auto 20px;
     justify-content: center;
 }
@@ -454,14 +451,18 @@ img.profile-img {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    gap: 40px;
+    gap: 50px;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 .container-work {
+    height: 90vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     position: sticky;
-    height: 640px;
     top: 70px;
     border-radius: 5px;
     max-width: 1000px;
@@ -510,7 +511,7 @@ img.profile-img {
 }
 
 .title-work-container {
-    height: 45px;
+    height: 40px;
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -562,22 +563,16 @@ img.profile-img {
 
 .work-body {
     border-radius: 0px 0px 5px 5px;
-    background-color: black;
     width: 100%;
     display: flex;
     height: auto;
 
 }
 
-.work-body-1 {
-    border-radius: 0px 0px 0px 5px;
-    display: flex;
-}
-
 .work-body-2 {
     border-radius: 0px 0px 5px 0px;
-    background-color: #0d0e12;
     width: 100%;
+    height: 100%;
 }
 
 .body-image {
@@ -611,7 +606,6 @@ img.profile-img {
     display: flex;
     justify-content: end;
     align-items: center;
-    margin-top: 25px;
     text-align: right;
     font-size: 13px;
     gap: 10px;
