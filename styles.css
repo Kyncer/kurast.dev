@@ -565,7 +565,8 @@ img.profile-img {
     background-color: black;
     width: 100%;
     display: flex;
-    flex: 1;
+    height: auto;
+
 }
 
 .work-body-1 {
@@ -582,10 +583,11 @@ img.profile-img {
 .body-image {
     width: 100%;
     max-width: 100%;
+    height: auto;
+    max-height: 580px;
     object-fit: cover;
-    height: 100%;
+    object-position: center top;
     border-radius: 0px 0px 5px 5px;
-
 }
 
 .work-body-menu-logo-1 {
