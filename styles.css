@@ -450,7 +450,7 @@ img.profile-img {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    gap: 50px;
+    gap: 40px;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
@@ -522,8 +522,6 @@ img.profile-img {
     border-radius: 5px;
     max-width: 1000px;
 }
-
-.container-app-main {}
 
 .title-app-container {
     height: 40px;
@@ -1014,17 +1012,17 @@ img {
 .tooltip {
     font-size: 14px;
     visibility: hidden;
+    text-align: center;
     background-color: #333;
     color: #fff;
-    text-align: center;
     border-radius: 5px;
     border: 1px solid #585858;
     padding: 5px;
     position: absolute;
     z-index: 1;
     bottom: 125%;
-    left: 50%;
     min-width: 250px;
+    left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     white-space: normal;
