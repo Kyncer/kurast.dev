@@ -535,11 +535,36 @@ img.profile-img {
 
 .app-body {
     display: flex;
-    width: 100%;
     background-color: gray;
     height: 100%;
     border-radius: 0px 0px 5px 5px;
+    flex-wrap: wrap;
+}
 
+.app-item {
+    height: 180px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-item:last-child {
+    margin-right: 5px;
+}
+
+.app-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: green;
+    margin-bottom: 5px;
+}
+
+.app-name {
+    font-size: 14px;
+    letter-spacing: -.5px;
 }
 
 .title-work-container {
@@ -1100,6 +1125,11 @@ img {
     .skills-bottom {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .app-body {
+        align-items: center;
+        justify-content: center;
     }
 }
 
