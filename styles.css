@@ -23,7 +23,6 @@ body {
 
 main {
     box-sizing: border-box;
-    margin-bottom: 100px;
     min-width: 360px;
     padding: 0 20px;
     align-items: center;
@@ -457,13 +456,13 @@ img.profile-img {
 }
 
 .container-work {
-    height: 90vh;
+    height: 70vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: 70px;
+    top: 10px;
     border-radius: 5px;
     max-width: 1000px;
 }
@@ -501,13 +500,48 @@ img.profile-img {
 }
 
 .sixth-works-hidden {
-    opacity: 0;
+    opacity: 1;
+    z-index: 0;
+}
+
+.main-app {
+    top: 90px;
+    position: relative;
+    height: 90vh;
+}
+
+.separator-app {
+    display: flex;
+    height: 50px;
 }
 
 .container-app {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    border-radius: 5px;
     max-width: 1000px;
-    height: 1000px;
+}
+
+.container-app-main {}
+
+.title-app-container {
+    height: 40px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    display: flex;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #202123;
+}
+
+.app-body {
+    display: flex;
+    width: 100%;
+    background-color: gray;
+    height: 100%;
+    border-radius: 0px 0px 5px 5px;
+
 }
 
 .title-work-container {
@@ -779,7 +813,6 @@ img.profile-img {
 
 .separator-footer {
     display: none;
-    margin: 40px auto;
 }
 
 .container-name {
