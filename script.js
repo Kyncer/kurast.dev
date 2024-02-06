@@ -62,18 +62,51 @@ document.addEventListener('DOMContentLoaded', function () {
   skillsContainer.dataset.defaultOrder = skillsContainer.innerHTML;
 });
 
+// Global variable to store the original order of skills
+let originalSkillsOrder = null;
+
 // Function to reset the order to the default state
 function resetOrder() {
   const skillsContainer = document.querySelector('.skills-contain');
 
-  // Restore the default order
-  skillsContainer.innerHTML = skillsContainer.dataset.defaultOrder;
+  // Ensure the original order is stored
+  if (!originalSkillsOrder) {
+    originalSkillsOrder = Array.from(skillsContainer.children);
+  }
+
+  // Clear the existing content of the skills container
+  skillsContainer.innerHTML = '';
+
+  // Restore the original order
+  originalSkillsOrder.forEach(skill => {
+    skillsContainer.appendChild(skill.cloneNode(true));
+  });
 }
 
+// Function to handle selecting an option
+function selectOption(option) {
+  const dropdownSelect = document.querySelector(".dropdown-select");
+  dropdownSelect.textContent = option;
+
+  if (option === "Sort: Default") {
+    // Do not sort, maintain the default order
+    resetOrder();
+  } else if (option === "By Rank") {
+    // Sort skills based on the default CSS styles
+    reorderSkills();
+  }
+
+  toggleDropdown();
+}
+
+// Store the original order when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const skillsContainer = document.querySelector('.skills-contain');
+  originalSkillsOrder = Array.from(skillsContainer.children);
+});
 
 
-
-//go to anchor and check active section
+//GO TO ANCHOR
 function goToAnchor(anchorId) {
   const element = document.getElementById(anchorId);
   if (element) {

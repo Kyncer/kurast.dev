@@ -182,7 +182,6 @@ img.profile-img {
     justify-content: space-between;
     align-items: start;
     margin-inline: 10px;
-
 }
 
 .skills li,
@@ -747,7 +746,7 @@ img.profile-img {
 }
 
 .foot-contain {
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 0px 0px 5px 5px;
     height: 20px;
     display: flex;
