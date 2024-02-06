@@ -88,7 +88,6 @@ nav {
     gap: 5px;
     font-size: 21px;
     align-items: center;
-    margin-right: 20px;
 }
 
 .main-nav a {
@@ -535,6 +534,7 @@ img.profile-img {
 
 .app-body {
     display: flex;
+    justify-content: space-evenly;
     background-color: gray;
     height: 100%;
     border-radius: 0px 0px 5px 5px;
@@ -879,6 +879,16 @@ img {
     opacity: 1;
 }
 
+.container-verdark {
+    align-items: center;
+    display: flex;
+    gap: 10px
+}
+
+.ver {
+    color: #F1F3F5;
+}
+
 .darkmode {
     display: flex;
     padding-inline: 3px;
@@ -1125,11 +1135,6 @@ img {
     .skills-bottom {
         flex-direction: column;
         gap: 10px;
-    }
-
-    .app-body {
-        align-items: center;
-        justify-content: center;
     }
 }
 
