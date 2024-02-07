@@ -534,11 +534,27 @@ img.profile-img {
 .app-body {
     display: flex;
     justify-content: space-evenly;
-    background-color: gray;
+    background-size: cover;
+    background-image: url('images/copyprompt-image.png');
     height: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.app-innter-body {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    background: hsla(0, 0%, 38%, 0.527);
+    backdrop-filter: blur(6px);
     border-radius: 0px 0px 5px 5px;
     flex-wrap: wrap;
 }
+
+.body-image-cover {
+    position: absolute;
+    opacity: 1;
+}
+
 
 .app-item {
     height: 180px;
@@ -553,17 +569,57 @@ img.profile-img {
     margin-right: 5px;
 }
 
-.app-icon {
+.app-icon,
+.app-icon-copyprompt {
     height: 100px;
     width: 100px;
     border-radius: 20px;
-    background-color: green;
+    background: linear-gradient(hsl(0 0% 100% / 0.15), #0000), hsl(0 0% 4%);
+    box-shadow:
+        0 -1px hsl(0 0% 0% / 0.5) inset,
+        0 2px 4px hsl(0 0% 0% / 0.5),
+        0 1px hsl(0 0% 100% / 0.5) inset;
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-1-copyprompt {
+    border-radius: 2px;
+    background-color: #e5981b;
+    width: 75%;
+    height: 7px;
+}
+
+.app-1-m-copyprompt {
+    border-radius: 2px;
+    width: 75%;
+    height: 7px;
+    display: flex;
+    gap: 5px;
+}
+
+.app-1-1-copyprompt {
+    border-radius: 2px;
+    background-color: #e5981b;
+    height: 7px;
+    width: 30%;
+}
+
+.app-1-a-copyprompt {
+    border-radius: 2px;
+    background-color: #e5981b;
+    width: 75%;
+    height: 20px;
 }
 
 .app-name {
     font-size: 14px;
     letter-spacing: -.5px;
+    color: #F1F3F5;
 }
 
 .title-work-container {
