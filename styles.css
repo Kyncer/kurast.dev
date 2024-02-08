@@ -556,10 +556,10 @@ img.profile-img {
     opacity: 1;
 }
 
-
 .app-item {
+    max-width: 160px;
+    width: 100%;
     height: 180px;
-    width: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
