@@ -65,6 +65,7 @@ main {
 }
 
 .logo-img {
+    margin-inline: 3px;
     max-width: 30px;
     height: auto;
     margin: 0 10px;
@@ -745,7 +746,7 @@ img.profile-img {
 .svg-github,
 .svg-facebook,
 .logo-img {
-    padding: 8px;
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -1282,14 +1283,30 @@ img.profile-img,
 }
 
 [data-theme="dark"] .skills {
-    color: #030507;
+    color: #F1F3F5;
+}
+
+[data-theme="dark"] .skills-title {
+    color: #F1F3F5;
 }
 
 [data-theme="dark"] h2 {
-    color: #16191d;
+    color: #F1F3F5;
 }
 
 [data-theme="dark"] li {
+    color: #F1F3F5;
+}
+
+[data-theme="dark"] .project-arch-title {
+    color: #16191d;
+}
+
+[data-theme="dark"] span.arrowproj svg {
+    fill: #16191d;
+}
+
+[data-theme="dark"] span.ver {
     color: #16191d;
 }
 
@@ -1323,4 +1340,8 @@ img.profile-img,
 [data-theme="dark"] .darkmode {
     background-color: #16191d;
     transition: background-color 0.2s ease;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: #F1F3F5;
 }
