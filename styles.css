@@ -617,6 +617,127 @@ img.profile-img {
     height: 20px;
 }
 
+.app-1-table-generator {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 75%;
+}
+
+.app-1-1-table-generator {
+    display: flex;
+    width: 33%;
+    height: 7px;
+    background-color: #e5981b;
+    border-radius: 2px;
+}
+
+.app-1-m-table-generator {
+    display: flex;
+    width: 75%;
+    height: 30px;
+    gap: 5px;
+}
+
+.app-1-1-m-table-generator {
+    width: 75%;
+    height: 30px;
+    background-color: #e5981b;
+    border-radius: 2px;
+}
+
+.app-1-2-m-table-generator {
+    width: 25%;
+    height: 30px;
+    background-color: #e5981b;
+    border-radius: 2px;
+}
+
+.app-1-case-converter {
+    width: 75%;
+    height: 53px;
+    background-color: #e5981b;
+    border-radius: 2px;
+}
+
+.app-2-case-converter {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    height: 7px;
+}
+
+.app-1-1-case-converter {
+    width: 15%;
+    height: 7px;
+    background-color: #e5981b;
+    border-radius: 2px;
+}
+
+.app-triangle-maps {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 26px solid #e5981b;
+    margin-top: -15px
+}
+
+.app-circle-maps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #e5981b;
+    border-radius: 100px;
+    z-index: 2;
+}
+
+.inside-circle-maps {
+    border-radius: 100px;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(hsl(0 0% 100% / 0.15), #0000), hsl(0 0% 4%);
+}
+
+.app-globe-maps {
+    width: 75%;
+    height: 20px;
+    background-color: #e5981b;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    margin-top: -3px;
+}
+
+.app-1-invoice-maker {
+    justify-content: end;
+    gap: 5px;
+    display: flex;
+    height: 7px;
+    width: 75%;
+
+}
+
+.app-1-1-invoice-maker {
+    border-radius: 2px;
+    width: 70%;
+    height: 7px;
+    background-color: #e5981b;
+}
+
+.app-1-m-invoice-maker {
+    border-radius: 2px;
+    width: 30%;
+    height: 7px;
+    background-color: #e5981b;
+}
+
+.hidden-invoice {
+    opacity: 0;
+}
+
+
 .app-name {
     font-size: 14px;
     letter-spacing: -.5px;
