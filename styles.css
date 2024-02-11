@@ -21,7 +21,8 @@ body {
     transition: background-color .3s ease;
 }
 
-main {
+main,
+.copy-prompt-pad {
     box-sizing: border-box;
     min-width: 360px;
     padding: 0 20px;
@@ -79,7 +80,6 @@ main {
 
 nav {
     display: flex;
-    height: 50px;
     list-style: none;
     color: #F1F3F5;
     z-index: 99;
@@ -149,6 +149,7 @@ img.profile-img {
 }
 
 .links {
+    white-space: nowrap;
     text-decoration: none;
     color: #e5991b;
 }
@@ -455,7 +456,7 @@ img.profile-img {
 }
 
 .container-work {
-    height: 70vh;
+    height: 70dvh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     display: flex;
@@ -504,9 +505,11 @@ img.profile-img {
 }
 
 .main-app {
+    max-width: 1000px;
+    width: 100%;
     top: 90px;
     position: relative;
-    height: 90vh;
+    height: 90dvh;
 }
 
 .separator-app {
@@ -517,7 +520,8 @@ img.profile-img {
 .container-app {
     display: flex;
     flex-direction: column;
-    height: 600px;
+    max-height: 600px;
+    height: 100%;
     border-radius: 5px;
     max-width: 1000px;
 }
@@ -640,14 +644,14 @@ img.profile-img {
 }
 
 .app-1-1-m-table-generator {
-    width: 75%;
+    width: 65%;
     height: 30px;
     background-color: #e5981b;
     border-radius: 2px;
 }
 
 .app-1-2-m-table-generator {
-    width: 25%;
+    width: 30%;
     height: 30px;
     background-color: #e5981b;
     border-radius: 2px;
@@ -1279,6 +1283,10 @@ img {
 
 
 @media only screen and (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+
     .container {
         flex-direction: column;
     }
@@ -1297,8 +1305,23 @@ img {
 }
 
 @media only screen and (max-width: 623px) {
-    .main-nav {
-        display: none;
+    .main-app {
+        margin-top: 90px;
+        height: 90dvh;
+    }
+
+    .container-app {
+        display: flex;
+        flex-direction: column;
+        max-height: 500px;
+        height: 100%;
+        border-radius: 5px;
+        max-width: 1000px;
+    }
+
+    .app-item {
+        height: 150px;
+        transform: scale(0.8);
     }
 
     .exp-years {
