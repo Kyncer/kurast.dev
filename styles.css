@@ -720,7 +720,6 @@ img.profile-img {
     display: flex;
     height: 7px;
     width: 75%;
-
 }
 
 .app-1-1-invoice-maker {
@@ -746,6 +745,10 @@ img.profile-img {
     font-size: 14px;
     letter-spacing: -.5px;
     color: #F1F3F5;
+}
+
+.for-apps-full-details {
+    margin-top: 6px;
 }
 
 .title-work-container {
@@ -804,7 +807,6 @@ img.profile-img {
     width: 100%;
     display: flex;
     height: auto;
-
 }
 
 .work-body-2 {
@@ -852,6 +854,7 @@ img.profile-img {
 .project-arch-title {
     border-bottom: 1px solid #e5981b;
     align-items: center;
+    font-weight: 600;
 }
 
 .arrowproj {

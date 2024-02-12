@@ -4,170 +4,910 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="kurast.dev">
-    <meta property="og:description"
-        content="Freelance web developer, webmaster, and SEO specialist. Ready to turn your online presence into a pixel-perfect website.">
-    <meta property="og:image" content="your-image-url.jpg">
-    <meta property="og:url" content="https://kurast.dev">
-
-    <title>CopyPrompt - kurast.dev</title>
-
-    <link rel="stylesheet" href="styles.css?v=1.0">
-
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <title>CopyPrompt – kurast.dev</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+        body {
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            background-color: #16191d;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
 
+        .container {
+            max-width: 900px;
+            border: 0.5px solid #28282b;
+            border-radius: 5px 5px 5px 5px;
+            border-top: none;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .opennew {
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        .clip {
+            cursor: pointer;
+            margin-right: 12px;
+            margin-top: 3px;
+        }
+
+        .close-btn {
+            margin-left: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 21px
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+        .container-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 0.5px solid #28282b;
+            border-bottom: none;
+            border-radius: 5px 5px 0px 0px;
+            background-color: #202123;
+            text-align: center;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 200;
+        }
+
+        .containbig {
+            width: 100%;
+            display: flex;
+        }
+
+        .copybigfield {
+            margin-top: 4px;
+            cursor: pointer;
+        }
+
+        .containerbigfield {
+            display: flex;
+            gap: 5px;
+        }
+
+        .hide-bigfield-button {
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            background-color: white;
+            border: 0;
+            margin: 0;
+            margin-right: 3px;
+            width: 80%;
+            /* Change this to the desired background color code */
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border: none;
+        }
+
+        #bigField {
+            border: none;
+            background-color: white;
+            /* Change this to the desired background color code */
+        }
+
+        .copyFieldContainer {
+            display: flex;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .copyField {
+            border: none;
+            margin-right: 10px;
+            height: 36px;
+            box-sizing: border-box;
+        }
+
+        .contain-all-btn {
+            margin-inline: 5px;
+        }
+
+        #buttonGroup {
+            display: flex;
+            width: 100%;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .copyButton {
+            width: 100px;
+            font-size: 12px;
+            background-color: white;
+            border: 0;
+            padding: 10px;
+        }
+
+        .copyButton:last-child {
+            margin-right: 5px;
+            margin-left: 3px;
+        }
+
+        .convert-btn,
+        #addFieldButton,
+        #replaceFieldButton,
+        #distributeButton,
+        #removeEmptyLinesButton,
+        #refreshButton,
+        #decrementButton,
+        #resetCountersButton,
+        #loadButton,
+        #saveButton {
+            border-radius: 3px;
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #343541;
+            flex: 1;
+            white-space: nowrap;
+            border: 0;
+            padding: 8px 15px;
+            color: #FFFFFF;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        #distributeButton:hover,
+        #addFieldButton:hover {
+            background-color: #207044d0;
+            transition: all .3s ease;
+        }
+
+        .convert-btn:hover,
+        #replaceFieldButton:hover,
+        #refreshButton:hover,
+        #decrementButton:hover,
+        #resetCountersButton:hover {
+            background-color: #343541c5;
+            transition: all .3s ease;
+        }
+
+        #addFieldButton {
+            background-color: #207044;
+        }
+
+        #distributeButton {
+            background-color: #207044;
+            color: white;
+        }
+
+        #refreshButton {
+            background-color: #343541;
+            color: white;
+        }
+
+        .fieldNumber {
+            background-color: white;
+            color: black;
+            line-height: 2.25;
+            font-weight: 200;
+            padding-left: 5px;
+            margin-left: 5px;
+        }
+
+        #copyFieldsContainer,
+        #addButtonContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #addButtonContainer {
+            margin-bottom: 15px;
+            display: flex;
+            width: 100%;
+            flex: 1;
+        }
+
+        #buttonGroup {
+            display: flex;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        #bigField {
+            box-sizing: border-box;
+            margin-bottom: 0px;
+            width: 100%;
+            height: 150px;
+            resize: vertical;
+        }
+
+        .foot-container {
+            background-color: #202123;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 35px;
+        }
+
+        #charCounter {
+            font-size: 14px
+        }
+
+        .copiedNote {
+            color: green;
+            font-size: 50%;
+            margin-left: 10px;
+            margin-right: 10px;
+            display: none;
+        }
+
+        /* Added highlight effect */
+        .highlight {
+            background-color: lightgreen;
+            padding: 0;
+        }
+
+        .highlight2 {
+            background-color: red;
+            padding: 0;
+        }
+
+        .greenBackground {
+            background-color: #207044;
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+
+        .counter {
+            margin-left: 10px;
+        }
+
+        .hide-bigfield {
+            margin-right: 10px;
+        }
+
+        .rotate-hide {
+            transform: rotate(45deg);
+            /* Adjust the angle as needed */
+        }
+    </style>
 </head>
-<header>
-    <div class="logo-container">
-        <a href="/index.html"><img class="logo-img" src="images/favicon.ico" alt="Kevin Profile Image Image"></a>
-        <nav class="main-nav">
-            <button class="nav-link" onclick="goToAnchor('section1')">kurast.dev</button>
-            <button class="nav-link" onclick="goToAnchor('section2')">jobs</button>
-            <button class="nav-link" onclick="goToAnchor('section3')">works</button>
-            <button class="nav-link" onclick="goToAnchor('section4')">apps</button>
-            <button class="nav-link contact-btn" onclick="goToAnchor('section5')">contact</button>
-        </nav>
-        <div class="container-verdark">
-            <span class="ver">v1.0</span>
-            <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
-            <label for="dark-mode-toggle">
-                <div class="darkmode">
-                    <div class="dark-button-left"></div>
-                    <div class="dark-button-right"></div>
-                </div>
-            </label>
-        </div>
-    </div>
-</header>
 
 <body>
-    <!-- APP SECTION -->
-    <div class="main-app section copy-prompt-pad" id="section4">
-        <div class="separator-app"></div>
-        <div class="container-app">
-            <div class="container-app-main" id="section4">
-                <div class="title-app-container for-works-title">
-                    <h2 class="skills-title">Apps</h2>
-                </div>
-            </div>
-            <div class="app-body" id="section4">
-                <div class="app-innter-body">
-                    <div class="app-item">
-                        <div class="app-icon">
-                            <div class="app-1-copyprompt"></div>
-                            <div class="app-1-copyprompt"></div>
-                            <div class="app-1-copyprompt"></div>
-                            <div class="app-1-m-copyprompt">
-                                <div class="app-1-1-copyprompt"></div>
-                                <div class="app-1-1-copyprompt"></div>
-                                <div class="app-1-1-copyprompt"></div>
-                            </div>
-                            <div class="app-1-a-copyprompt"></div>
-                        </div>
-                        <div class="app-name">CopyPrompt</div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon">
-                            <div class="app-1-table-generator">
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                            </div>
-                            <div class="app-1-table-generator">
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                            </div>
-                            <div class="app-1-table-generator">
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                                <div class="app-1-1-table-generator"></div>
-                            </div>
-                            <div class="app-1-m-table-generator">
-                                <div class="app-1-1-m-table-generator"></div>
-                                <div class="app-1-2-m-table-generator"></div>
-                            </div>
-                        </div>
-                        <div class="app-name">Amazon Table Generator</div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon">
-                            <div class="app-1-case-converter"></div>
-                            <div class="app-2-case-converter">
-                                <div class="app-1-1-case-converter"></div>
-                                <div class="app-1-1-case-converter"></div>
-                                <div class="app-1-1-case-converter"></div>
-                                <div class="app-1-1-case-converter"></div>
-                                <div class="app-1-1-case-converter"></div>
-                            </div>
-                        </div>
-                        <div class="app-name">Case Converter</div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon">
-                            <div class="app-circle-maps">
-                                <div class="inside-circle-maps"></div>
-                            </div>
-                            <div class="app-triangle-maps"></div>
-                            <div class="app-globe-maps"></div>
-                        </div>
-                        <div class="app-name">Maps API</div>
-                    </div>
-                    <div class="app-item">
-                        <div class="app-icon">
-                            <div class="app-1-invoice-maker">
-                                <div class="app-1-1-invoice-maker"></div>
-                                <div class="app-1-m-invoice-maker"></div>
-                            </div>
-                            <div class="app-1-invoice-maker">
-                                <div class="app-1-1-invoice-maker"></div>
-                                <div class="app-1-m-invoice-maker"></div>
-                            </div>
-                            <div class="app-1-invoice-maker">
-                                <div class="app-1-1-invoice-maker"></div>
-                                <div class="app-1-m-invoice-maker"></div>
-                            </div>
-                            <div class="app-1-invoice-maker">
-                                <div class="app-1-1-invoice-maker"></div>
-                                <div class="app-1-m-invoice-maker"></div>
-                            </div>
-                            <div class="app-1-invoice-maker">
-                                <div class="app-1-1-invoice-maker hidden-invoice"></div>
-                                <div class="app-1-m-invoice-maker"></div>
-                            </div>
-                        </div>
-                        <div class="app-name">Invoice Maker</div>
-                    </div>
-                </div>
-            </div>
-
+    <div class="container">
+        <div class="container-title">
+            <label onclick="openSeparateWindow()">
+                <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="white"
+                        d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
+                        fill="#000000" />
+                </svg>
+            </label>
+            <h1 class="title">CopyPrompt</h1>
+            <label id="copyAllButton" onclick="copyAllFields()">
+                <svg class="clip" width="28px" height="28px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="white"
+                        d="M23 15H11.707l2.646 2.646-.707.707L9.793 14.5l3.854-3.854.707.707L11.707 14H23zm-13-5H6v1h4zm-4 5h2v-1H6zM3 4h3V3h3a2 2 0 0 1 4 0h3v1h3v9h-1V5h-2v2H6V5H4v16h14v-5h1v6H3zm4 2h8V4h-3V2.615A.615.615 0 0 0 11.386 2h-.771a.615.615 0 0 0-.615.615V4H7zM6 19h4v-1H6z" />
+                    <path fill="none" d="M0 0h24v24H0z" />
+                </svg>
+            </label>
         </div>
-    </div>
-    </div>
-    <footer>
-        <div class="separator-footer" id="section4"></div>
-        <span class="svg-footer">
-            <svg class="svg-whatsapp" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                class="bi bi-whatsapp" viewBox="0 0 16 16">
-                <path
-                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-            </svg>
-            <svg class="svg-github" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
-                <path fill="#fff"
-                    d="M8 0a8 8 0 00-2.53 15.58c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.23 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.79-.2-3.67-.9-3.67-4.01 0-.88.31-1.6.82-2.17-.08-.21-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.12.51.56.82 1.28.82 2.17 0 3.12-1.89 3.81-3.68 4.01.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 008 0z" />
-            </svg>
-            <svg class="svg-facebook" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                class="bi bi-facebook" viewBox="0 0 16 16">
-                <path
-                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-            </svg>
-        </span>
-        <p class="copyright-text">2024 © Created by Kevin</p>
-    </footer>
-    </main>
-    <script src="script.js"></script>
+        <div id="copyFieldsContainer">
+            <!-- Initial 5 default input fields with buttons -->
+            <div class="copyFieldContainer">
+                <span class="fieldNumber">1.</span>
+                <input type="text" id="noteInput1" class="copyField" size="100">
+                <button class="copyButton" onclick="copyToClipboard(1, this)">COPY</button>
+                <button class="copyButton" onclick="goToDestination(1, this)">GO</button>
+            </div>
+            <div class="copyFieldContainer">
+                <span class="fieldNumber">2.</span>
+                <input type="text" id="noteInput2" class="copyField" size="100">
+                <button class="copyButton" onclick="copyToClipboard(2, this)">COPY</button>
+                <button class="copyButton" onclick="goToDestination(2, this)">GO</button>
+            </div>
+            <div class="copyFieldContainer">
+                <span class="fieldNumber">3.</span>
+                <input type="text" id="noteInput3" class="copyField" size="100">
+                <button class="copyButton" onclick="copyToClipboard(3, this)">COPY</button>
+                <button class="copyButton" onclick="goToDestination(3, this)">GO</button>
+            </div>
+            <div class="copyFieldContainer">
+                <span class="fieldNumber">4.</span>
+                <input type="text" id="noteInput4" class="copyField" size="100">
+                <button class="copyButton" onclick="copyToClipboard(4, this)">COPY</button>
+                <button class="copyButton" onclick="goToDestination(4, this)">GO</button>
+            </div>
+            <div class="copyFieldContainer">
+                <span class="fieldNumber">5.</span>
+                <input type="text" id="noteInput5" class="copyField" size="100">
+                <button class="copyButton" onclick="copyToClipboard(5, this)">COPY</button>
+                <button class="copyButton" onclick="goToDestination(5, this)">GO</button>
+            </div>
+        </div>
+        <div class="contain-all-btn">
+            <div id="addButtonContainer">
+                <div id="buttonGroup">
+                    <button id="addFieldButton" onclick="addCopyField()">Add Field</button>
+                    <button id="distributeButton" onclick="distributeText()">Distribute</button>
+                    <button id="replaceFieldButton" onclick="showReplaceDialog()">Replace</button>
+                    <button class="convert-btn" id="copyButton" onclick="openLinks()">Rapid Links</button>
+                    <button id="refreshButton" onclick="showRefreshConfirmation()">Refresh</button>
+                    <button id="decrementButton" onclick="decrementCounter()">-1 Count</button>
+                    <button id="resetCountersButton" onclick="resetAllCounters()">Reset Count</button>
+                    <button class="convert-btn" onclick="updateAndConvertToUppercase()">Uppercase</button>
+                    <button class="convert-btn" onclick="convertToLowercase()">Lowercase</button>
+                    <button class="convert-btn" onclick="convertToCapitalizeCase()">Capitalize</button>
+                    <button class="convert-btn" onclick="removeNumbered()">Remove#</button>
+                    <button class="convert-btn" onclick="whiteSpace()">Whitespace</button>
+                    <button class="convert-btn" onclick="breakComma()">Break Comma</button>
+                    <button class="convert-btn" onclick="turnComma()">Turn Comma</button>
+                    <button class="convert-btn" onclick="saveCopyFields()">Save</button>
+                    <button class="convert-btn" onclick="loadCopyFields()">Load</button>
+                </div>
+            </div>
+        </div>
+        <div class="containbig">
+            <textarea class="bigtext" id="bigField" placeholder="Enter text prompt here to distribute"
+                oninput="updateCharCount()"></textarea>
+        </div>
+        <div class="foot-container">
+            <div class="counter" id="charCounter">Characters: 0</div>
+            <div class="containerbigfield">
+                <div class="copybigfield" onclick="copyallBig()">
+                    <svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 36 36" version="1.1"
+                        preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>copy-to-clipboard-line</title>
+                        <path
+                            d="M22.6,4H21.55a3.89,3.89,0,0,0-7.31,0H13.4A2.41,2.41,0,0,0,11,6.4V10H25V6.4A2.41,2.41,0,0,0,22.6,4ZM23,8H13V6.25A.25.25,0,0,1,13.25,6h2.69l.12-1.11A1.24,1.24,0,0,1,16.61,4a2,2,0,0,1,3.15,1.18l.09.84h2.9a.25.25,0,0,1,.25.25Z"
+                            class="clr-i-outline clr-i-outline-path-1"></path>
+                        <path
+                            d="M33.25,18.06H21.33l2.84-2.83a1,1,0,1,0-1.42-1.42L17.5,19.06l5.25,5.25a1,1,0,0,0,.71.29,1,1,0,0,0,.71-1.7l-2.84-2.84H33.25a1,1,0,0,0,0-2Z"
+                            class="clr-i-outline clr-i-outline-path-2"></path>
+                        <path d="M29,16h2V6.68A1.66,1.66,0,0,0,29.35,5H27.08V7H29Z"
+                            class="clr-i-outline clr-i-outline-path-3">
+                        </path>
+                        <path
+                            d="M29,31H7V7H9V5H6.64A1.66,1.66,0,0,0,5,6.67V31.32A1.66,1.66,0,0,0,6.65,33H29.36A1.66,1.66,0,0,0,31,31.33V22.06H29Z"
+                            class="clr-i-outline clr-i-outline-path-4"></path>
+                        <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+                    </svg>
+                </div>
+                <div class="hide-bigfield-button hide-bigfield" onclick="toggleVisibility()">
+                    <svg class="rotate-hide" width="26px" height="26px" viewBox="0 0 24.00 24.00"
+                        xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff"
+                        stroke-width="0.00024000000000000003">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M19.354 9.646l-.708.708L20.293 12H13V4.707l1.64 1.64.707-.707L12.5 2.793 9.653 5.64l.707.707L12 4.707V12H4.707l1.647-1.646-.708-.708-2.847 2.848 2.847 2.847.708-.707L4.72 13H12v7.28l-1.64-1.64-.707.707 2.847 2.847 2.847-2.847-.707-.707L13 20.28V13h7.28l-1.634 1.634.708.707 2.847-2.847-2.847-2.848z" />
+                            <path fill="none" d="M0 0h24v24H0z" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <input type="file" id="loadFileInput" style="display:none" accept=".json" onchange="loadFile()">
+        <script src="script.js"></script>
 </body>
+
+<script>
+    function toggleVisibility() {
+        var bigField = document.getElementById('bigField');
+        bigField.style.display = (bigField.style.display === 'none' || bigField.style.display === '') ? 'block' : 'none';
+    }
+
+    var lastClickedButton = null;
+
+    function addCopyField() {
+        var container = document.getElementById("copyFieldsContainer");
+        var div = document.createElement("div");
+        var input = document.createElement("input");
+        var copyButton = document.createElement("button");
+        var goButton = document.createElement("button"); // New button for "Go"
+        var fieldNumber = container.children.length + 1;
+
+        div.className = "copyFieldContainer";
+
+        var numberSpan = document.createElement("span");
+        numberSpan.className = "fieldNumber";
+        numberSpan.textContent = fieldNumber + ".";
+
+        input.type = "text";
+        input.className = "copyField";
+        input.size = "100";
+        input.maxlength = "350";
+
+        copyButton.className = "copyButton";
+        copyButton.textContent = "COPY";
+
+        goButton.className = "copyButton"; // Use the same style as the copy button
+        goButton.textContent = "GO";
+        goButton.onclick = function () {
+            goToDestination(fieldNumber);
+        };
+
+        copyButton.onclick = function () {
+            copyToClipboard(fieldNumber, copyButton);
+        };
+
+        div.appendChild(numberSpan);
+        div.appendChild(input);
+        div.appendChild(copyButton);
+        div.appendChild(goButton); // Append the new "Go" button
+        container.appendChild(div);
+    }
+
+    function goToDestination(fieldNumber) {
+        var copyFieldContainer = document.querySelector('.copyFieldContainer:nth-child(' + fieldNumber + ')');
+        var copyField = copyFieldContainer.querySelector('.copyField');
+        var url = copyField.value.trim();
+
+        if (url !== "") {
+            // Check if the URL contains a period before opening a new tab
+            if (url.includes(".")) {
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "http://" + url;
+                }
+
+                // Open the specified URL in a new tab
+                var newTab = window.open(url, '_blank');
+
+                // Apply the existing green highlight class similar to the copy button
+                copyFieldContainer.classList.add('highlight2');
+                button.classList.add('highlight2');
+                setTimeout(function () {
+                    button.classList.remove('highlight2');
+                }, 300);
+
+                copyFieldContainer.classList.add('greenBackground');
+            } else {
+
+            }
+        } else {
+
+        }
+    }
+
+    function copyToClipboard(fieldNumber, button) {
+        var copyFieldContainer = document.querySelector('.copyFieldContainer:nth-child(' + fieldNumber + ')');
+        var copyField = copyFieldContainer.querySelector('.copyField');
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = copyField.value;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+
+        var copiedNote = document.createElement("span");
+        copiedNote.className = "copiedNote";
+        copiedNote.textContent = "Copied";
+        copiedNote.style.fontSize = "50%";
+        copiedNote.style.color = getRandomColor();
+
+        var counter = button.querySelector('.counter') || document.createElement("span");
+        counter.className = "counter";
+        var count = parseInt(counter.textContent) || 0;
+
+        if (button !== lastClickedButton) {
+            count += 1;
+        }
+
+        counter.textContent = "+" + count;
+        counter.style.marginLeft = "5px";
+
+        var existingNote = copyFieldContainer.querySelector('.copiedNote');
+
+        if (existingNote) {
+            existingNote.remove();
+        }
+
+        copyFieldContainer.insertBefore(copiedNote, copyFieldContainer.firstChild);
+        button.appendChild(counter);
+
+        button.classList.add('highlight');
+        setTimeout(function () {
+            button.classList.remove('highlight');
+        }, 300);
+
+        copyFieldContainer.classList.add('greenBackground');
+
+        var allCopyFieldContainers = document.querySelectorAll('.copyFieldContainer');
+        Array.from(allCopyFieldContainers).forEach(function (container) {
+            if (container !== copyFieldContainer) {
+                container.classList.remove('greenBackground');
+            }
+        });
+
+        lastClickedButton = button;
+    }
+
+    function showReplaceDialog() {
+        var findText = prompt("Enter text to find:");
+        if (findText === null) {
+            return;
+        }
+
+        var replaceText = prompt("Enter text to replace with:");
+        if (replaceText === null) {
+            return;
+        }
+
+        replaceTextInFields(findText, replaceText);
+    }
+
+    function replaceTextInFields(findText, replaceText) {
+        var container = document.getElementById("copyFieldsContainer");
+
+        Array.from(container.children).forEach(function (fieldContainer, index) {
+            var copyField = fieldContainer.querySelector('.copyField');
+            copyField.value = copyField.value.replace(new RegExp(findText, 'g'), replaceText);
+        });
+    }
+
+    function distributeText() {
+        var bigField = document.getElementById("bigField");
+        var lines = bigField.value.split('\n').filter(function (line) {
+            return line.trim() !== "";
+        });
+
+        Array.from(document.querySelectorAll('.copyFieldContainer')).forEach(function (fieldContainer, index) {
+            var copyField = fieldContainer.querySelector('.copyField');
+            if (lines[index] !== undefined) {
+                var trimmedLine = lines[index].trim();
+                copyField.value = trimmedLine;
+            } else {
+                fieldContainer.remove();
+            }
+        });
+
+        removeEmptyFields();
+
+        for (var i = document.querySelectorAll('.copyFieldContainer').length + 1; i <= lines.length; i++) {
+            addCopyField();
+            var newField = document.querySelector('.copyFieldContainer:nth-child(' + i + ') .copyField');
+            if (lines[i - 1] !== undefined) {
+                var trimmedLine = lines[i - 1].trim();
+                newField.value = trimmedLine;
+            }
+        }
+    }
+
+    function removeEmptyFields() {
+        var container = document.getElementById("copyFieldsContainer");
+
+        Array.from(container.children).forEach(function (fieldContainer) {
+            var copyField = fieldContainer.querySelector('.copyField');
+            var value = copyField.value;
+
+            if (/^\s*$/.test(value)) {
+                fieldContainer.remove();
+            }
+        });
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function showRefreshConfirmation() {
+        refreshFields();
+    }
+
+    function refreshFields() {
+        var container = document.getElementById("copyFieldsContainer");
+        container.innerHTML = "";
+
+        for (var i = 1; i <= 5; i++) {
+            addCopyField();
+        }
+
+        var bigField = document.getElementById("bigField");
+        bigField.value = "";
+
+        lastClickedButton = null;
+    }
+
+    function decrementCounter() {
+        if (lastClickedButton) {
+            var counter = lastClickedButton.querySelector('.counter');
+            var count = parseInt(counter.textContent) || 0;
+
+            if (count > 0) {
+                count -= 1;
+                counter.textContent = "+" + count;
+            }
+        }
+    }
+
+    function resetAllCounters() {
+        var allCounters = document.querySelectorAll('.counter');
+
+        allCounters.forEach(function (counter) {
+            counter.textContent = "";
+        });
+    }
+
+    function addFieldsFromData(count) {
+        for (var i = 1; i <= count; i++) {
+            addCopyField();
+        }
+    }
+
+    function copyAllFields() {
+        var copyFields = document.querySelectorAll('.copyField');
+        var copiedText = '';
+
+        copyFields.forEach(function (copyField) {
+            copiedText += copyField.value + '\n';
+        });
+
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = copiedText.trim();
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    }
+
+    //for case convert app
+
+    function updateAndConvertToUppercase() {
+        var inputField = document.getElementById("bigField");
+        inputField.value = inputField.value.toUpperCase();
+        updateCharCount();
+    }
+
+    function convertToLowercase() {
+        var inputField = document.getElementById("bigField");
+        inputField.value = inputField.value.toLowerCase();
+        updateCharCount();
+    }
+
+    function convertToCapitalizeCase() {
+        var inputField = document.getElementById("bigField");
+        var words = inputField.value.split(' ');
+        for (var i = 0; i < words.length; i++) {
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+        }
+        inputField.value = words.join(' ');
+        updateCharCount();
+    }
+
+    function copyText() {
+        var inputField = document.getElementById("bigField");
+        inputField.select();
+        document.execCommand("copy");
+    }
+
+    function updateCharCount() {
+        var inputField = document.getElementById("bigField");
+        var charCounter = document.getElementById("charCounter");
+        charCounter.textContent = "Characters: " + inputField.value.length;
+    }
+
+    function removeNumbered() {
+        var inputField = document.getElementById("bigField");
+        var lines = inputField.value.split('\n');
+
+        for (var i = 0; i < lines.length; i++) {
+            // Remove numbers or number lists (with or without a closing parenthesis) from the start of each line
+            lines[i] = lines[i].replace(/^\d+(\.|\))?\s*/, '');
+        }
+
+        inputField.value = lines.join('\n');
+        updateCharCount();
+    }
+
+
+
+    function toggleDarkMode() {
+        var body = document.body;
+        var textarea = document.getElementById("bigField");
+        var darkModeButton = document.getElementById("darkModeButton");
+
+        body.classList.toggle("dark-mode");
+        textarea.classList.toggle("dark-mode");
+        darkModeButton.classList.toggle("dark-mode");
+
+        var isDarkMode = body.classList.contains("dark-mode");
+
+        if (isDarkMode) {
+            darkModeButton.textContent = "Light Mode";
+            darkModeButton.style.backgroundColor = "#333";
+            darkModeButton.style.color = "#fff";
+        } else {
+            darkModeButton.textContent = "Dark Mode";
+            darkModeButton.style.backgroundColor = "#fff";
+            darkModeButton.style.color = "#333";
+        }
+    }
+
+    //break commas
+    function breakComma() {
+        // Get the text from the bigField textarea
+        var inputField = document.getElementById("bigField");
+        var inputValue = inputField.value;
+
+        // Split the text based on commas and trim any extra whitespace
+        var textArray = inputValue.split(',').map(function (item) {
+            return item.trim();
+        });
+
+        // Join the array elements with line breaks
+        var newText = textArray.join('\n');
+
+        // Update the value of the bigField textarea
+        inputField.value = newText;
+
+        // Update the character count
+        updateCharCount();
+    }
+
+
+    //remove extra space from start line
+    function whiteSpace() {
+        var inputField = document.getElementById("bigField");
+        var inputValue = inputField.value;
+
+        // Split the text into lines
+        var lines = inputValue.split('\n');
+
+        // Remove extra spaces from the start of each line
+        for (var i = 0; i < lines.length; i++) {
+            lines[i] = lines[i].replace(/^\s+/, '');
+        }
+
+        // Join the modified lines back into a string
+        var newText = lines.join('\n');
+
+        // Update the value of the bigField textarea
+        inputField.value = newText;
+
+        // Update the character count
+        updateCharCount();
+    }
+
+    //turn commas
+    function turnComma() {
+        // Get the text from the bigField textarea
+        var text = document.getElementById("bigField").value;
+
+        // Remove existing line breaks and replace with a comma and space
+        var newText = text.replace(/\n/g, ", ");
+
+        // Set the modified text back to the bigField textarea
+        document.getElementById("bigField").value = newText;
+
+        // Optionally, you can also update the character count after modifying the text
+        updateCharCount();
+    }
+
+    //copy all bigfield
+    function copyallBig() {
+        // Get the text from the bigField textarea
+        var bigField = document.getElementById("bigField");
+        bigField.select();
+        document.execCommand("copy");
+
+        // Optionally, you can provide some visual feedback to the user
+        alert("Text copied to clipboard!");
+    }
+
+    //OPEN LINKS
+    function openLinks() {
+        var textFields = document.querySelectorAll('.copyField');
+
+        textFields.forEach(function (textField) {
+            var url = textField.value.trim();
+
+            if (url !== "") {
+                // Check if the URL contains a period before opening a new tab
+                if (url.includes(".")) {
+                    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                        url = "http://" + url;
+                    }
+
+                    // Open the specified URL in a new tab
+                    window.open(url, '_blank');
+                }
+            }
+        });
+    }
+
+    //SIMPLE SAVE & LOAD
+    function saveCopyFields() {
+        var copyFields = [];
+
+        document.querySelectorAll('.copyField').forEach(function (copyField) {
+            copyFields.push(copyField.value);
+        });
+
+        var copyFieldsCount = document.querySelectorAll('.copyFieldContainer').length;
+
+        var dataToSave = {
+            copyFields: copyFields,
+            copyFieldsCount: copyFieldsCount
+        };
+
+        localStorage.setItem('copyFieldsData', JSON.stringify(dataToSave));
+    }
+
+    // Function to load copyField inputs and count from Local Storage
+    function loadCopyFields() {
+        // Clear existing fields
+        document.querySelectorAll('.copyField').forEach(function (copyField) {
+            copyField.value = '';
+        });
+
+        var savedData = localStorage.getItem('copyFieldsData');
+
+        if (savedData) {
+            savedData = JSON.parse(savedData);
+
+            // Add or remove copyFieldContainers based on the saved count
+            var currentCount = document.querySelectorAll('.copyFieldContainer').length;
+            var difference = savedData.copyFieldsCount - currentCount;
+
+            if (difference > 0) {
+                // Add new copyFieldContainers
+                for (var i = 0; i < difference; i++) {
+                    addCopyField();
+                }
+            } else if (difference < 0) {
+                // Remove extra copyFieldContainers
+                var containersToRemove = document.querySelectorAll('.copyFieldContainer').slice(difference);
+                containersToRemove.forEach(function (container) {
+                    container.remove();
+                });
+            }
+
+            // Load data after updating the DOM
+            document.querySelectorAll('.copyField').forEach(function (copyField, index) {
+                if (savedData.copyFields[index] !== undefined) {
+                    copyField.value = savedData.copyFields[index];
+                }
+            });
+        }
+    }
+
+    //OPEN NEW WINDOW
+
+    function openSeparateWindow() {
+        // Specify the URL of the HTML page
+        var pageUrl = 'file:///C:/Users/ZeonKatyKynce/Documents/GitHub/copyprompt/CopyPrompt.html';
+
+        // Open a new window with the specified URL
+        var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
+    }    
+</script>
 
 </html>
