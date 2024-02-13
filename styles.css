@@ -21,6 +21,10 @@ body {
     transition: background-color .3s ease;
 }
 
+strong {
+    font-weight: 600;
+}
+
 main,
 .copy-prompt-pad {
     box-sizing: border-box;
@@ -940,7 +944,6 @@ img.profile-img {
 }
 
 .contain-credentials {
-    font-weight: 200;
     border-left: 1px solid #e5981b57;
     padding-inline: 20px;
     margin-inline: 10px;
