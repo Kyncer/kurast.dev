@@ -413,7 +413,7 @@ img.profile-img {
 }
 
 .text-credentails {
-    font-weight: 400;
+    font-weight: 200;
     margin-inline: 5px;
 }
 
@@ -940,6 +940,7 @@ img.profile-img {
 }
 
 .contain-credentials {
+    font-weight: 200;
     border-left: 1px solid #e5981b57;
     padding-inline: 20px;
     margin-inline: 10px;
@@ -1224,7 +1225,8 @@ img {
     background-color: #202123;
 }
 
-#tab2 {
+#tab2,
+#tab3 {
     display: none;
 }
 
