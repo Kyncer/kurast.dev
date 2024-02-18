@@ -1236,18 +1236,36 @@ img {
 }
 
 .faq-item {
+    counter-increment: faq-counter;
     user-select: none;
     margin-bottom: 15px;
     font-weight: 200;
     font-size: 16px;
 }
 
+.question::before {
+    white-space: nowrap;
+    content: "Question " counter(faq-counter) ": ";
+    font-weight: 600;
+    margin-right: 10px;
+}
+
 .question {
+    align-items: start;
     border-radius: 5px;
     border: 1px solid #e5981b73;
     padding: 6px;
     padding-inline: 15px;
     cursor: pointer;
+    display: flex;
+}
+
+
+.arrow-down,
+.arrow-up {
+    margin-top: 3px;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .question:first-child {
@@ -1299,6 +1317,20 @@ img {
     visibility: visible;
     opacity: 1;
 }
+
+.arrow-up {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.nothidden {
+    display: block;
+}
+
+
 
 @media only screen and (max-width: 810px) {
 

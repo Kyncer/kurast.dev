@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+<div class="faq">
+  <div class="faq-item">
+    <div class="question">Question 1</div>
+    <div class="answer">Answer 1</div>
+    <svg class="arrow-down" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000" width="25px"
+      height="25px">
+      <path id="downArrow" d="M15 8l-4.03 6L7 8h8z"></path>
+    </svg>
+    <svg class="arrow-up hidden" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000" width="25px"
+      height="25px">
+      <path id="upArrow" d="M7 12l4.03-6L13 12H7z"></path>
+    </svg>
+  </div>
+  <!-- Add more FAQ items here -->
+</div>
+<script>document.addEventListener("DOMContentLoaded", function () {
+    var faqItems = document.querySelectorAll('.faq-item');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-</head>
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.question');
+      var answer = item.querySelector('.answer');
+      var arrowDown = item.querySelector('.arrow-down');
+      var arrowUp = item.querySelector('.arrow-up');
 
-<body>
-    <h1>Contact Us</h1>
-    <form id="contact-form">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("YOUR_USER_ID"); // Replace 'YOUR_USER_ID' with your actual user ID from EmailJS
-
-            document.getElementById('contact-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                // Collect the user's input
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-
-                // Send the email
-                emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData) // Replace placeholders with actual service ID and template ID
-                    .then(function (response) {
-                        alert('Your message has been sent successfully!');
-                        document.getElementById('contact-form').reset(); // Clear the form after successful submission
-                    }, function (error) {
-                        console.log('FAILED...', error);
-                        alert('Oops! Something went wrong. Please try again later.');
-                    });
-            });
-        })();
-    </script>
-</body>
-
-</html>
+      question.addEventListener('click', function () {
+        answer.classList.toggle('hidden');
+        arrowDown.classList.toggle('hidden');
+        arrowUp.classList.toggle('hidden');
+      });
+    });
+  });
+</script>

@@ -336,3 +336,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+//ARROW TOGGLE
+document.addEventListener("DOMContentLoaded", function () {
+  var faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(function (item) {
+    var question = item.querySelector('.question');
+    var answer = item.querySelector('.answer');
+    var arrowDown = item.querySelector('.arrow-down');
+    var arrowUp = item.querySelector('.arrow-up');
+
+    question.addEventListener('click', function () {
+      answer.classList.toggle('hidden');
+      arrowDown.classList.toggle('hidden');
+      arrowUp.classList.toggle('nothidden');
+    });
+  });
+});
+
+
+
+
+
