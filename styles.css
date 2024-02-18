@@ -1208,6 +1208,7 @@ img {
 }
 
 .exp-tabs {
+    user-select: none;
     display: flex;
     background-color: #00000080;
     margin-inline: 10px;
