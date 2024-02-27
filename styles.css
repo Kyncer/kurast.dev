@@ -544,16 +544,15 @@ img.profile-img {
     display: flex;
     justify-content: space-evenly;
     background-size: cover;
-    background-image: url('images/copyprompt-image.png');
     height: 100%;
     border-radius: 0px 0px 5px 5px;
 }
 
 .app-innter-body {
+    flex: 1;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
-    background: hsla(0, 0%, 38%, 0.527);
+    gap: 10px;
     backdrop-filter: blur(6px);
     border-radius: 0px 0px 5px 5px;
     flex-wrap: wrap;
@@ -564,18 +563,73 @@ img.profile-img {
     opacity: 1;
 }
 
-.app-item {
-    max-width: 160px;
-    width: 100%;
-    height: 180px;
+.app-column-1 {
+    width: 50%;
+    gap: 10px;
+    flex: 1;
     display: flex;
+    flex-direction: column;
+}
+
+.app-column-2 {
+    width: auto;
+    flex: 1;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-content-des {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: 40px;
+}
+
+.btn-read-app {
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #F1F3F5;
+    background-color: #1b1f21;
+    width: 100px;
+    padding: 5px 0px 5px 5px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.151);
+}
+
+.app-name {
+    margin-top: 5px;
+    font-size: 20px;
+    letter-spacing: -.5px;
+    color: #F1F3F5;
+}
+
+.app-des {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #F1F3F5;
+}
+
+.app-item {
+    padding: 10px;
+    height: auto;
+    display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.411);
+    border-radius: 10px;
 }
 
-.app-item:last-child {
-    margin-right: 5px;
+.hidden-app {
+    display: none;
 }
 
 .app-icon,
@@ -742,13 +796,6 @@ img.profile-img {
 
 .hidden-invoice {
     opacity: 0;
-}
-
-
-.app-name {
-    font-size: 14px;
-    letter-spacing: -.5px;
-    color: #F1F3F5;
 }
 
 .for-apps-full-details {
@@ -1390,11 +1437,6 @@ img {
 }
 
 @media only screen and (max-width: 623px) {
-    .main-app {
-        margin-top: 90px;
-        height: 90dvh;
-    }
-
     .container-app {
         display: flex;
         flex-direction: column;
@@ -1402,11 +1444,6 @@ img {
         height: 100%;
         border-radius: 5px;
         max-width: 1000px;
-    }
-
-    .app-item {
-        height: 150px;
-        transform: scale(0.8);
     }
 
     .exp-years {
