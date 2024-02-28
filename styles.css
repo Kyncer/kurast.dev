@@ -589,7 +589,7 @@ img.profile-img {
 }
 
 .btn-read-app {
-    font-size: 18px;
+    font-size: 17px;
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -624,7 +624,7 @@ img.profile-img {
     justify-content: center;
     align-items: center;
     background-color: #000000;
-    border: 1px solid rgba(255, 255, 255, 0.411);
+    border: 1px solid rgba(255, 255, 255, 0.281);
     border-radius: 10px;
 }
 
@@ -1296,7 +1296,7 @@ img {
 .question {
     align-items: start;
     border-radius: 5px;
-    border: 1px solid #e5981b73;
+    border: 1px solid #e5981b40;
     padding: 6px;
     padding-inline: 15px;
     cursor: pointer;
@@ -1328,8 +1328,8 @@ img {
     display: none;
     padding: 6px;
     padding-inline: 15px;
-    border: 1px solid #e5981b73;
-    background-color: #e5981b73;
+    border: 1px solid #e5981b40;
+    background-color: #e5981b40;
     border-radius: 5px;
     border-top: 0;
 }
