@@ -110,7 +110,7 @@ h2 {
 }
 
 footer {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 20px;
     color: #F1F3F5;
     text-align: center;
@@ -511,7 +511,7 @@ img.profile-img {
 .main-app {
     max-width: 1000px;
     width: 100%;
-    top: 90px;
+    top: 100px;
     position: relative;
     height: 90dvh;
 }
@@ -537,7 +537,10 @@ img.profile-img {
     align-items: center;
     display: flex;
     border-radius: 5px 5px 0px 0px;
-    background-color: #202123;
+}
+
+.hidden-title-app {
+    opacity: 0;
 }
 
 .app-body {
@@ -564,7 +567,6 @@ img.profile-img {
 }
 
 .app-column-1 {
-    width: 50%;
     gap: 10px;
     flex: 1;
     display: flex;
@@ -572,7 +574,6 @@ img.profile-img {
 }
 
 .app-column-2 {
-    width: auto;
     flex: 1;
     gap: 10px;
     display: flex;
@@ -584,7 +585,7 @@ img.profile-img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-inline: 40px;
+    margin-inline: 20px;
 }
 
 .btn-read-app {
@@ -611,13 +612,12 @@ img.profile-img {
 
 .app-des {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 15px;
     color: #F1F3F5;
 }
 
 .app-item {
-    padding: 10px;
-    height: auto;
+    padding: 20px;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -626,10 +626,6 @@ img.profile-img {
     background-color: #000000;
     border: 1px solid rgba(255, 255, 255, 0.411);
     border-radius: 10px;
-}
-
-.hidden-app {
-    display: none;
 }
 
 .app-icon,
@@ -1393,6 +1389,10 @@ img {
 }
 
 @media only screen and (max-width: 880px) {
+    .main-app {
+        height: 100%;
+    }
+
     .img-work1 {
         height: auto;
     }
