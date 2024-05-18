@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiosk Login</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .product {
+      margin: 0 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    #cart {
+      margin-top: 20px;
+    }
+
+    #error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to the Kiosk</h1>
+    <div id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <button id="loginBtn">Login</button>
+    </div>
+    <div id="error" style="display: none;">
+      <p>Incorrect username or password. Please try again.</p>
+    </div>
+    <div id="content" style="display: none;">
+      <div class="products">
+        <div class="product">
+          <h2>T-shirt</h2>
+          <p>$10</p>
+          <button class="addToCartBtn" data-product="tshirt">Add to Cart</button>
+        </div>
+        <div class="product">
+          <h2>Mug</h2>
+          <p>$5</p>
+          <button class="addToCartBtn" data-product="mug">Add to Cart</button>
+        </div>
+      </div>
+      <div id="cart" style="display: none;">
+        <h2>Shopping Cart</h2>
+        <ul id="cartItems"></ul>
+        <button id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginForm = document.getElementById('loginForm');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const loginBtn = document.getElementById('loginBtn');
+      const errorDiv = document.getElementById('error');
+      const contentDiv = document.getElementById('content');
+      const addToCartButtons = document.querySelectorAll('.addToCartBtn');
+      const cartItemsList = document.getElementById('cartItems');
+      const cartDiv = document.getElementById('cart');
+      const checkoutBtn = document.getElementById('checkoutBtn');
+
+      // Define hardcoded credentials
+      const validUsername = 'admin';
+      const validPassword = 'password';
+
+      loginBtn.addEventListener('click', function () {
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        // Check if the provided credentials match the hardcoded values
+        if (username === validUsername && password === validPassword) {
+          loginForm.style.display = 'none';
+          errorDiv.style.display = 'none';
+          contentDiv.style.display = 'block';
+        } else {
+          errorDiv.style.display = 'block';
+        }
+      });
+
+      addToCartButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const product = button.getAttribute('data-product');
+          const productName = product === 'tshirt' ? 'T-shirt' : 'Mug';
+          const productPrice = product === 'tshirt' ? 10 : 5;
+          const listItem = document.createElement('li');
+          listItem.textContent = productName + ' - $' + productPrice;
+          cartItemsList.appendChild(listItem);
+          cartDiv.style.display = 'block';
+        });
+      });
+
+      checkoutBtn.addEventListener('click', function () {
+        alert('Thank you for your order! Your items will be shipped shortly.');
+        cartItemsList.innerHTML = '';
+        cartDiv.style.display = 'none';
+      });
+    });
+
+  </script>
+</body>
+
+</html>
