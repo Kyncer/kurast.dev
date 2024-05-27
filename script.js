@@ -1,15 +1,3 @@
-//LOADER
-window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
-
-  loader.classList.add("loader--hidden");
-
-  loader.addEventListener("transitionend", () => {
-    document.body.removeChild(loader);
-  });
-});
-
-
 //SELECT DROPDOWN
 function toggleDropdown() {
   const dropdownOptions = document.getElementById("dropdownOptions");
