@@ -26,25 +26,26 @@
             <a href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,"><button
                     class="nav-link contact-btn">contact</button></a>
         </nav>
-        <nav class="main-nav mobile">
-            <button class="nav-link mobile-link" onclick="goToAnchor('section1')">
-                <img src="/images/home-icon.png" width="21" height="21">
-            </button>
-            <button class="nav-link mobile-link" onclick="goToAnchor('section2')">
-                <img src="/images/jobs-icon.png" width="21" height="21">
-            </button>
-            <button class="nav-link mobile-link" onclick="goToAnchor('section3')">
-                <img src="/images/works-icon.png" width="21" height="21">
-            </button>
-            <button class="nav-link mobile-link" onclick="goToAnchor('section4')">
-                <img src="/images/apps-icon.png" width="21" height="21">
-            </button>
-            <a href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,">
-                <button class="nav-link mobile-link">
-                    <img src="/images/contact-icon.png" width="21" height="21">
-                </button>
-            </a>
-        </nav>
+        <div class="mobile">
+            <input type="checkbox" id="burger-toggle">
+            <label for="burger-toggle" id="burger-icon">
+                <div class="burger-icons">
+                    <img class="burger-icon burger-icon-white" src="images/burger-icon.png" alt="Burger Icon">
+                    <img class="burger-icon burger-icon-black" src="images/burger-icon-black.png" alt="Burger Icon">
+                </div>
+            </label>
+            <nav id="burger-menu">
+                <ul>
+                    <li class="nav-mobile"><a href="" onclick="goToAnchor('section1')">kurast.dev</a></li>
+                    <li class="nav-mobile"><a href="" onclick="goToAnchor('section2')">jobs</a></li>
+                    <li class="nav-mobile"><a href="" onclick="goToAnchor('section3')">works</a></li>
+                    <li class="nav-mobile"><a href="" onclick="goToAnchor('section4')">apps</a></li>
+                    <li class="nav-mobile"><a
+                            href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,">contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <div class="container-verdark">
             <span class="ver">v1.1</span>
             <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
