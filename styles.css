@@ -138,6 +138,23 @@ img.profile-img {
     font-weight: 200;
 }
 
+.mobile-link {
+    margin-top: 4px;
+    padding: 3px;
+}
+
+.get-link {
+    text-decoration: none;
+}
+
+.get-touch {
+    display: inline;
+    padding: 4px;
+    color: white;
+    background-color: #e5991b;
+
+}
+
 .nav-link.active {
     color: #e5981b !important;
 }
@@ -164,7 +181,6 @@ img.profile-img {
 
 .job-title {
     font-size: 16px;
-    margin: 0;
 }
 
 .highlight {
