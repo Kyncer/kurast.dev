@@ -1437,7 +1437,7 @@ img {
     padding-inline: 30px;
     display: none;
     position: absolute;
-    border-radius: 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 #burger-toggle:checked~#burger-menu {
