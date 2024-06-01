@@ -147,19 +147,32 @@ img.profile-img {
 }
 
 .nav-mobile a {
+    display: flex;
+    justify-content: center;
+    padding: 6px 20px 6px 20px;
     color: white;
     background-color: #e5991b;
-    padding: 6px 20px 6px 20px;
     border-radius: 3px;
 }
 
+.nav-mobile a:hover {
+    background-color: #ffa413;
+}
+
 .nav-link-mobile {
+    padding: 6px 20px 6px 20px;
     background: none;
     border: none;
     margin: 0;
     font: inherit;
     color: #e5991b;
     cursor: pointer;
+}
+
+.nav-link-mobile:hover {
+    width: 100%;
+    background-color: #fff3e0;
+    border-radius: 3px;
 }
 
 .mobile-link {
@@ -1441,17 +1454,19 @@ img {
 }
 
 #burger-menu {
-    margin-left: -28px;
-    opacity: 85%;
+    margin-left: -36px;
+    opacity: 0;
+    visibility: hidden;
     background-color: white;
     text-align: center;
-    display: none;
     position: absolute;
     border-radius: 0px 0px 5px 5px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 #burger-toggle:checked~#burger-menu {
-    display: flex;
+    opacity: 0.95;
+    visibility: visible;
 }
 
 #burger-menu ul {
@@ -1461,6 +1476,10 @@ img {
 
 #burger-menu li {
     padding: 10px;
+}
+
+#burger-menu li:last-child {
+    padding-bottom: 0px;
 }
 
 #burger-menu a {
