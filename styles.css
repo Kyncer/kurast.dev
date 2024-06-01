@@ -78,6 +78,11 @@ main,
     margin-right: 30px;
 }
 
+.nostyle {
+    text-decoration: none;
+    color: inherit;
+}
+
 .dark-svg {
     position: relative;
     top: 10px;
@@ -138,6 +143,7 @@ img.profile-img {
     border: none;
     font-size: 21px;
     font-weight: 200;
+    cursor: pointer;
 }
 
 .nav-mobile a {
