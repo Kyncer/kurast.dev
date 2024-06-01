@@ -141,14 +141,16 @@ img.profile-img {
 }
 
 .nav-mobile a {
-    color: #e5991b;
+    color: white;
+    background-color: #e5991b;
+    padding: 6px 20px 6px 20px;
+    border-radius: 3px;
 }
 
 .nav-link-mobile {
     background: none;
     border: none;
     margin: 0;
-    padding: 0;
     font: inherit;
     color: #e5991b;
     cursor: pointer;
@@ -1432,6 +1434,7 @@ img {
 }
 
 #burger-menu {
+    opacity: 85%;
     background-color: white;
     margin-left: -60px;
     padding-inline: 30px;
