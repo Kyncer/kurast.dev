@@ -1418,6 +1418,7 @@ img {
 
 .burger-icons {
     margin-top: 3px;
+    margin-left: 14px;
 }
 
 .burger-icon-black {
@@ -1434,10 +1435,10 @@ img {
 }
 
 #burger-menu {
+    margin-left: -28px;
     opacity: 85%;
     background-color: white;
-    margin-left: -60px;
-    padding-inline: 30px;
+    text-align: center;
     display: none;
     position: absolute;
     border-radius: 0px 0px 5px 5px;
