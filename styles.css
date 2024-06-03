@@ -1486,6 +1486,7 @@ img {
     margin-top: 0px;
     background-color: white;
     justify-content: center;
+    border-radius: 0px 0px 3px 3px;
 }
 
 #burger-toggle:checked~#burger-menu {
