@@ -73,13 +73,17 @@ main,
 .con-2,
 .con-3 {
     width: 100%;
-    max-width: 95px;
     display: flex;
+    flex: 1;
     justify-content: space-evenly;
 }
 
 .con-1 {
     justify-content: start;
+}
+
+.con-3 {
+    justify-content: end;
 }
 
 
@@ -1465,15 +1469,20 @@ img {
 }
 
 #burger-menu {
+    left: 0;
+    width: 100%;
     position: fixed;
-    left: 50%;
-    margin-left: -66px;
     opacity: 0;
+    justify-content: center;
     visibility: hidden;
-    background-color: white;
     text-align: center;
     border-radius: 0px 0px 5px 5px;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.burger-ul {
+    margin-top: 0px;
+    background-color: white;
 }
 
 #burger-toggle:checked~#burger-menu {
@@ -1490,8 +1499,8 @@ img {
     padding: 10px;
 }
 
-#burger-menu li:last-child {
-    padding-bottom: 0px;
+#burger-menu li:first-child {
+    padding-top: 20px;
 }
 
 #burger-menu a {
