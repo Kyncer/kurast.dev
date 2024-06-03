@@ -1485,6 +1485,8 @@ img {
 .burger-ul {
     margin-top: 0px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     border-radius: 0px 0px 3px 3px;
 }
