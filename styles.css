@@ -1476,6 +1476,7 @@ img {
     position: fixed;
     opacity: 0;
     justify-content: center;
+    align-items: center;
     visibility: hidden;
     text-align: center;
     border-radius: 0px 0px 5px 5px;
