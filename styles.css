@@ -19,6 +19,7 @@ body {
 header {
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 
 strong {
@@ -66,6 +67,7 @@ main,
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+    min-width: 355px;
     z-index: 900;
 }
 
@@ -1483,6 +1485,7 @@ img {
 .burger-ul {
     margin-top: 0px;
     background-color: white;
+    justify-content: center;
 }
 
 #burger-toggle:checked~#burger-menu {
