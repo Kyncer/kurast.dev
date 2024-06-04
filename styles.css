@@ -1473,7 +1473,7 @@ img {
 #burger-menu {
     left: 0;
     width: 100%;
-    position: fixed;
+    position: absolute;
     opacity: 0;
     justify-content: center;
     align-items: center;
