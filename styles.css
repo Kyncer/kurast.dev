@@ -168,17 +168,19 @@ img.profile-img {
     display: flex;
     justify-content: center;
     padding: 6px 20px 6px 20px;
-    color: white;
-    background-color: #e5991b;
+    color: #ffa413;
+    background-color: white;
+    border: .5px #f09503 solid;
     border-radius: 3px;
 }
 
 .nav-mobile a:hover {
+    color: white;
     background-color: #ffa413;
 }
 
 .nav-link-mobile {
-    padding: 6px 20px 6px 20px;
+    padding: 8px 20px;
     background: none;
     border: none;
     margin: 0;
@@ -187,9 +189,11 @@ img.profile-img {
     cursor: pointer;
 }
 
+
 .nav-link-mobile:hover {
     width: 100%;
-    background-color: #fff3e0;
+    background-color: #f09503;
+    color: white;
     border-radius: 3px;
 }
 
@@ -1471,6 +1475,7 @@ img {
 }
 
 #burger-menu {
+    margin-top: 15px;
     left: 0;
     width: 100%;
     position: absolute;
@@ -1503,11 +1508,11 @@ img {
 }
 
 #burger-menu li {
-    padding: 10px;
+    padding-inline: 10px;
 }
 
 #burger-menu li:first-child {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 #burger-menu a {
@@ -1761,4 +1766,83 @@ img.profile-img,
 
 [data-theme="dark"] .burger-icon-black {
     display: inline;
+}
+
+
+.main-burger {
+    position: relative;
+    width: 23px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.burger {
+    background-color: white;
+    margin-bottom: 4px;
+    height: 3px;
+    width: 23px;
+    border-radius: 1px;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, opacity 0.3s ease;
+}
+
+.top {
+    position: relative;
+}
+
+.mid {
+    position: relative;
+}
+
+.bottom {
+    position: relative;
+}
+
+/* Toggle checkbox state to form a perfect X */
+#burger-toggle:checked+label .main-burger .mid {
+    opacity: 0;
+}
+
+#burger-toggle:checked+label .main-burger .top {
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    position: absolute;
+    top: 0%;
+}
+
+#burger-toggle:checked+label .main-burger .bottom {
+    transform: rotate(-45deg);
+    transform-origin: 50% 50%;
+    position: absolute;
+    top: 0%;
+}
+
+/* Style for the navigation menu */
+#burger-menu {
+    display: none;
+}
+
+#burger-toggle:checked~#burger-menu {
+    display: block;
+}
+
+/* Additional styles for the navigation menu */
+.burger-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-mobile {
+    margin: 10px 0;
+}
+
+.nav-link-mobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-link-mobile:focus {
+    outline: none;
 }
