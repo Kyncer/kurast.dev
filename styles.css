@@ -154,6 +154,7 @@ img.profile-img {
 }
 
 .nav-link {
+    line-height: 1.1;
     padding: 4px 12px 4px 12px;
     border-radius: 5px;
     color: #F1F3F5;
