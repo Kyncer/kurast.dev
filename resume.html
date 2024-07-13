@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Kevin Sy Resume</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://kit.fontawesome.com/322bd6bdaf.js" crossorigin="anonymous"></script>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			box-sizing: border-box;
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+
+		body {
+			background: #16191d;
+			font-size: 12px;
+			line-height: 20px;
+		}
+
+		.resume_wrapper {
+			display: flex;
+			width: 800px;
+			margin: 50px auto;
+			background: #fff;
+			padding: 10px;
+		}
+
+		.resume_wrapper .resume_left {
+			width: 35%;
+			background: #26252d;
+		}
+
+		.resume_wrapper .resume_left .resume_image {
+			width: 100%;
+		}
+
+		.resume_wrapper .resume_left .resume_image img {
+			width: 100%;
+			display: block;
+		}
+
+		.resume_wrapper .resume_title {
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 16px;
+			margin-bottom: 10px;
+			letter-spacing: 4px;
+		}
+
+		.content_personal {
+			padding-left: 0px;
+			margin-bottom: 12px;
+			list-style-type: upper-roman;
+		}
+
+		.resume_wrapper .resume_left .resume_info {
+			color: #D3D3D3;
+		}
+
+		.resume_wrapper .resume_left .resume_bottom {
+			padding: 20px 30px;
+		}
+
+		.resume_wrapper .resume_item {
+			padding: 20px 0;
+			border-bottom: 1px solid #0175b2;
+		}
+
+		.resume_wrapper .resume_item:last-child {
+			border-bottom: 0;
+		}
+
+		.resume_wrapper .resume_left .resume_namerole {
+			display: none;
+		}
+
+		.resume_wrapper .resume_namerole .name {
+			font-size: 20px;
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 700;
+			margin-bottom: 5px;
+			letter-spacing: 4px;
+		}
+
+		.resume_wrapper .resume_left .resume_namerole .role {
+			color: #84838b;
+		}
+
+		.resume_wrapper .resume_left .resume_contact .resume_info:last-child {
+			margin-top: 10px;
+		}
+
+		.resume_wrapper .resume_left .resume_contact .resume_subtitle {
+			color: #fff;
+			margin-bottom: 2px;
+		}
+
+		.resume_wrapper .resume_left .resume_skills .skills_list {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 5px;
+		}
+
+		.resume_wrapper .resume_left .resume_skills .skills_list .skills_bar p {
+			position: relative;
+			width: 95px;
+			height: 20px;
+			background: #fff;
+		}
+
+		.resume_wrapper .resume_left .resume_skills .skills_list .skills_bar p span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #0175b2;
+			width: 100%;
+			height: 100%;
+		}
+
+		.resume_wrapper .resume_right {
+			width: 65%;
+			padding: 20px 40px;
+			color: #26252d;
+		}
+
+		.resume_wrapper .resume_right .resume_namerole .name {
+			color: #26252d;
+			font-size: 32px;
+		}
+
+		.resume_wrapper .resume_right .resume_namerole .role {
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+
+		.resume_wrapper .resume_right .resume_item .resume_title {
+			color: #26252d;
+		}
+
+		.resume_wrapper .resume_right .resume_data {
+			display: flex;
+		}
+
+		.resume_wrapper .resume_right .resume_data .year {
+			padding-right: 35px;
+			width: 115px;
+			position: relative;
+		}
+
+		.resume_wrapper .resume_right .resume_data .content {
+			padding-left: 35px;
+			margin-bottom: 20px;
+			width: calc(100% - 115px);
+		}
+
+		.resume_wrapper .resume_right .resume_data .year:before {
+			content: "";
+			position: absolute;
+			top: 5px;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			background: #fff;
+			border: 1px solid #26252d;
+			border-radius: 50%;
+		}
+
+		.resume_wrapper .resume_right .resume_data .year:after {
+			content: "";
+			position: absolute;
+			top: 17px;
+			right: 4px;
+			width: 3px;
+			height: 90%;
+			background: #0175b2;
+		}
+
+		.resume_wrapper .resume_right .resume_data:last-child .year:after {
+			display: none;
+		}
+
+		.resume_wrapper .resume_right .resmue_interests .resume_info {
+			margin: 0;
+			text-align: left;
+		}
+
+		.resume_wrapper .resume_right .resmue_interests .interests .int_icon {
+			font-size: 38px;
+			color: #0175b2;
+			margin-bottom: 10px;
+		}
+
+		.imgcss {
+			width: 120px;
+			border: solid 1px;
+			margin-right: 0px;
+		}
+
+		figure {
+			float: right;
+			width: 31%;
+			text-align: center;
+			font-style: italic;
+			font-size: smaller;
+			margin-top: 8px;
+			margin-right: 8px;
+			margin-bottom: 8px;
+			text-decoration: none;
+		}
+
+		a:link {
+			text-decoration: none;
+		}
+
+		.thumbnail {
+			width: 120px;
+			border: solid .1px;
+			border-color: black;
+			cursor: pointer;
+			-webkit-transition-property: all;
+			-webkit-transition-duration: 0.3s;
+			-webkit-transition-timing-function: ease;
+		}
+
+		/*change the number below to scale to the appropriate size*/
+		.thumbnail:hover {
+			transform: scale(2.5);
+		}
+
+		@media screen and (max-width: 800px) {
+			.resume_wrapper .resume_right .resume_namerole {
+				display: none;
+			}
+
+			.resume_wrapper .resume_left .resume_namerole {
+				display: block;
+			}
+
+			.resume_wrapper {
+				width: 95%;
+				margin: 10px auto;
+				flex-direction: column;
+			}
+
+			.resume_wrapper .resume_left,
+			.resume_wrapper .resume_right {
+				width: 100%;
+			}
+
+			figure {
+				width: 100%;
+			}
+		}
+
+		@media screen and (max-width: 424px) {
+			.resume_wrapper .resume_right {
+				padding: 20px 30px;
+			}
+
+			.resume_wrapper .resume_right .resume_data {
+				flex-direction: column;
+			}
+
+			.resume_wrapper .resume_right .resume_data .year {
+				padding: 0;
+				margin-bottom: 5px;
+				width: 100%;
+				color: #0175b2;
+			}
+
+			.resume_wrapper .resume_right .resume_data .year:before,
+			.resume_wrapper .resume_right .resume_data .year:after {
+				display: none;
+			}
+
+			.resume_wrapper .resume_right .resume_data .content {
+				width: 100%;
+				padding: 0;
+			}
+
+			.resume_wrapper .resume_right .resmue_interests .interests .int_icon {
+				font-size: 24px;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="resume_wrapper">
+		<div class="resume_left">
+			<div class="resume_image">
+				<a href="https://ibb.co/zHzX8L3"><img src="https://i.ibb.co/gFxSvX0/pic.jpg" alt="pic"></a>
+			</div>
+			<div class="resume_bottom">
+				<div class="resume_item resume_namerole">
+					<div class="name">Kevin Sy</div>
+					<div class="role">Web Developer</div>
+				</div>
+				<div class="resume_item resume_profile">
+					<div class="resume_title">Profile</div>
+					<div class="resume_info">An IT Specialist with a proven ability to adapt in both independent and
+						collaborative environments, consistently achieving high-quality results under strict deadlines.
+						Eager to secure a challenging position at a prestigious company to expand my knowledge and
+						enhance my skills.</div>
+				</div>
+				<div class="resume_item resume_address">
+					<div class="resume_title">Address</div>
+					<div class="resume_info">
+						0914 Aguinaldo Street,<br />
+						Santo Niño District,<br />
+						Pagadian City, Philippines
+					</div>
+				</div>
+				<div class="resume_item resume_contact">
+					<div class="resume_title">Contact</div>
+					<div class="resume_info">
+						<div class="resume_subtitle">Facebook</div>
+						<div class="resume_subinfo">fb.com/neokynce</div>
+					</div>
+					<div class="resume_info" style="margin-top: 10px;">
+						<div class="resume_subtitle">Website</div>
+						<div class="resume_subinfo">https://kurast.dev</div>
+					</div>
+					<div class="resume_info">
+						<div class="resume_subtitle">Email</div>
+						<div class="resume_subinfo">sy.kynce@gmail.com</div>
+					</div>
+				</div>
+				<div class="resume_item resume_skills">
+					<div class="resume_title"></div>
+					<div class="resume_info">
+						<div class="skills_list">
+							<div class="skills_left">Web Development</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 99%"></span>
+								</p>
+							</div>
+						</div>
+						<div class="skills_list">
+							<div class="skills_left">Web Design</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 99%"></span>
+								</p>
+							</div>
+						</div>
+						<div class="skills_list">
+							<div class="skills_left">SEO</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 95%"></span>
+								</p>
+							</div>
+						</div>
+						<div class="skills_list">
+							<div class="skills_left">Webmaster</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 95%"></span>
+								</p>
+							</div>
+						</div>
+						<div class="skills_list">
+							<div class="skills_left">General VA</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 99%"></span>
+								</p>
+							</div>
+						</div>
+						<div class="skills_list">
+							<div class="skills_left" style="font-size: 11.5px;">Site Speed Optimization</div>
+							<div class="skills_bar">
+								<p>
+									<span style="width: 95%"></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="resume_right">
+			<div class="resume_item resume_namerole">
+				<div class="name">KEVIN SY</div>
+				<div class="role">Web Developer</div>
+			</div>
+			<div class="resume_item resume_education">
+				<div class="resume_title">Education</div>
+				<div class="resume_info">
+					<div class="resume_data">
+						<div class="year">2011 - 2016</div>
+						<div class="content">
+							<p>Saint Columban College</p>
+							<p>Bachelor of Science in Information Technology</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="resume_item resume_experience">
+				<div class="resume_title">Experience</div>
+				<div class="resume_info">
+					<div class="resume_data">
+						<div class="year">2023 - Present</div>
+						<div class="content">
+							<p>Webmaster / Web Developer</p>
+							<p>Juice.ai - Wild West Business</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">2015 - Oct 2023</div>
+						<div class="content">
+							<p>Frontend Web Developer</p>
+							<p>Onfolio.com</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">2013 - 2015</div>
+						<div class="content">
+							<p>General Virtual Assistant</p>
+							<p>Petco Direct</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">2011 - 2013</div>
+						<div class="content">
+							<p>Ebook Layout Designer</p>
+							<p>Author Solutions Inc. Cebu</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">2011 - Mar 2011</div>
+						<div class="content">
+							<p>Game QA / Article Writer</p>
+							<p>Fiverr</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">2009 - 2011</div>
+						<div class="content">
+							<p>SEO Specialist</p>
+							<p>Whizcomm</p>
+						</div>
+					</div>
+					<div class="resume_data">
+						<div class="year">May - Nov 2009</div>
+						<div class="content">
+							<p>General Virtual Assistant</p>
+							<p>Starting out freelancing</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="resume_item resmue_interests">
+				<div class="resume_title">Achievements</div>
+				<div class="resume_personal">
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<li>Built websites using WordPress for over 100 clients.</li>
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Fixed bugs on existing websites and implemented enhancements to improve functionality and
+								efficiency.</p>
+
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Maintained, developed, and designed pages using various builders, including Elementor,
+								Thrive Architect, Divi, and others.</p>
+
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Formulated and implemented site speed optimization SOPs for affiliate sites, personal
+								blogs, and Shopify stores.</p>
+
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Developed an app to automate table creation for product listings on affiliate sites.</p>
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Performed front-end development and back-end troubleshooting for numerous client sites.
+							</p>
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Stayed informed about the ever-changing SEO landscape and capable of performing on-page
+								SEO.</p>
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Implemented schema, microdata, and structured data techniques for SEO benefits.</p>
+
+						</div>
+					</div>
+					<div class="resume_data">
+
+						<div class="content_personal">
+							<p>Created beautifully designed landing pages for affiliate sites using Elementor.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
