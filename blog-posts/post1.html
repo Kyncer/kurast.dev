@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Example</title>
+    <link rel="stylesheet" href="/styles.css?v=1.0">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Header Placeholder -->
+    <header id="header-placeholder"></header>
+
+    <!-- Main Content Body -->
+    <main id="main-content">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer id="footer-placeholder"></footer>
+
+    <!-- JavaScript to include header -->
+    <script>
+        // Function to fetch and insert header
+        function includeHeader() {
+            fetch('blog-templates/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header-placeholder').innerHTML = html;
+                })
+                .catch(error => console.error('Error fetching header:', error));
+        }
+
+        // Function to fetch and insert footer
+        function includeFooter() {
+            fetch('blog-templates/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer-placeholder').innerHTML = html;
+                })
+                .catch(error => console.error('Error fetching footer:', error));
+        }
+
+        // Function to load blog post content from files
+        function loadBlogPost(filename) {
+            fetch(filename)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('main-content').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading blog post:', error));
+        }
+
+        // Call functions to include header and footer
+        includeHeader();
+        includeFooter();
+
+        // Example: Load post1.html initially
+        loadBlogPost('blog-contents/post1.html');
+    </script>
+
+    <!-- Your other scripts -->
+    <script src="your-other-scripts.js"></script>
+
+</body>
+
+</html>
