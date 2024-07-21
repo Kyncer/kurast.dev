@@ -52,7 +52,7 @@ main,
     justify-content: end;
     height: 300px;
     max-width: 1000px;
-    background: url('images/kurast-cover.png') no-repeat center center;
+    background: url('images/kurast-cover.webp') no-repeat center center;
     background-size: cover;
     background-color: black;
     margin-bottom: -80px;
