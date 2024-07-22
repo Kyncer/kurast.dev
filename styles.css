@@ -214,11 +214,12 @@ img.profile-img {
 
 .get-touch {
     display: inline;
-    padding: 4px 8px;
+    padding: 6px 16px;
     border-radius: 5px 5px;
-    color: white;
-    font-size: 14px;
-    background-color: #e5991b;
+    color: black;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #ff9d00;
 
 }
 
@@ -1116,7 +1117,7 @@ img.profile-img {
 }
 
 .learning {
-    background-color: #018613;
+    background-color: #3a3939;
 }
 
 .superior.superior-i {
@@ -1135,7 +1136,7 @@ img.profile-img {
 }
 
 .learning.learning-i {
-    background-color: #018613;
+    background-color: #3a3939;
     order: 0;
 }
 
