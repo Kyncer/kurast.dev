@@ -123,6 +123,8 @@ function calculateVisibilityPercentage(element) {
 
 function setActiveSection() {
   const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
   let maxVisibility = 0;
   let activeSection = null;
 
@@ -135,18 +137,23 @@ function setActiveSection() {
     }
   });
 
+  // Toggle active class for sections
   sections.forEach(section => {
     const isActive = section === activeSection;
     section.classList.toggle('active', isActive);
   });
 
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Toggle active class for nav links
   navLinks.forEach((link, index) => {
-    const correspondingSection = sections[index];
-    const isActive = correspondingSection.classList.contains('active');
-    link.classList.toggle('active', isActive);
+    // Check if corresponding section exists
+    if (index < sections.length) {
+      const correspondingSection = sections[index];
+      const isActive = correspondingSection.classList.contains('active');
+      link.classList.toggle('active', isActive);
+    }
   });
 }
+
 
 document.addEventListener('scroll', setActiveSection);
 document.addEventListener('DOMContentLoaded', setActiveSection);
