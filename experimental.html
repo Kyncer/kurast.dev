@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Only Popup Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .flex-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .s-container-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .s-boxes {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .s-text {
+            text-decoration: none;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .s-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .s-popup:target {
+            display: flex;
+            /* Show when targeted */
+        }
+
+        .s-popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .s-close-popup {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="flex-wrapper">
+        <div class="s-container-boxes">
+            <div class="s-boxes">
+                <a href="#popup-1" class="s-text">Site Speed Optimization</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-2" class="s-text">On-page SEO</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-3" class="s-text">Website Migration</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-4" class="s-text">Website Conversion</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-5" class="s-text">Website Redesign</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-6" class="s-text">Website Maintenance</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-7" class="s-text">Keyword Research</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-8" class="s-text">Website Audit</a>
+            </div>
+            <div class="s-boxes">
+                <a href="#popup-9" class="s-text">Web Hosting Setup</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Popups -->
+    <div id="popup-1" class="s-popup">
+        <div class="s-popup-content">
+            <p>Site Speed Optimization details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-2" class="s-popup">
+        <div class="s-popup-content">
+            <p>On-page SEO details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-3" class="s-popup">
+        <div class="s-popup-content">
+            <p>Website Migration details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-4" class="s-popup">
+        <div class="s-popup-content">
+            <p>Website Conversion details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-5" class="s-popup">
+        <div class="s-popup-content">
+            <p>Website Redesign details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-6" class="s-popup">
+        <div class="s-popup-content">
+            <p>Website Maintenance details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-7" class="s-popup">
+        <div class="s-popup-content">
+            <p>Keyword Research details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-8" class="s-popup">
+        <div class="s-popup-content">
+            <p>Website Audit details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+    <div id="popup-9" class="s-popup">
+        <div class="s-popup-content">
+            <p>Web Hosting Setup details here.</p>
+            <a href="#" class="s-close-popup">Close</a>
+        </div>
+    </div>
+</body>
+
+</html>
