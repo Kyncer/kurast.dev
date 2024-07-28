@@ -1565,7 +1565,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     min-width: 320px;
-    gap: 10px;
+    gap: 20px;
 }
 
 .s-boxes {
