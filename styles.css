@@ -1624,6 +1624,11 @@ img {
     height: 160px;
 }
 
+.s-boxes:hover {
+    background-color: #1d1d1d;
+    border: 1px solid #ffffff;
+}
+
 .s-boxes-icon {
     content: '';
     height: 30px;

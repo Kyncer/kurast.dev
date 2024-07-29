@@ -26,10 +26,7 @@
             </div>
             <div class="con-2">
                 <nav class="main-nav desktop">
-                    <button class="nav-link" onclick="goToAnchor('section1')">About</button>
-                    <button class="nav-link" onclick="goToAnchor('section2')">Experience</button>
-                    <button class="nav-link" onclick="goToAnchor('section3')">Portfolio</button>
-                    <button class="nav-link" onclick="goToAnchor('section4')">Apps</button>
+                    <a href="/"><button class="nav-link">About</button></a>
                     <a href="/services"><button class="nav-link">Services</button></a>
                     <a href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,"><button
                             class="nav-link contact-btn">contact</button></a>
@@ -45,14 +42,8 @@
                     </label>
                     <nav id="burger-menu">
                         <ul class="burger-ul">
-                            <li class="nav-mobile"><button class="nav-link-mobile"
-                                    onclick="goToAnchor('section1')">About</button></li>
-                            <li class="nav-mobile"><button class="nav-link-mobile"
-                                    onclick="goToAnchor('section2')">Experience</button></li>
-                            <li class="nav-mobile"><button class="nav-link-mobile"
-                                    onclick="goToAnchor('section3')">Portfolio</button></li>
-                            <li class="nav-mobile"><button class="nav-link-mobile"
-                                    onclick="goToAnchor('section4')">Apps</button></li>
+                            <li class="nav-mobile"><a href="/">About</a>
+                            </li>
                             <li class="nav-mobile"><a href="/services">Services</a>
                             </li>
                             <li class="nav-mobile"><a
@@ -82,73 +73,176 @@
         <main class="flex-wrapper">
             <div class="s-container-boxes">
                 <a href="#popup-1" class="s-text s-boxes">
-                    <div class="s-boxes">
-                        <div class="s-boxes-icon">
-                            <div class="s-boxes-icon-clock">
-                                <svg width="auto" height="auto" viewBox="0 0 200 200"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Clock Face -->
-                                    <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
 
-                                    <!-- Hour Hand -->
-                                    <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
-                                        stroke-linecap="round" transform="rotate(30 100 100)" />
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
 
-                                    <!-- Minute Hand -->
-                                    <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
-                                        stroke-linecap="round" transform="rotate(150 100 100)" />
-                                </svg>
-                            </div>
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
                         </div>
-                        <span>Site Speed Optimization</span>
                     </div>
+                    <span>Site Speed Optimization</span>
                 </a>
                 <a href="#popup-2" class="s-text s-boxes">
-                    <div class="s-boxes">
-                        <div class="s-boxes-icon">
-                            <div class="s-boxes-icon-clock">
-                                <svg width="auto" height="auto" viewBox="0 0 200 200"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Clock Face -->
-                                    <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
 
-                                    <!-- Hour Hand -->
-                                    <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
-                                        stroke-linecap="round" transform="rotate(30 100 100)" />
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
 
-                                    <!-- Minute Hand -->
-                                    <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
-                                        stroke-linecap="round" transform="rotate(150 100 100)" />
-                                </svg>
-                            </div>
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
                         </div>
-                        <span>On-page SEO</span>
                     </div>
+                    <span>On-page SEO</span>
                 </a>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-2" class="s-text">On-page SEO</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-3" class="s-text">Website Migration</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-4" class="s-text">Website Conversion</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-5" class="s-text">Website Redesign</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-6" class="s-text">Website Maintenance</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-7" class="s-text">Keyword Research</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-8" class="s-text">Website Audit</a>
-                </div>
-                <div class="s-boxes s-boxes-image">
-                    <a href="#popup-9" class="s-text">Web Hosting Setup</a>
-                </div>
+                <a href="#popup-3" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Website Migration</span>
+                </a>
+                <a href="#popup-4" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Website Conversion</span>
+                </a>
+                <a href="#popup-5" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Website Redesign</span>
+                </a>
+                <a href="#popup-6" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Website Maintenance</span>
+                </a>
+                <a href="#popup-7" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Keyword Research</span>
+                </a>
+                <a href="#popup-8" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Website Audit</span>
+                </a>
+                <a href="#popup-9" class="s-text s-boxes">
+                    <div class="s-boxes-icon">
+                        <div class="s-boxes-icon-clock">
+                            <svg width="auto" height="auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Clock Face -->
+                                <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                <!-- Hour Hand -->
+                                <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                    stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                <!-- Minute Hand -->
+                                <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                    stroke-linecap="round" transform="rotate(150 100 100)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span>Web Hosting Setup</span>
+                </a>
             </div>
         </main>
 
@@ -240,7 +334,7 @@
                     </svg>
                 </a>
             </span>
-            <p class="copyright-text">2024 © Created by Kevin</p>
+            <p class="copyright-text">2024 © Created by <span class="copy-kevin">Kevin</span></p>
         </footer>
     </body>
 
