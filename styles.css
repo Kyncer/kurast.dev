@@ -1685,11 +1685,19 @@ img {
         display: inline;
     }
 
+    .text-logo {
+        font-size: 12px;
+    }
+
 }
 
 
 
 @media only screen and (max-width: 768px) {
+    .text-logo {
+        font-size: 10px;
+    }
+
     .container {
         flex-direction: column;
     }
