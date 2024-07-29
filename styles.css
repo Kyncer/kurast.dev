@@ -1039,7 +1039,15 @@ img.profile-img {
 }
 
 .copyright-text {
+    text-transform: uppercase;
+    letter-spacing: .4px;
     margin-top: 8px;
+    font-weight: 300;
+}
+
+.copy-kevin {
+    font-style: italic;
+    color: #e5981b;
 }
 
 .svg-footer {
@@ -1730,10 +1738,6 @@ img {
 
 
 @media only screen and (max-width: 768px) {
-    .text-logo {
-        font-size: 10px;
-    }
-
     .container {
         flex-direction: column;
     }
@@ -1780,6 +1784,13 @@ img {
 }
 
 @media only screen and (max-width: 440px) {
+    .text-logo {
+        font-size: 10px;
+    }
+
+    .copyright-text {
+        font-size: 14px;
+    }
 
     .svg-whatsapp,
     .svg-github,

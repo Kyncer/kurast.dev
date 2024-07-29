@@ -18,18 +18,67 @@
 </head>
 
 <body>
-    <header class="s-header">
-        <nav>
-            <ul class="s-navlist">
-                <li><a href="/">About</a></li>
-                <li><a href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,"
-                        target="_blank">Contact</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="logo-container">
+            <div class="con-1"><a href="/index.html"><img class="logo-img" src="images/favicon.ico"
+                        alt="Kevin Profile Image"></a>
+                <h2 class="text-logo">Kurast.dev</h2>
+            </div>
+            <div class="con-2">
+                <nav class="main-nav desktop">
+                    <button class="nav-link" onclick="goToAnchor('section1')">About</button>
+                    <button class="nav-link" onclick="goToAnchor('section2')">Experience</button>
+                    <button class="nav-link" onclick="goToAnchor('section3')">Portfolio</button>
+                    <button class="nav-link" onclick="goToAnchor('section4')">Apps</button>
+                    <a href="/services"><button class="nav-link">Services</button></a>
+                    <a href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,"><button
+                            class="nav-link contact-btn">contact</button></a>
+                </nav>
+                <div class="mobile">
+                    <input type="checkbox" id="burger-toggle" style="display: none;">
+                    <label for="burger-toggle" id="burger-icon">
+                        <div class="main-burger">
+                            <div class="burger top"></div>
+                            <div class="burger mid"></div>
+                            <div class="burger bottom"></div>
+                        </div>
+                    </label>
+                    <nav id="burger-menu">
+                        <ul class="burger-ul">
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="goToAnchor('section1')">About</button></li>
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="goToAnchor('section2')">Experience</button></li>
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="goToAnchor('section3')">Portfolio</button></li>
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="goToAnchor('section4')">Apps</button></li>
+                            <li class="nav-mobile"><a href="/services">Services</a>
+                            </li>
+                            <li class="nav-mobile"><a
+                                    href="mailto:sy.kynce@gmail.com?subject=Inquiry%20from%20Website&body=Hey%20Kevin,">contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="con-3">
+                <div class="container-verdark">
+                    <span class="ver">v1.1</span>
+                    <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
+                    <label for="dark-mode-toggle">
+                        <div class="darkmode">
+                            <div class="dark-button-left"></div>
+                            <div class="dark-button-right"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
     </header>
-    <h1>Services Offered</h1>
 
     <body>
+        <h1 style="padding-top:100px;">Services Offered</h1>
         <main class="flex-wrapper">
             <div class="s-container-boxes">
                 <a href="#popup-1" class="s-text s-boxes">
@@ -52,6 +101,28 @@
                             </div>
                         </div>
                         <span>Site Speed Optimization</span>
+                    </div>
+                </a>
+                <a href="#popup-2" class="s-text s-boxes">
+                    <div class="s-boxes">
+                        <div class="s-boxes-icon">
+                            <div class="s-boxes-icon-clock">
+                                <svg width="auto" height="auto" viewBox="0 0 200 200"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Clock Face -->
+                                    <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#333" stroke-width="5" />
+
+                                    <!-- Hour Hand -->
+                                    <line x1="100" y1="100" x2="100" y2="60" stroke="#333" stroke-width="8"
+                                        stroke-linecap="round" transform="rotate(30 100 100)" />
+
+                                    <!-- Minute Hand -->
+                                    <line x1="100" y1="100" x2="100" y2="30" stroke="#333" stroke-width="5"
+                                        stroke-linecap="round" transform="rotate(150 100 100)" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span>On-page SEO</span>
                     </div>
                 </a>
                 <div class="s-boxes s-boxes-image">
