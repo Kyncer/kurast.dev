@@ -2,6 +2,11 @@ html {
     scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url(/fonts/Nunito_Sans/NunitoSans_10pt-Light.ttf);
+}
+
 body {
     box-sizing: border-box;
     min-height: 100vh;
@@ -44,7 +49,7 @@ main,
 .text-logo {
     margin-left: 3px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: .4px;
 }
