@@ -679,17 +679,10 @@ img.profile-img {
 }
 
 .app-column-1 {
-    gap: 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.app-column-2 {
-    flex: 1;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .app-content-des {
@@ -723,6 +716,7 @@ img.profile-img {
 }
 
 .app-des {
+    min-width: 250px;
     margin-top: 10px;
     font-size: 15px;
     color: #F1F3F5;
@@ -731,13 +725,18 @@ img.profile-img {
 .app-item {
     padding: 40px;
     display: flex;
-    flex: 1;
+    flex-wrap: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #000000;
     border: 1px solid rgba(255, 255, 255, 0.281);
     border-radius: 10px;
+}
+
+.app-item:hover {
+    background: radial-gradient(circle, rgba(24, 24, 24, 0.048) 0%, rgba(15, 15, 15, 0.616) 100%);
+    border: 1px solid #ffffff;
 }
 
 .app-icon,
@@ -1619,7 +1618,7 @@ img {
 }
 
 .s-boxes:hover {
-    background-color: #1d1d1d;
+    background: radial-gradient(circle, rgba(24, 24, 24, 0.048) 0%, rgba(15, 15, 15, 0.616) 100%);
     border: 1px solid #ffffff;
 }
 
@@ -1732,6 +1731,10 @@ img {
         font-size: 12px;
     }
 
+    .app-column-1 {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
 }
 
 
