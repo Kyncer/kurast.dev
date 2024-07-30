@@ -187,7 +187,6 @@ img.profile-img {
 
 .nav-link {
     font-family: Nunito Sans, sans-serif;
-    line-height: 1.1;
     padding: 4px 12px 4px 12px;
     border-radius: 5px;
     color: #F1F3F5;
@@ -1582,6 +1581,7 @@ img {
 }
 
 .s-title {
+    text-align: center;
     font-size: 30px;
     padding-top: 105px;
     padding-bottom: 40px;
