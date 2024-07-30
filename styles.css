@@ -45,6 +45,10 @@ main,
     flex: 1;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* logo */
 .text-logo {
     margin-left: 3px;
