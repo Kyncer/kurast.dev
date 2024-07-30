@@ -1576,6 +1576,17 @@ img {
     padding: 0;
 }
 
+.s-title-container {
+    max-width: 1080px;
+    margin-inline: 25px;
+}
+
+.s-title {
+    font-size: 30px;
+    padding-top: 105px;
+    padding-bottom: 40px;
+}
+
 .flex-wrapper {
     box-sizing: border-box;
     margin-top: 20px;
