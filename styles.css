@@ -1583,12 +1583,12 @@ img {
     text-align: center;
     font-size: 30px;
     padding-top: 105px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .flex-wrapper {
     box-sizing: border-box;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
     width: 100%;
@@ -1682,6 +1682,67 @@ img {
 }
 
 /*This line is where the services page ends*/
+/*This line is where the contact page starts*/
+.c-spacing {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.center-center {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    margin-inline: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    min-width: 240px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    padding: 30px;
+}
+
+.contact-form button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form button:hover {
+    background-color: #218838;
+}
+
+/*This line is where the contact page ends*/
 
 @media only screen and (max-width: 810px) {
 
