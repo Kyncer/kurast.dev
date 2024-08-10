@@ -104,6 +104,29 @@
             </div>
         </div>
         </div>
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevents the default form submission
+                fetch('https://formspree.io/f/xzzpgaev', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        message: document.getElementById('message').value
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = '/thanks.html'; // Redirect to thank you page
+                    } else {
+                        // Handle errors here
+                    }
+                });
+            });
+        </script>
         <script src="script.js"></script>
     </body>
     <div class="c-spacing"></div>
