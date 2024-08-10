@@ -62,11 +62,6 @@ a {
     margin: 0 auto;
 }
 
-:target {
-    color: red;
-    /* Change to your desired color */
-}
-
 .preload-image::before {
     content: "";
     display: block;
