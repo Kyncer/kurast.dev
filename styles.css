@@ -1741,6 +1741,11 @@ img {
     background-color: #218838;
 }
 
+.t-para {
+    max-width: 600px;
+    color: white;
+}
+
 /*This line is where the contact page ends*/
 
 @media only screen and (max-width: 810px) {
