@@ -35,3 +35,95 @@
     });
   });
 </script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .tab-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #000000;
+  }
+
+  .tab-button {
+    text-transform: uppercase;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-bottom: none;
+    background-color: #ffff00;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .tab-button:hover {
+    background-color: #ffff00;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .tab-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-content-item {
+    display: none;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-top: none;
+  }
+
+  input#tab1:checked~.tab-content #content1,
+  input#tab2:checked~.tab-content #content2,
+  input#tab3:checked~.tab-content #content3,
+  input#tab4:checked~.tab-content #content4 {
+    display: block;
+  }
+
+  input#tab1:checked~.tabs label[for="tab1"],
+  input#tab2:checked~.tabs label[for="tab2"],
+  input#tab3:checked~.tabs label[for="tab3"],
+  input#tab4:checked~.tabs label[for="tab4"] {
+    background-color: #e6e603;
+  }
+</style>
+
+
+<div class="tab-container">
+  <input type="radio" name="tab" id="tab1" checked="">
+  <input type="radio" name="tab" id="tab2">
+  <input type="radio" name="tab" id="tab3">
+
+  <div class="tabs">
+    <label for="tab1" class="tab-button">Delivery</label>
+    <label for="tab2" class="tab-button">Warranty</label>
+    <label for="tab3" class="tab-button">Returns</label>
+  </div>
+
+  <div class="tab-content">
+    <div class="tab-content-item" id="content1">
+      <h2>Content for Tab 1</h2>
+      <p>This is the description for Tab 1.</p>
+    </div>
+    <div class="tab-content-item" id="content2">
+      <h2>Content for Tab 2</h2>
+      <p>This is the description for Tab 2.</p>
+    </div>
+    <div class="tab-content-item" id="content3">
+      <h2>Content for Tab 3</h2>
+      <p>This is the description for Tab 3.</p>
+    </div>
+  </div>
+</div>
