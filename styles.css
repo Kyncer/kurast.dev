@@ -1681,6 +1681,11 @@ img {
     color: #e5981b;
 }
 
+.s-h2 {
+    font-size: 21px;
+    font-weight: 300;
+}
+
 /*This line is where the services page ends*/
 /*This line is where the contact page starts*/
 .c-spacing {
