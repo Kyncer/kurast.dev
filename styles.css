@@ -1747,7 +1747,9 @@ img {
 }
 
 .t-para {
-    max-width: 600px;
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 800px;
     color: white;
 }
 
