@@ -13,17 +13,8 @@
     <meta property="og:description"
         content="Freelance web developer, webmaster, and SEO specialist. Ready to turn your online presence into a pixel-perfect website.">
     <meta property="og:image" content="your-image-url.jpg">
-    <meta property="og:url" content="https://kurast.dev/contact">
-    <title>Contact | kurast.dev</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init({
-                publicKey: "z5X0dBY5eU1FRbMnl",
-            });
-        })();
-    </script>
+    <meta property="og:url" content="https://kurast.dev/links">
+    <title>Links | kurast.dev</title>
 
 </head>
 
@@ -41,7 +32,7 @@
                     <a href="/#section3"><button class="nav-link">Portfolio</button></a>
                     <a href="/#section4"><button class="nav-link">Apps</button></a>
                     <a href="/services"><button class="nav-link">Services</button></a>
-                    <a href="/contact"><button class="nav-link" style="color:#e5981b">Contact</button></a>
+                    <a href="/contact"><button class="nav-link">Contact</button></a>
                 </nav>
                 <div class="mobile">
                     <input type="checkbox" id="burger-toggle" style="display: none;">
@@ -91,46 +82,22 @@
 
     <body class="c-body">
         <div class="s-title-container">
-            <h1 class="s-title">Submit an Inquiry</h1>
-        </div>
-        <div class="flex-wrapper center-center">
-            <div class="contact-form">
-                <form id="contactForm">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+            <h1 class="s-title">Links</h1>
+            <p class="t-para">This page provides a handy list of links to all the content on our site. Quickly access
+                articles, resources, and other important pages from one convenient location.</p>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-
-                    <button type="submit">Send</button>
-                </form>
+            <div class="l-contain">
+                <a class="l-link" href="/">about</a><a class="l-link" href="/#section2">experience</a><a class="l-link"
+                    href="/#section3">portfolio</a><a class="l-link" href="/#section4">apps</a><a class="l-link"
+                    href="/services">services</a><a class="l-link" href="/contact">contact</a><a class="l-link"
+                    href="/links">links</a><a class="l-link" href="/resume">resume</a><a class="l-link"
+                    href="/sorry-whatsapp">whatsapp</a><a class="l-link"
+                    href="https://www.facebook.com/neokynce/">facebook</a><a class="l-link"
+                    href="https://github.com/Kyncer">github</a><a class="l-link" href="">portfolio
+                    list</a><a class="l-link" href="">app list</a>
             </div>
         </div>
-        </div>
-        <script>
-            // Initialize EmailJS
-            emailjs.init("z5X0dBY5eU1FRbMnl"); // Replace with your EmailJS user ID
 
-            document.getElementById('contactForm').addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent the default form submission
-
-                // Send email using EmailJS
-                emailjs.sendForm('service_31s90q9', 'template_1flekyr', this)
-                    .then(function (response) {
-                        console.log('Success:', response);
-                        window.location.href = '/thanks'; // Redirect to thank you page
-                    }, function (error) {
-                        console.error('Error:', error);
-                        alert('Sorry, there was a problem with your submission. Please try again.');
-                    });
-            });
-        </script>
         <script src="script.js"></script>
     </body>
     <div class="c-spacing"></div>

@@ -1575,6 +1575,9 @@ img {
 }
 
 .s-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 1080px;
     margin-inline: 25px;
 }
@@ -1762,6 +1765,27 @@ img {
 }
 
 /*This line is where the contact page ends*/
+
+/*This line is where the links page starts*/
+.l-contain {
+    display: flex;
+    max-width: 650px;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-inline: 20px;
+}
+
+.l-link {
+    font-weight: 300;
+    line-height: 1;
+    color: #ff9d0077;
+    border: 1px solid #ff9d0077;
+    padding: 4px 15px 6px 15px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+/*This line is where the links page ends*/
 
 @media only screen and (max-width: 810px) {
 
