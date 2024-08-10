@@ -1641,11 +1641,18 @@ img {
 
 .s-popup-title {
     font-size: 20px;
-    color: black;
+    color: black !important;
     text-transform: uppercase;
 }
 
-.s-popup-para {}
+.s-popup-para {
+    color: black !important;
+}
+
+.s-ul li {
+    color: black !important;
+    text-align: left;
+}
 
 /* */
 
@@ -1703,7 +1710,7 @@ img {
     margin-inline: 20px;
     background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
@@ -1938,6 +1945,10 @@ img.profile-img,
 }
 
 [data-theme="dark"] .name-text {
+    color: #16191d;
+}
+
+[data-theme="dark"] .s-title {
     color: #16191d;
 }
 
