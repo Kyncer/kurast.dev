@@ -15,6 +15,15 @@
     <meta property="og:image" content="your-image-url.jpg">
     <meta property="og:url" content="https://kurast.dev">
     <title>Contact | kurast.dev</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "z5X0dBY5eU1FRbMnl",
+            });
+        })();
+    </script>
 
 </head>
 
@@ -105,26 +114,21 @@
         </div>
         </div>
         <script>
+            // Initialize EmailJS
+            emailjs.init("z5X0dBY5eU1FRbMnl"); // Replace with your EmailJS user ID
+
             document.getElementById('contactForm').addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevents the default form submission
-                fetch('https://formspree.io/f/xzzpgaev', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name: document.getElementById('name').value,
-                        email: document.getElementById('email').value,
-                        message: document.getElementById('message').value
-                    })
-                }).then(response => {
-                    if (response.ok) {
-                        window.location.href = '/thanks.html'; // Redirect to thank you page
-                    } else {
-                        // Handle errors here
-                    }
-                });
+                event.preventDefault(); // Prevent the default form submission
+
+                // Send email using EmailJS
+                emailjs.sendForm('service_31s90q9', 'template_1flekyr', this)
+                    .then(function (response) {
+                        console.log('Success:', response);
+                        window.location.href = '/thank-you.html'; // Redirect to thank you page
+                    }, function (error) {
+                        console.error('Error:', error);
+                        alert('Sorry, there was a problem with your submission. Please try again.');
+                    });
             });
         </script>
         <script src="script.js"></script>
