@@ -1580,13 +1580,25 @@ img {
     align-items: center;
     max-width: 1080px;
     margin-inline: 25px;
+    vertical-align: middle;
 }
 
 .s-title {
+    font-weight: 500;
     text-align: center;
     font-size: 30px;
     padding-top: 105px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.s-subtitle {
+    margin-top: -10px;
+    margin-bottom: 40px;
+    margin-inline: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
 }
 
 .flex-wrapper {
@@ -1688,7 +1700,14 @@ img {
     display: inline-block;
     margin-top: 10px;
     text-decoration: none;
-    color: #e5981b;
+    background-color: rgb(255, 40, 40);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .s-h2 {
