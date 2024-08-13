@@ -1208,6 +1208,7 @@ img.profile-img {
 .sub-date {
     display: flex;
     gap: 5px;
+    align-items: center;
 }
 
 img {
@@ -1896,6 +1897,10 @@ img {
         max-width: 1100px;
     }
 
+    .checkmark {
+        width: 19px;
+    }
+
     .main-contain-skills,
     .exp-company,
     .app-des {
@@ -1948,6 +1953,10 @@ img {
 
     .sub-text {
         font-size: 15px;
+    }
+
+    .checkmark {
+        width: 18px;
     }
 
     .sub-details,
