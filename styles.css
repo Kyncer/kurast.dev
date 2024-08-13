@@ -727,7 +727,8 @@ img.profile-img {
 }
 
 .app-item {
-    padding: 40px;
+    padding-inline: 20px;
+    padding-block: 40px;
     display: flex;
     flex-wrap: 1;
     flex-direction: column;
@@ -1884,6 +1885,7 @@ img {
 
 }
 
+/*TABLET*/
 @media only screen and (max-width: 623px) {
     .container-app {
         display: flex;
@@ -1892,6 +1894,12 @@ img {
         height: 100%;
         border-radius: 5px;
         max-width: 1100px;
+    }
+
+    .main-contain-skills,
+    .exp-company,
+    .app-des {
+        font-size: 14px;
     }
 
     .exp-years {
@@ -1906,11 +1914,32 @@ img {
         flex-direction: column;
         gap: 10px;
     }
+
+    .app-name {
+        font-size: 18px;
+    }
+
+    svg.brief {
+        width: 18px;
+    }
+
+    svg.sublink {
+        width: 16px;
+    }
+
+    svg.subcake {
+        width: 20px;
+    }
+
+    svg.calendar {
+        width: 18px;
+    }
 }
 
+/*MOBILE PHONE*/
 @media only screen and (max-width: 440px) {
     .text-logo {
-        font-size: 10px;
+        display: none;
     }
 
     .name-text {
@@ -1921,16 +1950,52 @@ img {
         font-size: 15px;
     }
 
-    .sub-details {
+    .sub-details,
+    .exp-company,
+    .app-des {
         font-size: 13px;
+    }
+
+    .app-item {
+        padding-inline: 0;
+        padding-block: 30px;
+    }
+
+    .app-name {
+        font-size: 17px;
+    }
+
+    .legend {
+        font-size: 12px;
+    }
+
+    .update-text {
+        display: none;
     }
 
     .job-title {
         font-size: 15px;
     }
 
+    .main-contain-skills,
     .copyright-text {
         font-size: 14px;
+    }
+
+    svg.brief {
+        width: 17px;
+    }
+
+    svg.sublink {
+        width: 15px;
+    }
+
+    svg.subcake {
+        width: 19px;
+    }
+
+    svg.calendar {
+        width: 17px;
     }
 
     .svg-whatsapp,
