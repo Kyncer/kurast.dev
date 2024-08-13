@@ -983,6 +983,7 @@ img.profile-img {
     max-width: 100%;
     height: auto;
     max-height: 580px;
+    min-width: 355px;
     object-fit: cover;
     object-position: center top;
     border-radius: 0px 0px 5px 5px;

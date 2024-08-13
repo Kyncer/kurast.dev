@@ -1,129 +1,414 @@
-<style>
-  .hidden {
-    display: none;
-  }
-</style>
-<div class="faq">
-  <div class="faq-item">
-    <div class="question">Question 1</div>
-    <div class="answer">Answer 1</div>
-    <svg class="arrow-down" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000" width="25px"
-      height="25px">
-      <path id="downArrow" d="M15 8l-4.03 6L7 8h8z"></path>
-    </svg>
-    <svg class="arrow-up hidden" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000" width="25px"
-      height="25px">
-      <path id="upArrow" d="M7 12l4.03-6L13 12H7z"></path>
-    </svg>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Order Form</title>
+  <!-- Include Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .select2 {
+      width: 100% !important;
+      font-size: 12px;
+      /* Adjust this size as needed */
+    }
+
+    .func {
+      margin-top: 10px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+      padding: 5px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    .form-group select[name="product_name[]"],
+    .form-group input[name="notes[]"] {
+      font-size: 12px;
+    }
+
+    .form-group input[type="number"] {
+      font-size: 12px;
+    }
+
+    .form-group select[name="unit[]"] {
+      font-size: 12px;
+
+    }
+
+    .form-group input[name="quantity[]"],
+    .form-group input[name="delivered_quantity[]"],
+    .form-group input[name="bo_quantity[]"] {
+      font-size: 12px;
+    }
+
+    .form-group button {
+      padding: 10px 20px;
+      background-color: #0073e6;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .print-section {
+      margin-top: 20px;
+    }
+
+    .print-section table {
+      margin-top: 20px;
+    }
+
+    /* Column width adjustments */
+    #order-table th:nth-child(1),
+    #order-table td:nth-child(1) {
+      width: 16.66%;
+      /* Product Name */
+    }
+
+    #order-table th:nth-child(2),
+    #order-table td:nth-child(2) {
+      width: 16.66%;
+      /* Quantity */
+    }
+
+    #order-table th:nth-child(3),
+    #order-table td:nth-child(3) {
+      width: 16.66%;
+      /* Unit */
+    }
+
+    #order-table th:nth-child(4),
+    #order-table td:nth-child(4) {
+      width: 16.66%;
+      /* Delivered Quantity */
+    }
+
+    #order-table th:nth-child(5),
+    #order-table td:nth-child(5) {
+      width: 16.66%;
+      /* Notes */
+    }
+
+    #order-table th:nth-child(6),
+    #order-table td:nth-child(6) {
+      width: 16.66%;
+      /* B.O. Quantity */
+    }
+
+    /* Ensure the input field in Delivered Quantity column fits within the column */
+    #order-table td:nth-child(4) input {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+
+    #order-table td:nth-child(2) input {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+
+    #order-table td:nth-child(3) select {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+
+    #order-table td:nth-child(6) input {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+
+    }
+
+    #order-table td:nth-child(1) select {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+
+    #order-table td:nth-child(5) input {
+      width: 100%;
+      /* Full width of the column */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+
+    .print-section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+
+    #summary-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #summary-table th,
+    #summary-table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+      font-size: 14px;
+      /* Adjust font size for better readability */
+    }
+
+    #summary-table th {
+      background-color: #f4f4f4;
+    }
+
+
+    /* Print-specific styles */
+    @media print {
+      body {
+        margin: 0;
+        /* Remove default margins */
+        padding: 0;
+        /* Remove default padding */
+      }
+
+      /* Hide everything except the print section */
+      #bulk-order-form,
+      #order-table,
+      .title-order {
+        display: none;
+      }
+
+      .print-section {
+        display: block;
+        /* Ensure the print section is displayed */
+        padding: 20px;
+        /* Ensure there is padding around the content */
+        margin: 0;
+        /* Remove margins for print view */
+        page-break-inside: avoid;
+        /* Avoid breaking inside the print section */
+      }
+
+      #summary-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      #summary-table th,
+      #summary-table td {
+        padding: 15px;
+        /* Increase padding for more spacing */
+        border: none;
+        /* Remove borders */
+        text-align: left;
+        font-size: 16px;
+        /* Larger font size for clarity in print */
+      }
+
+      #summary-table th {
+        background-color: #e0e0e0;
+        /* Slightly darker background for headers */
+      }
+
+      /* Add spacing between rows for better readability */
+      #summary-table tr {
+        border-bottom: 1px solid #ddd;
+        /* Border between rows */
+      }
+
+      #summary-table tr:last-child {
+        border-bottom: none;
+        /* Remove border from last row */
+      }
+
+      /* Ensure that the document fits well on pages */
+      @page {
+        size: auto;
+        /* Auto size for pages */
+        margin: 20mm;
+        /* Set margins for the page */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2 class="title-order">Order Form</h2>
+
+  <form id="bulk-order-form">
+    <table id="order-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>QTY</th>
+          <th>Unit</th>
+          <th>Dlv. QTY</th>
+          <th>Notes</th>
+          <th>B.O. QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <select name="product_name[]" class="select2" required>
+              <option value="Product A">Product A</option>
+              <option value="Product B">Product B</option>
+              <option value="Product C">Product C</option>
+            </select>
+          </td>
+          <td><input type="number" name="quantity[]" min="0" required></td>
+          <td>
+            <select name="unit[]" required>
+              <option value="pcs">pcs</option>
+              <option value="kg">kg</option>
+              <option value="ltr">ltr</option>
+            </select>
+          </td>
+          <td><input type="number" name="delivered_quantity[]" min="0" required></td>
+          <td><input type="text" name="notes[]"></td>
+          <td><input type="number" name="bo_quantity[]" min="0"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="func" type="button" onclick="addRow()">Add Product</button>
+    <button class="func" type="button" onclick="printTable()">Print Order</button>
+  </form>
+
+  <div class="print-section" id="print-section" style="display: none;">
+    <h2>Order Summary</h2>
+    <table id="summary-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>QTY</th>
+          <th>Unit</th>
+          <th>Dlv. QTY</th>
+          <th>Notes</th>
+          <th>B.O. QTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be populated here -->
+      </tbody>
+    </table>
   </div>
-  <!-- Add more FAQ items here -->
-</div>
-<script>document.addEventListener("DOMContentLoaded", function () {
-    var faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(function (item) {
-      var question = item.querySelector('.question');
-      var answer = item.querySelector('.answer');
-      var arrowDown = item.querySelector('.arrow-down');
-      var arrowUp = item.querySelector('.arrow-up');
-
-      question.addEventListener('click', function () {
-        answer.classList.toggle('hidden');
-        arrowDown.classList.toggle('hidden');
-        arrowUp.classList.toggle('hidden');
+  <!-- Include jQuery and Select2 JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  <script>
+    // Initialize Select2 for existing select elements
+    function initializeSelect2() {
+      $('.select2').select2({
+        placeholder: 'Select a product',
+        allowClear: true
       });
+    }
+
+    // Initialize Select2 on page load
+    $(document).ready(function () {
+      initializeSelect2();
     });
-  });
-</script>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-  }
 
-  .tab-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+    function addRow() {
+      const tableBody = $('#order-table tbody');
+      const newRow = `
+        <tr>
+          <td>
+            <select name="product_name[]" class="select2" required>
+              <option value="Product A">Product A</option>
+              <option value="Product B">Product B</option>
+              <option value="Product C">Product C</option>
+            </select>
+          </td>
+          <td><input type="number" name="quantity[]" min="0" required></td>
+          <td>
+            <select name="unit[]" required>
+              <option value="pcs">pcs</option>
+              <option value="kg">kg</option>
+              <option value="ltr">ltr</option>
+            </select>
+          </td>
+          <td><input type="number" name="delivered_quantity[]" min="0" required></td>
+          <td><input type="text" name="notes[]"></td>
+          <td><input type="number" name="bo_quantity[]" min="0"></td>
+        </tr>
+      `;
+      tableBody.append(newRow);
+      initializeSelect2(); // Re-initialize Select2 for new rows
+    }
 
-  .tabs {
-    display: flex;
-    border-bottom: 2px solid #000000;
-  }
+    function printTable() {
+      const tableRows = $('#order-table tbody tr');
+      const summaryTableBody = $('#summary-table tbody');
+      summaryTableBody.empty(); // Clear previous content
 
-  .tab-button {
-    text-transform: uppercase;
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-bottom: none;
-    background-color: #ffff00;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-  }
+      tableRows.each(function () {
+        const cells = $(this).find('td');
+        const newRow = `
+          <tr>
+            <td>${$(cells[0]).find('select').find('option:selected').text()}</td>
+            <td>${$(cells[1]).find('input').val()}</td>
+            <td>${$(cells[2]).find('select').find('option:selected').text()}</td>
+            <td>${$(cells[3]).find('input').val()}</td>
+            <td>${$(cells[4]).find('input').val()}</td>
+            <td>${$(cells[5]).find('input').val()}</td>
+          </tr>
+        `;
+        summaryTableBody.append(newRow);
+      });
 
-  .tab-button:hover {
-    background-color: #ffff00;
-  }
+      // Show the print section
+      $('#print-section').show();
 
-  input[type="radio"] {
-    display: none;
-  }
+      // Print the content
+      window.print();
 
-  .tab-content {
-    display: flex;
-    flex-direction: column;
-  }
+      // Hide the print section after printing
+    }
+  </script>
+</body>
 
-  .tab-content-item {
-    display: none;
-    padding: 20px;
-    border: 1px solid #000000;
-    border-top: none;
-  }
-
-  input#tab1:checked~.tab-content #content1,
-  input#tab2:checked~.tab-content #content2,
-  input#tab3:checked~.tab-content #content3,
-  input#tab4:checked~.tab-content #content4 {
-    display: block;
-  }
-
-  input#tab1:checked~.tabs label[for="tab1"],
-  input#tab2:checked~.tabs label[for="tab2"],
-  input#tab3:checked~.tabs label[for="tab3"],
-  input#tab4:checked~.tabs label[for="tab4"] {
-    background-color: #e6e603;
-  }
-</style>
-
-
-<div class="tab-container">
-  <input type="radio" name="tab" id="tab1" checked="">
-  <input type="radio" name="tab" id="tab2">
-  <input type="radio" name="tab" id="tab3">
-
-  <div class="tabs">
-    <label for="tab1" class="tab-button">Delivery</label>
-    <label for="tab2" class="tab-button">Warranty</label>
-    <label for="tab3" class="tab-button">Returns</label>
-  </div>
-
-  <div class="tab-content">
-    <div class="tab-content-item" id="content1">
-      <h2>Content for Tab 1</h2>
-      <p>This is the description for Tab 1.</p>
-    </div>
-    <div class="tab-content-item" id="content2">
-      <h2>Content for Tab 2</h2>
-      <p>This is the description for Tab 2.</p>
-    </div>
-    <div class="tab-content-item" id="content3">
-      <h2>Content for Tab 3</h2>
-      <p>This is the description for Tab 3.</p>
-    </div>
-  </div>
-</div>
+</html>
