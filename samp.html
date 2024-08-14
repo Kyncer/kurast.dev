@@ -28,16 +28,14 @@
       margin-top: 10px;
     }
 
-    table,
-    th,
-    td {
-      border: 1px solid #ddd;
-    }
-
     th,
     td {
       padding: 5px;
       text-align: left;
+    }
+
+    tr {
+      padding-bottom: 5px;
     }
 
     th {
@@ -99,38 +97,44 @@
     /* Column width adjustments */
     #order-table th:nth-child(1),
     #order-table td:nth-child(1) {
-      width: 16.66%;
-      /* Product Name */
+      width: 14.28%
+        /* Product Name */
     }
 
     #order-table th:nth-child(2),
     #order-table td:nth-child(2) {
-      width: 16.66%;
-      /* Quantity */
+      width: 14.28%
+        /* Quantity */
     }
 
     #order-table th:nth-child(3),
     #order-table td:nth-child(3) {
-      width: 16.66%;
-      /* Unit */
+      width: 14.28%
+        /* Unit */
     }
 
     #order-table th:nth-child(4),
     #order-table td:nth-child(4) {
-      width: 16.66%;
-      /* Delivered Quantity */
+      width: 14.28%
+        /* Delivered Quantity */
     }
 
     #order-table th:nth-child(5),
     #order-table td:nth-child(5) {
-      width: 16.66%;
-      /* Notes */
+      width: 18.28%
+        /* Notes */
     }
 
     #order-table th:nth-child(6),
     #order-table td:nth-child(6) {
-      width: 16.66%;
-      /* B.O. Quantity */
+      width: 14.28%
+        /* B.O. Quantity */
+    }
+
+    #order-table th:nth-child(7),
+    #order-table td:nth-child(7) {
+      width: 10.28%
+        /* B.O. Quantity */
     }
 
     /* Ensure the input field in Delivered Quantity column fits within the column */
@@ -180,7 +184,6 @@
     .print-section {
       margin: 20px;
       padding: 20px;
-      border: 1px solid #ddd;
       background-color: #f9f9f9;
     }
 
@@ -192,7 +195,7 @@
     #summary-table th,
     #summary-table td {
       padding: 12px;
-      border: 1px solid #ddd;
+
       text-align: left;
       font-size: 14px;
       /* Adjust font size for better readability */
@@ -201,6 +204,108 @@
     #summary-table th {
       background-color: #f4f4f4;
     }
+
+    /* Default table layout */
+    #order-table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #order-table th,
+    #order-table td {
+      padding: 5px;
+      text-align: left;
+    }
+
+    /* Alternating row colors */
+    #order-table tbody tr:nth-child(even) {
+      background-color: #f4f4f4;
+      /* Light gray for even rows */
+    }
+
+    #order-table tbody tr:nth-child(odd) {
+      background-color: #e0e0e0;
+      /* Darker gray for odd rows */
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      #order-table {
+        display: block;
+        width: 100%;
+      }
+
+      #order-table thead {
+        display: none;
+        /* Hide table headers on mobile */
+      }
+
+      #order-table tbody,
+      #order-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 0px;
+        /* Add space between rows */
+      }
+
+      #order-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 3px 3px;
+        border: none;
+        /* Remove borders for mobile */
+      }
+
+      /* Style the product name cell */
+      #order-table td:nth-child(1) {
+        display: block;
+        width: 100%;
+        margin-bottom: 0px;
+        /* Space between product name and other columns */
+        font-weight: bold;
+        /* Emphasize product name */
+      }
+
+      /* Style other cells to stack below the product name */
+      #order-table td:not(:first-child) {
+        display: block;
+        width: 100%;
+        margin-bottom: 0px;
+        /* Space between columns */
+      }
+
+      /* Optional: Add labels before content for better clarity */
+      #order-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 1px;
+        margin-top: 1px
+      }
+
+      #order-table td:nth-child(2)::before {
+        content: "QTY";
+      }
+
+      #order-table td:nth-child(3)::before {
+        content: "Unit";
+      }
+
+      #order-table td:nth-child(4)::before {
+        content: "Dlv. QTY";
+      }
+
+      #order-table td:nth-child(5)::before {
+        content: "Notes";
+      }
+
+      #order-table td:nth-child(6)::before {
+        content: "B.O. QTY";
+      }
+    }
+
 
 
     /* Print-specific styles */
@@ -287,6 +392,7 @@
           <th>Dlv. QTY</th>
           <th>Notes</th>
           <th>B.O. QTY</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -309,6 +415,8 @@
           <td><input type="number" name="delivered_quantity[]" min="0" required></td>
           <td><input type="text" name="notes[]"></td>
           <td><input type="number" name="bo_quantity[]" min="0"></td>
+          <td><button type="button" class="delete-row" onclick="deleteRow(this)">Delete</button></td>
+          <!-- Delete button added -->
         </tr>
       </tbody>
     </table>
@@ -374,6 +482,7 @@
           <td><input type="number" name="delivered_quantity[]" min="0" required></td>
           <td><input type="text" name="notes[]"></td>
           <td><input type="number" name="bo_quantity[]" min="0"></td>
+          <td><button type="button" class="delete-row">Delete</button></td> <!-- Add this line -->
         </tr>
       `;
       tableBody.append(newRow);
@@ -407,7 +516,13 @@
       window.print();
 
       // Hide the print section after printing
+      $('#print-section').hide();
     }
+
+    // Add row delete functionality
+    $(document).on('click', '.delete-row', function () {
+      $(this).closest('tr').remove(); // Remove the closest row
+    });
   </script>
 </body>
 
