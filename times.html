@@ -195,7 +195,7 @@
 
 
         #name {
-            width: 250px;
+            width: 200px;
         }
 
         #totals {
@@ -342,6 +342,14 @@
 </head>
 
 <body>
+    <label onclick="openSeparateWindow()">
+        <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="white"
+                d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
+                fill="#000000" />
+        </svg>
+    </label>
     <h1>Timesheet</h1>
     <div class="details">
         <div class="profile">
@@ -471,6 +479,15 @@
             let value = parseFloat(usdPerHourInput.value) || 0;
             usdPerHourInput.value = value.toFixed(2);
         });
+    </script>
+    <script>
+        function openSeparateWindow() {
+            // Specify the URL of the HTML page
+            var pageUrl = '/times';
+
+            // Open a new window with the specified URL
+            var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
+        }
     </script>
 </body>
 
