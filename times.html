@@ -174,7 +174,8 @@
 
         /* Remove the right border from the 3rd column to prevent an outer border */
 
-        input {
+        input,
+        textarea {
             width: 100%;
             box-sizing: border-box;
             font-size: 16px;
@@ -216,13 +217,15 @@
                 padding: 0px;
             }
 
-            input {
+            input,
+            textarea {
                 border: none;
                 background: none;
                 box-shadow: none;
                 outline: none;
                 text-align: left;
                 width: auto;
+                overflow: visible;
             }
 
             table {
@@ -376,7 +379,7 @@
                     <div class="fordate">Date:</div><input type="date" class="date print-hide">
                 </td>
                 <td>
-                    <div class="fortask">Task:</div><input type="text" class="description print-hide">
+                    <div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
                 </td>
                 <td>
                     <div class="forduration">Duration:</div><input type="number" class="duration print-show" step="0.1">
@@ -419,7 +422,7 @@
                 const newRow = invoiceTable.insertRow();
                 newRow.innerHTML = `
                     <td><div class="fordate">Date:</div><input type="date" class="date print-hide"></td>
-                    <td><div class="fortask">Task:</div><input type="text" class="description print-hide"></td>
+                    <td><div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
                     <td><div class="forduration">Duration:</div><input type="number" class="duration print-show" step="0.1"></td>
                     <td><button class="deleteBtn button-red">Delete</button></td>
                 `;
@@ -488,6 +491,19 @@
             // Open a new window with the specified URL
             var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
         }
+
+        function resizeInputs() {
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.style.width = 'auto';
+                input.style.minWidth = '0';
+                input.style.width = (input.scrollWidth + 2) + 'px';
+            });
+        }
+
+        window.onbeforeprint = resizeInputs;
+
+
     </script>
 </body>
 
