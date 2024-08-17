@@ -13,6 +13,7 @@
         content="Freelance web developer, webmaster, and SEO specialist. Ready to turn your online presence into a pixel-perfect website.">
     <meta property="og:image" content="your-image-url.jpg">
     <meta property="og:url" content="https://kurast.dev/times">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>Timesheet Generator</title>
     <style>
         body {
@@ -24,119 +25,6 @@
 
         h1 {
             text-align: center;
-        }
-
-        /* Basic button styling */
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #4CAF50;
-            /* Modern green color */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        /* Basic button styling */
-        .button-red {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #F44336;
-            /* Modern red color */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        /* Hover effect */
-        .button-red:hover {
-            background-color: #E53935;
-            /* Slightly darker red */
-            transform: translateY(-2px);
-            /* Slight lift effect */
-        }
-
-        /* Active state effect */
-        .button-red:active {
-            background-color: #C62828;
-            /* Even darker red */
-            transform: translateY(1px);
-            /* Slight press effect */
-        }
-
-        /* Disabled state */
-        .button-red:disabled {
-            background-color: #FFCDD2;
-            /* Light red */
-            cursor: not-allowed;
-        }
-
-
-        /* Hover effect */
-        .button:hover {
-            background-color: #45a049;
-            /* Slightly darker green */
-            transform: translateY(-2px);
-            /* Slight lift effect */
-        }
-
-        /* Active state effect */
-        .button:active {
-            background-color: #388e3c;
-            /* Even darker green */
-            transform: translateY(1px);
-            /* Slight press effect */
-        }
-
-        /* Disabled state */
-        .button:disabled {
-            background-color: #a5d6a7;
-            /* Light green */
-            cursor: not-allowed;
-        }
-
-
-        .fordate,
-        .fortask,
-        .forduration {
-            display: none;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 18px;
-
-        }
-
-        .details {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        table {
-            border: 0;
         }
 
         th:nth-child(1),
@@ -163,6 +51,84 @@
 
         th:nth-child(4),
         td:nth-child(4) {
+            background-color: none;
+            border: none;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .details {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button-red {
+            background-color: #F44336;
+        }
+
+        .button-red:hover {
+            background-color: #E53935;
+            transform: translateY(-2px);
+        }
+
+        .button-red:active {
+            background-color: #C62828;
+            transform: translateY(1px);
+        }
+
+        .button-red:disabled {
+            background-color: #FFCDD2;
+            cursor: not-allowed;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            background-color: #388e3c;
+            transform: translateY(1px);
+        }
+
+        .button:disabled {
+            background-color: #a5d6a7;
+            cursor: not-allowed;
+        }
+
+        .fordate,
+        .fortask,
+        .forduration {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
             border: 0;
         }
 
@@ -172,7 +138,10 @@
             text-align: left;
         }
 
-        /* Remove the right border from the 3rd column to prevent an outer border */
+        #totalHours,
+        #totalUSD {
+            font-weight: 700;
+        }
 
         input,
         textarea {
@@ -186,14 +155,9 @@
             white-space: nowrap;
         }
 
-        button {
-            cursor: pointer;
-        }
-
         #usdPerHour {
             width: 60px;
         }
-
 
         #name {
             width: 200px;
@@ -242,14 +206,7 @@
                 display: none;
             }
 
-            .print-show {
-                display: table-cell;
-            }
-
-            #addRowBtn {
-                display: none;
-            }
-
+            #addRowBtn,
             #printBtn {
                 display: none;
             }
@@ -300,17 +257,14 @@
                 border-top: 1px solid #ddd;
             }
 
-            /* Hide table headers */
             thead tr {
                 display: none;
             }
 
-            /* Add some space between rows */
             tbody tr {
                 margin-bottom: 15px;
             }
 
-            /* Format each cell to display as a row */
             td {
                 display: flex;
                 justify-content: space-between;
@@ -320,7 +274,6 @@
                 border: none;
             }
 
-            /* Add labels before each cell */
             td::before {
                 content: attr(data-label);
                 position: absolute;
@@ -347,10 +300,9 @@
 <body>
     <label onclick="openSeparateWindow()">
         <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            xmlns="http://www.w3.org/2000/svg">
             <path fill="white"
-                d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
-                fill="#000000" />
+                d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z" />
         </svg>
     </label>
     <h1>Timesheet</h1>
@@ -362,7 +314,7 @@
         <div class="money">
             <input type="text" id="currency" value="AUD" placeholder="$" class="usdPerHour print-show">
             <label for="usdPerHour">/hr:</label>
-            <input type="number" id="usdPerHour" step="0.01" placeholder="rate" class="usdPerHour print-show">
+            <input type="text" id="usdPerHour" placeholder="rate" class="usdPerHour print-show">
         </div>
     </div>
     <table id="invoiceTable">
@@ -376,13 +328,13 @@
         <tbody>
             <tr>
                 <td>
-                    <div class="fordate">Date:</div><input type="date" class="date print-hide">
+                    <div class="fordate">Date:</div><input class="inputdate date print-hide" placeholder="mm/dd/yyyy" />
                 </td>
                 <td>
                     <div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
                 </td>
                 <td>
-                    <div class="forduration">Duration:</div><input type="number" class="duration print-show" step="0.1">
+                    <div class="forduration">Duration:</div><input type="text" class="duration print-show" step="0.1">
                 </td>
                 <td><button class="deleteBtn button-red">Delete</button></td>
             </tr>
@@ -394,6 +346,7 @@
         <p>Total USD: <span id="totalUSD">0</span></p>
     </div>
     <button id="printBtn">Print</button>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const invoiceTable = document.getElementById('invoiceTable').getElementsByTagName('tbody')[0];
@@ -402,108 +355,74 @@
             const totalHoursSpan = document.getElementById('totalHours');
             const totalUSDSpan = document.getElementById('totalUSD');
             const usdPerHourInput = document.getElementById('usdPerHour');
+            let rowCount = 1;
 
-            function calculateTotals() {
-                const usdPerHour = parseFloat(usdPerHourInput.value) || 0;
+            function updateTotals() {
                 let totalHours = 0;
                 let totalUSD = 0;
-
-                document.querySelectorAll('#invoiceTable tbody tr').forEach(row => {
-                    const duration = parseFloat(row.querySelector('.duration').value) || 0;
-                    totalHours += duration;
-                    totalUSD += duration * usdPerHour;
-                });
-
+                const rows = invoiceTable.getElementsByTagName('tr');
+                for (let row of rows) {
+                    const durationInput = row.querySelector('.duration');
+                    const taskDescInput = row.querySelector('.description');
+                    const dateInput = row.querySelector('.inputdate');
+                    if (durationInput && taskDescInput && dateInput) {
+                        const duration = parseFloat(durationInput.value) || 0;
+                        const usdPerHour = parseFloat(usdPerHourInput.value) || 0;
+                        totalHours += duration;
+                        totalUSD += duration * usdPerHour;
+                    }
+                }
                 totalHoursSpan.textContent = totalHours.toFixed(2);
                 totalUSDSpan.textContent = totalUSD.toFixed(2);
             }
 
             function addRow() {
-                const newRow = invoiceTable.insertRow();
-                newRow.innerHTML = `
-                    <td><div class="fordate">Date:</div><input type="date" class="date print-hide"></td>
-                    <td><div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
-                    <td><div class="forduration">Duration:</div><input type="number" class="duration print-show" step="0.1"></td>
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="fordate">Date:</div><input class="inputdate date print-hide" placeholder="mm/dd/yyyy" />
+                    </td>
+                    <td>
+                        <div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
+                    </td>
+                    <td>
+                        <div class="forduration">Duration:</div><input type="text" class="duration print-show">
+                    </td>
                     <td><button class="deleteBtn button-red">Delete</button></td>
                 `;
+                invoiceTable.appendChild(row);
 
-                newRow.querySelectorAll('input').forEach(input => {
-                    input.addEventListener('input', calculateTotals);
+                // Initialize the flatpickr instance for the new row's date picker
+                flatpickr(row.querySelector('.inputdate'), {
+                    dateFormat: "m/d/Y"
                 });
 
-                newRow.querySelector('.deleteBtn').addEventListener('click', () => {
-                    invoiceTable.removeChild(newRow);
-                    calculateTotals();
+                // Add event listener to new delete button
+                row.querySelector('.deleteBtn').addEventListener('click', () => {
+                    row.remove();
+                    updateTotals();
                 });
 
-                calculateTotals();
+                // Update totals after adding new row
+                updateTotals();
             }
 
-            function setPrintInputs() {
-                document.querySelectorAll('#invoiceTable .duration').forEach(input => {
-                    input.type = 'text';
-                });
-                usdPerHourInput.type = 'text';
+            function printPage() {
+                window.print();
             }
-
-            function resetInputs() {
-                document.querySelectorAll('#invoiceTable .duration').forEach(input => {
-                    input.type = 'number';
-                });
-                usdPerHourInput.type = 'number';
-            }
-
 
             addRowBtn.addEventListener('click', addRow);
-            usdPerHourInput.addEventListener('input', calculateTotals);
-            printBtn.addEventListener('click', () => {
-                setPrintInputs();
-                window.print();
-                setTimeout(resetInputs, 0); // Reset inputs after printing
+            printBtn.addEventListener('click', printPage);
+
+            // Initialize flatpickr for existing date pickers
+            flatpickr('.inputdate', {
+                dateFormat: "m/d/Y"
             });
 
-            // Initial event listeners
-            document.querySelectorAll('#invoiceTable tbody tr').forEach(row => {
-                row.querySelectorAll('input').forEach(input => {
-                    input.addEventListener('input', calculateTotals);
-                });
-
-                row.querySelector('.deleteBtn').addEventListener('click', () => {
-                    invoiceTable.removeChild(row);
-                    calculateTotals();
-                });
-            });
+            // Update totals on input change
+            invoiceTable.addEventListener('input', updateTotals);
+            usdPerHourInput.addEventListener('input', updateTotals);
         });
-    </script>
-    <script>
-        const usdPerHourInput = document.getElementById('usdPerHour');
-
-        usdPerHourInput.addEventListener('input', () => {
-            let value = parseFloat(usdPerHourInput.value) || 0;
-            usdPerHourInput.value = value.toFixed(2);
-        });
-    </script>
-    <script>
-        function openSeparateWindow() {
-            // Specify the URL of the HTML page
-            var pageUrl = '/times';
-
-            // Open a new window with the specified URL
-            var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
-        }
-
-        function resizeInputs() {
-            const inputs = document.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.style.width = 'auto';
-                input.style.minWidth = '0';
-                input.style.width = (input.scrollWidth + 2) + 'px';
-            });
-        }
-
-        window.onbeforeprint = resizeInputs;
-
-
     </script>
 </body>
 
