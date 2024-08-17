@@ -17,7 +17,7 @@
     <title>Timesheet Generator</title>
     <style>
         body {
-            font-family: Segoe UI, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             padding: 40px;
             background-color: #16191d;
             color: #ebebeb;
@@ -29,6 +29,7 @@
 
         th:nth-child(1),
         td:nth-child(1) {
+            border-bottom: 0;
             border-right: 0;
             background-color: #ebebeb;
             color: black;
@@ -36,6 +37,7 @@
 
         th:nth-child(2),
         td:nth-child(2) {
+            border-bottom: 0;
             border-left: 0;
             border-right: 0;
             background-color: #ebebeb;
@@ -44,6 +46,7 @@
 
         th:nth-child(3),
         td:nth-child(3) {
+            border-bottom: 0;
             border-left: 0;
             background-color: #ebebeb;
             color: black;
@@ -51,6 +54,7 @@
 
         th:nth-child(4),
         td:nth-child(4) {
+            border-bottom: 0;
             background-color: none;
             border: none;
         }
@@ -152,15 +156,30 @@
 
         .profile,
         .money {
+            display: flex;
             white-space: nowrap;
+        }
+
+        .money {
+            align-items: center;
         }
 
         #usdPerHour {
             width: 60px;
         }
 
+        select {
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        input {
+            border: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
         #name {
-            width: 200px;
+            margin-left: 5px;
+            width: 200px
         }
 
         #totals {
@@ -168,8 +187,14 @@
         }
 
         #currency {
-            width: 60px;
-            text-align: right;
+            border: 0;
+            height: 21px;
+            width: 55px;
+            text-align: left;
+        }
+
+        .marg {
+            padding-inline: 2px;
         }
 
         @page {
@@ -179,6 +204,37 @@
         @media print {
             body {
                 padding: 0px;
+            }
+
+            #currency {
+                border: none;
+                /* Hide border */
+                background-color: transparent;
+                /* Hide background color */
+                color: black;
+                /* Ensure text is visible */
+                -webkit-appearance: none;
+                /* Remove default styling in WebKit browsers */
+                appearance: none;
+                /* Remove default styling */
+            }
+
+            /* Hide arrow or drop-down symbols */
+            #currency::-ms-expand {
+                display: none;
+                /* For Internet Explorer */
+            }
+
+            #currency option {
+                color: black;
+                /* Ensure text is visible */
+            }
+
+            #currency {
+                margin-right: -5px;
+                width: 50px;
+                text-align: right;
+
             }
 
             input,
@@ -193,12 +249,20 @@
             }
 
             table {
-                border: 1px solid #000;
+                border: 1px solid black;
             }
 
-            th,
             td {
-                border: 1px solid #000;
+                border: none;
+            }
+
+            tr {
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+
+            tr:last-child {
+                border: none;
             }
 
             th:nth-child(4),
@@ -308,12 +372,15 @@
     <h1>Timesheet</h1>
     <div class="details">
         <div class="profile">
-            <label for="usdPerHour">Name:</label>
+            <label for="usdPerHour">Name: </label>
             <input type="text" id="name" value="Kevin Sy" placeholder="NAME" class="usdPerHour print-show">
         </div>
         <div class="money">
-            <input type="text" id="currency" value="AUD" placeholder="$" class="usdPerHour print-show">
-            <label for="usdPerHour">/hr:</label>
+            <select id="currency" class="usdPerHour print-show" name="options">
+                <option value="option5" selected>USD</option>
+                <option value="option4">AUD</option>
+            </select>
+            <label class="marg" for="usdPerHour">/hr:</label>
             <input type="text" id="usdPerHour" placeholder="rate" class="usdPerHour print-show">
         </div>
     </div>
