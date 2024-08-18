@@ -56,7 +56,6 @@
                 align-items: center;
             }
 
-
             /* Make each table row a block */
             table,
             table tbody,
@@ -65,11 +64,16 @@
                 width: 100%;
             }
 
+            table td:nth-child(4),
+            table th:nth-child(4) {
+                text-align: right;
+            }
+
             /* Style each cell as a block and add some spacing */
             table td {
                 display: block;
                 width: 100%;
-                text-align: right;
+                text-align: left;
                 padding: 0.5rem;
                 position: relative;
             }
@@ -79,9 +83,7 @@
                 content: attr(data-label);
                 width: 50%;
                 white-space: nowrap;
-
             }
-
         }
     </style>
 </head>
@@ -157,6 +159,7 @@
             const totalHoursSpan = document.getElementById('totalHours');
             const totalUSDSpan = document.getElementById('totalUSD');
             const usdPerHourInput = document.getElementById('usdPerHour');
+            const currencySelect = document.getElementById('currency');
 
             function updateTotals() {
                 let totalHours = 0;
@@ -178,29 +181,31 @@
             }
 
             function printTable() {
-                const currencySelect = document.getElementById('currency');
                 currencySelect.classList.add('hide-arrow');
                 setTimeout(() => {
                     window.print();
                     currencySelect.classList.remove('hide-arrow');
-                }, 100); // Timeout ensures the class is applied before printing starts
+                }, 100);
             }
-
-
 
             function addRow() {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td class="border border-gray-600 p-3" data-label="Date">
-                        <div class="fordate hidden">Date:</div><input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
+                        <div class="fordate hidden">Date:</div>
+                        <input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
                     </td>
                     <td class="border border-gray-600 p-3" data-label="Task Description">
-                        <div class="fortask hidden">Task:</div><input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
+                        <div class="fortask hidden">Task:</div>
+                        <input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
                     </td>
                     <td class="border border-gray-600 p-3" data-label="Duration (hours)">
-                        <div class="forduration hidden">Duration:</div><input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
+                        <div class="forduration hidden">Duration:</div>
+                        <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
                     </td>
-                    <td class="p-3" data-label=""><button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button></td>
+                    <td class="p-3" data-label="">
+                        <button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
+                    </td>
                 `;
                 invoiceTable.appendChild(row);
                 updateTotals();
@@ -211,10 +216,6 @@
                     event.target.closest('tr').remove();
                     updateTotals();
                 }
-            }
-
-            function printTable() {
-                window.print();
             }
 
             addRowBtn.addEventListener('click', addRow);
