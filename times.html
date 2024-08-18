@@ -17,6 +17,11 @@
     <title>Timesheet Maker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .clickevent {
+            cursor: pointer;
+            /* Change cursor to pointer (hand) */
+        }
+
         @media print {
 
             table td:nth-child(4),
@@ -89,10 +94,12 @@
 </head>
 
 <body class="font-sans bg-gray-900 text-gray-100 p-10">
-    <label onclick="openSeparateWindow()" class="cursor-pointer">
-        <svg class="w-7 h-7 fill-current text-white" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z" />
+    <label onclick="openSeparateWindow()" class="clickevent">
+        <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="white"
+                d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
+                fill="#000000" />
         </svg>
     </label>
     <h1 class="text-center text-3xl font-bold mb-8">Timesheet</h1>
@@ -196,13 +203,6 @@
                 }, 100);
             }
 
-            function openSeparateWindow() {
-                // Specify the URL of the HTML page
-                var pageUrl = '/times';
-
-                // Open a new window with the specified URL
-                var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
-            }
 
             function addRow() {
                 const row = document.createElement('tr');
@@ -247,6 +247,15 @@
             usdPerHourInput.addEventListener('input', updateTotals);
             invoiceTable.addEventListener('input', updateTotals);
         });
+    </script>
+    <script>
+        function openSeparateWindow() {
+            // Specify the URL of the HTML page
+            var pageUrl = '/times';
+
+            // Open a new window with the specified URL
+            var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
+        }
     </script>
 </body>
 
