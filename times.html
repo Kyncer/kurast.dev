@@ -15,404 +15,139 @@
     <meta property="og:url" content="https://kurast.dev/times">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>Timesheet Maker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            padding: 40px;
-            background-color: #16191d;
-            color: #ebebeb;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        th:nth-child(1),
-        td:nth-child(1) {
-            border-bottom: 0;
-            border-right: 0;
-            background-color: #ebebeb;
-            color: black;
-        }
-
-        th:nth-child(2),
-        td:nth-child(2) {
-            border-bottom: 0;
-            border-left: 0;
-            border-right: 0;
-            background-color: #ebebeb;
-            color: black;
-        }
-
-        th:nth-child(3),
-        td:nth-child(3) {
-            border-bottom: 0;
-            border-left: 0;
-            background-color: #ebebeb;
-            color: black;
-        }
-
-        th:nth-child(4),
-        td:nth-child(4) {
-            border-bottom: 0;
-            background-color: none;
-            border: none;
-        }
-
-        button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .details {
-            display: flex;
-            gap: 20px;
-        }
-
-        .button-red {
-            background-color: #F44336;
-        }
-
-        .button-red:hover {
-            background-color: #E53935;
-            transform: translateY(-2px);
-        }
-
-        .button-red:active {
-            background-color: #C62828;
-            transform: translateY(1px);
-        }
-
-        .button-red:disabled {
-            background-color: #FFCDD2;
-            cursor: not-allowed;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-        }
-
-        .button:active {
-            background-color: #388e3c;
-            transform: translateY(1px);
-        }
-
-        .button:disabled {
-            background-color: #a5d6a7;
-            cursor: not-allowed;
-        }
-
-        .fordate,
-        .fortask,
-        .forduration {
-            display: none;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 18px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        table {
-            border: 0;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        #totalHours,
-        #totalUSD {
-            font-weight: 700;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .profile,
-        .money {
-            display: flex;
-            white-space: nowrap;
-        }
-
-        .money {
-            align-items: center;
-        }
-
-        #usdPerHour {
-            width: 60px;
-        }
-
-        select {
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        input {
-            border: 0;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        #name {
-            margin-left: 5px;
-            width: 200px
-        }
-
-        #totals {
-            margin: 20px 0;
-        }
-
-        #currency {
-            border: 0;
-            height: 21px;
-            width: 55px;
-            text-align: left;
-        }
-
-        .marg {
-            padding-inline: 2px;
-        }
-
-        @page {
-            margin: 0;
-        }
-
         @media print {
-            body {
-                padding: 0px;
+
+            table td:nth-child(4),
+            table th:nth-child(4) {
+                display: none;
             }
 
-            #currency {
-                border: none;
-                /* Hide border */
-                background-color: transparent;
-                /* Hide background color */
-                color: black;
-                /* Ensure text is visible */
+            #printBtn,
+            #addRowBtn {
+                display: none;
+            }
+
+            .hide-arrow {
                 -webkit-appearance: none;
-                /* Remove default styling in WebKit browsers */
+                /* For WebKit browsers */
+                -moz-appearance: none;
+                /* For Firefox */
                 appearance: none;
-                /* Remove default styling */
-            }
-
-            /* Hide arrow or drop-down symbols */
-            #currency::-ms-expand {
-                display: none;
-                /* For Internet Explorer */
-            }
-
-            #currency option {
-                color: black;
-                /* Ensure text is visible */
-            }
-
-            #currency {
-                margin-right: -5px;
-                width: 50px;
-                text-align: right;
-
-            }
-
-            input,
-            textarea {
-                border: none;
+                /* Standard syntax */
                 background: none;
-                box-shadow: none;
-                outline: none;
-                text-align: left;
-                width: auto;
-                overflow: visible;
-            }
-
-            table {
-                border: 1px solid black;
-            }
-
-            td {
-                border: none;
-            }
-
-            tr {
-                border-top: 1px solid black;
-                border-bottom: 1px solid black;
-            }
-
-            tr:last-child {
-                border: none;
-            }
-
-            th:nth-child(4),
-            td:nth-child(4) {
-                display: none;
-            }
-
-            #addRowBtn,
-            #printBtn {
-                display: none;
+                /* Remove background image */
+                border: 1px solid #ddd;
+                /* Add a border to maintain the layout */
             }
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 768px) {
 
-            table,
-            thead,
-            tbody,
-            th,
-            td,
-            tr {
-                display: block;
-            }
-
-            table {
-                border: 0;
-            }
-
-            .fordate,
-            .fortask,
-            .forduration {
-                display: block;
-                margin-right: 10px;
-            }
-
-            th:nth-child(1),
-            td:nth-child(1) {
-                border-left: 1px solid #ddd;
-                border-right: 1px solid #ddd;
-            }
-
-            th:nth-child(2),
-            td:nth-child(2) {
-                border-left: 1px solid #ddd;
-                border-right: 1px solid #ddd;
-            }
-
-            th:nth-child(3),
-            td:nth-child(3) {
-                border-left: 1px solid #ddd;
-                border-right: 1px solid #ddd;
-            }
-
-            th:nth-child(4),
-            td:nth-child(4) {
-                border-top: 1px solid #ddd;
-            }
-
-            thead tr {
+            /* Hide table headers */
+            table thead {
                 display: none;
             }
 
-            tbody tr {
-                margin-bottom: 15px;
+            .closex {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            td {
-                display: flex;
-                justify-content: space-between;
-                padding: 10px;
+
+            /* Make each table row a block */
+            table,
+            table tbody,
+            table tr {
+                display: block;
+                width: 100%;
+            }
+
+            /* Style each cell as a block and add some spacing */
+            table td {
+                display: block;
+                width: 100%;
                 text-align: right;
+                padding: 0.5rem;
                 position: relative;
-                border: none;
             }
 
-            td::before {
+            /* Add labels before each cell for better readability */
+            table td::before {
                 content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: 45%;
-                padding-right: 10px;
-                text-align: left;
-                font-weight: bold;
+                width: 50%;
+                white-space: nowrap;
+
             }
 
-            td:first-child {
-                border-top: 1px solid #ddd;
-            }
-
-            td:last-child {
-                border-bottom: 0;
-                display: flex;
-                justify-content: end;
-            }
         }
     </style>
 </head>
 
-<body>
-    <label onclick="openSeparateWindow()">
-        <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill="white"
+<body class="font-sans bg-gray-900 text-gray-100 p-10">
+    <label onclick="openSeparateWindow()" class="cursor-pointer">
+        <svg class="w-7 h-7 fill-current text-white" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+            <path
                 d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z" />
         </svg>
     </label>
-    <h1>Timesheet</h1>
-    <div class="details">
-        <div class="profile">
-            <label for="usdPerHour">Name: </label>
-            <input type="text" id="name" value="Kevin Sy" placeholder="NAME" class="usdPerHour print-show">
+    <h1 class="text-center text-3xl font-bold mb-8">Timesheet</h1>
+    <div class="flex justify-between gap-6 closex">
+        <div class="flex items-center">
+            <label for="usdPerHour" class="mr-2">Name:</label>
+            <input type="text" id="name" value="Kevin Sy" placeholder="NAME"
+                class="bg-gray-800 text-white border-none p-2 rounded-lg">
         </div>
-        <div class="money">
-            <select id="currency" class="usdPerHour print-show" name="options">
+        <div class="flex items-center currentsy">
+            <select id="currency" class="bg-gray-800 text-white border-none p-2 rounded-lg mr-2">
                 <option value="option5" selected>USD</option>
                 <option value="option4">AUD</option>
             </select>
-            <label class="marg" for="usdPerHour">/hr:</label>
-            <input type="text" id="usdPerHour" placeholder="rate" class="usdPerHour print-show">
+            <label class="mr-2" for="usdPerHour">/hr:</label>
+            <input type="text" id="usdPerHour" placeholder="rate"
+                class="bg-gray-800 text-white border-none p-2 rounded-lg w-16">
         </div>
     </div>
-    <table id="invoiceTable">
+    <table id="invoiceTable" class="w-full mt-8 table-auto border-collapse">
         <thead>
-            <tr>
-                <th>Date</th>
-                <th>Task Description</th>
-                <th>Duration (hours)</th>
+            <tr class="bg-gray-800">
+                <th class="border border-gray-600 p-3 text-left">Date</th>
+                <th class="border border-gray-600 p-3 text-left">Task Description</th>
+                <th class="border border-gray-600 p-3 text-left">Duration (hours)</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
-                    <div class="fordate">Date:</div><input class="inputdate date print-hide" placeholder="mm/dd/yyyy" />
+                <td class="border border-gray-600 p-3" data-label="Date">
+                    <div class="fordate hidden">Date:</div>
+                    <input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
                 </td>
-                <td>
-                    <div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
+                <td class="border border-gray-600 p-3" data-label="Task Description">
+                    <div class="fortask hidden">Task:</div>
+                    <input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
                 </td>
-                <td>
-                    <div class="forduration">Duration:</div><input type="text" class="duration print-show" step="0.1">
+                <td class="border border-gray-600 p-3" data-label="Duration (hours)">
+                    <div class="forduration hidden">Duration:</div>
+                    <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
                 </td>
-                <td><button class="deleteBtn button-red">Delete</button></td>
+                <td class="p-3" data-label="">
+                    <button
+                        class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
-    <button id="addRowBtn">Add Row</button>
-    <div id="totals">
-        <p>Total Hours: <span id="totalHours">0</span></p>
-        <p>Total USD: <span id="totalUSD">0</span></p>
+    <button id="addRowBtn"
+        class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Add
+        Row</button>
+    <div id="totals" class="mt-8">
+        <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
+        <p>Total USD: <span id="totalUSD" class="font-bold">0</span></p>
     </div>
-    <button id="printBtn">Print</button>
+    <button id="printBtn"
+        class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Print</button>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -422,7 +157,6 @@
             const totalHoursSpan = document.getElementById('totalHours');
             const totalUSDSpan = document.getElementById('totalUSD');
             const usdPerHourInput = document.getElementById('usdPerHour');
-            let rowCount = 1;
 
             function updateTotals() {
                 let totalHours = 0;
@@ -443,52 +177,51 @@
                 totalUSDSpan.textContent = totalUSD.toFixed(2);
             }
 
+            function printTable() {
+                const currencySelect = document.getElementById('currency');
+                currencySelect.classList.add('hide-arrow');
+                setTimeout(() => {
+                    window.print();
+                    currencySelect.classList.remove('hide-arrow');
+                }, 100); // Timeout ensures the class is applied before printing starts
+            }
+
+
+
             function addRow() {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>
-                        <div class="fordate">Date:</div><input class="inputdate date print-hide" placeholder="mm/dd/yyyy" />
+                    <td class="border border-gray-600 p-3" data-label="Date">
+                        <div class="fordate hidden">Date:</div><input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
                     </td>
-                    <td>
-                        <div class="fortask">Task:</div><input type="text" class="description print-hide" rows="1">
+                    <td class="border border-gray-600 p-3" data-label="Task Description">
+                        <div class="fortask hidden">Task:</div><input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
                     </td>
-                    <td>
-                        <div class="forduration">Duration:</div><input type="text" class="duration print-show">
+                    <td class="border border-gray-600 p-3" data-label="Duration (hours)">
+                        <div class="forduration hidden">Duration:</div><input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
                     </td>
-                    <td><button class="deleteBtn button-red">Delete</button></td>
+                    <td class="p-3" data-label=""><button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button></td>
                 `;
                 invoiceTable.appendChild(row);
-
-                // Initialize the flatpickr instance for the new row's date picker
-                flatpickr(row.querySelector('.inputdate'), {
-                    dateFormat: "m/d/Y"
-                });
-
-                // Add event listener to new delete button
-                row.querySelector('.deleteBtn').addEventListener('click', () => {
-                    row.remove();
-                    updateTotals();
-                });
-
-                // Update totals after adding new row
                 updateTotals();
             }
 
-            function printPage() {
+            function deleteRow(event) {
+                if (event.target.classList.contains('deleteBtn')) {
+                    event.target.closest('tr').remove();
+                    updateTotals();
+                }
+            }
+
+            function printTable() {
                 window.print();
             }
 
             addRowBtn.addEventListener('click', addRow);
-            printBtn.addEventListener('click', printPage);
-
-            // Initialize flatpickr for existing date pickers
-            flatpickr('.inputdate', {
-                dateFormat: "m/d/Y"
-            });
-
-            // Update totals on input change
-            invoiceTable.addEventListener('input', updateTotals);
+            invoiceTable.addEventListener('click', deleteRow);
+            printBtn.addEventListener('click', printTable);
             usdPerHourInput.addEventListener('input', updateTotals);
+            invoiceTable.addEventListener('input', updateTotals);
         });
     </script>
 </body>
