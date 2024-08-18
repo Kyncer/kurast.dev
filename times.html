@@ -146,7 +146,7 @@
         Row</button>
     <div id="totals" class="mt-8">
         <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
-        <p>Total USD: <span id="totalUSD" class="font-bold">0</span></p>
+        <p>Total: <span id="totalUSD" class="font-bold">0</span></p>
     </div>
     <button id="printBtn"
         class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Print</button>
@@ -177,7 +177,7 @@
                     }
                 }
                 totalHoursSpan.textContent = totalHours.toFixed(2);
-                totalUSDSpan.textContent = totalUSD.toFixed(2);
+                totalUSDSpan.textContent = `$${totalUSD.toFixed(2)}`; // Add dollar symbol
             }
 
             function printTable() {
@@ -191,22 +191,22 @@
             function addRow() {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="border border-gray-600 p-3" data-label="Date">
-                        <div class="fordate hidden">Date:</div>
-                        <input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
-                    </td>
-                    <td class="border border-gray-600 p-3" data-label="Task Description">
-                        <div class="fortask hidden">Task:</div>
-                        <input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
-                    </td>
-                    <td class="border border-gray-600 p-3" data-label="Duration (hours)">
-                        <div class="forduration hidden">Duration:</div>
-                        <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
-                    </td>
-                    <td class="p-3" data-label="">
-                        <button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
-                    </td>
-                `;
+            <td class="border border-gray-600 p-3" data-label="Date">
+                <div class="fordate hidden">Date:</div>
+                <input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
+            </td>
+            <td class="border border-gray-600 p-3" data-label="Task Description">
+                <div class="fortask hidden">Task:</div>
+                <input type="text" class="description bg-gray-800 text-white border-none w-full" rows="1">
+            </td>
+            <td class="border border-gray-600 p-3" data-label="Duration (hours)">
+                <div class="forduration hidden">Duration:</div>
+                <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
+            </td>
+            <td class="p-3" data-label="">
+                <button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
+            </td>
+        `;
                 invoiceTable.appendChild(row);
                 updateTotals();
             }
@@ -224,6 +224,7 @@
             usdPerHourInput.addEventListener('input', updateTotals);
             invoiceTable.addEventListener('input', updateTotals);
         });
+
     </script>
 </body>
 
