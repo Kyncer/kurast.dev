@@ -196,6 +196,14 @@
                 }, 100);
             }
 
+            function openSeparateWindow() {
+                // Specify the URL of the HTML page
+                var pageUrl = '/times';
+
+                // Open a new window with the specified URL
+                var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
+            }
+
             function addRow() {
                 const row = document.createElement('tr');
                 row.innerHTML = `
