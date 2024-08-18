@@ -160,6 +160,14 @@
             const totalUSDSpan = document.getElementById('totalUSD');
             const usdPerHourInput = document.getElementById('usdPerHour');
             const currencySelect = document.getElementById('currency');
+            const dateInputs = document.querySelectorAll('.inputdate');
+
+            // Initialize Flatpickr for date inputs
+            flatpickr(dateInputs, {
+                dateFormat: "m/d/Y",
+                defaultDate: "today",
+                maxDate: "today"
+            });
 
             function updateTotals() {
                 let totalHours = 0;
@@ -208,6 +216,14 @@
             </td>
         `;
                 invoiceTable.appendChild(row);
+
+                // Initialize Flatpickr for the new date input
+                flatpickr(row.querySelector('.inputdate'), {
+                    dateFormat: "m/d/Y",
+                    defaultDate: "today",
+                    maxDate: "today"
+                });
+
                 updateTotals();
             }
 
@@ -224,7 +240,6 @@
             usdPerHourInput.addEventListener('input', updateTotals);
             invoiceTable.addEventListener('input', updateTotals);
         });
-
     </script>
 </body>
 
