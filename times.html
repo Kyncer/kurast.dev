@@ -24,6 +24,14 @@
             cursor: pointer;
         }
 
+        .prev-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-btn {}
+
         .inputdate,
         .description,
         .duration {
@@ -34,10 +42,6 @@
             padding-block: 2px !important;
         }
 
-        th {
-            padding-inline: 20px !important;
-        }
-
         @media print {
 
             table td:nth-child(4),
@@ -45,7 +49,6 @@
                 display: none;
             }
 
-            #printBtn,
             #addRowBtn,
             #previewBtn {
                 display: none;
@@ -275,8 +278,6 @@
         <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
         <p>Total: <span id="totalUSD" class="font-bold">0</span></p>
     </div>
-    <button id="printBtn"
-        class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Print</button>
     <button id="previewBtn"
         class="mt-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Preview</button>
 
@@ -286,12 +287,22 @@
             <span class="close-modal" onclick="closePreview()">&times;</span>
             <h2 style="font-size:30px;">Timesheet</h2>
             <div id="previewContent"></div>
-            <button id="downloadPNGBtn"
-                class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download as
-                PNG</button>
-            <button id="downloadPDFBtn"
-                class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download as
-                PDF</button>
+            <!-- File Name Input Field -->
+            <div class="prev-btn">
+                <div class="flex items-center mb-1 pt-5">
+                    <label for="fileName" class="mr-2">File Name:</label>
+                    <input type="text" id="fileName" placeholder="Enter file name"
+                        class="bg-gray-800 text-white border-none p-2 rounded-lg">
+                </div>
+                <div class="download-btn">
+                    <button id="downloadPNGBtn"
+                        class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download as
+                        PNG</button>
+                    <button id="downloadPDFBtn"
+                        class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download as
+                        PDF</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -302,17 +313,19 @@
             let totalHours = 0;
             let totalUSD = 0;
             const rows = document.querySelectorAll('#invoiceTable tbody tr');
+            const usdPerHour = parseFloat(document.getElementById('usdPerHour').value) || 0;
+
             rows.forEach(row => {
                 const duration = parseFloat(row.querySelector('.duration').value) || 0;
-                const usdPerHour = parseFloat(document.getElementById('usdPerHour').value) || 0;
                 totalHours += duration;
                 totalUSD += duration * usdPerHour;
             });
+
             document.getElementById('totalHours').textContent = totalHours.toFixed(2);
             document.getElementById('totalUSD').textContent = `$${totalUSD.toFixed(2)}`;
         }
 
-        document.getElementById('addRowBtn').addEventListener('click', () => {
+        function addRow() {
             const table = document.getElementById('invoiceTable').querySelector('tbody');
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
@@ -341,12 +354,20 @@
                 this.closest('tr').remove();
                 updateTotals();
             });
-        });
 
+            // Add event listeners for new duration input
+            newRow.querySelector('.duration').addEventListener('input', updateTotals);
+        }
 
-        document.getElementById('printBtn').addEventListener('click', () => {
-            window.print();
+        // Add event listener for Add Row button
+        document.getElementById('addRowBtn').addEventListener('click', addRow);
+
+        // Add event listeners for existing duration and rate inputs
+        document.querySelectorAll('.duration').forEach(input => {
+            input.addEventListener('input', updateTotals);
         });
+        document.getElementById('usdPerHour').addEventListener('input', updateTotals);
+
 
 
         document.getElementById('previewBtn').addEventListener('click', () => {
@@ -449,6 +470,10 @@
             const downloadPNGBtn = document.getElementById('downloadPNGBtn');
             const downloadPDFBtn = document.getElementById('downloadPDFBtn');
 
+            // Get the file name from the input field
+            const fileNameInput = document.getElementById('fileName');
+            const fileName = fileNameInput.value.trim() || 'timesheet'; // Default to 'timesheet' if no name is provided
+
             // Hide unnecessary elements
             const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
             deleteButtons.forEach(btn => btn.style.display = 'none');
@@ -457,7 +482,7 @@
             table.style.width = '100%';
 
             // Hide other elements including the download buttons
-            modalContent.querySelectorAll('.close-modal, #totals, #printBtn, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
+            modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
             downloadPNGBtn.style.display = 'none';
             downloadPDFBtn.style.display = 'none';
 
@@ -486,13 +511,13 @@
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = 'preview.png';
+                link.download = `${fileName}.png`; // Use the user-provided file name
                 link.click();
 
                 // Restore hidden elements and reset table width
                 deleteButtons.forEach(btn => btn.style.display = '');
                 table.style.width = '';
-                modalContent.querySelectorAll('.close-modal, #totals, #printBtn, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
+                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
                 downloadPNGBtn.style.display = '';
                 downloadPDFBtn.style.display = '';
             }).catch(error => {
@@ -501,11 +526,12 @@
                 // Restore hidden elements and reset table width in case of error
                 deleteButtons.forEach(btn => btn.style.display = '');
                 table.style.width = '';
-                modalContent.querySelectorAll('.close-modal, #totals, #printBtn, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
+                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
                 downloadPNGBtn.style.display = '';
                 downloadPDFBtn.style.display = '';
             });
         });
+
 
 
 
@@ -526,7 +552,7 @@
             table.style.width = '100%';
 
             // Hide other elements including the download buttons
-            modalContent.querySelectorAll('.close-modal, #totals, #printBtn, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
+            modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
             downloadPNGBtn.style.display = 'none';
             downloadPDFBtn.style.display = 'none';
 
@@ -558,7 +584,7 @@
                 table.style.width = '';
 
                 // Restore other hidden elements
-                modalContent.querySelectorAll('.close-modal, #totals, #printBtn, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
+                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
                 downloadPNGBtn.style.display = '';
                 downloadPDFBtn.style.display = '';
             });
