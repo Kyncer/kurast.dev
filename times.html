@@ -379,7 +379,12 @@
                     const cell = document.createElement('td');
                     cell.className = 'border border-gray-600 p-3';
                     const input = row.querySelector(`.${className}`);
-                    cell.textContent = input ? input.value : '';
+                    if (className === 'description') {
+                        // Use innerHTML to preserve line breaks
+                        cell.innerHTML = input ? input.value.replace(/\n/g, '<br>') : '';
+                    } else {
+                        cell.textContent = input ? input.value : '';
+                    }
                     newRow.appendChild(cell);
                 });
 
@@ -408,7 +413,6 @@
         <p>Total Hours: <span class="font-bold">${totalHours}</span></p>
         <p>Total: <span class="font-bold">${totalUSD}</span></p>
     `;
-
 
             // Create a wrapper for the name field, rate, table, and totals
             const previewWrapper = document.createElement('div');
@@ -452,12 +456,23 @@
             const fileNameInput = document.getElementById('fileName');
             const fileName = fileNameInput.value.trim() || 'timesheet'; // Default to 'timesheet' if no name is provided
 
+            // Save the original styles of the elements to restore them later
+            const originalStyles = {
+                table: table.style.width,
+                buttons: {
+                    display: downloadPNGBtn.style.display,
+                    displayPDF: downloadPDFBtn.style.display,
+                },
+                otherElements: Array.from(modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn')).map(el => ({
+                    element: el,
+                    display: el.style.display,
+                })),
+            };
+
             // Hide unnecessary elements
             const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
             deleteButtons.forEach(btn => btn.style.display = 'none');
-
-            // Make the table full width
-            table.style.width = '100%';
+            table.style.width = '100%'; // Make the table full width
 
             // Hide other elements including the download buttons
             modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => el.style.display = 'none');
@@ -493,22 +508,16 @@
                 link.click();
 
                 // Restore hidden elements and reset table width
-                deleteButtons.forEach(btn => btn.style.display = '');
-                table.style.width = '';
-                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
-                downloadPNGBtn.style.display = '';
-                downloadPDFBtn.style.display = '';
-            }).catch(error => {
-                console.error('Error capturing screenshot:', error);
-
-                // Restore hidden elements and reset table width in case of error
-                deleteButtons.forEach(btn => btn.style.display = '');
-                table.style.width = '';
-                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
-                downloadPNGBtn.style.display = '';
-                downloadPDFBtn.style.display = '';
+                deleteButtons.forEach(btn => btn.style.display = originalStyles.buttons.display);
+                table.style.width = originalStyles.table;
+                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => {
+                    el.style.display = el.classList.contains('prev-btn') ? originalStyles.buttons.display : originalStyles.otherElements.find(e => e.element === el).display;
+                });
+                downloadPNGBtn.style.display = originalStyles.buttons.display;
+                downloadPDFBtn.style.display = originalStyles.buttons.displayPDF;
             });
         });
+
 
 
 
