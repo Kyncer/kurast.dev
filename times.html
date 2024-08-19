@@ -42,35 +42,13 @@
             padding-block: 2px !important;
         }
 
-        @media print {
-
-            table td:nth-child(4),
-            table th:nth-child(4) {
-                display: none;
-            }
-
-            #addRowBtn,
-            #previewBtn {
-                display: none;
-            }
-
-            .hide-arrow {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                background: none;
-                border: 1px solid #ddd;
-            }
-
-            .inputdate,
-            .description,
-            .duration {
-                width: 100% !important;
-                height: auto !important;
-                overflow: visible !important;
-                white-space: normal !important;
-            }
+        .description {
+            white-space: pre-wrap;
+            /* Preserve line breaks and whitespace */
+            overflow-wrap: break-word;
+            /* Handle long words gracefully */
         }
+
 
         @media (max-width: 768px) {
             table thead {
@@ -482,7 +460,7 @@
             table.style.width = '100%';
 
             // Hide other elements including the download buttons
-            modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
+            modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => el.style.display = 'none');
             downloadPNGBtn.style.display = 'none';
             downloadPDFBtn.style.display = 'none';
 
