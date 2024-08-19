@@ -514,6 +514,14 @@ img.profile-img {
     align-items: center;
 }
 
+.svg-whatsapp,
+.svg-github,
+.svg-facebook,
+.svg-linkedin {
+    width: 40px;
+    height: auto;
+}
+
 .exp-line {
     display: flex;
     flex-direction: column;
@@ -1045,14 +1053,16 @@ img.profile-img {
 .svg-whatsapp,
 .svg-github,
 .svg-facebook,
+.svg-linkedin,
 .logo-img {
-    padding: 5px;
+    padding: 3px;
     border-radius: 10px;
 }
 
 .svg-whatsapp:hover,
 .svg-github:hover,
 .svg-facebook:hover,
+.svg-linkedin:hover,
 .logo-img:hover {
     background-color: #010101;
 }
@@ -1813,8 +1823,10 @@ img {
 
     .svg-whatsapp,
     .svg-github,
-    .svg-facebook {
-        width: 26.5px;
+    .svg-facebook,
+    .svg-linkedin {
+        width: 39px;
+        height: auto;
     }
 }
 
@@ -2010,8 +2022,10 @@ img {
 
     .svg-whatsapp,
     .svg-github,
-    .svg-facebook {
-        width: 25px;
+    .svg-facebook,
+    .svg-linkedin {
+        width: 38px;
+        height: auto;
     }
 
 }

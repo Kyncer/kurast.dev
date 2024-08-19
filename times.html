@@ -30,8 +30,6 @@
             align-items: center;
         }
 
-        .download-btn {}
-
         .inputdate,
         .description,
         .duration {
@@ -449,10 +447,6 @@
         document.getElementById('downloadPNGBtn').addEventListener('click', async () => {
             const modalContent = document.querySelector('.modal-content');
             const table = document.querySelector('#invoiceTable');
-            const downloadPNGBtn = document.getElementById('downloadPNGBtn');
-            const downloadPDFBtn = document.getElementById('downloadPDFBtn');
-
-            // Get the file name from the input field
             const fileNameInput = document.getElementById('fileName');
             const fileName = fileNameInput.value.trim() || 'timesheet'; // Default to 'timesheet' if no name is provided
 
@@ -460,8 +454,8 @@
             const originalStyles = {
                 table: table.style.width,
                 buttons: {
-                    display: downloadPNGBtn.style.display,
-                    displayPDF: downloadPDFBtn.style.display,
+                    display: document.getElementById('downloadPNGBtn').style.display,
+                    displayPDF: document.getElementById('downloadPDFBtn').style.display,
                 },
                 otherElements: Array.from(modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn')).map(el => ({
                     element: el,
@@ -469,15 +463,16 @@
                 })),
             };
 
+            // Apply the consistent layout for the print preview
+            modalContent.classList.add('print-preview');
+            table.style.width = '100%';
+
             // Hide unnecessary elements
             const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
             deleteButtons.forEach(btn => btn.style.display = 'none');
-            table.style.width = '100%'; // Make the table full width
-
-            // Hide other elements including the download buttons
             modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => el.style.display = 'none');
-            downloadPNGBtn.style.display = 'none';
-            downloadPDFBtn.style.display = 'none';
+            document.getElementById('downloadPNGBtn').style.display = 'none';
+            document.getElementById('downloadPDFBtn').style.display = 'none';
 
             // Apply the custom font manually
             modalContent.style.fontFamily = 'system-ui, sans-serif';
@@ -485,42 +480,25 @@
             // Ensure all fonts are loaded
             await document.fonts.ready;
 
-            // Wait an additional moment to ensure fonts are fully applied
-            function waitForFonts() {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve();
-                    }, 1000); // Increase the timeout if needed
-                });
-            }
-
-            await waitForFonts();
-
-            // Capture the screenshot of the modal content with html2canvas configuration
-            html2canvas(modalContent, {
-                useCORS: true, // Handle cross-origin fonts
-                scale: window.devicePixelRatio, // Improve image quality
-                backgroundColor: null // Ensure transparency if needed
-            }).then(canvas => {
+            // Create a PNG image from the content
+            html2canvas(modalContent).then(canvas => {
                 const link = document.createElement('a');
                 link.href = canvas.toDataURL('image/png');
-                link.download = `${fileName}.png`; // Use the user-provided file name
+                link.download = `${fileName}.png`;
                 link.click();
 
-                // Restore hidden elements and reset table width
-                deleteButtons.forEach(btn => btn.style.display = originalStyles.buttons.display);
+                // Restore original styles
+                modalContent.classList.remove('print-preview');
                 table.style.width = originalStyles.table;
-                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => {
-                    el.style.display = el.classList.contains('prev-btn') ? originalStyles.buttons.display : originalStyles.otherElements.find(e => e.element === el).display;
+
+                // Restore visibility of hidden elements
+                document.getElementById('downloadPNGBtn').style.display = originalStyles.buttons.display;
+                document.getElementById('downloadPDFBtn').style.display = originalStyles.buttons.displayPDF;
+                originalStyles.otherElements.forEach(({ element, display }) => {
+                    element.style.display = display;
                 });
-                downloadPNGBtn.style.display = originalStyles.buttons.display;
-                downloadPDFBtn.style.display = originalStyles.buttons.displayPDF;
             });
         });
-
-
-
-
 
 
 
