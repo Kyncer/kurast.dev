@@ -252,7 +252,7 @@
         Row</button>
     <div id="totals" class="mt-8">
         <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
-        <p>Total: <span id="totalUSD" class="font-bold">0</span></p>
+        <p>Total <span id="currencySymbol">USD</span>: <span id="totalUSD" class="font-bold">0</span></p>
     </div>
     <button id="previewBtn"
         class="mt-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Preview</button>
@@ -290,6 +290,8 @@
             let totalUSD = 0;
             const rows = document.querySelectorAll('#invoiceTable tbody tr');
             const usdPerHour = parseFloat(document.getElementById('usdPerHour').value) || 0;
+            const currencySelect = document.getElementById('currency');
+            const selectedCurrency = currencySelect.options[currencySelect.selectedIndex].text;
 
             rows.forEach(row => {
                 const duration = parseFloat(row.querySelector('.duration').value) || 0;
@@ -298,8 +300,10 @@
             });
 
             document.getElementById('totalHours').textContent = totalHours.toFixed(2);
-            document.getElementById('totalUSD').textContent = `$${totalUSD.toFixed(2)}`;
+            document.getElementById('totalUSD').textContent = totalUSD.toFixed(2);
+            document.getElementById('currencySymbol').textContent = selectedCurrency;
         }
+
 
         function addRow() {
             const table = document.getElementById('invoiceTable').querySelector('tbody');
@@ -344,7 +348,7 @@
         });
         document.getElementById('usdPerHour').addEventListener('input', updateTotals);
 
-
+        document.getElementById('currency').addEventListener('change', updateTotals);
 
         document.getElementById('previewBtn').addEventListener('click', () => {
             const previewContent = document.getElementById('previewContent');
@@ -407,9 +411,10 @@
             totalsDiv.className = 'border border-gray-600 mt-20';
             const totalHours = document.getElementById('totalHours').textContent;
             const totalUSD = document.getElementById('totalUSD').textContent;
+            const currencySymbol = document.getElementById('currencySymbol').textContent;
             totalsDiv.innerHTML = `
         <p>Total Hours: <span class="font-bold">${totalHours}</span></p>
-        <p>Total: <span class="font-bold">${totalUSD}</span></p>
+        <p>Total ${currencySymbol}: <span class="font-bold">${totalUSD}</span></p>
     `;
 
             // Create a wrapper for the name field, rate, table, and totals
@@ -422,6 +427,7 @@
             previewContent.appendChild(previewWrapper);
             document.getElementById('previewModal').style.display = 'flex';
         });
+
 
 
         function closePreview() {
