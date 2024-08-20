@@ -45,18 +45,28 @@
                 </label>
                 <nav id="burger-menu">
                     <ul class="burger-ul">
-                        <li class="nav-mobile"><button class="nav-link-mobile"
-                                onclick="goToAnchor('section1')">About</button></li>
-                        <li class="nav-mobile"><button class="nav-link-mobile"
-                                onclick="goToAnchor('section2')">Experience</button></li>
-                        <li class="nav-mobile"><button class="nav-link-mobile"
-                                onclick="goToAnchor('section3')">Portfolio</button></li>
-                        <li class="nav-mobile"><button class="nav-link-mobile"
-                                onclick="goToAnchor('section4')">Apps</button></li>
-                        <li class="nav-mobile"><a href="/services">Services</a>
-                        </li>
-                        <li class="nav-mobile"><a href="/contact">Contact</a>
-                        </li>
+                        <a class="button-body" onclick="goToAnchor('section1')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">About</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section2')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Experience</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section3')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Portfolio</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section4')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Apps</button></li>
+                        </a>
+                        <a class="button-body" href="/services">
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="location.href='/services'">Services</button>
+                            </li>
+                        </a>
+                        <a class="button-body" href="/contact">
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="location.href='/contact'">Contact</button>
+                            </li>
+                        </a>
                     </ul>
                 </nav>
             </div>

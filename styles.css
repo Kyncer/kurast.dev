@@ -193,7 +193,7 @@ img.profile-img {
     font-family: Nunito Sans, sans-serif;
     padding: 4px 12px 4px 12px;
     border-radius: 5px;
-    color: #F1F3F5;
+    color: #ffffff;
     background: none;
     border: none;
     text-transform: uppercase;
@@ -208,42 +208,42 @@ img.profile-img {
     font-family: Nunito Sans, sans-serif;
     display: flex;
     justify-content: center;
-    padding: 4px 12px 4px 12px;
-    color: #e5991b;
-    background-color: white;
+    color: #000;
+    background-color: #ffffff;
     border-radius: 3px;
     font-size: 15px;
     font: inherit;
 }
 
 .nav-mobile a:hover {
-    color: white;
-    background-color: #ffa413;
+    font-weight: 700;
 }
 
 .nav-link-mobile {
     text-transform: uppercase;
     font-family: Nunito Sans, sans-serif;
-    padding: 4px 12px 4px 12px;
     background: none;
-    border: none;
     margin: 0;
     font: inherit;
-    color: #e5991b;
+    color: #000;
+    cursor: pointer;
+}
+
+.button-body:hover {
+    background-color: #e1e2e3;
+    font-weight: 700;
     cursor: pointer;
 }
 
 
 .nav-link-mobile:hover {
     width: 100%;
-    background-color: #f09503;
-    color: white;
+    font-weight: 700;
     border-radius: 3px;
 }
 
 .mobile-link {
     margin-top: 4px;
-    padding: 3px;
 }
 
 .get-link {
@@ -254,7 +254,7 @@ img.profile-img {
     display: inline;
     padding: 6px 16px;
     border-radius: 5px 5px;
-    color: black;
+    color: #000;
     font-size: 13px;
     font-weight: 600;
     background-color: #ff9d00;
@@ -1539,7 +1539,6 @@ img {
     left: 0;
     width: 100%;
     position: absolute;
-    opacity: 0;
     justify-content: center;
     align-items: center;
     visibility: hidden;
@@ -1558,7 +1557,6 @@ img {
 }
 
 #burger-toggle:checked~#burger-menu {
-    opacity: 0.95;
     visibility: visible;
 }
 
@@ -1568,7 +1566,7 @@ img {
 }
 
 #burger-menu li {
-    padding-inline: 10px;
+    border-bottom: 1px solid #e1e2e3;
 }
 
 #burger-menu a {
@@ -2257,19 +2255,12 @@ img.profile-img,
 }
 
 .nav-mobile {
-    margin: 10px 0;
-    margin-bottom: 0;
-    margin-top: 10px;
-}
-
-.nav-mobile:last-child {
-    margin-bottom: 10px;
+    padding-block: 14px;
 }
 
 .nav-link-mobile {
     background: none;
     border: none;
-    cursor: pointer;
     font-size: 16px;
 }
 

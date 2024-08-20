@@ -36,12 +36,12 @@
             </div>
             <div class="con-2">
                 <nav class="main-nav desktop">
-                    <a href="/"><button class="nav-link">About</button></a>
-                    <a href="/#section2"><button class="nav-link">Experience</button></a>
-                    <a href="/#section3"><button class="nav-link">Portfolio</button></a>
-                    <a href="/#section4"><button class="nav-link">Apps</button></a>
+                    <button class="nav-link" onclick="goToAnchor('section1')">About</button>
+                    <button class="nav-link" onclick="goToAnchor('section2')">Experience</button>
+                    <button class="nav-link" onclick="goToAnchor('section3')">Portfolio</button>
+                    <button class="nav-link" onclick="goToAnchor('section4')">Apps</button>
                     <a href="/services"><button class="nav-link">Services</button></a>
-                    <a href="/contact"><button class="nav-link" style="color:#e5981b">Contact</button></a>
+                    <a href="/contact"><button class="nav-link">Contact</button></a>
                 </nav>
                 <div class="mobile">
                     <input type="checkbox" id="burger-toggle" style="display: none;">
@@ -54,18 +54,28 @@
                     </label>
                     <nav id="burger-menu">
                         <ul class="burger-ul">
-                            <li class="nav-mobile"><a href="/">About</a>
-                            </li>
-                            <li class="nav-mobile"><a href="/#section2">Experience</a>
-                            </li>
-                            <li class="nav-mobile"><a href="/#section3">Portfolio</a>
-                            </li>
-                            <li class="nav-mobile"><a href="/#section4">Apps</a>
-                            </li>
-                            <li class="nav-mobile"><a href="/services">Services</a>
-                            </li>
-                            <li class="nav-mobile"><a href="/contact">Contact</a>
-                            </li>
+                            <a class="button-body" onclick="goToAnchor('section1')">
+                                <li class="nav-mobile"><button class="nav-link-mobile">About</button></li>
+                            </a>
+                            <a class="button-body" onclick="goToAnchor('section2')">
+                                <li class="nav-mobile"><button class="nav-link-mobile">Experience</button></li>
+                            </a>
+                            <a class="button-body" onclick="goToAnchor('section3')">
+                                <li class="nav-mobile"><button class="nav-link-mobile">Portfolio</button></li>
+                            </a>
+                            <a class="button-body" onclick="goToAnchor('section4')">
+                                <li class="nav-mobile"><button class="nav-link-mobile">Apps</button></li>
+                            </a>
+                            <a class="button-body" href="/services">
+                                <li class="nav-mobile"><button class="nav-link-mobile"
+                                        onclick="location.href='/services'">Services</button>
+                                </li>
+                            </a>
+                            <a class="button-body" href="/contact">
+                                <li class="nav-mobile"><button class="nav-link-mobile"
+                                        onclick="location.href='/contact'">Contact</button>
+                                </li>
+                            </a>
                         </ul>
                     </nav>
                 </div>

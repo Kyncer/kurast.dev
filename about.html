@@ -21,22 +21,68 @@
 </head>
 <header>
     <div class="logo-container">
-        <a href="/index.html"><img class="logo-img" src="images/favicon.ico" alt="Kevin Profile Image Image"></a>
-        <nav class="main-nav">
-            <button class="nav-link" onclick="goToAnchor('section1')">kurast.dev</button>
-            <button class="nav-link" onclick="goToAnchor('section2')">jobs</button>
-            <button class="nav-link" onclick="goToAnchor('section2')">works</button>
-            <button class="nav-link" onclick="goToAnchor('section3')">apps</button>
-            <button class="nav-link contact-btn" onclick="goToAnchor('section4')">contact</button>
-        </nav>
-        <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
-
-        <label for="dark-mode-toggle">
-            <div class="darkmode">
-                <div class="dark-button-left"></div>
-                <div class="dark-button-right"></div>
+        <div class="con-1"><a href="/index.html"><img class="logo-img" src="images/favicon.ico"
+                    alt="Kevin Profile Image"></a>
+            <h2 class="text-logo">Kurast.dev</h2>
+        </div>
+        <div class="con-2">
+            <nav class="main-nav desktop">
+                <button class="nav-link" onclick="goToAnchor('section1')">About</button>
+                <button class="nav-link" onclick="goToAnchor('section2')">Experience</button>
+                <button class="nav-link" onclick="goToAnchor('section3')">Portfolio</button>
+                <button class="nav-link" onclick="goToAnchor('section4')">Apps</button>
+                <a href="/services"><button class="nav-link">Services</button></a>
+                <a href="/contact"><button class="nav-link">Contact</button></a>
+            </nav>
+            <div class="mobile">
+                <input type="checkbox" id="burger-toggle" style="display: none;">
+                <label for="burger-toggle" id="burger-icon">
+                    <div class="main-burger">
+                        <div class="burger top"></div>
+                        <div class="burger mid"></div>
+                        <div class="burger bottom"></div>
+                    </div>
+                </label>
+                <nav id="burger-menu">
+                    <ul class="burger-ul">
+                        <a class="button-body" onclick="goToAnchor('section1')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">About</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section2')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Experience</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section3')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Portfolio</button></li>
+                        </a>
+                        <a class="button-body" onclick="goToAnchor('section4')">
+                            <li class="nav-mobile"><button class="nav-link-mobile">Apps</button></li>
+                        </a>
+                        <a class="button-body" href="/services">
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="location.href='/services'">Services</button>
+                            </li>
+                        </a>
+                        <a class="button-body" href="/contact">
+                            <li class="nav-mobile"><button class="nav-link-mobile"
+                                    onclick="location.href='/contact'">Contact</button>
+                            </li>
+                        </a>
+                    </ul>
+                </nav>
             </div>
-        </label>
+        </div>
+        <div class="con-3">
+            <div class="container-verdark">
+                <span class="ver">v1.1</span>
+                <input type="checkbox" id="dark-mode-toggle" name="mode" style="display: none;">
+                <label for="dark-mode-toggle">
+                    <div class="darkmode">
+                        <div class="dark-button-left"></div>
+                        <div class="dark-button-right"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
     </div>
 </header>
 
