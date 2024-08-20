@@ -91,7 +91,7 @@ a {
 }
 
 .img-forspace {
-    height: 50px;
+    height: 90px;
 }
 
 .logo-container {
@@ -104,6 +104,7 @@ a {
     justify-content: space-between;
     box-sizing: border-box;
     min-width: 320px;
+    height: 90px;
     z-index: 900;
 }
 
@@ -191,8 +192,8 @@ img.profile-img {
 
 .nav-link {
     font-family: Nunito Sans, sans-serif;
-    padding: 4px 12px 4px 12px;
-    border-radius: 5px;
+    padding: 8px 14px 8px 14px;
+    border-radius: 30px;
     color: #ffffff;
     background: none;
     border: none;
@@ -266,7 +267,7 @@ img.profile-img {
 }
 
 .nav-link:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: #000;
     transition: background-color .3s ease;
 }
 
@@ -1053,9 +1054,13 @@ img.profile-img {
 .svg-whatsapp,
 .svg-github,
 .svg-facebook,
-.svg-linkedin,
-.logo-img {
+.svg-linkedin {
     padding: 3px;
+    border-radius: 10px;
+}
+
+.logo-img {
+    padding: 5px;
     border-radius: 10px;
 }
 
@@ -1064,7 +1069,7 @@ img.profile-img {
 .svg-facebook:hover,
 .svg-linkedin:hover,
 .logo-img:hover {
-    background-color: #010101;
+    background-color: #000;
 }
 
 .legend {
