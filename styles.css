@@ -1071,7 +1071,7 @@ img.profile-img {
 }
 
 .logo-img {
-    padding: 5px;
+    padding: 6px;
     border-radius: 10px;
 }
 
@@ -1816,18 +1816,17 @@ img {
 .l-contain {
     display: flex;
     max-width: 650px;
-    gap: 14px;
+    gap: 10px;
     flex-wrap: wrap;
     margin-inline: 20px;
 }
 
 .l-link {
     font-weight: 300;
-    line-height: 1;
-    color: #ff9d0077;
-    border: 1px solid #ff9d0077;
-    padding: 4px 15px 6px 15px;
-    border-radius: 3px;
+    color: #e5981b;
+    border: 1px solid #e5981b;
+    padding: 8px 14px 8px 14px;
+    border-radius: 30px;
     white-space: nowrap;
 }
 
