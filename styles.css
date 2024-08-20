@@ -560,8 +560,8 @@ img.profile-img {
 .skills-title {
     letter-spacing: 1.2px;
     margin-inline: 10px;
-    font-size: 15px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
@@ -610,23 +610,28 @@ img.profile-img {
 }
 
 .first-works {
-    top: 70px;
+    top: 90px;
+    z-index: 9;
 }
 
 .second-works {
-    top: 105px;
+    top: 125px;
+    z-index: 10;
 }
 
 .third-works {
-    top: 139px;
+    top: 159px;
+    z-index: 11;
 }
 
 .fourth-works {
-    top: 173px;
+    top: 194px;
+    z-index: 12;
 }
 
 .fifth-works {
-    top: 206px;
+    top: 226px;
+    z-index: 13;
 }
 
 .sixth-works-hidden {
