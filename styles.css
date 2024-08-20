@@ -164,6 +164,23 @@ nav {
     color: #F1F3F5;
 }
 
+.dot {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 3.5px;
+}
+
+.adot,
+.bdot,
+.cdot {
+    height: 4px;
+    width: 5px;
+    border-radius: 1px;
+    background-color: #F1F3F5;
+}
+
 h1,
 h2 {
     color: #F1F3F5;
