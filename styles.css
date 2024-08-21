@@ -252,13 +252,6 @@ img.profile-img {
     cursor: pointer;
 }
 
-
-.nav-link-mobile:hover {
-    width: 100%;
-    font-weight: 700;
-    border-radius: 3px;
-}
-
 .mobile-link {
     margin-top: 4px;
 }
