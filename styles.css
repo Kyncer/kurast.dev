@@ -79,8 +79,6 @@ a {
 .img-primary {
     margin: 0 auto;
     display: flex;
-    border-radius: 5px;
-    border: 1px solid #28282b33;
     justify-content: end;
     height: 300px;
     max-width: 1100px;
