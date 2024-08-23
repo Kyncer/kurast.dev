@@ -24,6 +24,19 @@ window.onclick = function (event) {
   }
 }
 
+//SCROLL BORDER
+const logoContainer = document.querySelector('.logo-container');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 0) {
+    logoContainer.classList.add('with-border');
+  } else {
+    logoContainer.classList.remove('with-border');
+  }
+});
+
+
+
 //FOR DROPDOWN LOGIC
 function reorderSkills() {
   const skillsContainer = document.querySelector('.skills-contain');
