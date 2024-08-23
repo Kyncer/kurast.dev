@@ -7,11 +7,20 @@
     <title>Update Log</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .date {
+            white-space: nowrap;
+        }
+
+        .boody {
+            min-width: 340px;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 p-6 boody">
 
-    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+    <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 boody">
         <h1 class="text-2xl font-bold mb-4">Tricore Project Logs</h1>
 
         <table class="table-auto w-full text-left border-collapse">
@@ -37,7 +46,7 @@
 
                     const dateCell = document.createElement('td');
                     dateCell.textContent = update.date;
-                    dateCell.classList.add('border-t', 'border-gray-300', 'py-2', 'px-4');
+                    dateCell.classList.add('border-t', 'border-gray-300', 'py-2', 'px-4', 'date');
                     row.appendChild(dateCell);
 
                     const logCell = document.createElement('td');

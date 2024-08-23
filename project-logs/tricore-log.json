@@ -1,19 +1,27 @@
 [
     {
-      "date": "2024-08-20",
-      "log": "Initial project setup completed. Repository and core files initialized."
+      "date": "2024-08-11",
+      "log": "Started working on the site to set up specific pricing for customers"
     },
     {
-      "date": "2024-08-21",
-      "log": "Design phase started. Wireframes for homepage and dashboard are in progress."
+      "date": "2024-08-12",
+      "log": "Continuing to work on the specific pricing and have started making changes to the navigation menu"
     },
     {
-      "date": "2024-08-22",
-      "log": "Client meeting held. Discussed features and design preferences."
+      "date": "2024-08-13",
+      "log": "Fixing the search bar functionality to be able to search via sku and keywords."
     },
     {
-      "date": "2024-08-23",
-      "log": "Implemented frontend design for homepage and dashboard using Tailwind CSS."
+      "date": "2024-08-14",
+      "log": "Installed and configured plugins to generate order details and began working on the web app"
+    },
+    {
+      "date": "2024-08-15",
+      "log": "Work on creating a standalone codebase web app to be able to print order details"
+    },
+    {
+      "date": "2024-08-16",
+      "log": "Continue to work on the web app to add more functionality and start working on specific pricing again"
     }
   ]
   
