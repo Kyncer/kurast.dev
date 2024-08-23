@@ -104,16 +104,13 @@ a {
     min-width: 320px;
     height: 90px;
     z-index: 900;
-    border: none;
-    /* No border initially */
-    transition: border .2s ease, box-shadow 0.3s ease;
-    /* Add box-shadow to the transition */
+    border-bottom: 1px solid #ffffff00;
+    transition: border .1s ease, box-shadow 0.3s ease;
 }
 
 .logo-container.with-border {
     border-bottom: 1px solid #ffffff0a;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.03);
-    /* Keep shadow */
 }
 
 .con-1,
