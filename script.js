@@ -35,7 +35,35 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//BURGER CLOSER
+// Function to close the burger menu
+function closeMenu() {
+  document.getElementById('burger-toggle').checked = false;
+}
 
+// Function to close the menu when clicking outside
+function handleClickOutside(event) {
+  const burgerMenu = document.getElementById('burger-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const burgerToggle = document.getElementById('burger-toggle');
+
+  if (!burgerMenu.contains(event.target) && !burgerIcon.contains(event.target) && !burgerToggle.contains(event.target)) {
+    burgerToggle.checked = false;
+  }
+}
+
+// Attach the function to all navigation buttons
+document.querySelectorAll('#burger-menu .nav-link-mobile').forEach(button => {
+  button.addEventListener('click', closeMenu);
+});
+
+// Attach the function to all links within the menu
+document.querySelectorAll('#burger-menu .button-body').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Event listener for clicks outside of the menu
+document.addEventListener('click', handleClickOutside);
 
 //FOR DROPDOWN LOGIC
 function reorderSkills() {
