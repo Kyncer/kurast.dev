@@ -294,6 +294,15 @@ img.profile-img {
 }
 
 .get-touch {
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(229, 152, 27, 0.6);
+    /* Adjust the color to #e5981b */
+    transition: box-shadow 0.3s ease-in-out;
+    /* Smooth transition for the glow effect */
+}
+
+.get-touch {
     display: inline;
     margin-block: 5px;
     padding: .5rem 1.5rem;
@@ -330,7 +339,9 @@ img.profile-img {
 }
 
 .job-title {
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 .highlight {
@@ -379,9 +390,10 @@ img.profile-img {
 .sub-text,
 .simple-text {
     text-align: center;
-    max-width: 420px;
+    max-width: 425px;
     margin: 0;
-    font-size: 16px;
+    font-size: 16.5px;
+    letter-spacing: .9
 }
 
 .sub-text {
@@ -2033,6 +2045,7 @@ img {
     }
 
     .sub-text {
+        max-width: 320px;
         font-size: 15px;
     }
 
