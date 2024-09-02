@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://kurast.dev/times">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-    <title>Timesheet Maker</title>
+    <title>Timesheet / Invoice Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
@@ -28,17 +28,43 @@
             display: block;
         }
 
+        .bg-invoice {
+            background-color: #1f2937;
+        }
+
+        #tab1Content {
+            padding-inline: 40px;
+            padding-top: 20px;
+        }
+
+        #tab2Content {
+            padding-inline: 40px;
+            padding-top: 20px;
+        }
+
+        .max-contain {
+            width: 100%;
+        }
+
+        .invoice-input {
+            background-color: #111827;
+        }
+
         .tabs button {
-            padding: 10px;
+            padding: 20px;
             cursor: pointer;
             border: none;
             background: #2d818f;
             color: white;
-            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .details-invoice {
+            color: white;
         }
 
         .tabs button.active {
-            background: #1e5c6f;
+            background: #111827;
         }
 
         .clickevent {
@@ -211,137 +237,140 @@
             font-family: 'system-ui', sans-serif;
         }
     </style>
+
 </head>
-<!-- Tab Buttons -->
-<div class="tabs mb-4">
-    <button id="tab1Btn" class="active" onclick="showTab(1)">Timesheet</button>
-    <button id="tab2Btn" onclick="showTab(2)">Invoice</button>
-</div>
-
-
-<!-- Tab Content -->
-<div id="tab1Content" class="tab-content active">
-
-    <body class="font-sans bg-gray-900 text-gray-100 p-10">
-        <button onclick="openSeparateWindow()" class="clickevent">
-            <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path fill="white"
-                    d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
-                    fill="#000000" />
-            </svg>
-        </button>
-        <h1 class="text-center text-3xl font-bold mb-8">Timesheet</h1>
-        <div class="flex justify-between gap-6 closex">
-            <div class="flex items-center">
-                <label for="usdPerHour" class="mr-2">Name:</label>
-                <input type="text" id="name" value="Kevin Sy" placeholder="NAME"
-                    class="bg-gray-800 text-white border-none p-2 rounded-lg">
-            </div>
-            <div class="flex items-center currentsy">
-                <select id="currency" class="bg-gray-800 text-white border-none p-2 rounded-lg mr-2">
-                    <option value="option5" selected>USD</option>
-                    <option value="option4">AUD</option>
-                </select>
-                <label class="mr-2" for="usdPerHour">/hr:</label>
-                <input type="text" id="usdPerHour" placeholder="rate"
-                    class="bg-gray-800 text-white border-none p-2 rounded-lg w-16">
-            </div>
+<nav class="bg-gray-800 text-white">
+    <div class="nav-con">
+        <div class="tabs mb-4">
+            <button id="tab1Btn" class="active" onclick="showTab(1)">Timesheet</button>
+            <button id="tab2Btn" onclick="showTab(2)">Invoice</button>
         </div>
-        <table id="invoiceTable" class="w-full mt-8 table-auto border-collapse">
-            <thead>
-                <tr class="bg-gray-800">
-                    <th class="border border-gray-600 p-3 text-left">Date</th>
-                    <th class="border border-gray-600 p-3 text-left">Task Description</th>
-                    <th class="border border-gray-600 p-3 text-left">Duration (hours)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border border-gray-600 p-3" data-label="Date">
-                        <div class="fordate hidden">Date:</div>
-                        <input class="inputdate date bg-gray-800 text-white border-none w-full"
-                            placeholder="mm/dd/yyyy" />
-                    </td>
-                    <td class="border border-gray-600 p-3" data-label="Task Description">
-                        <div class="fortask hidden">Task:</div>
-                        <textarea class="description bg-gray-800 text-white border-none w-full" rows="1"></textarea>
-                    </td>
-                    <td class="border border-gray-600 p-3" data-label="Duration (hours)">
-                        <div class="forduration hidden">Duration:</div>
-                        <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
-                    </td>
-                    <td class="p-3" data-label="">
-                        <button
-                            class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="addRowBtn"
-            class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Add
-            Row</button>
-        <div id="totals" class="mt-8">
-            <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
-            <p>Total <span id="currencySymbol">USD</span>: $<span id="totalUSD" class="font-bold">0</span></p>
-        </div>
-        <button id="previewBtn"
-            class="mt-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Preview</button>
+    </div>
+</nav>
+<div class="max-contain">
+    <!-- Tab Content -->
+    <div id="tab1Content" class="tab-content active">
 
-        <!-- Preview Modal -->
-        <div id="previewModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal" onclick="closePreview()">&times;</span>
-                <h2 style="font-size:30px;">Timesheet</h2>
-                <div id="previewContent"></div>
-                <!-- File Name Input Field -->
-                <div class="prev-btn">
-                    <div class="flex items-center mb-1 pt-5">
-                        <label for="fileName" class="mr-2">File Name:</label>
-                        <input type="text" id="fileName" placeholder="Enter file name"
-                            class="bg-gray-800 text-white border-none p-2 rounded-lg">
-                    </div>
-                    <div class="download-btn">
-                        <button id="downloadPNGBtn"
-                            class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download
-                            as
-                            PNG</button>
-                        <button id="downloadPDFBtn"
-                            class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download
-                            as
-                            PDF</button>
+        <body class="font-sans bg-gray-900 text-gray-100">
+            <button onclick="openSeparateWindow()" class="clickevent">
+                <svg class="opennew" width="27px" height="27px" viewBox="0 0 17 17" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="white"
+                        d="M15 2v7.5h-1v-5.668l-9.334 9.334-0.707-0.707 9.459-9.459h-5.918v-1h7.5zM11 16h-10v-10h6.574v-1h-7.574v12h12v-7.714h-1v6.714z"
+                        fill="#000000" />
+                </svg>
+            </button>
+
+            <div class="flex justify-between gap-6 closex">
+                <div class="flex items-center">
+                    <label for="usdPerHour" class="mr-2">Name:</label>
+                    <input type="text" id="name" value="Kevin Sy" placeholder="NAME"
+                        class="bg-gray-800 text-white border-none p-2 rounded-lg">
+                </div>
+                <div class="flex items-center currentsy">
+                    <select id="currency" class="bg-gray-800 text-white border-none p-2 rounded-lg mr-2">
+                        <option value="option5" selected>USD</option>
+                        <option value="option4">AUD</option>
+                    </select>
+                    <label class="mr-2" for="usdPerHour">/hr:</label>
+                    <input type="text" id="usdPerHour" placeholder="rate"
+                        class="bg-gray-800 text-white border-none p-2 rounded-lg w-16">
+                </div>
+            </div>
+            <table id="invoiceTable" class="w-full mt-8 table-auto border-collapse">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="border border-gray-600 p-3 text-left">Date</th>
+                        <th class="border border-gray-600 p-3 text-left">Task Description</th>
+                        <th class="border border-gray-600 p-3 text-left">Duration (hours)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-600 p-3" data-label="Date">
+                            <div class="fordate hidden">Date:</div>
+                            <input class="inputdate date bg-gray-800 text-white border-none w-full"
+                                placeholder="mm/dd/yyyy" />
+                        </td>
+                        <td class="border border-gray-600 p-3" data-label="Task Description">
+                            <div class="fortask hidden">Task:</div>
+                            <textarea class="description bg-gray-800 text-white border-none w-full" rows="1"></textarea>
+                        </td>
+                        <td class="border border-gray-600 p-3" data-label="Duration (hours)">
+                            <div class="forduration hidden">Duration:</div>
+                            <input type="text" class="duration bg-gray-800 text-white border-none w-full" step="0.1">
+                        </td>
+                        <td class="p-3" data-label="">
+                            <button
+                                class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="addRowBtn"
+                class="mt-4 bg-green-600 hover:bg-green-500 active:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">Add
+                Row</button>
+            <div id="totals" class="mt-8">
+                <p>Total Hours: <span id="totalHours" class="font-bold">0</span></p>
+                <p>Total <span id="currencySymbol">USD</span>: $<span id="totalUSD" class="font-bold">0</span></p>
+            </div>
+            <button id="previewBtn"
+                class="mt-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Preview</button>
+
+            <!-- Preview Modal -->
+            <div id="previewModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closePreview()">&times;</span>
+                    <h2 style="font-size:30px;">Timesheet</h2>
+                    <div id="previewContent"></div>
+                    <!-- File Name Input Field -->
+                    <div class="prev-btn">
+                        <div class="flex items-center mb-1 pt-5">
+                            <label for="fileName" class="mr-2">File Name:</label>
+                            <input type="text" id="fileName" placeholder="Enter file name"
+                                class="bg-gray-800 text-white border-none p-2 rounded-lg">
+                        </div>
+                        <div class="download-btn">
+                            <button id="downloadPNGBtn"
+                                class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download
+                                as
+                                PNG</button>
+                            <button id="downloadPDFBtn"
+                                class="mt-4 bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">Download
+                                as
+                                PDF</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        <script>
-            function updateTotals() {
-                let totalHours = 0;
-                let totalUSD = 0;
-                const rows = document.querySelectorAll('#invoiceTable tbody tr');
-                const usdPerHour = parseFloat(document.getElementById('usdPerHour').value) || 0;
-                const currencySelect = document.getElementById('currency');
-                const selectedCurrency = currencySelect.options[currencySelect.selectedIndex].text;
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script>
+                function updateTotals() {
+                    let totalHours = 0;
+                    let totalUSD = 0;
+                    const rows = document.querySelectorAll('#invoiceTable tbody tr');
+                    const usdPerHour = parseFloat(document.getElementById('usdPerHour').value) || 0;
+                    const currencySelect = document.getElementById('currency');
+                    const selectedCurrency = currencySelect.options[currencySelect.selectedIndex].text;
 
-                rows.forEach(row => {
-                    const duration = parseFloat(row.querySelector('.duration').value) || 0;
-                    totalHours += duration;
-                    totalUSD += duration * usdPerHour;
-                });
+                    rows.forEach(row => {
+                        const duration = parseFloat(row.querySelector('.duration').value) || 0;
+                        totalHours += duration;
+                        totalUSD += duration * usdPerHour;
+                    });
 
-                document.getElementById('totalHours').textContent = totalHours.toFixed(2);
-                document.getElementById('totalUSD').textContent = totalUSD.toFixed(2);
-                document.getElementById('currencySymbol').textContent = selectedCurrency;
-            }
+                    document.getElementById('totalHours').textContent = totalHours.toFixed(2);
+                    document.getElementById('totalUSD').textContent = totalUSD.toFixed(2);
+                    document.getElementById('currencySymbol').textContent = selectedCurrency;
+                }
 
 
-            function addRow() {
-                const table = document.getElementById('invoiceTable').querySelector('tbody');
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
+                function addRow() {
+                    const table = document.getElementById('invoiceTable').querySelector('tbody');
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
             <td class="border border-gray-600 p-3" data-label="Date">
                 <input class="inputdate date bg-gray-800 text-white border-none w-full" placeholder="mm/dd/yyyy" />
             </td>
@@ -355,339 +384,335 @@
                 <button class="deleteBtn bg-red-600 hover:bg-red-500 active:bg-red-700 disabled:bg-red-200 text-white font-bold py-2 px-4 rounded-lg">Delete</button>
             </td>
         `;
-                table.appendChild(newRow);
+                    table.appendChild(newRow);
 
-                // Reinitialize Flatpickr on the new date input
-                flatpickr(".inputdate", {
-                    dateFormat: "m/d/Y",
-                });
-
-                // Add event listener for the new delete button
-                newRow.querySelector('.deleteBtn').addEventListener('click', function () {
-                    this.closest('tr').remove();
-                    updateTotals();
-                });
-
-                // Add event listeners for new duration input
-                newRow.querySelector('.duration').addEventListener('input', updateTotals);
-            }
-
-            // Add event listener for Add Row button
-            document.getElementById('addRowBtn').addEventListener('click', addRow);
-
-            // Add event listeners for existing duration and rate inputs
-            document.querySelectorAll('.duration').forEach(input => {
-                input.addEventListener('input', updateTotals);
-            });
-            document.getElementById('usdPerHour').addEventListener('input', updateTotals);
-
-            document.getElementById('currency').addEventListener('change', updateTotals);
-
-            document.getElementById('previewBtn').addEventListener('click', () => {
-                const previewContent = document.getElementById('previewContent');
-                previewContent.innerHTML = '';
-
-                // Create a new table element for the preview
-                const previewTable = document.createElement('table');
-                previewTable.className = 'preview-table w-full mt-8 table-auto border-collapse';
-
-                // Create the table header
-                const thead = document.createElement('thead');
-                const headerRow = document.createElement('tr');
-                headerRow.className = 'bg-gray-800';
-                ['Date', 'Task Description', 'Duration (hours)'].forEach(text => {
-                    const th = document.createElement('th');
-                    th.className = 'border border-gray-600 p-3 text-left';
-                    th.textContent = text;
-                    headerRow.appendChild(th);
-                });
-                thead.appendChild(headerRow);
-                previewTable.appendChild(thead);
-
-                // Create the table body
-                const tbody = document.createElement('tbody');
-                const rows = document.querySelectorAll('#invoiceTable tbody tr');
-                rows.forEach(row => {
-                    const newRow = document.createElement('tr');
-
-                    ['inputdate', 'description', 'duration'].forEach(className => {
-                        const cell = document.createElement('td');
-                        cell.className = 'border border-gray-600 p-3';
-                        const input = row.querySelector(`.${className}`);
-                        if (className === 'description') {
-                            // Use innerHTML to preserve line breaks
-                            cell.innerHTML = input ? input.value.replace(/\n/g, '<br>') : '';
-                        } else {
-                            cell.textContent = input ? input.value : '';
-                        }
-                        newRow.appendChild(cell);
+                    // Reinitialize Flatpickr on the new date input
+                    flatpickr(".inputdate", {
+                        dateFormat: "m/d/Y",
                     });
 
-                    tbody.appendChild(newRow);
+                    // Add event listener for the new delete button
+                    newRow.querySelector('.deleteBtn').addEventListener('click', function () {
+                        this.closest('tr').remove();
+                        updateTotals();
+                    });
+
+                    // Add event listeners for new duration input
+                    newRow.querySelector('.duration').addEventListener('input', updateTotals);
+                }
+
+                // Add event listener for Add Row button
+                document.getElementById('addRowBtn').addEventListener('click', addRow);
+
+                // Add event listeners for existing duration and rate inputs
+                document.querySelectorAll('.duration').forEach(input => {
+                    input.addEventListener('input', updateTotals);
                 });
+                document.getElementById('usdPerHour').addEventListener('input', updateTotals);
 
-                previewTable.appendChild(tbody);
+                document.getElementById('currency').addEventListener('change', updateTotals);
 
-                // Include the Name field in the preview
-                const nameDiv = document.createElement('div');
-                nameDiv.className = 'border border-gray-600';
-                nameDiv.textContent = `Name: ${document.getElementById('name').value}`;
+                document.getElementById('previewBtn').addEventListener('click', () => {
+                    const previewContent = document.getElementById('previewContent');
+                    previewContent.innerHTML = '';
 
-                // Include the Rate field in the preview
-                const rateDiv = document.createElement('div');
-                rateDiv.className = 'border border-gray-600';
-                const usdPerHour = document.getElementById('usdPerHour').value;
-                rateDiv.textContent = `Rate: $${usdPerHour} /hr`;
+                    // Create a new table element for the preview
+                    const previewTable = document.createElement('table');
+                    previewTable.className = 'preview-table w-full mt-8 table-auto border-collapse';
 
-                // Include the Totals field in the preview
-                const totalsDiv = document.createElement('div');
-                totalsDiv.className = 'border border-gray-600 mt-20';
-                const totalHours = document.getElementById('totalHours').textContent;
-                const totalUSD = document.getElementById('totalUSD').textContent;
-                const currencySymbol = document.getElementById('currencySymbol').textContent;
-                totalsDiv.innerHTML = `
+                    // Create the table header
+                    const thead = document.createElement('thead');
+                    const headerRow = document.createElement('tr');
+                    headerRow.className = 'bg-gray-800';
+                    ['Date', 'Task Description', 'Duration (hours)'].forEach(text => {
+                        const th = document.createElement('th');
+                        th.className = 'border border-gray-600 p-3 text-left';
+                        th.textContent = text;
+                        headerRow.appendChild(th);
+                    });
+                    thead.appendChild(headerRow);
+                    previewTable.appendChild(thead);
+
+                    // Create the table body
+                    const tbody = document.createElement('tbody');
+                    const rows = document.querySelectorAll('#invoiceTable tbody tr');
+                    rows.forEach(row => {
+                        const newRow = document.createElement('tr');
+
+                        ['inputdate', 'description', 'duration'].forEach(className => {
+                            const cell = document.createElement('td');
+                            cell.className = 'border border-gray-600 p-3';
+                            const input = row.querySelector(`.${className}`);
+                            if (className === 'description') {
+                                // Use innerHTML to preserve line breaks
+                                cell.innerHTML = input ? input.value.replace(/\n/g, '<br>') : '';
+                            } else {
+                                cell.textContent = input ? input.value : '';
+                            }
+                            newRow.appendChild(cell);
+                        });
+
+                        tbody.appendChild(newRow);
+                    });
+
+                    previewTable.appendChild(tbody);
+
+                    // Include the Name field in the preview
+                    const nameDiv = document.createElement('div');
+                    nameDiv.className = 'border border-gray-600';
+                    nameDiv.textContent = `Name: ${document.getElementById('name').value}`;
+
+                    // Include the Rate field in the preview
+                    const rateDiv = document.createElement('div');
+                    rateDiv.className = 'border border-gray-600';
+                    const usdPerHour = document.getElementById('usdPerHour').value;
+                    rateDiv.textContent = `Rate: $${usdPerHour} /hr`;
+
+                    // Include the Totals field in the preview
+                    const totalsDiv = document.createElement('div');
+                    totalsDiv.className = 'border border-gray-600 mt-20';
+                    const totalHours = document.getElementById('totalHours').textContent;
+                    const totalUSD = document.getElementById('totalUSD').textContent;
+                    const currencySymbol = document.getElementById('currencySymbol').textContent;
+                    totalsDiv.innerHTML = `
             <p>Total Hours: <span class="font-bold">${totalHours}</span></p>
             <p>Total ${currencySymbol}: <span class="font-bold">$${totalUSD}</span></p>
         `;
 
-                // Create a wrapper for the name field, rate, table, and totals
-                const previewWrapper = document.createElement('div');
-                previewWrapper.appendChild(nameDiv);
-                previewWrapper.appendChild(rateDiv);
-                previewWrapper.appendChild(previewTable);
-                previewWrapper.appendChild(totalsDiv);
+                    // Create a wrapper for the name field, rate, table, and totals
+                    const previewWrapper = document.createElement('div');
+                    previewWrapper.appendChild(nameDiv);
+                    previewWrapper.appendChild(rateDiv);
+                    previewWrapper.appendChild(previewTable);
+                    previewWrapper.appendChild(totalsDiv);
 
-                previewContent.appendChild(previewWrapper);
-                document.getElementById('previewModal').style.display = 'flex';
-            });
-
-
-
-            function closePreview() {
-                document.getElementById('previewModal').style.display = 'none';
-            }
-
-            document.querySelectorAll('.deleteBtn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    this.closest('tr').remove();
-                    updateTotals();
+                    previewContent.appendChild(previewWrapper);
+                    document.getElementById('previewModal').style.display = 'flex';
                 });
-            });
 
-            document.querySelectorAll('.duration, #usdPerHour').forEach(input => {
-                input.addEventListener('input', updateTotals);
-            });
 
-            flatpickr(".inputdate", {
-                dateFormat: "m/d/Y",
-            });
-        </script>
-        <script>
-            document.getElementById('downloadPNGBtn').addEventListener('click', async () => {
-                const modalContent = document.querySelector('.modal-content');
-                const table = document.querySelector('#invoiceTable');
-                const fileNameInput = document.getElementById('fileName');
-                const fileName = fileNameInput.value.trim() || 'timesheet'; // Default to 'timesheet' if no name is provided
 
-                // Save the original styles of the elements to restore them later
-                const originalStyles = {
-                    table: table.style.width,
-                    buttons: {
-                        display: document.getElementById('downloadPNGBtn').style.display,
-                        displayPDF: document.getElementById('downloadPDFBtn').style.display,
-                    },
-                    otherElements: Array.from(modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn')).map(el => ({
-                        element: el,
-                        display: el.style.display,
-                    })),
-                };
+                function closePreview() {
+                    document.getElementById('previewModal').style.display = 'none';
+                }
 
-                // Apply the consistent layout for the print preview
-                modalContent.classList.add('print-preview');
-                table.style.width = '100%';
-
-                // Hide unnecessary elements
-                const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
-                deleteButtons.forEach(btn => btn.style.display = 'none');
-                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => el.style.display = 'none');
-                document.getElementById('downloadPNGBtn').style.display = 'none';
-                document.getElementById('downloadPDFBtn').style.display = 'none';
-
-                // Apply the custom font manually
-                modalContent.style.fontFamily = 'system-ui, sans-serif';
-
-                // Ensure all fonts are loaded
-                await document.fonts.ready;
-
-                // Create a PNG image from the content
-                html2canvas(modalContent).then(canvas => {
-                    const link = document.createElement('a');
-                    link.href = canvas.toDataURL('image/png');
-                    link.download = `${fileName}.png`;
-                    link.click();
-
-                    // Restore original styles
-                    modalContent.classList.remove('print-preview');
-                    table.style.width = originalStyles.table;
-
-                    // Restore visibility of hidden elements
-                    document.getElementById('downloadPNGBtn').style.display = originalStyles.buttons.display;
-                    document.getElementById('downloadPDFBtn').style.display = originalStyles.buttons.displayPDF;
-                    originalStyles.otherElements.forEach(({ element, display }) => {
-                        element.style.display = display;
+                document.querySelectorAll('.deleteBtn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        this.closest('tr').remove();
+                        updateTotals();
                     });
                 });
-            });
+
+                document.querySelectorAll('.duration, #usdPerHour').forEach(input => {
+                    input.addEventListener('input', updateTotals);
+                });
+
+                flatpickr(".inputdate", {
+                    dateFormat: "m/d/Y",
+                });
+            </script>
+            <script>
+                document.getElementById('downloadPNGBtn').addEventListener('click', async () => {
+                    const modalContent = document.querySelector('.modal-content');
+                    const table = document.querySelector('#invoiceTable');
+                    const fileNameInput = document.getElementById('fileName');
+                    const fileName = fileNameInput.value.trim() || 'timesheet'; // Default to 'timesheet' if no name is provided
+
+                    // Save the original styles of the elements to restore them later
+                    const originalStyles = {
+                        table: table.style.width,
+                        buttons: {
+                            display: document.getElementById('downloadPNGBtn').style.display,
+                            displayPDF: document.getElementById('downloadPDFBtn').style.display,
+                        },
+                        otherElements: Array.from(modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn')).map(el => ({
+                            element: el,
+                            display: el.style.display,
+                        })),
+                    };
+
+                    // Apply the consistent layout for the print preview
+                    modalContent.classList.add('print-preview');
+                    table.style.width = '100%';
+
+                    // Hide unnecessary elements
+                    const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
+                    deleteButtons.forEach(btn => btn.style.display = 'none');
+                    modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn, .prev-btn').forEach(el => el.style.display = 'none');
+                    document.getElementById('downloadPNGBtn').style.display = 'none';
+                    document.getElementById('downloadPDFBtn').style.display = 'none';
+
+                    // Apply the custom font manually
+                    modalContent.style.fontFamily = 'system-ui, sans-serif';
+
+                    // Ensure all fonts are loaded
+                    await document.fonts.ready;
+
+                    // Create a PNG image from the content
+                    html2canvas(modalContent).then(canvas => {
+                        const link = document.createElement('a');
+                        link.href = canvas.toDataURL('image/png');
+                        link.download = `${fileName}.png`;
+                        link.click();
+
+                        // Restore original styles
+                        modalContent.classList.remove('print-preview');
+                        table.style.width = originalStyles.table;
+
+                        // Restore visibility of hidden elements
+                        document.getElementById('downloadPNGBtn').style.display = originalStyles.buttons.display;
+                        document.getElementById('downloadPDFBtn').style.display = originalStyles.buttons.displayPDF;
+                        originalStyles.otherElements.forEach(({ element, display }) => {
+                            element.style.display = display;
+                        });
+                    });
+                });
 
 
 
 
-            document.getElementById('downloadPDFBtn').addEventListener('click', () => {
-                const modalContent = document.querySelector('.modal-content');
-                const table = document.querySelector('#invoiceTable');
-                const downloadPNGBtn = document.getElementById('downloadPNGBtn');
-                const downloadPDFBtn = document.getElementById('downloadPDFBtn');
+                document.getElementById('downloadPDFBtn').addEventListener('click', () => {
+                    const modalContent = document.querySelector('.modal-content');
+                    const table = document.querySelector('#invoiceTable');
+                    const downloadPNGBtn = document.getElementById('downloadPNGBtn');
+                    const downloadPDFBtn = document.getElementById('downloadPDFBtn');
 
-                // Hide the "Delete" buttons and other elements
-                const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
-                deleteButtons.forEach(btn => btn.style.display = 'none');
+                    // Hide the "Delete" buttons and other elements
+                    const deleteButtons = modalContent.querySelectorAll('.deleteBtn');
+                    deleteButtons.forEach(btn => btn.style.display = 'none');
 
-                // Make the table full width
-                table.style.width = '100%';
+                    // Make the table full width
+                    table.style.width = '100%';
 
-                // Hide other elements including the download buttons
-                modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
-                downloadPNGBtn.style.display = 'none';
-                downloadPDFBtn.style.display = 'none';
+                    // Hide other elements including the download buttons
+                    modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = 'none');
+                    downloadPNGBtn.style.display = 'none';
+                    downloadPDFBtn.style.display = 'none';
 
-                // Use jsPDF to generate the PDF
-                html2canvas(modalContent).then(canvas => {
-                    const imgData = canvas.toDataURL('image/png');
-                    const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait, 'mm' for millimeters, 'a4' for size
-                    const imgWidth = 210; // A4 width in mm
-                    const pageHeight = 295; // A4 height in mm
-                    const imgHeight = canvas.height * imgWidth / canvas.width;
-                    let heightLeft = imgHeight;
+                    // Use jsPDF to generate the PDF
+                    html2canvas(modalContent).then(canvas => {
+                        const imgData = canvas.toDataURL('image/png');
+                        const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait, 'mm' for millimeters, 'a4' for size
+                        const imgWidth = 210; // A4 width in mm
+                        const pageHeight = 295; // A4 height in mm
+                        const imgHeight = canvas.height * imgWidth / canvas.width;
+                        let heightLeft = imgHeight;
 
-                    let position = 0;
+                        let position = 0;
 
-                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-
-                    while (heightLeft >= 0) {
-                        position = heightLeft - imgHeight;
-                        pdf.addPage();
                         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                         heightLeft -= pageHeight;
-                    }
 
-                    pdf.save('preview.pdf');
+                        while (heightLeft >= 0) {
+                            position = heightLeft - imgHeight;
+                            pdf.addPage();
+                            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                            heightLeft -= pageHeight;
+                        }
 
-                    // Restore the hidden elements and reset table width
-                    deleteButtons.forEach(btn => btn.style.display = '');
-                    table.style.width = '';
+                        pdf.save('preview.pdf');
 
-                    // Restore other hidden elements
-                    modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
-                    downloadPNGBtn.style.display = '';
-                    downloadPDFBtn.style.display = '';
+                        // Restore the hidden elements and reset table width
+                        deleteButtons.forEach(btn => btn.style.display = '');
+                        table.style.width = '';
+
+                        // Restore other hidden elements
+                        modalContent.querySelectorAll('.close-modal, #totals, #previewBtn, #addRowBtn').forEach(el => el.style.display = '');
+                        downloadPNGBtn.style.display = '';
+                        downloadPDFBtn.style.display = '';
+                    });
                 });
-            });
-        </script>
-    </body>
-</div>
+            </script>
+        </body>
+    </div>
 
-<div id="tab2Content" class="tab-content">
+    <div id="tab2Content" class="tab-content">
 
-    <!DOCTYPE html>
-    <html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Invoice Maker</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Invoice Maker</title>
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+            <style>
+                body {
+                    font-family: poppins, sans-serif;
+                }
 
-            .text-2xl.font-bold.text-center.mb-4 {
-                color: black;
-            }
+                input {
+                    color: white;
+                }
+            </style>
+        </head>
 
-            #invoice-date {
-                color: black;
-            }
+        <body class="bg-gray-900 flex items-center justify-center min-h-screen">
+            <div id="invoice" class="border border-gray-600 bg-invoice p-6 shadow-lg w-full max-w-screen-xl">
+                <!-- Invoice Owner Details -->
+                <div class="details-invoice mb-4 border-b border-gray-300 pb-4">
+                    <p class="">Kevin Sy</p>
+                    <p class="">Subcontractor - Webmaster</p>
+                    <p class="">Email: sy.kynce@gmail.com</p>
+                </div>
 
-            input {
-                color: black;
-            }
-        </style>
-    </head>
-
-    <body class="bg-gray-900 flex items-center justify-center min-h-screen">
-        <div id="invoice" class="bg-white p-6 shadow-lg w-full max-w-screen-xl">
-            <!-- Invoice Owner Details -->
-            <div class="mb-4 border-b border-gray-300 pb-4">
-                <p class="text-gray-700">Kevin Sy</p>
-                <p class="text-gray-700">Subcontractor - Webmaster</p>
-                <p class="text-gray-700">Email: sy.kynce@gmail.com</p>
+                <!-- Invoice Details -->
+                <div class="mb-4">
+                    <label for="invoice-to" class="block font-medium mb-1">Invoice To:</label>
+                    <input type="text" id="invoice-to" placeholder=""
+                        class="invoice-input w-full p-2 rounded-lg border-gray-300">
+                </div>
+                <div class="mb-4">
+                    <label for="invoice-date" class="block font-medium mb-1">Invoice Date:</label>
+                    <input type="date" id="invoice-date" class="invoice-input w-full p-2  rounded-lg border-gray-300">
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block font-medium mb-1">Description:</label>
+                    <input type="text" id="description" placeholder=""
+                        class="invoice-input w-full p-2 rounded-lg border-gray-300">
+                </div>
+                <div class="mb-4">
+                    <label for="rate" class="block font-medium mb-1">Rate:</label>
+                    <input type="text" id="rate" placeholder=""
+                        class="invoice-input w-full p-2 rounded-lg border-gray-300">
+                </div>
+                <div class="mb-4">
+                    <label for="amount" class="block font-medium mb-1">Total Amount:</label>
+                    <input type="text" id="amount" placeholder=""
+                        class="invoice-input w-full p-2 rounded-lg border-gray-300">
+                </div>
+                <div class="flex justify-between">
+                    <button id="print" class="rounded-lg bg-green-500 text-white px-4 py-2 hover:bg-green-600">Print
+                        Invoice</button>
+                </div>
             </div>
 
-            <!-- Invoice Details -->
-            <div class="mb-4">
-                <label for="invoice-to" class="block text-gray-700 font-medium mb-1">Invoice To:</label>
-                <input type="text" id="invoice-to" placeholder="Client Name" class="w-full p-2 border border-gray-300">
-            </div>
-            <div class="mb-4">
-                <label for="invoice-date" class="block text-gray-700 font-medium mb-1">Invoice Date:</label>
-                <input type="date" id="invoice-date" class="w-full p-2 border border-gray-300">
-            </div>
-            <div class="mb-4">
-                <label for="description" class="block text-gray-700 font-medium mb-1">Description:</label>
-                <input type="text" id="description" placeholder="Item Description"
-                    class="w-full p-2 border border-gray-300">
-            </div>
-            <div class="mb-4">
-                <label for="rate" class="block text-gray-700 font-medium mb-1">Rate:</label>
-                <input type="text" id="rate" placeholder="Rate" class="w-full p-2 border border-gray-300">
-            </div>
-            <div class="mb-4">
-                <label for="amount" class="block text-gray-700 font-medium mb-1">Total Amount:</label>
-                <input type="text" id="amount" placeholder="Amount" class="w-full p-2 border border-gray-300">
-            </div>
-            <div class="flex justify-between">
-                <button id="print" class="bg-green-500 text-white px-4 py-2 hover:bg-green-600">Print Invoice</button>
-            </div>
-        </div>
+            <script>
+                document.getElementById('print').addEventListener('click', function () {
+                    // Create a new div for printable content
+                    const printDiv = document.createElement('div');
+                    printDiv.setAttribute('id', 'printable-invoice');
 
-        <script>
-            document.getElementById('print').addEventListener('click', function () {
-                // Create a new div for printable content
-                const printDiv = document.createElement('div');
-                printDiv.setAttribute('id', 'printable-invoice');
+                    // Apply styles to ensure dimensions are correct
+                    printDiv.style.backgroundColor = 'white';
+                    printDiv.style.padding = '20px';
+                    printDiv.style.fontFamily = 'Arial, sans-serif';
+                    printDiv.style.color = 'black';
+                    printDiv.style.width = '170mm'; // Set width to A4 size
+                    printDiv.style.height = '100mm'; // Set height to A4 size
+                    printDiv.style.boxSizing = 'border-box'; // Include padding and border in width and height
+                    printDiv.style.margin = 'auto'; // Center align the content
 
-                // Apply styles to ensure dimensions are correct
-                printDiv.style.backgroundColor = 'white';
-                printDiv.style.padding = '20px';
-                printDiv.style.fontFamily = 'Arial, sans-serif';
-                printDiv.style.color = 'black';
-                printDiv.style.width = '170mm'; // Set width to A4 size
-                printDiv.style.height = '100mm'; // Set height to A4 size
-                printDiv.style.boxSizing = 'border-box'; // Include padding and border in width and height
-                printDiv.style.margin = 'auto'; // Center align the content
+                    // Manually append the values from input fields as text
+                    const invoiceTo = document.getElementById('invoice-to').value || 'N/A';
+                    const invoiceDate = document.getElementById('invoice-date').value || 'N/A';
+                    const description = document.getElementById('description').value || 'N/A';
+                    const rate = document.getElementById('rate').value || 'N/A';
+                    const amount = document.getElementById('amount').value || 'N/A';
 
-                // Manually append the values from input fields as text
-                const invoiceTo = document.getElementById('invoice-to').value || 'N/A';
-                const invoiceDate = document.getElementById('invoice-date').value || 'N/A';
-                const description = document.getElementById('description').value || 'N/A';
-                const rate = document.getElementById('rate').value || 'N/A';
-                const amount = document.getElementById('amount').value || 'N/A';
-
-                // Add content to the new div including owner details
-                printDiv.innerHTML = `
+                    // Add content to the new div including owner details
+                    printDiv.innerHTML = `
                     <div style="text-align: left; padding-bottom: 40px;border-bottom:1px solid rgba(209,213,219,1);">
                         <p style="font-size: 16px; font-weight: bold;">Kevin Sy</p>
                         <p style="font-size: 14px;">Subcontractor - Webmaster</p>
@@ -700,44 +725,45 @@
                     <p><strong>Total Amount:</strong> ${amount}</p>
                 `;
 
-                // Append the new div to the body
-                document.body.appendChild(printDiv);
+                    // Append the new div to the body
+                    document.body.appendChild(printDiv);
 
-                // Generate the canvas and download as PNG
-                html2canvas(printDiv, {
-                    scale: 2, // Increase scale for better resolution
-                    useCORS: true, // Handle cross-origin issues
-                    width: printDiv.offsetWidth, // Set canvas width
-                    height: printDiv.offsetHeight // Set canvas height
-                }).then(canvas => {
-                    document.body.removeChild(printDiv); // Remove the printable div after generating the canvas
+                    // Generate the canvas and download as PNG
+                    html2canvas(printDiv, {
+                        scale: 2, // Increase scale for better resolution
+                        useCORS: true, // Handle cross-origin issues
+                        width: printDiv.offsetWidth, // Set canvas width
+                        height: printDiv.offsetHeight // Set canvas height
+                    }).then(canvas => {
+                        document.body.removeChild(printDiv); // Remove the printable div after generating the canvas
 
-                    const img = canvas.toDataURL('image/png');
-                    const link = document.createElement('a');
-                    link.href = img;
-                    link.download = 'invoice.png';
-                    link.click();
-                }).catch(error => {
-                    console.error('Error generating the canvas:', error);
+                        const img = canvas.toDataURL('image/png');
+                        const link = document.createElement('a');
+                        link.href = img;
+                        link.download = 'invoice.png';
+                        link.click();
+                    }).catch(error => {
+                        console.error('Error generating the canvas:', error);
+                    });
                 });
-            });
-        </script>
-    </body>
+            </script>
+        </body>
+    </div>
 
-    </html>
-    <script>function showTab(tabNumber) {
-            document.querySelectorAll('.tab-content').forEach((content) => {
-                content.classList.remove('active');
-            });
+</html>
+<script>function showTab(tabNumber) {
+        document.querySelectorAll('.tab-content').forEach((content) => {
+            content.classList.remove('active');
+        });
 
-            document.querySelectorAll('.tabs button').forEach((button) => {
-                button.classList.remove('active');
-            });
+        document.querySelectorAll('.tabs button').forEach((button) => {
+            button.classList.remove('active');
+        });
 
-            document.getElementById(`tab${tabNumber}Content`).classList.add('active');
-            document.getElementById(`tab${tabNumber}Btn`).classList.add('active');
-        }
-    </script>
+        document.getElementById(`tab${tabNumber}Content`).classList.add('active');
+        document.getElementById(`tab${tabNumber}Btn`).classList.add('active');
+    }
+</script>
 </div>
 
 
