@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css?v=1.0">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
@@ -19,26 +18,7 @@
     <script>0</script>
     <div class="preload-image"></div>
 </head>
-<style>
-    .f-image {
-        object-fit: cover;
-        height: 80px;
-        width: 80px;
-        border-radius: 5px;
-    }
 
-    .sites-link {
-        align-content: center;
-    }
-
-    * {
-        box-sizing: content-box;
-    }
-
-    .logo-img {
-        margin-bottom: 5px;
-    }
-</style>
 <header>
     <div class="logo-container">
         <div class="con-1"><a href="/index.html"><img class="logo-img" src="images/favicon.ico"
@@ -105,110 +85,153 @@
     </div>
 </header>
 
+<style>
+    .p-body {
+        height: 100vh;
+        flex: 1;
+    }
+
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Center the slider container */
+        width: 100%;
+        min-width: 320px;
+        max-width: 600px;
+        /* Set maximum width */
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+        /* Center the container horizontally */
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        /* Full width of the container */
+    }
+
+    .slide {
+        min-width: 100%;
+        /* Each slide takes full container width */
+        height: 400px;
+        background-color: #2d818f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        flex-shrink: 0;
+        /* Prevent slides from shrinking */
+    }
+
+    button {
+        background-color: red;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+    }
+</style>
+
 <body class="text-white font-sans">
     <div class="s-title-container">
         <h1 class="s-title">My Web Development Portfolio</h1>
         <p class="t-para">Where Code Meets Creativity and Sometimes Coffee Spills</p>
     </div>
     <main class="port p-8 flex justify-center">
-        <div class="w-full max-w-[1100px]">
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/kurast-work-sample.png" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://kurast.dev " target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">kurast.dev</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, CSS, JavaScript, Tailwind, JSON
+        <div class="slider-container">
+            <button class="prev-btn">‹</button>
+            <div class="slider">
+                <!-- Slides -->
+                <div class="slide">
+                    <div class="p-contain-everything">
+                        <div class="p-contain-pic"><img src="/images/kurast-page.webp" alt=""></div>
+                        <div class="p-contain-details"></div>
+                    </div>
                 </div>
-                <div class="p-align-center p-cms text-right">GitHub Pages</div>
-            </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/seaquestkayak-page.webp" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://sea-quest-kayak.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">sea-quest-kayak.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Elementor, CSS, Tailwind</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
+                <div class="slide">2</div>
+                <div class="slide">3</div>
+                <div class="slide">4</div>
+                <div class="slide">5</div>
+                <!-- Cloned slides for infinite scroll -->
+                <div class="slide">1</div>
+                <div class="slide">2</div>
+                <div class="slide">3</div>
+                <div class="slide">4</div>
+                <div class="slide">5</div>
             </div>
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/screencapture-tricoremedicalsupply-home-draft-2024-08-31-08_01_45.png"
-                    alt="Placeholder Image" class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://tricoremedicalsupply.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">tricoremedicalsupply.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Woocommerce, HTML, CSS, Tailwind, PHP,
-                    Javscript, JSON
-                </div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/proofread-page.webp" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://proofreadanywhere.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">proofreadanywhere.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Elementor, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/fireplace-page.webp" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://thefireplacefellowship.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">thefireplacefellowship.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, Elementor, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/outreachmama-page.webp" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://outreachmama.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">outreachmama.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, Divi, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/vacay-punta-cana.png" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://vacaypuntacana.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">vacaypuntacana.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, GeneratePress, CSS, Tailwind,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/backporch-garden.png" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://backporchgarden.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">backporchgarden.com</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, GeneratePress, CSS, Tailwind,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
-
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
-                <img class="f-image" src="/images/viper-reptile.png" alt="Placeholder Image"
-                    class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://viperreptile.com.au" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">viperreptile.com.au</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Woocommerce, Elementor, CSS, PHP,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
-            </div>
+            <button class="next-btn">›</button>
         </div>
+
+        <script>
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            let slideWidth;
+            let slideCount = slides.length / 2; // Number of original slides
+            let currentIndex = 0;
+
+            // Function to update slideWidth
+            const updateSlideWidth = () => {
+                slideWidth = slides[0].offsetWidth;
+            };
+
+            // Initialize slider position and update slideWidth
+            updateSlideWidth();
+            slider.style.transform = `translateX(-${slideWidth}px)`;
+
+            // Move to the next slide
+            const moveNext = () => {
+                if (currentIndex >= slideCount) {
+                    slider.style.transition = 'none'; // Disable transition
+                    slider.style.transform = `translateX(-${slideWidth}px)`;
+                    currentIndex = 0;
+                    setTimeout(() => {
+                        slider.style.transition = 'transform 0.3s ease-in-out'; // Re-enable transition
+                        slider.style.transform = `translateX(-${(currentIndex + 1) * slideWidth}px)`;
+                    }, 20);
+                } else {
+                    currentIndex++;
+                    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+            };
+
+            // Move to the previous slide
+            const movePrev = () => {
+                if (currentIndex <= 0) {
+                    slider.style.transition = 'none'; // Disable transition
+                    slider.style.transform = `translateX(-${slideWidth * (slideCount - 1)}px)`;
+                    currentIndex = slideCount - 1;
+                    setTimeout(() => {
+                        slider.style.transition = 'transform 0.3s ease-in-out'; // Re-enable transition
+                        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                    }, 20);
+                } else {
+                    currentIndex--;
+                    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+            };
+
+            // Event listeners
+            nextBtn.addEventListener('click', moveNext);
+            prevBtn.addEventListener('click', movePrev);
+
+            // Handle window resize
+            window.addEventListener('resize', updateSlideWidth);
+
+
+        </script>
     </main>
-    <div class="note t-para"><strong>Note:</strong> This list is not up to date. </div>
+
+    <div class="note t-para"><strong>Note:</strong> This list is not updated. </div>
     <footer>
         <!--https://icons8.com/icon/set/whatsapp/glyph-neue-->
         <div class="separator-footer" id="section4"></div>

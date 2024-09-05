@@ -2040,6 +2040,10 @@ img {
         display: none;
     }
 
+    .app-column-1 {
+        margin-top: 40px;
+    }
+
     .name-text {
         font-size: 35px;
     }
