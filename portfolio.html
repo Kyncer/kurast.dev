@@ -22,21 +22,44 @@
 <style>
     .f-image {
         object-fit: cover;
-        height: 80px;
-        width: 80px;
-        border-radius: 5px;
+        object-position: top center;
+        width: 1100px;
+        height: 400px;
+        filter: grayscale(10%) brightness(90%) contrast(100%);
     }
 
     .sites-link {
         align-content: center;
     }
 
+    .port {
+        margin-block: 40px;
+    }
+
     * {
         box-sizing: content-box;
     }
 
-    .logo-img {
-        margin-bottom: 5px;
+    .p-contain {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        text-transform: uppercase;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        /* Adjust color as needed */
+        font-size: 1.2rem;
+        /* Adjust font size as needed */
+        padding: 0.5rem;
+        background-color: black;
+        /* Optional: Adds a background color to improve text readability */
+        border-radius: 0.25rem;
+        /* Optional: Adds some rounded corners */
     }
 </style>
 <header>
@@ -110,101 +133,75 @@
         <h1 class="s-title">My Web Development Portfolio</h1>
         <p class="t-para">Where Code Meets Creativity and Sometimes Coffee Spills</p>
     </div>
-    <main class="port p-8 flex justify-center">
+    <main class="port flex justify-center">
         <div class="w-full max-w-[1100px]">
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain   bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/kurast-work-sample.png" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
-                <a class="sites-link" href="https://kurast.dev " target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">kurast.dev</h2>
-                </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, CSS, JavaScript, Tailwind, JSON
-                </div>
-                <div class="p-align-center p-cms text-right">GitHub Pages</div>
+                <div class="text-overlay">kurast.dev</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/seaquestkayak-page.webp" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">sea-quest-kayak.com</div>
                 <a class="sites-link" href="https://sea-quest-kayak.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">sea-quest-kayak.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Elementor, CSS, Tailwind</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/screencapture-tricoremedicalsupply-home-draft-2024-08-31-08_01_45.png"
                     alt="Placeholder Image" class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">tricoremedicalsupply.com</div>
                 <a class="sites-link" href="https://tricoremedicalsupply.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">tricoremedicalsupply.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Woocommerce, HTML, CSS, Tailwind, PHP,
-                    Javscript, JSON
-                </div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/proofread-page.webp" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">proofreadanywhere.com</div>
                 <a class="sites-link" href="https://proofreadanywhere.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">proofreadanywhere.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Elementor, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/fireplace-page.webp" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">thefireplacefellowship.com</div>
                 <a class="sites-link" href="https://thefireplacefellowship.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">thefireplacefellowship.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, Elementor, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/outreachmama-page.webp" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">outreachmama.com</div>
                 <a class="sites-link" href="https://outreachmama.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">outreachmama.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, Divi, CSS</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/vacay-punta-cana.png" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">vacaypuntacana.com</div>
                 <a class="sites-link" href="https://vacaypuntacana.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">vacaypuntacana.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, GeneratePress, CSS, Tailwind,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/backporch-garden.png" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">backporchgarden.com</div>
                 <a class="sites-link" href="https://backporchgarden.com" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">backporchgarden.com</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">HTML, GeneratePress, CSS, Tailwind,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
 
-            <div class="p-contain grid grid-cols-[80px_1fr_1fr_1fr] grid-cols-4 gap-6 bg-gray-800 p-5 mb-4 rounded-md">
+            <div class="p-contain    bg-gray-800 mb-4 rounded-md">
                 <img class="f-image" src="/images/viper-reptile.png" alt="Placeholder Image"
                     class="p-img w-full h-auto rounded-md">
+                <div class="text-overlay">viperreptile.com.au</div>
                 <a class="sites-link" href="https://viperreptile.com.au" target="_blank">
-                    <h2 class="p-align-center text-xl font-semibold">viperreptile.com.au</h2>
                 </a>
-                <div class="p-align-center p-divide text-center text-gray-400">Woocommerce, Elementor, CSS, PHP,
-                    Javascript</div>
-                <div class="p-align-center p-cms text-right">WordPress</div>
             </div>
         </div>
     </main>
