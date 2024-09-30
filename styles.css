@@ -212,6 +212,63 @@ nav {
     background-color: #F1F3F5;
 }
 
+.contain-dot {
+    background-color: #23272c;
+    padding: 15px;
+    padding-top: 0;
+    padding-bottom: 15px;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    border: 1px solid #ffffff0a;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(255, 255, 255, 0.03)
+}
+
+#toggleDot {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-block: 1px;
+    padding-top: 4px;
+    margin-bottom: 2.5px;
+    border-radius: 3px;
+}
+
+.dot-hlist {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 12px;
+    padding-inline: 10px;
+    padding-block: 3px;
+}
+
+.dot-list {
+    color: white;
+    padding-inline: 10px;
+    padding-block: 3px;
+}
+
+.dot-list:hover {
+    background-color: rgba(255, 255, 255, 0.082);
+    border-radius: 3px;
+}
+
+.dot-list a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dot-list a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 h1,
 h2 {
     color: #F1F3F5;
@@ -1133,7 +1190,7 @@ img.profile-img {
 .svg-github:hover,
 .svg-facebook:hover,
 .svg-linkedin:hover,
-.logo-img:hover {
+#toggleDot:hover {
     background-color: #000;
 }
 
@@ -1581,6 +1638,10 @@ img {
 
 .hidden {
     display: none;
+}
+
+.visible {
+    display: block;
 }
 
 .nothidden {
