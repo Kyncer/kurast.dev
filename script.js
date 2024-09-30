@@ -402,6 +402,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//DOT MENU
+document.getElementById('toggleDot').addEventListener('click', function () {
+  const element = document.querySelector('.contain-dot');
+  element.classList.toggle('visible');
+  element.classList.toggle('hidden');
+});
+
+//DOT MENU + INVOICE MAKER
+document.addEventListener('DOMContentLoaded', function () {
+  // Function to get the value of the 'tab' query parameter from the URL
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  // Check if the 'tab' query parameter is present
+  const tabParam = getQueryParam('tab');
+
+  if (tabParam === '2') {
+    // Simulate a click on the tab2 button if 'tab=2' is in the URL
+    const tab2Btn = document.getElementById('tab2Btn');
+    if (tab2Btn) {
+      tab2Btn.click();
+    }
+  }
+});
+
 
 
 
