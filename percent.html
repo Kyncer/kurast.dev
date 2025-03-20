@@ -103,7 +103,6 @@
 
         function copyToClipboard() {
             if (!calculatedValue) {
-                alert("Please calculate a price first");
                 return;
             }
 
@@ -119,8 +118,6 @@
             } catch (err) {
                 console.log("Used fallback copy method");
             }
-
-            alert("Copied to clipboard: " + calculatedValue);
         }
     </script>
 </body>
