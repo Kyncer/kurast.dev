@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Percentage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .copy-button {
+            background: green;
+        }
+
+        .copy-button:hover {
+            background: darkgreen;
+        }
+
+        #tempInput {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Price Percentage Calculator</h1>
+        <input type="number" id="price" placeholder="Input Price">
+        <input type="number" id="percentage" placeholder="Percentage to Add">
+        <div class="btn-group">
+            <button onclick="calculatePrice()">Calculate</button>
+            <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+        </div>
+        <p class="result" id="result"></p>
+        <input type="text" id="tempInput" readonly>
+    </div>
+    <script>
+        let calculatedValue = "";
+
+        function calculatePrice() {
+            let price = parseFloat(document.getElementById('price').value) || 0;
+            let percentage = parseFloat(document.getElementById('percentage').value) || 0;
+            let finalPrice = price + (price * percentage / 100);
+
+            // Store the raw value for copying
+            calculatedValue = finalPrice.toFixed(2);
+
+            // Display formatted value
+            document.getElementById('result').innerText = `Final Price: $${calculatedValue}`;
+        }
+
+        function copyToClipboard() {
+            if (!calculatedValue) {
+                alert("Please calculate a price first");
+                return;
+            }
+
+            // Method 1: Using a temporary input element (more compatible)
+            const tempInput = document.getElementById('tempInput');
+            tempInput.value = calculatedValue;
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Also try the modern method as a fallback
+            try {
+                navigator.clipboard.writeText(calculatedValue);
+            } catch (err) {
+                console.log("Used fallback copy method");
+            }
+
+            alert("Copied to clipboard: " + calculatedValue);
+        }
+    </script>
+</body>
+
+</html>
