@@ -760,7 +760,7 @@ img.profile-img {
     max-width: 1100px;
     width: 100%;
     position: relative;
-    top: 40px;
+    top: 5vh;
 }
 
 .separator-app {
