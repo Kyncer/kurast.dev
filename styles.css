@@ -804,7 +804,6 @@ img.profile-img {
     backdrop-filter: blur(6px);
     border-radius: 0px 0px 5px 5px;
     flex-wrap: wrap;
-    margin-top: 10%;
 }
 
 .body-image-cover {
@@ -1957,10 +1956,6 @@ img {
 }
 
 @media only screen and (max-width: 880px) {
-    .main-app {
-        height: 100%;
-    }
-
     .img-work1 {
         height: auto;
     }
