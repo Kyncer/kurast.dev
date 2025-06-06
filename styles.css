@@ -759,9 +759,7 @@ img.profile-img {
 .main-app {
     max-width: 1100px;
     width: 100%;
-    top: 100px;
     position: relative;
-    height: 90dvh;
 }
 
 .separator-app {
