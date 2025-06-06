@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /images/
+Disallow: /styles.css
+Disallow: /script.js
+
+Sitemap: https://kurast.dev/sitemap.xml
