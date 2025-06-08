@@ -367,7 +367,7 @@ img.profile-img {
     color: #000;
     font-size: 16px;
     font-weight: 400;
-    background-color: #e5981b;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
     transition: background-color .3s ease;
 }
 
@@ -654,7 +654,7 @@ img.profile-img {
     margin: auto;
     border-radius: 0px;
     margin-left: -2px;
-    background-color: #e5981b;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
     justify-content: center;
     align-items: center;
 }
@@ -1593,7 +1593,7 @@ img {
     padding: 6px;
     padding-inline: 15px;
     border: 1px solid #e5981b40;
-    background-color: #e5981b40;
+    background: linear-gradient(135deg, #ff6b6b5e, #ffd93d2b);
     border-radius: 5px;
     border-top: 0;
 }
@@ -2258,6 +2258,18 @@ img.profile-img,
 
 [data-theme="dark"] .dark-svg path {
     fill: #16191d;
+}
+
+[data-theme="dark"] .adot {
+    background-color: #16191d;
+}
+
+[data-theme="dark"] .bdot {
+    background-color: #16191d;
+}
+
+[data-theme="dark"] .cdot {
+    background-color: #16191d;
 }
 
 [data-theme="dark"] .skills {
