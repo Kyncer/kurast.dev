@@ -34,7 +34,7 @@
         }
 
         .top-section {
-            background: #146432;
+            background: #33b249;
             padding: 1rem 0;
             text-align: center;
         }
@@ -48,7 +48,7 @@
         }
 
         .contact-info {
-            color: #059669;
+            color: #33b249;
             display: flex;
             gap: 2rem;
             align-items: center;
@@ -56,7 +56,7 @@
         }
 
         .phone {
-            background: #059669;
+            background: #33b249;
             padding: 0.5rem 1rem;
             border-radius: 5px;
             text-decoration: none;
@@ -88,6 +88,10 @@
             background-color: rgba(0, 0, 0, 0.534);
             /* dark overlay */
             z-index: -1;
+        }
+
+        .footer-container {
+            padding: 2% 0% 2% 0%;
         }
 
 
@@ -145,7 +149,7 @@
             padding: 1rem 2rem;
             border: none;
             border-radius: 5px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
@@ -166,11 +170,11 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 3px solid #146432;
+            border: 3px solid #33b249;
         }
 
         .quote-form h2 {
-            color: #146432;
+            color: #33b249;
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -200,7 +204,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #146432;
+            border-color: #33b249;
         }
 
         .form-group {
@@ -290,14 +294,14 @@
 
         h2 {
             font-size: 2rem;
-            color: #146432;
+            color: #33b249;
             margin-bottom: 1.5rem;
             text-align: center;
         }
 
         h3 {
             font-size: 1.5rem;
-            color: #146432;
+            color: #33b249;
             margin-bottom: 1rem;
         }
 
@@ -319,7 +323,33 @@
             cursor: pointer;
             border-bottom: 1px solid #d1d5db;
             font-weight: bold;
-            color: #146432;
+            color: #33b249;
+        }
+
+        .contain-back {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .contain-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: url('https://www.cockfostersguttercleaning.co.uk/images/seasonal-gutter-clearance.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(4px);
+            z-index: 0;
+            transform: scale(1.05);
+            /* prevent edge clipping */
+        }
+
+        .contain-back>* {
+            position: relative;
+            z-index: 1;
         }
 
         .accordion-content {
@@ -349,7 +379,7 @@
         .pricing-table h3 {
             text-align: center;
             margin-bottom: 1rem;
-            color: #146432;
+            color: #33b249;
         }
 
         .pricing-table table {
@@ -367,7 +397,7 @@
         .pricing-table th {
             background: #f3f4f6;
             font-weight: bold;
-            color: #146432;
+            color: #33b249;
         }
 
         /* Process Steps */
@@ -402,7 +432,7 @@
         }
 
         .step-number {
-            background: #146432;
+            background: #33b249;
             color: white;
             width: 50px;
             height: 50px;
@@ -429,7 +459,7 @@
         }
 
         .area-item {
-            background: #146432;
+            background: #33b249;
             color: white;
             padding: 0.8rem;
             text-align: center;
@@ -439,7 +469,7 @@
 
         /* FAQ */
         .faq-item {
-            color: #146432;
+            color: #33b249;
             font-size: 1.2rem;
             margin-bottom: 1rem;
             background: #fff;
@@ -609,7 +639,7 @@
 
         .highlight-box {
             background: #dbeafe;
-            border-left: 4px solid #146432;
+            border-left: 4px solid #33b249;
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 5px;
@@ -640,7 +670,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #146432;
+            color: #33b249;
             font-weight: bold;
         }
 
@@ -660,7 +690,7 @@
         }
 
         .quote-section {
-            background-color: #0f6130;
+            background-color: #33b249;
             /* Dark green */
             color: white;
             text-align: center;
@@ -704,6 +734,129 @@
         .quote-h2 {
             color: white;
         }
+
+        .location-heading {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-section {
+            background: #fff;
+            padding: 60px 20px;
+        }
+
+        .location-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .location-columns {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            /* Ensures both columns match height */
+            flex-wrap: wrap;
+        }
+
+        .location-text {
+            flex: 1 1 55%;
+        }
+
+        .location-columns {
+            display: flex;
+            gap: 40px;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        .location-image {
+            flex: 1 1 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .location-image-img {
+            max-width: 100%;
+            height: 580px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+
+        .location-image-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #666;
+            box-sizing: border-box;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        .location-item {
+            background-color: #33b249;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .location-item:hover {
+            background-color: #2e9b3e;
+            transform: scale(1.03);
+            cursor: pointer;
+        }
+
+        .location-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Stack */
+        @media (max-width: 1024px) {
+            .location-columns {
+                flex-direction: column;
+            }
+
+            .location-image-placeholder {
+                min-height: 200px;
+            }
+        }
+
+        /* 📱 On smaller screens, stack the columns */
+        @media (max-width: 768px) {
+            .location-columns {
+                flex-direction: column;
+            }
+
+            .location-text,
+            .location-image {
+                flex: 1 1 100%;
+            }
+
+            .location-image {
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -715,7 +868,7 @@
             <div class="header-content">
                 <div class="logo">
                     <a href="/">
-                        <img src="https://www.cockfostersguttercleaning.co.uk/images/logo.png"
+                        <img src="https://theroofmosscleaners.co.uk/wp-content/uploads/2021/10/Asset-1.png"
                             alt="RMC Gutter Cleaning Logo" style="height:109px;">
                     </a>
                 </div>
@@ -1005,11 +1158,14 @@
     </section>
 
     <!-- Process Section -->
-    <section class="section-gray">
+    <section class="section-gray contain-back">
         <div class="container">
-            <h2>How Our Gutter Cleaning Process Works</h2>
+            <h2 style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);">How Our Gutter Cleaning Process Works
+            </h2>
 
-            <p style="text-align: center; margin-bottom: 2rem;">We follow a thorough step-by-step process to ensure your
+            <p
+                style="color: white; text-align: center; margin-bottom: 2rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);">
+                We follow a thorough step-by-step process to ensure your
                 gutters are cleared safely, efficiently, and to the highest standard. Whether you're in a bungalow on
                 Nairdwood Lane or a three-storey home near Prestwood Common, our approach is tailored to your property's
                 layout and access points.</p>
@@ -1059,34 +1215,51 @@
     </section>
 
     <!-- Areas Served Section -->
-    <section class="section-white">
-        <div class="container">
-            <h2>Serving All Areas Across Prestwood and Surrounding Locations</h2>
+    <section class="location-section">
+        <div class="location-container">
 
-            <p>We provide professional gutter cleaning throughout Prestwood and the surrounding Chiltern villages, with
+            <!-- Centered Heading ABOVE Columns -->
+            <h2 class="location-heading">Serving All Areas Across Prestwood and Surrounding Locations</h2>
+            <p style="letter-spacing: -.2px;margin-bottom: 30px;">We provide professional gutter cleaning throughout
+                Prestwood and the
+                surrounding Chiltern
+                villages, with
                 fast availability and flexible bookings, often within <strong>48 hours</strong>.</p>
-            <br>
-            <p>Our local coverage includes:</p>
+            <div class="location-columns">
+                <!-- Left Column: Text Content -->
+                <div class="location-text">
+                    <p>Our local coverage includes:</p>
 
-            <div class="areas-grid">
-                <div class="area-item">Nairdwood Lane</div>
-                <div class="area-item">Kiln Road</div>
-                <div class="area-item">Greenlands Lane</div>
-                <div class="area-item">Perks Lane</div>
-                <div class="area-item">Prestwood Common</div>
-                <div class="area-item">Great Missenden</div>
-                <div class="area-item">Little Kingshill</div>
-                <div class="area-item">Ballinger</div>
-                <div class="area-item">HP16 postcode and nearby</div>
-            </div>
+                    <div class="location-grid">
+                        <div class="location-item">Nairdwood Lane</div>
+                        <div class="location-item">Kiln Road</div>
+                        <div class="location-item">Greenlands Lane</div>
+                        <div class="location-item">Perks Lane</div>
+                        <div class="location-item">Prestwood Common</div>
+                        <div class="location-item">Great Missenden</div>
+                        <div class="location-item">Little Kingshill</div>
+                        <div class="location-item">Ballinger</div>
+                        <div class="location-item">HP16 postcode and nearby</div>
+                    </div>
 
-            <p>We're familiar with the wide variety of property styles across the area — from single-storey bungalows on
-                private lanes to larger detached homes on sloped ground. Whether you're in a new-build or a 1930s semi,
-                we've got the tools and experience to clear your gutters safely and thoroughly.</p>
+                    <p>We're familiar with the wide variety of property styles across the area — from single-storey
+                        bungalows on
+                        private lanes to larger detached homes on sloped ground. Whether you're in a new-build or a
+                        1930s semi,
+                        we've got the tools and experience to clear your gutters safely and thoroughly.</p>
 
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="#quote" class="cta-button">Book now for a no-obligation quote and arrange your service this
-                    week</a>
+                    <div class="location-cta">
+                        <a href="#quote" class="cta-button">Book now for a no-obligation quote and arrange your service
+                            this
+                            week</a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Image Placeholder -->
+                <div class="location-image">
+                    <img src="https://www.cockfostersguttercleaning.co.uk/images/clean-gutter-soffit-fascia.jpg"
+                        alt="Professional Gutter Cleaning" class="location-image-img">
+                </div>
             </div>
         </div>
     </section>
@@ -1139,7 +1312,7 @@
             <h2>Frequently Asked Questions – Gutter Cleaning in Prestwood</h2>
 
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <div class=" faq-question" onclick="toggleFaq(this)">
                     <span>Can I book if I'm not at home?</span>
                     <span class="faq-icon">+</span>
                 </div>
@@ -1310,8 +1483,20 @@
         </div>
     </section>
 
+    <footer>
+        <div class="container footer-container">
+            <p style="text-align: center">
+                Copyright © 2025 RMC Property Services Ltd | Privacy Policy | Sitemap
+            </p>
+            <p style="text-align: center; margin-top: 0">
+                RMC Property Services Ltd – Registered Company Number 13622278 | GB
+                Vat Registration Number: 410447337
+            </p>
+        </div>
+    </footer>
 
 
+    <!--
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1399,7 +1584,7 @@
             bottom: 0;
             width: 50px;
             height: 2px;
-            background: #146432;
+            background: #33b249;
         }
 
         .footer-text {
@@ -1441,7 +1626,7 @@
             content: '•';
             position: absolute;
             left: 0;
-            color: #146432;
+            color: #33b249;
         }
 
         .footer-bottom {
@@ -1474,7 +1659,7 @@
         }
 
         .footer-icon {
-            color: #146432;
+            color: #33b249;
         }
 
         /* Responsive Styles */
@@ -1494,7 +1679,7 @@
             }
         }
     </style>
-
+-->
     <script>
         // Accordion functionality
         function toggleAccordion(header) {
