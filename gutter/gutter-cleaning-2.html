@@ -5,6 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Gutter Cleaning in Prestwood - Fast Quotes, Fixed Pricing & 5* Reviews!</title>
+    <link rel="icon" type="image/png" href="../images/rmc-logo.png" />
+    <link rel="shortcut icon" href="../images/rmc-logo.png" />
+
+    <!-- Apple touch icon (for mobile) -->
+    <link rel="apple-touch-icon" href="../images/rmc-logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <style>
         * {
             margin: 0;
@@ -22,7 +39,13 @@
         .container {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
+        }
+
+        .container-faq {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
         /* Header */
@@ -403,9 +426,24 @@
         /* Process Steps */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
+            /* 1 column on mobile */
             gap: 2rem;
             margin: 2rem 0;
+        }
+
+        /* Tablet - 3 columns */
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop - 5 columns */
+        @media (min-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
 
         .process-step {
@@ -445,6 +483,30 @@
             font-weight: bold;
         }
 
+
+        /* Process Stepsx */
+        .process-gridx {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* 1 column on mobile */
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Tablet - 3 columns */
+        @media (min-width: 768px) {
+            .process-gridx {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop - 5 columns */
+        @media (min-width: 1024px) {
+            .process-gridx {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* Areas Served */
         .areas-grid {
             display: grid;
@@ -468,8 +530,9 @@
         }
 
         /* FAQ */
-        .faq-item {
+        .faq-itemx {
             color: #33b249;
+            background: white !important;
             font-size: 1.2rem;
             margin-bottom: 1rem;
             background: #fff;
@@ -478,7 +541,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .faq-question {
+        .faq-questionx {
             cursor: pointer;
             font-weight: bold;
             display: flex;
@@ -486,20 +549,20 @@
             align-items: center;
         }
 
-        .faq-icon {
+        .faq-iconx {
             font-size: 1.5rem;
             margin-left: 1rem;
             transition: transform 0.3s;
         }
 
-        .faq-answer {
+        .faq-answerx {
             display: none;
             margin-top: 0.5rem;
             line-height: 1.5;
             color: #333;
         }
 
-        .faq-item.open .faq-answer {
+        .faq-itemx.open .faq-answerx {
             display: block;
         }
 
@@ -750,7 +813,7 @@
         .location-container {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .location-columns {
@@ -781,7 +844,8 @@
 
         .location-image-img {
             max-width: 100%;
-            height: 580px;
+            width: 600px;
+            height: 500px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             object-fit: cover;
@@ -858,28 +922,195 @@
                 margin-top: 20px;
             }
         }
+
+        /* Testimonials Section */
+        .custom-testimonials-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .custom-testimonials-heading {
+            text-align: center;
+            color: #2d5f41;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .custom-review-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-review-body {
+            flex: 1;
+        }
+
+        .custom-review-heading {
+            color: #374151;
+            font-size: 23px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .custom-review-description {
+            color: #4b5563;
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .custom-review-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .custom-user-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #2d5f41;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .custom-user-details {
+            flex: 1;
+        }
+
+        .custom-user-name {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .custom-review-timestamp {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .custom-rating-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .custom-star-rating {
+            display: flex;
+            gap: 2px;
+        }
+
+        .custom-star-icon {
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        .custom-verification-label {
+            background-color: #d1fae5;
+            color: #065f46;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .custom-review-photo {
+            width: 200px;
+            height: 140px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .custom-review-item {
+                flex-direction: column;
+            }
+
+            .custom-review-photo {
+                width: 100%;
+                height: 200px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header>
-        <div class="top-section">Your Trusted Gutter Cleaning Experts In Prestwood</div>
+    <section class="nav-top-section" style="padding:0;">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="/">
-                        <img src="https://theroofmosscleaners.co.uk/wp-content/uploads/2021/10/Asset-1.png"
-                            alt="RMC Gutter Cleaning Logo" style="height:109px;">
-                    </a>
+            <div class="nav-top-container">
+                <div>
+                    <p>Call Now 01494 355645 | Mon – Fri: 9:00 – 5:00</p>
                 </div>
-                <div class="contact-info">
-                    <span>info@rmcguttercleaning.co.uk</span>
-                    <a href="tel:02080889659" class="phone">Call Now: 0208 088 9659</a>
+                <div onclick="window.location.href='areas-we-serve/'" class="areas-we-serve-link">
+                    <i class="fas fa-location-dot" style="margin-right: 10px"></i>Areas
+                    We Serve
                 </div>
             </div>
         </div>
-    </header>
+    </section>
+
+    <section class="nav-top-section-mobile" style="padding:0;">
+        <div class="container">
+            <div class="nav-top-container-mobile">
+                <div>
+                    <p>Call Now 01494 355645</p>
+                    <span>Mon – Fri: 9:00 – 5:00</span>
+                </div>
+                <div onclick="window.location.href='../areas-we-serve/'" class="areas-we-serve-link">
+                    <i class="fas fa-location-dot" style="margin-right: 10px"></i>Areas
+                    We Serve
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nav-desktop-sticky" style="padding:0;">
+        <div class="container">
+            <div class="nav-desktop-container">
+                <div><img src="https://theroofmosscleaners.co.uk/wp-content/uploads/2021/10/Asset-1.png"
+                        class="nav-top-img" /></div>
+                <div class="nav-items-container">
+                    <nav>
+                        <ul>
+                            <li><a href="../">Home</a></li>
+                            <li><a href="../about-us/">About Us</a></li>
+                            <li><a href="../our-work/index.html">Our Work</a></li>
+                            <li><a href="../contact-us/">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <a class="get-a-qoute-btn" href=""> Get A Quote Today</a>
+                </div>
+                <div class="nav-items-container-mobile">
+                    <i class="fas fa-bars nav-mobile-bar-icon"></i>
+                </div>
+                <div class="nav-mobile-container">
+                    <ul>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../about-us/">About Us</a></li>
+                        <li><a href="../our-work/">Our Work</a></li>
+                        <li><a href="../contact-us/">Contact Us</a></li>
+                        <li><a href="">Get A Quote Today</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Hero Section -->
@@ -1009,42 +1240,22 @@
             <h2>What's Included in Our Gutter Cleaning Service in Prestwood</h2>
             <div class="process-grid">
                 <div class="process-step">
-                    <div class="step-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&h=200&fit=crop&crop=center"
-                            alt="Mobile phone showing SMS notification">
-                    </div>
                     <h3>SMS Reminder</h3>
                     <p>SMS reminder before your appointment – so you'll always know exactly when we're due to arrive</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&crop=center"
-                            alt="Professional cleaning gutter with vacuum system">
-                    </div>
                     <h3>Full Clearance</h3>
                     <p>Full gutter clearance using high-powered vacuum systems to safely remove all debris</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-image">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=200&h=200&fit=crop&crop=center"
-                            alt="Inspection of house downpipe and gutters">
-                    </div>
                     <h3>Downpipe Check</h3>
                     <p>Downpipe inspection and unblocking, where safely accessible by ladder</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-image">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&h=200&fit=crop&crop=center"
-                            alt="Professional camera taking before and after photos">
-                    </div>
                     <h3>Photo Evidence</h3>
                     <p>High-definition before and after photos, so you can see the difference we've made</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-image">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&h=200&fit=crop&crop=center"
-                            alt="Certificate or guarantee document with checkmark">
-                    </div>
                     <h3>30-Day Guarantee</h3>
                     <p>30-day blockage-free guarantee for complete peace of mind</p>
                 </div>
@@ -1221,27 +1432,21 @@
 
             <!-- Centered Heading ABOVE Columns -->
             <h2 class="location-heading">Serving All Areas Across Prestwood and Surrounding Locations</h2>
-            <p style="letter-spacing: -.2px;margin-bottom: 30px;">We provide professional gutter cleaning throughout
-                Prestwood and the
-                surrounding Chiltern
-                villages, with
-                fast availability and flexible bookings, often within <strong>48 hours</strong>.</p>
+
             <div class="location-columns">
                 <!-- Left Column: Text Content -->
                 <div class="location-text">
+                    <p>We provide professional gutter cleaning throughout
+                        Prestwood and the
+                        surrounding Chiltern
+                        villages, with
+                        fast availability and flexible bookings, often within <strong>48 hours</strong>.</p>
                     <p>Our local coverage includes:</p>
+                    <strong>Nairdwood Lane</strong>, <strong>Kiln Road</strong> <strong>Greenlands Lane</strong>,
+                    <strong>Perks Lane</strong>, <strong>Prestwood Common</strong>, <strong>Great Missenden</strong>,
+                    <strong>Little
+                        Kingshill</strong>, <strong>Ballinger</strong>, <strong>HP16 postcode and nearby</strong>
 
-                    <div class="location-grid">
-                        <div class="location-item">Nairdwood Lane</div>
-                        <div class="location-item">Kiln Road</div>
-                        <div class="location-item">Greenlands Lane</div>
-                        <div class="location-item">Perks Lane</div>
-                        <div class="location-item">Prestwood Common</div>
-                        <div class="location-item">Great Missenden</div>
-                        <div class="location-item">Little Kingshill</div>
-                        <div class="location-item">Ballinger</div>
-                        <div class="location-item">HP16 postcode and nearby</div>
-                    </div>
 
                     <p>We're familiar with the wide variety of property styles across the area — from single-storey
                         bungalows on
@@ -1272,7 +1477,7 @@
             <p style="text-align: center;">Getting your gutters cleaned in Prestwood is quick and hassle free. Use our
                 instant quote tool to get a fixed price based on your property type, no phone calls, upselling or hidden
                 fees.</p>
-            <div class="process-grid">
+            <div class="process-gridx">
                 <div class="process-step">
                     <div class="step-number">✓</div>
                     <h3>Book online in under 2 minutes</h3>
@@ -1299,37 +1504,118 @@
     <section class="section-white">
         <div class="container">
             <h2>What Our Clients Say</h2>
-            <div class="testimonials-placeholder">
-                <p><strong>Client testimonials section will be added here</strong></p>
-                <p>This section will showcase 5-star reviews and feedback from satisfied customers in Prestwood and
-                    surrounding areas.</p>
+            <div class="custom-testimonials-wrapper">
+                <div class="custom-review-item">
+                    <div class="custom-review-body">
+                        <h3 class="custom-review-heading">A great job completed</h3>
+                        <p class="custom-review-description">A great job completed by Roof Moss Cleaners. Polite,
+                            professional and a very clean and tidy completion.</p>
+
+                        <div class="custom-review-meta">
+                            <div class="custom-user-avatar">P</div>
+                            <div class="custom-user-details">
+                                <div class="custom-user-name">Pearl Pottor</div>
+                                <div class="custom-review-timestamp">May 2024</div>
+                            </div>
+                            <div class="custom-rating-wrapper">
+                                <div class="custom-star-rating">
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                </div>
+                                <span class="custom-verification-label">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://www.guttercleaningbanbury.co.uk/images/unblocked-clear-gutter.jpg"
+                        alt="Roof cleaning work" class="custom-review-photo">
+                </div>
+
+                <div class="custom-review-item">
+                    <div class="custom-review-body">
+                        <h3 class="custom-review-heading">Excellent Workmanship</h3>
+                        <p class="custom-review-description">Excellent workmanship from start to finish. Worked
+                            tirelessly. Cleaned up after themselves. Cannot fault the service. Would fully recommend</p>
+
+                        <div class="custom-review-meta">
+                            <div class="custom-user-avatar">S</div>
+                            <div class="custom-user-details">
+                                <div class="custom-user-name">Sarah Twitchen</div>
+                                <div class="custom-review-timestamp">January 2025</div>
+                            </div>
+                            <div class="custom-rating-wrapper">
+                                <div class="custom-star-rating">
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                </div>
+                                <span class="custom-verification-label">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://www.guttercleaningbanbury.co.uk/images/unblocked-gutter.jpg"
+                        alt="Clean roof and gutters" class="custom-review-photo">
+                </div>
+
+                <div class="custom-review-item">
+                    <div class="custom-review-body">
+                        <h3 class="custom-review-heading">Excellent service</h3>
+                        <p class="custom-review-description">Excellent service, great communication and the roof looks
+                            great! Very professional and considerate of the neighbouring properties, the neighbours even
+                            commented on how nice and professional the team were</p>
+
+                        <div class="custom-review-meta">
+                            <div class="custom-user-avatar">J</div>
+                            <div class="custom-user-details">
+                                <div class="custom-user-name">James Collins</div>
+                                <div class="custom-review-timestamp">March 2025</div>
+                            </div>
+                            <div class="custom-rating-wrapper">
+                                <div class="custom-star-rating">
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                    <span class="custom-star-icon">★</span>
+                                </div>
+                                <span class="custom-verification-label">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://www.guttercleaningbanbury.co.uk/images/clear-and-clean-guttering.jpg"
+                        alt="Professional roof maintenance" class="custom-review-photo">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="section-gray">
-        <div class="container">
+        <div class="container-faq">
             <h2>Frequently Asked Questions – Gutter Cleaning in Prestwood</h2>
 
-            <div class="faq-item">
-                <div class=" faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class=" faq-questionx" onclick="toggleFaq(this)">
                     <span>Can I book if I'm not at home?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Yes — as long as we have safe access to the gutters (e.g., no locked gates), you do not need to be
                     home.
                     We'll send before-and-after photos so you can see the results.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>What happens if it rains on the scheduled day?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     We work in all weathers, including rain. As long as it's safe to proceed, your gutter cleaning will
                     go ahead as planned.
                     In the rare case of severe weather (e.g. high winds or lightning), we'll reschedule at no extra
@@ -1337,58 +1623,58 @@
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Do you remove and dispose of all gutter debris?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Yes. All leaves, moss, and debris are bagged and removed from site, unless you'd prefer we leave it
                     in a compost bin or garden area.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>What if I have gutter guards fitted?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     If your gutters have guards, covers, or mesh fitted, we are unable to carry out the cleaning.
                     A 50% call-out charge will apply to cover inspection and travel time.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>What areas do you cover around Prestwood?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     We cover all of Prestwood plus nearby locations including <strong>Great Missenden</strong>,
                     <strong>Little Kingshill</strong>, <strong>Ballinger</strong>, and the wider <strong>HP16 postcode
                         area</strong>. You can view our full service map [here]
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Can you clean soffits and fascias too?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Yes — we offer <strong>UPVC soffit</strong>, <strong>fascia</strong>, and <strong>gutter exterior
                         cleaning</strong> either as a standalone service or
                     combined with internal gutter clearing at a discount.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>How often should gutters be cleaned?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     We recommend cleaning your gutters <strong>at least once a year</strong>, or twice annually if your
                     property is near
                     trees or prone to moss build-up.
@@ -1396,24 +1682,24 @@
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Do you clean conservatory or garage gutters?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Yes — we clean gutters on <strong>conservatories</strong>, <strong>extensions</strong>,
                     <strong>garages</strong>, and <strong>outbuildings</strong> if they're safely accessible. Please
                     mention these during booking so we can include them in your quote.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Is there a height limit for the gutter cleaning?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     we clean gutters on properties up to <strong>two storeys high</strong>, which is the maximum height
                     we can safely
                     reach using ladders. If your home is taller, such as a townhouse or three-storey building, contact
@@ -1421,34 +1707,34 @@
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Can you clean gutters with no rear access?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     If there's no direct rear access, let us know. We may still be able to carry out the work using
                     front-to-back ladders or long-reach tools, depending on layout and safety.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Will the cleaning be noisy or disruptive?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Our equipment makes some noise, but we work quickly and carefully to minimise disruption. If you're
                     working from home or have pets or children, we’ll inform you before starting.
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Do you check for gutter damage?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     Yes — during the cleaning, we visually inspect for <strong>cracks, slipped joints, or loose
                         brackets</strong> and
                     will let you know if we spot any issues. Minor fixes may be offered on the spot or quoted
@@ -1456,12 +1742,12 @@
                 </div>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-itemx">
+                <div class="faq-questionx" onclick="toggleFaq(this)">
                     <span>Can you install gutter guards?</span>
-                    <span class="faq-icon">+</span>
+                    <span class="faq-iconxx">+</span>
                 </div>
-                <div class="faq-answer">
+                <div class="faq-answerx">
                     No — we do not install gutter guards. In fact, most types reduce water flow and make cleaning more
                     difficult. If your gutters are already guarded, we cannot clean them and a <strong>50% call-out
                         charge</strong> will
@@ -1496,191 +1782,6 @@
         </div>
     </footer>
 
-
-    <!--
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3 class="footer-heading">RMC Gutter Cleaning</h3>
-                    <p class="footer-text">Professional gutter cleaning services throughout Prestwood and surrounding
-                        Buckinghamshire areas.</p>
-                    <div class="footer-contact">
-                        <p class="footer-contact-item"><span class="footer-icon">📞</span> <a
-                                href="tel:02080889659">0208 088 9659</a></p>
-                        <p class="footer-contact-item"><span class="footer-icon">✉️</span> <a
-                                href="mailto:info@rmcguttercleaning.co.uk">info@rmcguttercleaning.co.uk</a></p>
-                        <p class="footer-contact-item"><span class="footer-icon">🕒</span> Mon-Sat: 8:30am - 5:30pm</p>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-heading">Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Residential Gutter Cleaning</a></li>
-                        <li><a href="#">Commercial Gutter Cleaning</a></li>
-                        <li><a href="#">UPVC Fascia & Soffit Cleaning</a></li>
-                        <li><a href="#">Emergency Gutter Unblocking</a></li>
-                        <li><a href="#">Gutter Repairs</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-heading">Areas We Cover</h3>
-                    <ul class="footer-links">
-                        <li>Prestwood</li>
-                        <li>Great Missenden</li>
-                        <li>Little Kingshill</li>
-                        <li>Ballinger</li>
-                        <li>HP16 Postcode Area</li>
-                        <li>Surrounding Chiltern Villages</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p class="copyright">&copy; 2025 RMC Property Services Ltd - Gutter Cleaners In Prestwood. All Rights
-                    Reserved. </p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookies</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <style>
-        /* Footer Styles */
-        footer {
-            background: #1f2937;
-            color: #f3f4f6;
-            padding: 3rem 0 1rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-heading {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-bottom: 1.2rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: #33b249;
-        }
-
-        .footer-text {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .footer-contact-item {
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-contact a,
-        .footer-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-contact a:hover,
-        .footer-links a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.6rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .footer-links li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #33b249;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .copyright {
-            margin-bottom: 1rem;
-            color: #9ca3af;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-legal a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-legal a:hover {
-            color: #ffffff;
-        }
-
-        .footer-icon {
-            color: #33b249;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .footer-legal {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-    </style>
--->
     <script>
         // Accordion functionality
         function toggleAccordion(header) {
@@ -1691,7 +1792,7 @@
         // FAQ functionality
         function toggleFaq(element) {
             const item = element.parentElement;
-            const icon = element.querySelector('.faq-icon');
+            const icon = element.querySelector('.faq-iconx');
             const isOpen = item.classList.contains('open');
 
             item.classList.toggle('open');
