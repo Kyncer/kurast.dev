@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Tracker</title>
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --accent: #22c55e;
+            --accent2: #38bdf8;
+            --error: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: radial-gradient(circle at top, #111827, var(--bg));
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            margin: 0 0 8px 0;
+        }
+
+        .sub {
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 12px;
+            color: var(--muted);
+            display: block;
+            margin-top: 16px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input,
+        button {
+            border: none;
+            border-radius: 12px;
+            padding: 13px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            outline: none;
+            margin-top: 0;
+        }
+
+        input:focus {
+            border-color: var(--accent2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .primary {
+            background: linear-gradient(135deg, var(--accent2), #0ea5e9);
+            color: black;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .secondary {
+            background: linear-gradient(135deg, var(--accent), #16a34a);
+            color: black;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+        }
+
+        .card {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .row span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .row b {
+            color: var(--accent2);
+            font-size: 16px;
+        }
+
+        .progress {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transition: width 0.4s ease;
+        }
+
+        .percent {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .history {
+            margin-top: 12px;
+            max-height: 150px;
+            overflow-y: auto;
+            font-size: 13px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+
+        .item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .item-date {
+            color: var(--muted);
+            flex: 1;
+        }
+
+        .item-steps {
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0 12px;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 4px 8px;
+            width: auto;
+            margin: 0;
+            font-size: 14px;
+            text-transform: none;
+            letter-spacing: normal;
+            margin-top: 0;
+        }
+
+        .btn-icon:hover {
+            color: var(--accent2);
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 6px;
+        }
+
+        .btn-icon.delete:hover {
+            color: var(--error);
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .alert {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 14px;
+            display: none;
+            border-left: 4px solid transparent;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert.success {
+            background: rgba(34, 197, 94, 0.15);
+            border-left-color: var(--accent);
+            color: #86efac;
+        }
+
+        .alert.error {
+            background: rgba(239, 68, 68, 0.15);
+            border-left-color: var(--error);
+            color: #fca5a5;
+        }
+
+        .alert.warning {
+            background: rgba(234, 179, 8, 0.15);
+            border-left-color: #eab308;
+            color: #fde047;
+        }
+
+        .alert.info {
+            background: rgba(59, 130, 246, 0.15);
+            border-left-color: var(--accent2);
+            color: #bfdbfe;
+        }
+
+        .preset,
+        .quick-add {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .preset button,
+        .quick-add button {
+            padding: 10px;
+            font-size: 11px;
+            margin: 0;
+        }
+
+        .preset button.active {
+            background: var(--accent);
+            color: black;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 16px 0;
+        }
+
+        .timer-card {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .timer-time {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
+
+        .timer-label {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .controls button {
+            font-size: 11px;
+            padding: 10px;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 14px;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--card);
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .modal-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h1>🚶 Step Tracker</h1>
+        <div class="sub">Track your daily steps with Google Sheets sync</div>
+
+        <div class="alert" id="alert"></div>
+
+        <!-- GOAL SECTION -->
+        <div>
+            <label>Monthly Goal</label>
+            <div class="preset">
+                <button onclick="setPreset(5000, this)">5K</button>
+                <button onclick="setPreset(8000, this)">8K</button>
+                <button onclick="setPreset(10000, this)">10K</button>
+                <button onclick="setPreset(12000, this)">12K</button>
+            </div>
+            <input id="goalInput" type="number" placeholder="Or enter custom goal" min="1" style="margin-top: 12px;">
+            <button class="primary" onclick="saveGoal()">💾 Save Goal</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- STEPS SECTION -->
+        <div>
+            <label>Add Today's Steps</label>
+            <input id="stepsInput" type="number" placeholder="Enter steps" min="0">
+            <div class="quick-add">
+                <button onclick="quickAdd(100)">+100</button>
+                <button onclick="quickAdd(500)">+500</button>
+                <button onclick="quickAdd(1000)">+1K</button>
+                <button onclick="quickAdd(5000)">+5K</button>
+            </div>
+            <button class="secondary" onclick="addSteps()">✅ Add Steps</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TIMER -->
+        <div class="timer-card">
+            <label>⏱️ Next Recording</label>
+            <div class="timer-time" id="timer">--:--:--</div>
+            <div class="timer-label" id="timerLabel">Calculating...</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- STATS -->
+        <div class="card">
+            <div class="row">
+                <span>Total Steps</span>
+                <b id="total">0</b>
+            </div>
+            <div class="row">
+                <span>Remaining</span>
+                <b id="remaining">0</b>
+            </div>
+            <div class="row">
+                <span>Needed / Day</span>
+                <b id="perDay">0</b>
+            </div>
+            <div class="progress">
+                <div class="bar" id="bar"></div>
+            </div>
+            <div class="percent" id="percent">0%</div>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="card">
+            <label style="margin: 0; display: flex; justify-content: space-between;">
+                📋 History
+                <button class="btn-icon" onclick="clearHistory()">🗑️ Clear</button>
+            </label>
+            <div class="history" id="history"></div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+            <button onclick="exportData()">📥 Export</button>
+            <button onclick="syncNow()">🔄 Sync</button>
+            <button onclick="importData()">📤 Import</button>
+        </div>
+
+        <div class="status" id="status">✓ Ready</div>
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div id="editModal" class="modal" onclick="if(event.target===this) closeEdit()">
+        <div class="modal-content">
+            <div class="modal-header">✏️ Edit Entry</div>
+            <input type="date" id="editDate" disabled>
+            <input type="number" id="editSteps" min="0" placeholder="Steps" style="margin-top: 10px;">
+            <div class="modal-footer">
+                <button style="background: rgba(255,255,255,0.06); color: var(--text);"
+                    onclick="closeEdit()">Cancel</button>
+                <button style="background: linear-gradient(135deg, var(--accent), #16a34a); color: black;"
+                    onclick="saveEdit()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbwNfdMQvFji4nQv7c4SSL1WPC2-MzhSEBRWPCAlfM04dJAAtm5_E65seFt2_KDt-btM/exec";
+
+        let goal = parseInt(localStorage.getItem("goal")) || 0;
+        let data = JSON.parse(localStorage.getItem("data")) || {};
+        let dailyGoal = parseInt(localStorage.getItem("dailyGoal")) || 8000;
+        let editingDate = null;
+
+        function alert(msg, type = 'success') {
+            const el = document.getElementById("alert");
+            el.textContent = msg;
+            el.className = `alert ${type} show`;
+            setTimeout(() => el.className = 'alert', 4000);
+        }
+
+        function status(msg, type = 'synced') {
+            const el = document.getElementById("status");
+            el.textContent = msg;
+            el.className = `status ${type}`;
+        }
+
+        function setPreset(daily, btn) {
+            document.querySelectorAll(".preset button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+            dailyGoal = daily;
+            goal = daily * daysInMonth;
+            localStorage.setItem("dailyGoal", dailyGoal);
+            document.getElementById("goalInput").value = goal;
+            update();
+        }
+
+        async function saveGoal() {
+            const input = document.getElementById("goalInput");
+            const newGoal = Number(input.value);
+
+            if (!newGoal || newGoal < 1) {
+                input.style.borderColor = "var(--error)";
+                alert("❌ Enter a valid goal", "error");
+                setTimeout(() => input.style.borderColor = "", 2000);
+                return;
+            }
+
+            goal = newGoal;
+            const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+            dailyGoal = Math.ceil(goal / daysInMonth);
+
+            localStorage.setItem("goal", goal);
+            localStorage.setItem("dailyGoal", dailyGoal);
+
+            status("⏳ Saving...", "syncing");
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({ action: "saveGoal", goal })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("✅ Goal saved", "success");
+                    status("✓ Synced", "synced");
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                alert("⚠️ Saved locally", "warning");
+                status("✓ Local", "synced");
+            }
+            update();
+        }
+
+        async function loadGoal() {
+            try {
+                const response = await fetch(API_URL + "?action=getGoal");
+                const result = await response.json();
+                if (result.goal && result.goal > 0) {
+                    goal = result.goal;
+                    const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+                    dailyGoal = Math.ceil(goal / daysInMonth);
+                    localStorage.setItem("goal", goal);
+                    localStorage.setItem("dailyGoal", dailyGoal);
+                    document.getElementById("goalInput").value = goal;
+                }
+            } catch (e) { console.log("Load failed"); }
+        }
+
+        async function addSteps() {
+            const input = document.getElementById("stepsInput");
+            const steps = Number(input.value);
+
+            if (!steps || steps < 1) {
+                input.style.borderColor = "var(--error)";
+                alert("❌ Enter valid steps", "error");
+                setTimeout(() => input.style.borderColor = "", 2000);
+                return;
+            }
+
+            const today = new Date().toISOString().split("T")[0];
+            data[today] = (data[today] || 0) + steps;
+            localStorage.setItem("data", JSON.stringify(data));
+
+            status("⏳ Saving...", "syncing");
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({ action: "addSteps", date: today, steps: data[today] })
+                });
+
+                if (response.ok) {
+                    alert(`✅ Added ${steps} steps`, "success");
+                    status("✓ Synced", "synced");
+                } else throw new Error("Save failed");
+            } catch (error) {
+                alert(`⚠️ Added ${steps} locally`, "warning");
+                status("✓ Local", "synced");
+            }
+
+            input.value = "";
+            update();
+        }
+
+        function quickAdd(steps) {
+            const today = new Date().toISOString().split("T")[0];
+            data[today] = (data[today] || 0) + steps;
+            localStorage.setItem("data", JSON.stringify(data));
+
+            fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify({ action: "addSteps", date: today, steps: data[today] })
+            }).catch(e => console.log("Sync error"));
+
+            alert(`✅ Added ${steps} steps`, "success");
+            update();
+        }
+
+        async function syncNow() {
+            status("🔄 Syncing...", "syncing");
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({ action: "syncAll", goal, data })
+                });
+                if (response.ok) {
+                    alert("✅ Synced", "success");
+                    status("✓ Synced", "synced");
+                } else throw new Error("Sync failed");
+            } catch (error) {
+                alert("❌ Sync failed", "error");
+                status("✗ Error", "error");
+            }
+        }
+
+        function clearHistory() {
+            if (!confirm("Clear all history?")) return;
+            data = {};
+            localStorage.setItem("data", JSON.stringify(data));
+            update();
+            alert("🗑️ Cleared", "info");
+        }
+
+        function openEdit(date) {
+            editingDate = date;
+            document.getElementById("editDate").value = date;
+            document.getElementById("editSteps").value = data[date];
+            document.getElementById("editModal").classList.add("show");
+        }
+
+        function closeEdit() {
+            document.getElementById("editModal").classList.remove("show");
+            editingDate = null;
+        }
+
+        function saveEdit() {
+            const newSteps = parseInt(document.getElementById("editSteps").value);
+            if (!newSteps || newSteps < 0) {
+                alert("❌ Invalid steps", "error");
+                return;
+            }
+
+            const oldSteps = data[editingDate];
+            data[editingDate] = newSteps;
+            localStorage.setItem("data", JSON.stringify(data));
+
+            fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify({ action: "addSteps", date: editingDate, steps: newSteps })
+            }).catch(e => console.log("Sync error"));
+
+            alert(`✅ Updated to ${newSteps} steps`, "success");
+            closeEdit();
+            update();
+        }
+
+        function deleteEntry(date) {
+            if (!confirm(`Delete ${date}?`)) return;
+            delete data[date];
+            localStorage.setItem("data", JSON.stringify(data));
+            update();
+            alert("❌ Deleted", "info");
+        }
+
+        function exportData() {
+            const json = JSON.stringify({ goal, dailyGoal, data }, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `steps-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            alert("📥 Exported", "success");
+        }
+
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            input.onchange = (e) => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const imported = JSON.parse(event.target.result);
+                        if (imported.goal && imported.data) {
+                            goal = imported.goal;
+                            data = imported.data;
+                            dailyGoal = imported.dailyGoal || Math.ceil(goal / 30);
+                            localStorage.setItem("goal", goal);
+                            localStorage.setItem("data", JSON.stringify(data));
+                            localStorage.setItem("dailyGoal", dailyGoal);
+                            document.getElementById("goalInput").value = goal;
+                            update();
+                            alert("📤 Imported", "success");
+                        }
+                    } catch (error) {
+                        alert("❌ Import failed", "error");
+                    }
+                };
+                reader.readAsText(e.target.files[0]);
+            };
+            input.click();
+        }
+
+        function calculateTimer() {
+            const today = new Date().toISOString().split("T")[0];
+            const todaySteps = data[today] || 0;
+            const now = new Date();
+            const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+
+            // Daily target for the month
+            const dailyTarget = Math.ceil(goal / daysInMonth);
+
+            // Remaining steps needed today
+            const remainingToday = Math.max(dailyTarget - todaySteps, 0);
+
+            if (remainingToday <= 0) {
+                return { timer: "✓ Done", label: "✅ Daily goal achieved!" };
+            }
+
+            const nextTime = new Date();
+            nextTime.setHours(nextTime.getHours() + 1, 0, 0);
+            const secondsUntil = Math.floor((nextTime - new Date()) / 1000);
+
+            const h = Math.floor(secondsUntil / 3600);
+            const m = Math.floor((secondsUntil % 3600) / 60);
+            const s = secondsUntil % 60;
+
+            const timeStr = nextTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+            const stepsPerHour = Math.ceil(remainingToday / ((24 - nextTime.getHours()) || 1));
+
+            return {
+                timer: `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`,
+                label: `⏰ ${remainingToday.toLocaleString()} steps needed | ${stepsPerHour} per hour`
+            };
+        }
+
+        function update() {
+            const total = Object.values(data).reduce((a, b) => a + b, 0);
+            const now = new Date();
+            const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+            const day = now.getDate();
+
+            // Fixed daily target based on full month goal (start-of-month planning)
+            const dailyGoalTarget = Math.ceil(goal / daysInMonth);
+
+            // Remaining steps for the whole month
+            const remaining = Math.max(goal - total, 0);
+
+            document.getElementById("total").textContent = total.toLocaleString();
+            document.getElementById("remaining").textContent = remaining.toLocaleString();
+
+            // IMPORTANT: now this is fixed, not dynamic based on remaining days
+            document.getElementById("perDay").textContent = dailyGoalTarget.toLocaleString();
+
+            const percent = goal ? Math.min((total / goal) * 100, 100) : 0;
+            document.getElementById("bar").style.width = percent + "%";
+            document.getElementById("percent").textContent = percent.toFixed(1) + "% completed";
+
+            const timerData = calculateTimer();
+            document.getElementById("timer").textContent = timerData.timer;
+            document.getElementById("timerLabel").textContent = timerData.label;
+
+            renderHistory();
+        }
+
+        function renderHistory() {
+            const el = document.getElementById("history");
+            const entries = Object.keys(data).sort().reverse();
+
+            if (!entries.length) {
+                el.innerHTML = '<div class="empty">📊 No entries yet</div>';
+                return;
+            }
+
+            el.innerHTML = entries.map(date => {
+                const dateObj = new Date(date + 'T00:00');
+                const formatted = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' });
+                return `
+                    <div class="item">
+                        <span class="item-date">${formatted}</span>
+                        <span class="item-steps">${data[date].toLocaleString()}</span>
+                        <button class="btn-icon" onclick="openEdit('${date}')">✏️</button>
+                        <button class="btn-icon delete" onclick="deleteEntry('${date}')">✕</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function init() {
+            document.getElementById("goalInput").value = goal;
+            await loadGoal();
+            update();
+            status("✓ Ready", "synced");
+            alert("👋 Welcome!", "info");
+            setInterval(update, 1000);
+            setInterval(() => {
+                fetch(API_URL, {
+                    method: "POST",
+                    body: JSON.stringify({ action: "syncAll", goal, data })
+                }).catch(e => { });
+            }, 5 * 60 * 1000);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
